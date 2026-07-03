@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Spire Opdrachten Dashboard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridjs@5.0.2/dist/theme/mermaid.min.css" integrity="sha384-jZvDSsmGB9oGGT/4l9bHXGoAv1OxvG/cFmSo0dZaSqmBgvQTKDBFAMftlXTmMbNW" crossorigin="anonymous">
+<style>
+  :root {
+    color-scheme: light;
+    --spire-charcoal: #2d3439;
+    --spire-charcoal-2: #4a5158;
+    --spire-lime: #c5d935;
+    --spire-lime-dark: #a8b822;
+    --spire-lime-soft: #ecf3b8;
+    --spire-teal: #7dd3c4;
+    --spire-teal-dark: #5fb8a9;
+    --spire-teal-soft: #d4f0eb;
+    --spire-surface: #ffffff;
+    --spire-surface-2: #f7f8fa;
+    --spire-border: #e3e7ed;
+    --spire-text: #2d3439;
+    --spire-text-muted: #6b7480;
+    --spire-shadow: 0 1px 3px rgba(45, 52, 57, 0.06), 0 1px 2px rgba(45, 52, 57, 0.04);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--spire-surface-2);
+    color: var(--spire-text);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === Spire brand header === */
+  .spire-gradient-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #7dd3c4 0%, #aed24a 50%, #d8db28 100%);
+    width: 100%;
+  }
+  .brand-header {
+    background: var(--spire-surface);
+    padding: 18px 0;
+    border-bottom: 1px solid var(--spire-border);
+    margin-bottom: 24px;
+  }
+  .brand-row {
+    max-width: 1280px; margin: 0 auto; padding: 0 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .brand-logo { display: inline-flex; flex-direction: column; line-height: 1; user-select: none; }
+  .brand-logo .wordmark {
+    font-size: 38px; font-weight: 800; letter-spacing: -0.025em;
+    color: var(--spire-charcoal); position: relative; display: inline-block;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+  }
+  .brand-logo .wordmark::after {
+    content: ''; position: absolute; top: 5px; left: 28px;
+    width: 11px; height: 11px;
+    background: var(--spire-lime);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+  .brand-logo .wordmark::before {
+    content: ''; position: absolute; bottom: 1px; left: -13px;
+    width: 11px; height: 9px;
+    background: linear-gradient(135deg, var(--spire-teal) 0%, var(--spire-lime) 100%);
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
+  }
+  .brand-logo .tagline {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.22em;
+    color: var(--spire-teal-dark); margin-top: 4px;
+  }
+  .brand-meta { color: var(--spire-text-muted); font-size: 13px; text-align: right; }
+  .brand-meta strong { color: var(--spire-charcoal); font-weight: 700; }
+
+  /* === Layout === */
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 20px 48px; }
+  header { margin-bottom: 24px; }
+  .title-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  h1 {
+    font-size: 26px; margin: 0; color: var(--spire-charcoal);
+    font-weight: 700; letter-spacing: -0.015em;
+  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
+  .badge-mock { background: var(--spire-lime-soft); color: #5d6815; border: 1px solid var(--spire-lime); }
+  .meta { margin-top: 6px; color: var(--spire-text-muted); font-size: 13px; }
+  .meta-sep { color: #c1c8d2; margin: 0 8px; }
+
+  /* === Stats cards === */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+  .stat-card {
+    background: var(--spire-surface);
+    border: 1px solid var(--spire-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--spire-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--spire-teal); opacity: 0.7;
+  }
+  .stat-card:nth-child(2)::before { background: var(--spire-lime); }
+  .stat-card:nth-child(3)::before { background: linear-gradient(180deg, var(--spire-teal) 0%, var(--spire-lime) 100%); }
+  .stat-card:nth-child(4)::before { background: var(--spire-charcoal); }
+  .stat-label { color: var(--spire-text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 700; }
+  .stat-value { font-size: 28px; font-weight: 800; color: var(--spire-charcoal); letter-spacing: -0.02em; line-height: 1.1; }
+  .stat-sub { color: var(--spire-text-muted); font-size: 12px; margin-top: 4px; }
+
+  /* === Filters === */
+  .filters {
+    background: var(--spire-surface);
+    border: 1px solid var(--spire-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    box-shadow: var(--spire-shadow);
+  }
+  .filter-group { display: flex; align-items: center; gap: 6px; }
+  .filter-group label { color: var(--spire-text-muted); font-size: 12px; font-weight: 600; }
+  select, input[type="search"] {
+    border: 1px solid var(--spire-border); border-radius: 6px; padding: 7px 10px;
+    font-size: 13px; background: var(--spire-surface); color: var(--spire-text);
+    font-family: inherit; transition: border-color 0.15s;
+  }
+  select:focus, input[type="search"]:focus { outline: none; border-color: var(--spire-teal); box-shadow: 0 0 0 3px rgba(125, 211, 196, 0.15); }
+  input[type="search"] { min-width: 200px; }
+  .reset-btn {
+    background: transparent; border: 1px solid var(--spire-border); border-radius: 6px;
+    padding: 7px 14px; font-size: 13px; cursor: pointer; color: var(--spire-text-muted);
+    font-family: inherit; font-weight: 600; transition: all 0.15s;
+  }
+  .reset-btn:hover { background: var(--spire-surface-2); border-color: var(--spire-charcoal-2); color: var(--spire-charcoal); }
+
+  /* === Table === */
+  .table-container {
+    background: var(--spire-surface);
+    border: 1px solid var(--spire-border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--spire-shadow);
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    background: var(--spire-surface-2);
+    color: var(--spire-text-muted);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+    font-weight: 700; padding: 12px 14px; text-align: left;
+    border-bottom: 1px solid var(--spire-border);
+  }
+  thead th.sortable { cursor: pointer; user-select: none; transition: color 0.1s; }
+  thead th.sortable:hover { color: var(--spire-charcoal); }
+  thead th .sort-arrow { color: #c1c8d2; margin-left: 4px; }
+  thead th.active { color: var(--spire-charcoal); }
+  thead th.active .sort-arrow { color: var(--spire-lime-dark); }
+  tbody tr { border-bottom: 1px solid #eef1f5; cursor: pointer; transition: background 0.12s; }
+  tbody tr:hover { background: var(--spire-surface-2); }
+  tbody tr.expanded { background: var(--spire-teal-soft); }
+  tbody tr.reviewed { opacity: 0.55; }
+  tbody tr.dismissed { opacity: 0.4; text-decoration: line-through; }
+  td { padding: 14px; vertical-align: top; }
+
+  /* === Score pills === */
+  .score-pill {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 42px; height: 30px; border-radius: 15px;
+    font-weight: 800; font-size: 13px; padding: 0 12px;
+  }
+  .score-high { background: var(--spire-lime); color: var(--spire-charcoal); }
+  .score-mid { background: var(--spire-teal-soft); color: var(--spire-teal-dark); border: 1px solid var(--spire-teal); }
+  .score-low { background: #f1f4f8; color: #6b7280; }
+
+  .titel-cell { font-weight: 600; color: var(--spire-charcoal); max-width: 360px; }
+  .klant-cell { color: var(--spire-text); font-weight: 600; }
+  .klant-sub { color: var(--spire-text-muted); font-size: 12px; margin-top: 2px; }
+
+  /* === Category pills (in spire kleuren) === */
+  .cat-pill { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.2px; }
+  .cat-foothold { background: var(--spire-teal); color: var(--spire-charcoal); }
+  .cat-strategisch { background: var(--spire-lime); color: var(--spire-charcoal); }
+  .cat-regulier { background: var(--spire-surface-2); color: var(--spire-text-muted); border: 1px solid var(--spire-border); }
+  .cat-mismatch { background: #fee2e2; color: #991b1b; }
+
+  .deadline-cell { color: var(--spire-text-muted); font-size: 13px; white-space: nowrap; }
+  .deadline-soon { color: #b45309; font-weight: 700; }
+  .deadline-expired { color: #9ca3af; text-decoration: line-through; font-weight: 400; }
+
+  .staleness-banner {
+    background: #fff7ed; border: 1px solid #fb923c; border-radius: 8px;
+    padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #7c2d12; line-height: 1.5;
+  }
+
+  .status-tag { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
+  .status-new { background: var(--spire-charcoal); color: var(--spire-lime); }
+  .status-reviewed { background: #d4dae2; color: #475569; }
+  .status-dismissed { background: #fecaca; color: #991b1b; }
+
+  /* === Bron badges === */
+  .bron-badges { display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: middle; }
+  .bron-badge { display: inline-block; padding: 2px 7px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
+  .bron-tn { background: var(--spire-charcoal); color: var(--spire-lime); }
+  .bron-st { background: var(--spire-teal); color: var(--spire-charcoal); }
+  .bron-c8 { background: var(--spire-lime); color: var(--spire-charcoal); }
+  .bron-mg { background: #4f46e5; color: #fff; }
+  .bron-other { background: var(--spire-surface-2); color: var(--spire-text-muted); }
+
+  /* === Detail panel === */
+  .detail-panel { background: var(--spire-teal-soft); border-top: 2px solid var(--spire-teal); padding: 0; }
+  .detail-content { padding: 20px 26px; }
+  .detail-row { display: flex; gap: 24px; margin-bottom: 14px; flex-wrap: wrap; }
+  .detail-section { flex: 1; min-width: 240px; }
+  .detail-h { font-size: 11px; font-weight: 700; color: var(--spire-charcoal); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .detail-text { font-size: 13px; color: var(--spire-text); line-height: 1.55; }
+  .score-breakdown { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 12px; }
+  .score-breakdown .label { color: var(--spire-text-muted); }
+  .score-breakdown .val { font-weight: 700; text-align: right; min-width: 32px; color: var(--spire-charcoal); }
+  .practical { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 13px; }
+  .practical .k { color: var(--spire-text-muted); font-weight: 500; }
+
+  /* === Buttons === */
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .btn {
+    padding: 8px 16px; border-radius: 6px; border: 1px solid var(--spire-border);
+    background: var(--spire-surface); color: var(--spire-text);
+    font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px; font-family: inherit;
+    transition: all 0.15s;
+  }
+  .btn:hover { background: var(--spire-surface-2); border-color: var(--spire-charcoal-2); }
+  .btn-primary { background: var(--spire-charcoal); border-color: var(--spire-charcoal); color: var(--spire-surface); }
+  .btn-primary:hover { background: var(--spire-charcoal-2); border-color: var(--spire-charcoal-2); }
+  .btn-success { background: var(--spire-lime); border-color: var(--spire-lime); color: var(--spire-charcoal); font-weight: 700; }
+  .btn-success:hover { background: var(--spire-lime-dark); border-color: var(--spire-lime-dark); }
+  .btn-danger { color: #991b1b; }
+  .btn-danger:hover { background: #fee2e2; border-color: #fca5a5; }
+
+  .empty { text-align: center; padding: 50px 20px; color: var(--spire-text-muted); }
+
+  /* === Legend / live banner === */
+  .legend { background: var(--spire-surface); border: 1px solid var(--spire-border); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; font-size: 12px; color: var(--spire-text-muted); box-shadow: var(--spire-shadow); }
+  .legend-row { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+  .legend strong { color: var(--spire-charcoal); }
+  .legend-mock {
+    background: linear-gradient(90deg, var(--spire-teal-soft) 0%, var(--spire-lime-soft) 100%);
+    padding: 14px 18px; border: 1px solid var(--spire-teal); border-radius: 8px;
+    color: var(--spire-charcoal); font-size: 13px; line-height: 1.55; margin-bottom: 16px;
+    box-shadow: var(--spire-shadow);
+  }
+  .legend-mock strong { color: var(--spire-charcoal); }
+
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .filters { flex-direction: column; align-items: stretch; }
+    .filter-group { width: 100%; }
+    select, input[type="search"] { width: 100%; }
+    thead th.col-cat, td.col-cat, thead th.col-deadline, td.col-deadline { display: none; }
+    .brand-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .brand-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="spire-gradient-bar"></div>
+<div class="brand-header">
+  <div class="brand-row">
+    <div class="brand-logo">
+      <span class="wordmark">spire</span>
+      <span class="tagline">ENERGIE CONSULTING</span>
+    </div>
+    <div class="brand-meta">
+      <strong>Opdrachten Dashboard</strong><br>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 juli 2026 (v1.3 — TN-AAO 122 + TN-MAC 135 + TN-VAK 123 (na keyword-filter 13+4+16) + ST 25 (van 131) + C8 6, na dedup 15 uniek, 6 top-match ≥80, 8 vroege signalen). Circle8 klantzoekbox filtert niet op naam (bevestigd) — alleen branchefilter Energievoorziening gebruikt.</span></span><br>
+      <button id="verversBtn" class="btn btn-primary" style="margin-top:8px;">↻ Verversen</button>
+      <div id="verversStatus" style="font-size:12px;margin-top:6px;max-width:340px;color:var(--spire-text-muted);"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <header>
+    <div class="title-row">
+      <h1>Vandaag op de radar</h1>
+      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 3 juli</span>
+    </div>
+    <div class="meta">
+      Bronnen: <strong style="color:var(--spire-charcoal);">TenderNed</strong> (AAO + MAC + VAK) · <strong style="color:var(--spire-charcoal);">Striive</strong> · <strong style="color:var(--spire-charcoal);">Circle8</strong>
+    </div>
+  </header>
+
+  <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald van drie bronnen en gescoord tegen het Spire-profiel v1.3. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 131 opdrachten (lazy-load); Circle8's zoekbox filtert niet op klantnaam — alleen de branchefilter Energievoorziening geeft betrouwbare resultaten.</div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-label">Totaal nieuwe opdrachten</div>
+      <div class="stat-value" id="statTotal">12</div>
+      <div class="stat-sub">deze update</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Top match (≥80)</div>
+      <div class="stat-value" id="statTop">4</div>
+      <div class="stat-sub">prioriteit voor review</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Strategisch belang</div>
+      <div class="stat-value" id="statStrategic">9</div>
+      <div class="stat-sub">foothold + diversificatie</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Nog te reviewen</div>
+      <div class="stat-value" id="statTodo">12</div>
+      <div class="stat-sub">na markeren wordt dit lager</div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label for="filterCat">Categorie</label>
+      <select id="filterCat">
+        <option value="">Alle</option>
+        <option value="foothold-uitbreiding">Foothold-uitbreiding</option>
+        <option value="diversificatie-strategisch">Strategische diversificatie</option>
+        <option value="regulier">Regulier (energie-fit)</option>
+        <option value="mismatch">Mismatch / no-go</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="filterScore">Min score</label>
+      <select id="filterScore">
+        <option value="0">Alles</option>
+        <option value="50">≥ 50</option>
+        <option value="70">≥ 70</option>
+        <option value="80">≥ 80</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="filterBron">Bron</label>
+      <select id="filterBron">
+        <option value="">Alle</option>
+        <option value="TenderNed">TenderNed</option>
+        <option value="Striive">Striive</option>
+        <option value="Circle8">Circle8</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="filterStatus">Status</label>
+      <select id="filterStatus">
+        <option value="active">Te reviewen</option>
+        <option value="reviewed">Gemarkeerd als gezien</option>
+        <option value="dismissed">Afgewezen</option>
+        <option value="all">Alles</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="searchInput">Zoek</label>
+      <input type="search" id="searchInput" placeholder="klant, titel, focusgebied…">
+    </div>
+    <button class="reset-btn" id="resetBtn">Reset filters</button>
+  </div>
+
+  <div class="table-container">
+    <table id="oppTable">
+      <thead>
+        <tr>
+          <th class="sortable" data-sort="score">Score <span class="sort-arrow">↓</span></th>
+          <th class="sortable" data-sort="titel">Titel <span class="sort-arrow"></span></th>
+          <th class="sortable" data-sort="klant">Klant <span class="sort-arrow"></span></th>
+          <th class="col-cat">Match</th>
+          <th class="col-deadline sortable" data-sort="deadline">Deadline <span class="sort-arrow"></span></th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <div id="emptyState" class="empty" style="display:none;">Geen opdrachten gevonden met deze filters.</div>
+  </div>
+</div>
+
+<script>
+// === Live data — v1.3 pull 3 juli 2026 ochtend ===
+// TenderNed API (papi/tenderned-rs-tns/v2/publicaties): AAO 122 opgehaald (13 na keyword/doellijst-filter),
+// MAC 135 (4 na filter), VAK 123 (16 na filter). Filter gebruikt woordgrens-matching (i.p.v. losse substring)
+// om false positives te vermijden (bv. "rwe" matchte eerder op "verwerking").
+// Striive: 25 van 131 zichtbaar (lazy-load beperking zonder login, bevestigd na 2 scroll-pogingen zonder nieuwe items).
+// 3 relevante items, alle Stedin Netbeheer B.V. — detailpagina's niet toegankelijk zonder login.
+// Circle8: branchefilter Energievoorziening = 6 opdrachten; klantzoekbox (Eneco/Vattenfall/Stedin/TenneT/Min. Klimaat)
+// filtert NIET op naam (bevestigd, zoals verwacht) — alleen 2 SAP PPM-rollen bij Enexis relevant, beide detail-fetched.
+// Dedup: geen overlap tussen bronnen deze pull. Vervallen t.o.v. vorige pull (15 juni): Enexis Implementatie Consultant,
+// Jr. PM Maatschappelijk Prioriteren, SAP Coördinator (alle drie deadline verstreken, niet meer op Circle8);
+// Shell BA, EDSN System Architect, EDSN Java Developer, Alliander Directievoerder (niet meer op Striive-lijst);
+// Tilburg WUPe, TenneT offshore-consultatie (buiten huidig 3-daags AAO/30-daags VAK-venster).
+// Netbeheer Nederland Groengaskwaliteit: vorige VAK-marktconsultatie (426685) is opgevolgd door echte AAO-aanbesteding (431516).
+// Na dedup: 15 unieke items. Top-match ≥80: 6. Vroege signalen (MAC/VAK): 8.
+
+const opportunities = [
+  {
+    id: 'ST-stedin-project-planner',
+    titel: 'Project Planner',
+    klant: 'Stedin Netbeheer B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Project Planner rol bij Stedin Netbeheer. Op basis van de functietitel betreft dit planningsondersteuning binnen project- of programmateams: opstellen en bewaken van planningen, coördinatie tussen workstreams en rapportage van voortgang. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Stedin is Spire-foothold klant; rol sluit sterk aan bij Spire\'s PMO/planningsprofiel.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-project-planner' }],
+    score: 94,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 80, 'Klant-fit': 100, 'Rol-fit': 100, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Project, Programma & PMO Management'],
+    reden: 'Stedin = foothold-klant. Functietitel "Project Planner" is Spire-bullseye: planning, coördinatie, voortgangsbewaking. Detailinhoud niet beschikbaar zonder Striive-login — score gebaseerd op titel/klant, verifieer bij reactie.',
+    flags: ['Detail beschikbaar na Striive-login', 'Zonder login: max. ~25 van 131 opdrachten zichtbaar (Striive lazy-load beperking)']
+  },
+  {
+    id: 'TN-VAK-430756-enexis-operationeel-plannen',
+    titel: 'Operationeel Plannen — ICT SaaS + implementatie (vroeg signaal)',
+    klant: 'Enexis Personeel BV',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Enexis wil een standaard ICT SaaS-oplossing contracteren ter ondersteuning van de volledige operationele keten van alle organisatorische eenheden (HS/MS – productiestraten en productievestigingen). Scope omvat Beheer & Onderhoud, Implementatie (inclusief technisch en verandermanagement, exclusief de uitrol binnen Enexis zelf) en opleiding (train-de-trainer). VOORAANKONDIGING — nog geen aanbesteding gestart. De expliciete uitsluiting van interne uitrol/verandermanagement bij de leverancier is een kans: Enexis heeft zelf capaciteit nodig voor de interne adoptie en verandermanagement rond de uitrol — een klassieke Spire PMO/change-rol naast het hoofdcontract.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Vooraankondiging',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/430756',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/430756', id: 'TN-VAK-430756' }],
+    score: 88,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 85, 'Focusgebied': 90, 'Klant-fit': 100, 'Rol-fit': 85, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Digitale Transformatie', 'Operational Excellence', 'Organisatieverandering'],
+    reden: 'Enexis (foothold). Hoofdcontract is SaaS-levering, maar expliciete uitsluiting van interne verandermanagement/uitrol bij de leverancier creëert een aanpalende PMO/change-behoefte bij Enexis zelf. VROEG SIGNAAL — positioneer vóór aanbesteding start.',
+    flags: ['VROEG SIGNAAL — vooraankondiging, geen directe opdracht', 'Kans: interne uitrol/verandermanagement expliciet buiten scope leverancier — Spire-aanknopingspunt']
+  },
+  {
+    id: 'TN-VAK-430016-stedin-das-extern-personeel',
+    titel: 'Dynamisch Aankoopsysteem — Inhuur Extern Personeel (vroeg signaal)',
+    klant: 'Stedin Groep Services B.V. / Stedin Netbeheer B.V. / NetVerder B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Stedin zet het bestaande Dynamisch Aankoopsysteem (DAS) voor het inhuren van extern personeel voort, met als einddatum 31-12-2027 (of eerder indien Stedin kiest voor een andere invulling). Dit is geen eenmalige opdracht maar een doorlopend toelatingsmechanisme: leveranciers die zich aansluiten krijgen toegang tot alle toekomstige uitvragen voor interim/extern personeel bij Stedin Netbeheer, Stedin Groep Services en NetVerder. Structurele ingang met hoge strategische waarde — aanmelding onderzoeken naast losse opdrachten.',
+    deadline: '2027-12-31',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Dynamisch aankoopsysteem',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/430016',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/430016', id: 'TN-VAK-430016' }],
+    score: 85,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 90, 'Focusgebied': 60, 'Klant-fit': 100, 'Rol-fit': 70, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Project, Programma & PMO Management'],
+    reden: 'Stedin (foothold). Geen los project maar een structureel toelatingsmechanisme voor inhuur extern personeel — aansluiten bij dit DAS opent doorlopende toegang tot toekomstige Stedin/NetVerder-opdrachten. Strategisch prioriteren boven eenmalige scoring.',
+    flags: ['STRATEGISCH: aansluiten bij DAS = structurele toegang tot toekomstige Stedin-opdrachten', 'VROEG SIGNAAL — geen directe opdracht, toelatingsmechanisme', 'Looptijd DAS tot 31-12-2027']
+  },
+  {
+    id: 'ST-stedin-data-scientist',
+    titel: 'Data Scientist',
+    klant: 'Stedin Netbeheer B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Data Scientist rol bij Stedin Netbeheer. Op basis van de functietitel betreft dit een data-analyse/datawetenschap-rol binnen de netbeheerder. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Stedin is Spire-foothold klant; data-gedreven werk sluit aan bij Spire\'s Business Intelligence & Data Management-focus, al is de rol technischer van aard dan een klassieke PMO/change-positie.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-data-scientist' }],
+    score: 84,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 80, 'Klant-fit': 100, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Business Intelligence & Data Management'],
+    reden: 'Stedin (foothold). Data-rol scoort hoog op type-werk (data expliciet in Spire-scope) maar lager op rol-fit — vermoedelijk meer technisch/analytisch dan consultancy. Detail niet beschikbaar zonder login; verifieer scope bij reactie.',
+    flags: ['Detail beschikbaar na Striive-login', 'Rol-fit onzeker — mogelijk sterker technisch dan PMO/change']
+  },
+  {
+    id: 'TN-VAK-431141-limburg-energiedeelplatform',
+    titel: 'Marktconsultatie Energiedeelplatform en ondersteunende diensten (vroeg signaal)',
+    klant: 'Provincie Limburg',
+    klant_categorie: 'overheid',
+    beschrijving: 'Provincie Limburg bereidt een aanbesteding voor rondom een Energiedeelplatform en ondersteunende diensten — een platform voor het delen van decentraal opgewekte energie tussen gebruikers. De marktconsultatie dient ter voorbereiding op deze aanbesteding en vraagt marktpartijen om input over haalbaarheid, aanpak en dienstverlening. VROEG SIGNAAL — geen directe opdracht. Sterke inhoudelijke fit met Spire\'s energiesysteemontwikkeling-focus; vroegtijdige positionering bij de provincie mogelijk via reactie op de consultatie.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Limburg',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Marktconsultatie',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431141',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431141', id: 'TN-VAK-431141' }],
+    score: 82,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 65, 'Focusgebied': 80, 'Klant-fit': 95, 'Rol-fit': 70, 'Senioriteit': 70 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Overheid/innovatie-categorie (provincie, energiedeelplatform = innovatief). Energiesysteemontwikkeling-kern. Marktconsultatiefase = vroeg positioneringsmoment. Geen bestaande Spire-relatie met Provincie Limburg — nieuw diversificatiespoor.',
+    flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht']
+  },
+  {
+    id: 'C8-VNR-82368-consultant-sap-ppm-enexis',
+    titel: 'Consultant SAP PPM',
+    klant: 'Enexis',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'SAP Portfolio & Project Management-specialist voor de migratie naar SAP S/4HANA bij Enexis (Arnhem). Verantwoordelijk voor portfolio-hiërarchieën, financiële planning (FICO-integratie), resource allocation en workflow-configuratie, plus SAP PS: WBS-structuren, periodieke afsluiting, rapportages. Min. 5 jaar SAP PPM & PS. Reageren vóór 9 juli 2026, 09:00 uur. Recruiter: Frank Hilbolling.',
+    deadline: '2026-07-09',
+    startdatum: '2026-07-13',
+    duur_maanden: 6,
+    uren_per_week: 40,
+    tarief_indicatie: null,
+    locatie: 'Arnhem',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Circle8',
+    bron: 'Circle8',
+    url: 'https://www.circle8.nl/opdracht/consultant-sap-ppm_VNR-82368',
+    bronnen: [{ naam: 'Circle8', url: 'https://www.circle8.nl/opdracht/consultant-sap-ppm_VNR-82368', id: 'VNR-82368' }],
+    score: 80,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 60, 'Focusgebied': 60, 'Klant-fit': 100, 'Rol-fit': 60, 'Senioriteit': 100 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Project, Programma & PMO Management', 'Digitale Transformatie'],
+    reden: 'Enexis (foothold). SAP PPM-specialist voor S/4HANA-migratie. Sterke SAP-technische specialisatie verlaagt rol-fit voor generalist PMO/change-profiel — match bij beschikbare SAP-capaciteit. Nog steeds open (deadline verlengd/herplaatst t.o.v. vorige pull).',
+    flags: ['⚡ Deadline 9 juli 2026, 09:00 uur', 'CV + motivatie max 7 pagina\'s Word', 'Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791', 'Min. 5 jaar SAP PPM + PS (harde eis)', 'Zelfde vacature als vorige pull, opnieuw open — nog niet vervuld']
+  },
+  {
+    id: 'TN-AAO-431390-venlo-energie-management-systeem',
+    titel: 'Levering, implementatie en beheer Energie Management Systeem',
+    klant: 'Gemeente Venlo',
+    klant_categorie: 'overheid',
+    beschrijving: 'Gemeente Venlo wenst een opdrachtnemer te contracteren voor levering, implementatie en beheer van een Energie Management Systeem (EMS), waarmee alle processen rond energiemanagement van de gemeente eenvoudig uitgevoerd kunnen worden. Openbare aanbesteding. Implementatie- en beheercomponent sluit aan bij Spire\'s implementatieprofiel, al is de kern een softwareproduct-levering (leverancier/systeemintegrator-georiënteerd) eerder dan pure consultancy-staffing.',
+    deadline: '2026-08-17',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Venlo',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Openbaar',
+    publicatie_type: 'AAO',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431390',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431390', id: 'TN-AAO-431390' }],
+    score: 75,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 60, 'Focusgebied': 80, 'Klant-fit': 95, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling', 'Digitale Transformatie'],
+    reden: 'Overheid-categorie (gemeente). EMS-implementatie en -beheer = energiekern, maar aanbesteding is gericht op softwarelevering — rol-fit voor Spire als staffing-partner is beperkt tenzij als onderaannemer voor implementatiebegeleiding.',
+    flags: ['Openbare aanbesteding — inschrijving vereist', 'Deadline inschrijven: 17 augustus 2026']
+  },
+  {
+    id: 'C8-VNR-82957-sap-ppm-functioneel-consultant-detavast-enexis',
+    titel: 'SAP PPM Functioneel Consultant (Detavast)',
+    klant: 'Enexis',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Junior/medior SAP PPM Functioneel Consultant voor de migratie naar SAP S/4HANA bij Enexis (Den Bosch, hybride). Detavast-traject: 12 maanden op contract, met uitzicht op vaste aanstelling (schaal 14/15). Kandidaat leert PPM-portfolio\'s en -hiërarchieën opzetten met begeleiding vanuit het team; 2-3 jaar ervaring in aanpalende SAP-modules (FICO, SD, MM, EAM) vereist. Werken onder leiding en toezicht — niet mogelijk op zzp-basis (Wet DBA). Reageren vóór 6 juli 2026, 12:00 uur.',
+    deadline: '2026-07-06',
+    startdatum: '2026-07-13',
+    duur_maanden: 12,
+    uren_per_week: 40,
+    tarief_indicatie: null,
+    locatie: 'Den Bosch',
+    remote: 'hybride',
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Circle8',
+    bron: 'Circle8',
+    url: 'https://www.circle8.nl/opdracht/sap-ppm-functioneel-consultant-(detavast)_VNR-82957',
+    bronnen: [{ naam: 'Circle8', url: 'https://www.circle8.nl/opdracht/sap-ppm-functioneel-consultant-(detavast)_VNR-82957', id: 'VNR-82957' }],
+    score: 75,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 60, 'Focusgebied': 60, 'Klant-fit': 100, 'Rol-fit': 60, 'Senioriteit': 50 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Project, Programma & PMO Management', 'Digitale Transformatie'],
+    reden: 'Enexis (foothold). Zelfde SAP S/4HANA-traject als Consultant SAP PPM (VNR-82368), maar junior/medior niveau met detavast-constructie. Niet geschikt voor zzp (Wet DBA) — alleen via leverancier/payroll.',
+    flags: ['⚡ Deadline 6 juli 2026, 12:00 uur', 'Niet geschikt voor zzp — Wet DBA, werken onder leiding en toezicht', 'Detavast: uitzicht op vaste aanstelling na 12 maanden', 'Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791', 'Zelfde SAP S/4HANA-traject als VNR-82368 (Consultant SAP PPM)']
+  },
+  {
+    id: 'TN-MAC-429025-gooise-meren-warmtenet-muiderberg',
+    titel: 'Programma Muiderberg — warmtenet + herinrichting (vroeg signaal)',
+    klant: 'Gemeente Gooise Meren',
+    klant_categorie: 'overheid',
+    beschrijving: 'Gemeente Gooise Meren organiseert, samen met Warmtebedrijf Muiderberg, een aanbesteding voor het Programma Muiderberg: zes deelprojecten met grootschalige herinrichtingen, rioolvervangingen en kleinschalig onderhoud, plus de ambitie om een warmtenet aan te leggen in Muiderberg. Informatiebijeenkomst was 29 juni 2026; marktrespons kan tot 7 september 2026. VROEG SIGNAAL. Combinatie van civiele herinrichting en warmtenet-aanleg biedt aanknopingspunt voor Spire\'s warmtetransitie-advieswerk, al ligt de nadruk op uitvoering/aanleg.',
+    deadline: '2026-09-07',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Muiderberg',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Marktconsultatie',
+    publicatie_type: 'MAC',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/429025',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/429025', id: 'TN-MAC-429025' }],
+    score: 74,
+    score_breakdown: { 'Sector-fit': 65, 'Type-werk': 60, 'Focusgebied': 80, 'Klant-fit': 95, 'Rol-fit': 70, 'Senioriteit': 70 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Warmtetransitie'],
+    reden: 'Overheid-categorie. Warmtenet-ambitie binnen breder civiel programma — inhoudelijke warmtetransitie-fit, maar hoofdmoot is herinrichting/rioolvervanging (buiten Spire-kern). Vroeg positioneringsmoment via marktconsultatie.',
+    flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht', 'Marktrespons mogelijk tot 7 september 2026', 'Informatiebijeenkomst was 29 juni 2026 (reeds geweest)']
+  },
+  {
+    id: 'TN-VAK-428220-alliander-ot-capaciteit-hoogspanning',
+    titel: 'Marktconsultatie OT Capaciteit Hoogspanning (vroeg signaal)',
+    klant: 'Alliander N.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Alliander zoekt informatie over het testen van primaire en secundaire hoogspanningsinstallaties in modulaire nieuwbouwstations (Operational Technology capaciteit). Marktconsultatie als opmaat naar aanbesteding rond OT-capaciteitsuitbreiding en netverzwaring. VROEG SIGNAAL — nog steeds actueel sinds vorige pull (15 juni), geen aanbesteding gestart. Kans voor vroegtijdige positionering bij Alliander rondom hoogspanning en netuitbreiding. Geen deadline bekendgemaakt.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Marktconsultatie',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/428220',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/428220', id: 'TN-VAK-428220' }],
+    score: 74,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 60, 'Focusgebied': 60, 'Klant-fit': 90, 'Rol-fit': 50, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling', 'Project, Programma & PMO Management'],
+    reden: 'Alliander (netbeheerder doellijst). OT-capaciteit hoogspanning = kern energiesector. Nog steeds vroeg-signaalfase, geen aanbesteding gestart sinds vorige pull.',
+    flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht', 'Onveranderd t.o.v. vorige pull (15 juni 2026) — nog geen aanbesteding gestart']
+  },
+  {
+    id: 'ST-stedin-hoofd-vakgroep-primair',
+    titel: 'Hoofd Vakgroep Primair',
+    klant: 'Stedin Netbeheer B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Leidinggevende rol bij Stedin Netbeheer voor de vakgroep "Primair" (vermoedelijk primaire hoogspanningsinstallaties/assets). Op basis van de titel een inhoudelijk-technische leidinggevende positie, mogelijk met coördinerende/PMO-elementen. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Stedin is foothold-klant.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-hoofd-vakgroep-primair' }],
+    score: 71,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 35, 'Focusgebied': 60, 'Klant-fit': 100, 'Rol-fit': 30, 'Senioriteit': 100 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Stedin (foothold). Titel wijst op technisch-inhoudelijke leiderschapsrol (vakgroep Primair = hoogspanning/assets), minder PMO/change-georiënteerd. Senior niveau ("Hoofd"). Detail niet beschikbaar zonder login.',
+    flags: ['Detail beschikbaar na Striive-login', 'Vermoedelijk technisch-inhoudelijke rol, geen klassieke PMO-positie']
+  },
+  {
+    id: 'TN-VAK-427820-alliander-netuitbreiding-amsterdam',
+    titel: 'Marktconsultatie Netuitbreiding 10-20kV Grote Projecten Amsterdam (vroeg signaal)',
+    klant: 'Alliander N.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Alliander consulteert de markt over de opdracht "Netuitbreiding 10-20kV Grote Projecten Amsterdam". Alliander wil het middenspanningsnet in Amsterdam uitbreiden en verzwaren ter ondersteuning van woningbouw, industrie en grootverbruik, ontlast bestaande onderstations en versterkt de netstructuur via ring-, steun- en voedingskabels. Alliander zoekt inzichten om te bepalen welke vervolgstappen nodig zijn. VROEG SIGNAAL — nog geen aanbesteding gestart.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Amsterdam',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Marktconsultatie',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/427820',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/427820', id: 'TN-VAK-427820' }],
+    score: 69,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 35, 'Focusgebied': 80, 'Klant-fit': 90, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Alliander (netbeheerder doellijst). Fysieke netuitbreiding (kabels, onderstations) = overwegend technisch/engineering, lagere rol-fit voor Spire PMO-profiel. Vroeg positioneringsmoment via marktconsultatie.',
+    flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht']
+  },
+  {
+    id: 'TN-AAO-431516-netbeheer-nederland-groengaskwaliteit',
+    titel: 'Groengaskwaliteit — kwaliteitscontrole',
+    klant: 'Netbeheer Nederland',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'De opdracht omvat het uitvoeren van gerichte steekproeven, maandelijkse ruikbaarheidscontroles en duurmetingen in het kader van de kwaliteitscontrole op groengas. Openbare aanbesteding, opvolger van de eerdere marktconsultatie (VAK, gezien in vorige pull van 15 juni). Overwegend een lab/meettechnische dienst, minder een PMO/adviesopdracht — desondanks relevant vanwege Spire\'s eerdere positionering op dit dossier.',
+    deadline: '2026-09-23',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Openbaar',
+    publicatie_type: 'AAO',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431516',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431516', id: 'TN-AAO-431516' }],
+    score: 66,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 35, 'Focusgebied': 60, 'Klant-fit': 90, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Netbeheer Nederland (koepel, netbeheerder-categorie). Opvolger van de marktconsultatie Groengaskwaliteit uit de vorige pull — vooraankondiging is nu daadwerkelijke openbare aanbesteding. Lab/meettechnisch van aard, lagere rol-fit voor Spire-consultancyprofiel.',
+    flags: ['Vervolg op eerdere marktconsultatie (VAK-426685, gezien 15 juni 2026)', 'Deadline inschrijven: 23 september 2026', 'Openbare aanbesteding — inschrijving vereist']
+  },
+  {
+    id: 'TN-VAK-431153-tennet-communicatieactiviteiten',
+    titel: 'Marktconsultatie Uitbesteding Regionale Communicatieactiviteiten (vroeg signaal)',
+    klant: 'TenneT TSO B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'TenneT zoekt via marktconsultatie één of meerdere bureaus voor project- en omgevingscommunicatie: nieuwsbrieven, bewonersbrieven, websites, bijeenkomsten en contentontwikkeling rond regionale netprojecten. VROEG SIGNAAL — geen directe opdracht. Stakeholder- en omgevingsmanagement raakt aan Spire\'s programma-ondersteuningswerk, al is de kern communicatie/creatie eerder dan PMO/change.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Marktconsultatie',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431153',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431153', id: 'TN-VAK-431153' }],
+    score: 63,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 50, 'Focusgebied': 15, 'Klant-fit': 90, 'Rol-fit': 40, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Organisatieverandering'],
+    reden: 'TenneT (netbeheerder doellijst). Omgevings- en stakeholdercommunicatie rond netprojecten — ondersteunend aan programma\'s maar kernactiviteit is communicatie/creatie, buiten Spire\'s primaire PMO/change-focus.',
+    flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht']
+  },
+  {
+    id: 'TN-AAO-431496-enexis-logistieke-automatisering',
+    titel: 'Logistieke Automatisering — LOC Hoogeveen',
+    klant: 'Enexis Netbeheer BV',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'De opdracht omvat de realisatie van een geautomatiseerd logistiek systeem in het nieuwe Logistiek Operationeel Centrum (LOC) te Hoogeveen: conveyor-techniek, pick-and-put-to-light, integratie van bestaande verticale liftsystemen, multiformaat dozensluiter, labelapplicatie en een geïntegreerde softwareoplossing inclusief WMS en koppeling met SAP EWM. Openbare aanbesteding, overwegend een systeemintegratie/leveringsopdracht (Enexis noemt het zelf een "black-box oplossing"). Foothold-klant Enexis, maar rol-fit voor Spire beperkt tot mogelijke PMO-ondersteuning aan de opdrachtgeverskant.',
+    deadline: '2026-07-23',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Hoogeveen',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Openbaar',
+    publicatie_type: 'AAO',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431496',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431496', id: 'TN-AAO-431496' }],
+    score: 52,
+    score_breakdown: { 'Sector-fit': 60, 'Type-werk': 20, 'Focusgebied': 30, 'Klant-fit': 100, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Operational Excellence'],
+    reden: 'Enexis (foothold), maar dit is een systeemintegratie/leveringscontract voor magazijnautomatisering — geen Spire-kernactiviteit. Alleen relevant als Enexis losstaande PMO-ondersteuning zoekt voor de opdrachtgeverskant van dit project.',
+    flags: ['Deadline inschrijven: 23 juli 2026', 'Systeemintegratie/leveringsopdracht — buiten Spire-kernprofiel', 'Openbare aanbesteding — inschrijving vereist']
+  },
+];
+
+// === State ===
+const STATUS_KEY = 'spire_dashboard_status_v1';
+const FILTER_KEY = 'spire_dashboard_filters_v1';
+const SORT_KEY   = 'spire_dashboard_sort_v1';
+
+let statusMap   = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}');
+let filterState = JSON.parse(localStorage.getItem(FILTER_KEY) || JSON.stringify({ cat: '', score: '0', status: 'active', search: '', bron: '' }));
+if (filterState.bron === undefined) filterState.bron = '';
+let sortState   = JSON.parse(localStorage.getItem(SORT_KEY)   || JSON.stringify({ key: 'score', dir: 'desc' }));
+let expandedId  = null;
+
+// === Helpers ===
+function fmtDate(d) {
+  if (!d) return '—';
+  const date = new Date(d);
+  return date.toLocaleDateString('nl-NL', { day: 'numeric', month: 'short' });
+}
+function daysUntil(d) {
+  if (!d) return null;
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const target = new Date(d);
+  return Math.ceil((target - now) / (1000*60*60*24));
+}
+function scoreClass(s) { return s >= 75 ? 'score-high' : s >= 55 ? 'score-mid' : 'score-low'; }
+function catLabel(c) {
+  return ({ 'foothold-uitbreiding': 'Foothold', 'diversificatie-strategisch': 'Strategisch', 'regulier': 'Regulier', 'mismatch': 'Mismatch' })[c] || c;
+}
+function catClass(c) {
+  return ({ 'foothold-uitbreiding': 'cat-foothold', 'diversificatie-strategisch': 'cat-strategisch', 'regulier': 'cat-regulier', 'mismatch': 'cat-mismatch' })[c] || 'cat-regulier';
+}
+function getBronnen(o) {
+  if (Array.isArray(o.bronnen) && o.bronnen.length) return o.bronnen;
+  if (o.bron) return [{ naam: o.bron, url: o.url, id: o.id }];
+  return [];
+}
+function bronClass(naam) {
+  return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg' })[naam] || 'bron-other';
+}
+function bronBadgesHtml(o) {
+  const list = getBronnen(o);
+  if (!list.length) return '';
+  return '<span class="bron-badges">' + list.map(b => `<span class="bron-badge ${bronClass(b.naam)}">${b.naam}</span>`).join('') + '</span>';
+}
+function getStatus(id) { return statusMap[id] || 'new'; }
+function setStatus(id, s) {
+  if (s === 'new') delete statusMap[id]; else statusMap[id] = s;
+  localStorage.setItem(STATUS_KEY, JSON.stringify(statusMap));
+}
+function persistFilters() { localStorage.setItem(FILTER_KEY, JSON.stringify(filterState)); }
+function persistSort() { localStorage.setItem(SORT_KEY, JSON.stringify(sortState)); }
+
+// === Filtering & sorting ===
+function filtered() {
+  return opportunities.filter(o => {
+    if (filterState.cat && o.match_categorie !== filterState.cat) return false;
+    if (Number(filterState.score) > 0 && o.score < Number(filterState.score)) return false;
+    if (filterState.bron) {
+      const bronNamen = getBronnen(o).map(b => b.naam);
+      if (!bronNamen.includes(filterState.bron)) return false;
+    }
+    const st = getStatus(o.id);
+    if (filterState.status === 'active' && (st === 'reviewed' || st === 'dismissed')) return false;
+    if (filterState.status === 'reviewed' && st !== 'reviewed') return false;
+    if (filterState.status === 'dismissed' && st !== 'dismissed') return false;
+    if (filterState.search) {
+      const q = filterState.search.toLowerCase();
+      const hay = [o.titel, o.klant, (o.focus||[]).join(' '), o.beschrijving].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+function sorted(list) {
+  const k = sortState.key, dir = sortState.dir === 'asc' ? 1 : -1;
+  const cmp = (a, b) => {
+    let av = a[k], bv = b[k];
+    if (k === 'deadline') {
+      av = av ? new Date(av).getTime() : Infinity;
+      bv = bv ? new Date(bv).getTime() : Infinity;
+    }
+    if (k === 'titel' || k === 'klant') { av = (av||'').toLowerCase(); bv = (bv||'').toLowerCase(); }
+    if (av < bv) return -1*dir;
+    if (av > bv) return 1*dir;
+    return 0;
+  };
+  return [...list].sort(cmp);
+}
+
+// === Rendering ===
+function render() {
+  const list = sorted(filtered());
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+
+  document.getElementById('emptyState').style.display = list.length === 0 ? 'block' : 'none';
+
+  for (const o of list) {
+    const st = getStatus(o.id);
+    const tr = document.createElement('tr');
+    tr.dataset.id = o.id;
+    if (st === 'reviewed') tr.classList.add('reviewed');
+    if (st === 'dismissed') tr.classList.add('dismissed');
+    if (o.id === expandedId) tr.classList.add('expanded');
+
+    const dDays = daysUntil(o.deadline);
+    const isExpired = dDays !== null && dDays < 0;
+    const deadlineHtml = o.deadline
+      ? `<span class="${isExpired ? 'deadline-expired' : (dDays !== null && dDays <= 7 ? 'deadline-soon' : '')}">${fmtDate(o.deadline)} <small>${isExpired ? '(verlopen)' : `(${dDays}d)`}</small></span>`
+      : `<span style="color:#9ca3af;">geen</span>`;
+
+    tr.innerHTML = `
+      <td><span class="score-pill ${scoreClass(o.score)}">${o.score}</span></td>
+      <td class="titel-cell">${o.titel}${bronBadgesHtml(o)}</td>
+      <td><div class="klant-cell">${o.klant}</div><div class="klant-sub">${o.klant_categorie}</div></td>
+      <td class="col-cat"><span class="cat-pill ${catClass(o.match_categorie)}">${catLabel(o.match_categorie)}</span></td>
+      <td class="col-deadline deadline-cell">${deadlineHtml}</td>
+      <td>${st === 'new' ? '<span class="status-tag status-new">Nieuw</span>' : st === 'reviewed' ? '<span class="status-tag status-reviewed">Gezien</span>' : '<span class="status-tag status-dismissed">Afgewezen</span>'}</td>
+    `;
+    tr.addEventListener('click', () => toggleExpand(o.id));
+    tbody.appendChild(tr);
+
+    if (o.id === expandedId) {
+      const detailTr = document.createElement('tr');
+      detailTr.innerHTML = `<td colspan="6" class="detail-panel"></td>`;
+      detailTr.querySelector('td').appendChild(buildDetail(o));
+      tbody.appendChild(detailTr);
+    }
+  }
+
+  updateStats();
+  updateSortArrows();
+}
+
+function buildDetail(o) {
+  const wrap = document.createElement('div');
+  wrap.className = 'detail-content';
+  const breakdownRows = Object.entries(o.score_breakdown).map(([k, v]) =>
+    `<span class="label">${k}</span><span class="val">${v}</span>`).join('');
+  const flagsHtml = o.flags && o.flags.length ? `<div style="margin-top:6px; color:#92400e;">⚠ ${o.flags.join(' · ')}</div>` : '';
+  const focusHtml = (o.focus||[]).map(f => `<span style="background:#e0f2f1; color:#0a3d5c; padding:2px 8px; border-radius:3px; font-size:12px; margin-right:4px; display:inline-block; margin-bottom:4px;">${f}</span>`).join('');
+
+  wrap.innerHTML = `
+    <div class="detail-row">
+      <div class="detail-section">
+        <div class="detail-h">Beschrijving</div>
+        <div class="detail-text">${o.beschrijving}</div>
+        <div style="margin-top:10px;">${focusHtml}</div>
+      </div>
+      <div class="detail-section" style="max-width:280px;">
+        <div class="detail-h">Score-breakdown</div>
+        <div class="score-breakdown">${breakdownRows}</div>
+        ${flagsHtml}
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-section">
+        <div class="detail-h">Reden van match</div>
+        <div class="detail-text">${o.reden}</div>
+      </div>
+      <div class="detail-section" style="max-width:340px;">
+        <div class="detail-h">Praktisch</div>
+        <div class="practical">
+          ${o.startdatum ? `<span class="k">Startdatum</span><span>${fmtDate(o.startdatum)}</span>` : ''}
+          ${o.duur_maanden ? `<span class="k">Duur</span><span>${o.duur_maanden} maanden</span>` : ''}
+          ${o.uren_per_week ? `<span class="k">Uren</span><span>${o.uren_per_week} u/week</span>` : ''}
+          ${o.tarief_indicatie ? `<span class="k">Tarief</span><span>€ ${o.tarief_indicatie}/uur</span>` : ''}
+          ${o.locatie ? `<span class="k">Locatie</span><span>${o.locatie}${o.remote ? ' · ' + o.remote + ' remote' : ''}</span>` : ''}
+          <span class="k">Type</span><span>${o.type_opdracht === 'W' ? 'Werken' : o.type_opdracht === 'D' ? 'Diensten' : o.type_opdracht === 'L' ? 'Leveringen' : '—'}${o.procedure ? ' · ' + o.procedure : ''}</span>
+          <span class="k">Bronnen</span><span>${getBronnen(o).map(b => `${b.naam} · ${b.id || ''}`).join('<br>')}</span>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      ${getBronnen(o).map((b, i) => `<a class="btn ${i === 0 ? 'btn-primary' : ''}" href="${b.url}" target="_blank" rel="noopener">Open op ${b.naam} ↗</a>`).join('')}
+      ${getStatus(o.id) !== 'reviewed' ? '<button class="btn btn-success" data-act="review">✓ Markeer gezien</button>' : '<button class="btn" data-act="unreview">↺ Terug naar nieuw</button>'}
+      ${getStatus(o.id) !== 'dismissed' ? '<button class="btn btn-danger" data-act="dismiss">Afwijzen</button>' : ''}
+    </div>
+  `;
+  wrap.addEventListener('click', e => {
+    e.stopPropagation();
+    const act = e.target?.dataset?.act;
+    if (!act) return;
+    if (act === 'review') setStatus(o.id, 'reviewed');
+    else if (act === 'unreview') setStatus(o.id, 'new');
+    else if (act === 'dismiss') setStatus(o.id, 'dismissed');
+    render();
+  });
+  return wrap;
+}
+
+function toggleExpand(id) {
+  expandedId = (expandedId === id) ? null : id;
+  render();
+}
+
+function updateStats() {
+  const all = opportunities;
+  document.getElementById('statTotal').textContent = all.length;
+  document.getElementById('statTop').textContent = all.filter(o => o.score >= 80).length;
+  document.getElementById('statStrategic').textContent = all.filter(o => o.match_categorie === 'foothold-uitbreiding' || o.match_categorie === 'diversificatie-strategisch').length;
+  document.getElementById('statTodo').textContent = all.filter(o => getStatus(o.id) === 'new').length;
+}
+
+function updateSortArrows() {
+  document.querySelectorAll('thead th.sortable').forEach(th => {
+    const key = th.dataset.sort;
+    const arrow = th.querySelector('.sort-arrow');
+    if (key === sortState.key) {
+      th.classList.add('active');
+      arrow.textContent = sortState.dir === 'asc' ? '↑' : '↓';
+    } else {
+      th.classList.remove('active');
+      arrow.textContent = '';
+    }
+  });
+}
+
+// === Wiring ===
+function init() {
+  document.getElementById('filterCat').value = filterState.cat;
+  document.getElementById('filterScore').value = filterState.score;
+  document.getElementById('filterStatus').value = filterState.status;
+  document.getElementById('searchInput').value = filterState.search;
+  document.getElementById('filterBron').value = filterState.bron;
+
+  const onFilter = () => {
+    filterState.cat = document.getElementById('filterCat').value;
+    filterState.score = document.getElementById('filterScore').value;
+    filterState.status = document.getElementById('filterStatus').value;
+    filterState.search = document.getElementById('searchInput').value;
+    filterState.bron = document.getElementById('filterBron').value;
+    persistFilters();
+    expandedId = null;
+    render();
+  };
+  ['filterCat','filterScore','filterStatus','filterBron'].forEach(id => document.getElementById(id).addEventListener('change', onFilter));
+  document.getElementById('searchInput').addEventListener('input', onFilter);
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    filterState = { cat: '', score: '0', status: 'active', search: '', bron: '' };
+    persistFilters();
+    document.getElementById('filterCat').value = '';
+    document.getElementById('filterScore').value = '0';
+    document.getElementById('filterStatus').value = 'active';
+    document.getElementById('searchInput').value = '';
+    document.getElementById('filterBron').value = '';
+    expandedId = null;
+    render();
+  });
+
+  document.querySelectorAll('thead th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const k = th.dataset.sort;
+      if (sortState.key === k) sortState.dir = (sortState.dir === 'asc') ? 'desc' : 'asc';
+      else { sortState.key = k; sortState.dir = (k === 'titel' || k === 'klant' || k === 'deadline') ? 'asc' : 'desc'; }
+      persistSort();
+      render();
+    });
+  });
+
+  render();
+}
+init();
+
+// === Verversen-knop (Cowork-native, geen backend) ===
+document.getElementById('verversBtn')?.addEventListener('click', async () => {
+  const status = document.getElementById('verversStatus');
+  const btn = document.getElementById('verversBtn');
+  if (!window.cowork || !window.cowork.runScheduledTask) {
+    status.innerHTML = '⚠ Verversen werkt wanneer je dit dashboard in Cowork opent. In een losse browser-tab kan de pagina de bronnen niet zelf ophalen — vraag dan Claude om te verversen.';
+    return;
+  }
+  btn.disabled = true;
+  status.textContent = 'Bezig… ik haal TenderNed, Striive en Circle8 op en scoor alles tegen het Spire-profiel. Dit duurt een paar minuten.';
+  try {
+    await window.cowork.runScheduledTask('spire-tenderned-daily');
+    status.innerHTML = '✓ Verversen gestart. Zodra het klaar is, klik je op de <strong>Herladen</strong>-knop bovenaan deze weergave om de nieuwe lijst te zien.';
+  } catch (e) {
+    status.textContent = 'Kon verversen niet starten: ' + (e && e.message ? e.message : e);
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
