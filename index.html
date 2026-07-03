@@ -272,7 +272,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 juli 2026, herhaalde run (v1.4 — TN-AAO 123 + TN-MAC 139 + TN-VAK 124 (na keyword-filter 13+4+17, incl. volledige paginering) + ST 24 (van 129) + C8 6, na dedup 17 uniek, 8 top-match ≥80, 8 vroege signalen). Nu ook gepubliceerd naar Teams-map en GitHub Pages.</span></span><br>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 juli 2026, v1.5 — Magnit toegevoegd als vierde bron (4 kandidaten na filter uit ~50 aanvragen, 1 buiten scope). Totaal na dedup 21 uniek, 10 top-match ≥80, 8 vroege signalen. Gepubliceerd naar GitHub Pages; Teams-map tijdelijk onbereikbaar.</span></span><br>
       <button id="verversBtn" class="btn btn-primary" style="margin-top:8px;">↻ Verversen</button>
       <div id="verversStatus" style="font-size:12px;margin-top:6px;max-width:340px;color:var(--spire-text-muted);"></div>
     </div>
@@ -287,7 +287,7 @@
       <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 3 juli</span>
     </div>
     <div class="meta">
-      Bronnen: <strong style="color:var(--spire-charcoal);">TenderNed</strong> (AAO + MAC + VAK) · <strong style="color:var(--spire-charcoal);">Striive</strong> · <strong style="color:var(--spire-charcoal);">Circle8</strong>
+      Bronnen: <strong style="color:var(--spire-charcoal);">TenderNed</strong> (AAO + MAC + VAK) · <strong style="color:var(--spire-charcoal);">Striive</strong> · <strong style="color:var(--spire-charcoal);">Circle8</strong> · <strong style="color:var(--spire-charcoal);">Magnit</strong>
     </div>
   </header>
 
@@ -380,19 +380,48 @@
 </div>
 
 <script>
-// === Live data — v1.4 herhaalde pull 3 juli 2026, middag ===
-// Volledige herhaling op verzoek van Kevin, enkele uren na de ochtendpull. TenderNed nu met volledige
-// paginering (page=0 én verder tot totalElements bereikt is): AAO 123 (13 na filter, ongewijzigd),
-// MAC 139 (4 na filter, ongewijzigd), VAK 124 (17 na filter — 1 nieuw: 431940 "KV Flex - Slimme Apparaten",
-// samengevoegd met eerder gemiste 431488 "KV Flex" van dezelfde Alliander-marktconsultatie).
-// Striive: 24 van 129 zichtbaar (lijst is geroteerd t.o.v. ochtend — 2 items verdwenen: Project Planner,
-// Hoofd Vakgroep Primair; 3 nieuw: Business Consultant Capaciteitsuitgifte, Kwartiermaker Functieteam
-// Engineering, Platform Engineer EDSN — allemaal Stedin/EDSN, dus foothold intact).
-// Circle8: ongewijzigd, dezelfde 6 opdrachten (Energievoorziening-filter), beide SAP PPM-rollen bij Enexis nog open.
-// Dedup: KV Flex (431488+431940) samengevoegd tot 1 item. Na dedup: 17 unieke items. Top-match ≥80: 8.
-// Vroege signalen (MAC/VAK): 8. Gepubliceerd naar Cowork-artifact, Teams-map (08. Tender-app) en GitHub Pages.
+// === Live data — v1.5, 3 juli 2026: Magnit toegevoegd als vierde bron ===
+// Kevin vroeg om Magnit (portal.magnitglobal.com) toe te voegen naast TenderNed/Striive/Circle8. Magnit is een
+// brede VMS-marktplaats (~50 open aanvragen), grotendeels niet energie-gerelateerd — na filtering op
+// energie-keyword/doelorganisatie bleven 5 kandidaten over, waarvan 4 opgenomen:
+//  - Projectleider Ontwikkeling Energiesystemen, Gemeente Utrecht — score 99 (bullseye)
+//  - Omgevingsmanager Net op Zee, TenneT — score 91
+//  - Senior Werkverantwoordelijke Gas, Heijmans Infra (t.b.v. Stedin) — score 52
+//  - Calculator, BAM Energie en Water — score 46 (mismatch, financieel-technisch zonder PMO-component)
+// 1 kandidaat (Kostendeskundige Elektrotechniek, BAM Schiphol) bleek bij detail-fetch een vals-positief:
+// gebouwgebonden elektrotechniek voor de luchthaven, geen energiesector-opdracht — terecht niet opgenomen.
+// De overige drie bronnen (TenderNed/Striive/Circle8) zijn ongewijzigd t.o.v. de vorige pull van vandaag.
+// Na dedup: 21 unieke items (17 + 4 nieuwe Magnit-items). Top-match ≥80: 10. Vroege signalen (MAC/VAK): 8.
+// Gepubliceerd naar Cowork-artifact en GitHub Pages. Teams-map (08. Tender-app) tijdelijk onbereikbaar
+// (zie rapport) — wordt overgeslagen tot de map weer zichtbaar is.
 
 const opportunities = [
+  {
+    id: 'MG-260629-GJ-001-utrecht-projectleider-energiesystemen',
+    titel: 'Projectleider Ontwikkeling Energiesystemen',
+    klant: 'Gemeente Utrecht',
+    klant_categorie: 'overheid',
+    beschrijving: 'Gemeente Utrecht zoekt een Projectleider Ontwikkeling Energiesystemen binnen de afdeling Grondzaken, Investeren & Exploiteren. Verantwoordelijk voor het ontwikkelen en realiseren van duurzame energiesystemen binnen gebiedsontwikkelingen (60.000 nieuwe woningen tot 2040, netcongestie-vraagstukken), met integratie van technische, juridische en duurzaamheidsaspecten. Aansturen van multidisciplinaire samenwerking, regie op aanbestedingen/contractvorming binnen energieprojecten, en opzetten van publiek-private samenwerkingen. WO-niveau, min. 7 jaar ervaring met duurzame energiesystemen in de bebouwde omgeving en energie-/aanbestedingswetgeving vereist.',
+    deadline: '2026-07-06',
+    startdatum: '2026-08-01',
+    duur_maanden: 24,
+    uren_per_week: 24,
+    tarief_indicatie: 125,
+    locatie: 'Utrecht',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Magnit',
+    bron: 'Magnit',
+    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
+    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260629-GJ-001' }],
+    score: 99,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 100, 'Klant-fit': 95, 'Rol-fit': 100, 'Senioriteit': 100 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling', 'Organisatieverandering', 'Project, Programma & PMO Management'],
+    reden: 'Gemeente Utrecht (overheid/innovatie). Functietitel en -inhoud zijn een directe bullseye-match: projectleiderschap op energiesystemen binnen gebiedsontwikkeling, met expliciete regie op aanbestedingen, contractvorming en publiek-private samenwerking — vrijwel 1-op-1 Spire\'s PMO/adviesprofiel. Sterkste match van deze hele pull (incl. eerdere bronnen).',
+    flags: ['Nieuwe bron: Magnit', '⚡ Deadline 6 juli 2026, 20:00 uur', 'Max. tarief €125/uur, schaal 13 CAO Gemeenten', 'Niet toegestaan als kandidaat afgelopen 2 jaar in loondienst was bij gemeente Utrecht', 'Recruiter: Gaby Janssen (Magnit)']
+  },
   {
     id: 'ST-stedin-business-consultant-capaciteitsuitgifte',
     titel: 'Business Consultant Capaciteitsuitgifte (Deta-vast)',
@@ -444,6 +473,32 @@ const opportunities = [
     focus: ['Organisatieverandering'],
     reden: 'Stedin (foothold). Kwartiermaker = organisatieopbouw/verandermanagement, klassiek Spire-terrein. Detail niet beschikbaar zonder login; verifieer senioriteit en scope bij reactie.',
     flags: ['Detail beschikbaar na Striive-login', 'Nieuw t.o.v. vorige pull']
+  },
+  {
+    id: 'MG-260702-AMN-001-tennet-omgevingsmanager-net-op-zee',
+    titel: 'Omgevingsmanager Net op Zee',
+    klant: 'TenneT TSO B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'TenneT zoekt een Omgevingsmanager voor de Net op Zee-projecten in Zeeland (offshore hoogspanningsverbindingen van windparken naar converterstations in het Sloegebied). Verantwoordelijk voor omgevings- en stakeholdermanagement richting gemeenten, provincies, waterschappen, belangenorganisaties en grondeigenaren tijdens de uitvoeringsfase. Coördineert participatietrajecten, externe communicatie en informatieavonden samen met een tweede omgevingsmanager. Min. 5 jaar ervaring met participatieprocessen in grote infrastructurele projecten; fysieke aanwezigheid 2-3 dagen/week in Zeeland (Noord-Beveland).',
+    deadline: '2026-07-06',
+    startdatum: '2026-09-01',
+    duur_maanden: 6,
+    uren_per_week: 40,
+    tarief_indicatie: 105,
+    locatie: 'Zeeland',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Magnit',
+    bron: 'Magnit',
+    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
+    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260702-AMN-001' }],
+    score: 91,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 85, 'Focusgebied': 100, 'Klant-fit': 90, 'Rol-fit': 70, 'Senioriteit': 100 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling', 'Organisatieverandering'],
+    reden: 'TenneT (netbeheerder doellijst). Omgevingsmanagement op offshore-net-projecten is stakeholder-/verandermanagement in de kern van de energietransitie — sterke procesbegeleidingsfit, iets lager op rol-fit omdat de nadruk op participatie/communicatie ligt i.p.v. zuiver PMO.',
+    flags: ['Nieuwe bron: Magnit', '⚡ Deadline 6 juli 2026, 10:00 uur (kort dag)', 'Niet geschikt voor zzp — alleen detachering', 'Min. 2-3 dagen fysiek aanwezig in Zeeland (Noord-Beveland)', 'Recruiter: Aron Morren (Magnit)']
   },
   {
     id: 'TN-VAK-430756-enexis-operationeel-plannen',
@@ -837,6 +892,58 @@ const opportunities = [
     focus: ['Operational Excellence'],
     reden: 'Enexis (foothold), maar dit is een systeemintegratie/leveringscontract voor magazijnautomatisering — geen Spire-kernactiviteit. Alleen relevant als Enexis losstaande PMO-ondersteuning zoekt voor de opdrachtgeverskant van dit project.',
     flags: ['Deadline inschrijven: 23 juli 2026', 'Systeemintegratie/leveringsopdracht — buiten Spire-kernprofiel', 'Openbare aanbesteding — inschrijving vereist']
+  },
+  {
+    id: 'MG-260529-AVH-002-heijmans-werkverantwoordelijke-gas-stedin',
+    titel: 'Senior Werkverantwoordelijke Gas',
+    klant: 'Heijmans Infra Distributie (t.b.v. Stedin-gasnet)',
+    klant_categorie: 'ketenleverancier',
+    beschrijving: 'Heijmans Infra zoekt een zelfstandige Senior Werkverantwoordelijke Gas voor werkzaamheden binnen de regionale gas-infrastructuur van Stedin (Regio Rotterdam). Verantwoordelijk voor veilige uitvoering van gaswerkzaamheden volgens BEI/VIAG-richtlijnen, opstellen/beoordelen van werkplannen en -vergunningen, toezicht op veiligheidsvoorschriften en risico-inventarisaties. Vereist: VIAG-certificering als Werkverantwoordelijke, Stedin-accreditatie, VCA (bij voorkeur VOL-VCA). Uitvoerend/technisch van aard, geen adviesrol. Wet DBA — zelfstandige uitvoering zonder gezagsverhouding.',
+    deadline: '2026-07-09',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: 40,
+    tarief_indicatie: 100,
+    locatie: 'Regio Rotterdam',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Magnit',
+    bron: 'Magnit',
+    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
+    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260529-AVH-002' }],
+    score: 52,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 20, 'Focusgebied': 30, 'Klant-fit': 60, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'regulier',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Heijmans is ketenleverancier/aannemer richting Stedin, geen directe Spire-doelklant. Rol is uitvoerend-technisch (VIAG-gascertificering, Wet DBA zelfstandige uitvoering) — geen PMO/advies-component, dus lage rol- en type-werk-fit ondanks sterke sector-fit.',
+    flags: ['Nieuwe bron: Magnit', 'Herhaalde aanvraag', 'Stedin-accreditatie vereist', 'Alleen zzp/uitvoerend, geen adviesrol', 'Recruiter: Anouk van Harn (Magnit)']
+  },
+  {
+    id: 'MG-260604-DT-002-bam-calculator-energie-water',
+    titel: 'Calculator (Detavast)',
+    klant: 'BAM Energie en Water (Koninklijke BAM Groep)',
+    klant_categorie: 'ketenleverancier',
+    beschrijving: 'BAM Energie en Water zoekt een medior Calculator voor de tenderfase van projecten op het gebied van kabels en leidingen (energie-infrastructuur). Verantwoordelijk voor kostprijsbegrotingen, prijsberekeningen en doorrekenen van bestekwijzigingen tijdens tenders. Financieel-technische rol binnen het calculatieteam (15 collega\'s), regio Zuid (Den Bosch). Detavast-constructie (overname na 1680 uur of max. 12 maanden). Min. 3-5 jaar ervaring in calculatie/werkvoorbereiding, HBO-niveau of MBO-4 met hbo-werkervaring.',
+    deadline: '2026-07-14',
+    startdatum: '2026-08-01',
+    duur_maanden: 12,
+    uren_per_week: 40,
+    tarief_indicatie: null,
+    locatie: 'Den Bosch',
+    remote: 'hybride',
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Magnit',
+    bron: 'Magnit',
+    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
+    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260604-DT-002' }],
+    score: 46,
+    score_breakdown: { 'Sector-fit': 65, 'Type-werk': 30, 'Focusgebied': 20, 'Klant-fit': 60, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'mismatch',
+    focus: [],
+    reden: 'BAM is ketenleverancier/aannemer, geen directe Spire-doelklant. Calculator is een financieel-technische functie (kostprijsbegroting/tendercalculatie) zonder PMO- of adviescomponent — buiten Spire\'s kernprofiel ondanks de energie-sector-context (kabels en leidingen).',
+    flags: ['Nieuwe bron: Magnit', 'Mismatch — financieel-technische rol zonder PMO/advies-component', 'Herhaalde aanvraag', 'Niet geschikt voor zzp — detavast', 'Recruiter: Daniel den Toom (Magnit)']
   },
 ];
 
