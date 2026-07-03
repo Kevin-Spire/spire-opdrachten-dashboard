@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!DOCTYPE html><html lang="nl">
 <head>
 <meta charset="utf-8">
 <title>Spire Opdrachten Dashboard</title>
@@ -273,7 +272,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 juli 2026 (v1.3 — TN-AAO 122 + TN-MAC 135 + TN-VAK 123 (na keyword-filter 13+4+16) + ST 25 (van 131) + C8 6, na dedup 15 uniek, 6 top-match ≥80, 8 vroege signalen). Circle8 klantzoekbox filtert niet op naam (bevestigd) — alleen branchefilter Energievoorziening gebruikt.</span></span><br>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 juli 2026, herhaalde run (v1.4 — TN-AAO 123 + TN-MAC 139 + TN-VAK 124 (na keyword-filter 13+4+17, incl. volledige paginering) + ST 24 (van 129) + C8 6, na dedup 17 uniek, 8 top-match ≥80, 8 vroege signalen). Nu ook gepubliceerd naar Teams-map en GitHub Pages.</span></span><br>
       <button id="verversBtn" class="btn btn-primary" style="margin-top:8px;">↻ Verversen</button>
       <div id="verversStatus" style="font-size:12px;margin-top:6px;max-width:340px;color:var(--spire-text-muted);"></div>
     </div>
@@ -381,28 +380,25 @@
 </div>
 
 <script>
-// === Live data — v1.3 pull 3 juli 2026 ochtend ===
-// TenderNed API (papi/tenderned-rs-tns/v2/publicaties): AAO 122 opgehaald (13 na keyword/doellijst-filter),
-// MAC 135 (4 na filter), VAK 123 (16 na filter). Filter gebruikt woordgrens-matching (i.p.v. losse substring)
-// om false positives te vermijden (bv. "rwe" matchte eerder op "verwerking").
-// Striive: 25 van 131 zichtbaar (lazy-load beperking zonder login, bevestigd na 2 scroll-pogingen zonder nieuwe items).
-// 3 relevante items, alle Stedin Netbeheer B.V. — detailpagina's niet toegankelijk zonder login.
-// Circle8: branchefilter Energievoorziening = 6 opdrachten; klantzoekbox (Eneco/Vattenfall/Stedin/TenneT/Min. Klimaat)
-// filtert NIET op naam (bevestigd, zoals verwacht) — alleen 2 SAP PPM-rollen bij Enexis relevant, beide detail-fetched.
-// Dedup: geen overlap tussen bronnen deze pull. Vervallen t.o.v. vorige pull (15 juni): Enexis Implementatie Consultant,
-// Jr. PM Maatschappelijk Prioriteren, SAP Coördinator (alle drie deadline verstreken, niet meer op Circle8);
-// Shell BA, EDSN System Architect, EDSN Java Developer, Alliander Directievoerder (niet meer op Striive-lijst);
-// Tilburg WUPe, TenneT offshore-consultatie (buiten huidig 3-daags AAO/30-daags VAK-venster).
-// Netbeheer Nederland Groengaskwaliteit: vorige VAK-marktconsultatie (426685) is opgevolgd door echte AAO-aanbesteding (431516).
-// Na dedup: 15 unieke items. Top-match ≥80: 6. Vroege signalen (MAC/VAK): 8.
+// === Live data — v1.4 herhaalde pull 3 juli 2026, middag ===
+// Volledige herhaling op verzoek van Kevin, enkele uren na de ochtendpull. TenderNed nu met volledige
+// paginering (page=0 én verder tot totalElements bereikt is): AAO 123 (13 na filter, ongewijzigd),
+// MAC 139 (4 na filter, ongewijzigd), VAK 124 (17 na filter — 1 nieuw: 431940 "KV Flex - Slimme Apparaten",
+// samengevoegd met eerder gemiste 431488 "KV Flex" van dezelfde Alliander-marktconsultatie).
+// Striive: 24 van 129 zichtbaar (lijst is geroteerd t.o.v. ochtend — 2 items verdwenen: Project Planner,
+// Hoofd Vakgroep Primair; 3 nieuw: Business Consultant Capaciteitsuitgifte, Kwartiermaker Functieteam
+// Engineering, Platform Engineer EDSN — allemaal Stedin/EDSN, dus foothold intact).
+// Circle8: ongewijzigd, dezelfde 6 opdrachten (Energievoorziening-filter), beide SAP PPM-rollen bij Enexis nog open.
+// Dedup: KV Flex (431488+431940) samengevoegd tot 1 item. Na dedup: 17 unieke items. Top-match ≥80: 8.
+// Vroege signalen (MAC/VAK): 8. Gepubliceerd naar Cowork-artifact, Teams-map (08. Tender-app) en GitHub Pages.
 
 const opportunities = [
   {
-    id: 'ST-stedin-project-planner',
-    titel: 'Project Planner',
+    id: 'ST-stedin-business-consultant-capaciteitsuitgifte',
+    titel: 'Business Consultant Capaciteitsuitgifte (Deta-vast)',
     klant: 'Stedin Netbeheer B.V.',
     klant_categorie: 'netbeheerder',
-    beschrijving: 'Project Planner rol bij Stedin Netbeheer. Op basis van de functietitel betreft dit planningsondersteuning binnen project- of programmateams: opstellen en bewaken van planningen, coördinatie tussen workstreams en rapportage van voortgang. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Stedin is Spire-foothold klant; rol sluit sterk aan bij Spire\'s PMO/planningsprofiel.',
+    beschrijving: 'Business Consultant-rol bij Stedin op het gebied van capaciteitsuitgifte — het proces waarmee Stedin beschikbare netcapaciteit toewijst aan aansluitingen, direct verbonden aan het congestiedossier. Detavast-constructie. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive, maar titel en onderwerp zijn Spire-bullseye: business consultancy op een kernproces van de energietransitie bij een foothold-klant.',
     deadline: null,
     startdatum: null,
     duur_maanden: null,
@@ -415,13 +411,39 @@ const opportunities = [
     publicatie_type: 'Striive',
     bron: 'Striive',
     url: 'https://striive.com/nl/opdrachten',
-    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-project-planner' }],
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-business-consultant-capaciteitsuitgifte' }],
+    score: 97,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 100, 'Klant-fit': 100, 'Rol-fit': 100, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling', 'Project, Programma & PMO Management'],
+    reden: 'Stedin (foothold). Capaciteitsuitgifte = kernproces congestiemanagement, Business Consultant-rol = directe PMO/adviesfit. Sterkste match van deze pull. Detavast-constructie; detail niet beschikbaar zonder login.',
+    flags: ['Detail beschikbaar na Striive-login', 'Deta-vast constructie', 'Nieuw t.o.v. vorige pull']
+  },
+  {
+    id: 'ST-stedin-kwartiermaker-functieteam-engineering',
+    titel: 'Kwartiermaker Functieteam Engineering',
+    klant: 'Stedin Netbeheer B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Kwartiermakersrol bij Stedin voor het opzetten van een nieuw functieteam Engineering: structuur, werkwijzen en teaminrichting vanaf de grond af opbouwen. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Kwartiermaker-rollen zijn organisatieverandering in de kern — sterke fit met Spire\'s profiel bij een foothold-klant.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-kwartiermaker-functieteam-engineering' }],
     score: 94,
     score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 80, 'Klant-fit': 100, 'Rol-fit': 100, 'Senioriteit': 70 },
     match_categorie: 'foothold-uitbreiding',
-    focus: ['Project, Programma & PMO Management'],
-    reden: 'Stedin = foothold-klant. Functietitel "Project Planner" is Spire-bullseye: planning, coördinatie, voortgangsbewaking. Detailinhoud niet beschikbaar zonder Striive-login — score gebaseerd op titel/klant, verifieer bij reactie.',
-    flags: ['Detail beschikbaar na Striive-login', 'Zonder login: max. ~25 van 131 opdrachten zichtbaar (Striive lazy-load beperking)']
+    focus: ['Organisatieverandering'],
+    reden: 'Stedin (foothold). Kwartiermaker = organisatieopbouw/verandermanagement, klassiek Spire-terrein. Detail niet beschikbaar zonder login; verifieer senioriteit en scope bij reactie.',
+    flags: ['Detail beschikbaar na Striive-login', 'Nieuw t.o.v. vorige pull']
   },
   {
     id: 'TN-VAK-430756-enexis-operationeel-plannen',
@@ -528,6 +550,35 @@ const opportunities = [
     flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht']
   },
   {
+    id: 'TN-VAK-431940-alliander-kv-flex-slimme-apparaten',
+    titel: 'KV Flex — Slimme Apparaten (vroeg signaal)',
+    klant: 'Alliander N.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Gedreven door de energietransitie elektrificeert het energieverbruik in woningen in hoog tempo (EV-laadpalen, zonnepanelen, warmtepompen, thuisbatterijen), wat piekbelasting en congestie op het elektriciteitsnet veroorzaakt. Alliander onderzoekt via twee gekoppelde marktconsultaties (KV Flex en KV Flex – Slimme Apparaten) hoe slimmer en flexibeler inzetten van apparaten congestie kan verminderen. VROEG SIGNAAL — nog geen aanbesteding gestart. Sterke inhoudelijke fit met Spire\'s focus op flexibiliteit en energiesysteemontwikkeling.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Marktconsultatie',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431940',
+    bronnen: [
+      { naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431940', id: 'TN-VAK-431940' },
+      { naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431488', id: 'TN-VAK-431488' }
+    ],
+    score: 81,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 65, 'Focusgebied': 80, 'Klant-fit': 90, 'Rol-fit': 70, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Alliander (netbeheerder doellijst). Congestie/flexibiliteit via slimme apparaten = kernthema energietransitie. Twee gekoppelde VAK-publicaties (431488 + 431940) samengevoegd tot één item. Nieuw t.o.v. vorige pull — eerder gemist door onvolledige paginering.',
+    flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht', 'Twee gekoppelde publicaties samengevoegd (431488 + 431940)', 'Nieuw t.o.v. vorige pull']
+  },
+  {
     id: 'C8-VNR-82368-consultant-sap-ppm-enexis',
     titel: 'Consultant SAP PPM',
     klant: 'Enexis',
@@ -603,7 +654,7 @@ const opportunities = [
     match_categorie: 'foothold-uitbreiding',
     focus: ['Project, Programma & PMO Management', 'Digitale Transformatie'],
     reden: 'Enexis (foothold). Zelfde SAP S/4HANA-traject als Consultant SAP PPM (VNR-82368), maar junior/medior niveau met detavast-constructie. Niet geschikt voor zzp (Wet DBA) — alleen via leverancier/payroll.',
-    flags: ['⚡ Deadline 6 juli 2026, 12:00 uur', 'Niet geschikt voor zzp — Wet DBA, werken onder leiding en toezicht', 'Detavast: uitzicht op vaste aanstelling na 12 maanden', 'Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791', 'Zelfde SAP S/4HANA-traject als VNR-82368 (Consultant SAP PPM)']
+    flags: ['⚡ Deadline 6 juli 2026, 12:00 uur', 'Niet geschikt voor zzp — Wet DBA, werken onder leiding en toezicht', 'Detavast: uitzicht op vaste aanstelling na 12 maanden', 'Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791', 'Zelfde SAP S/4HANA-traject als VNR-82957 (Consultant SAP PPM)']
   },
   {
     id: 'TN-MAC-429025-gooise-meren-warmtenet-muiderberg',
@@ -658,32 +709,6 @@ const opportunities = [
     flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht', 'Onveranderd t.o.v. vorige pull (15 juni 2026) — nog geen aanbesteding gestart']
   },
   {
-    id: 'ST-stedin-hoofd-vakgroep-primair',
-    titel: 'Hoofd Vakgroep Primair',
-    klant: 'Stedin Netbeheer B.V.',
-    klant_categorie: 'netbeheerder',
-    beschrijving: 'Leidinggevende rol bij Stedin Netbeheer voor de vakgroep "Primair" (vermoedelijk primaire hoogspanningsinstallaties/assets). Op basis van de titel een inhoudelijk-technische leidinggevende positie, mogelijk met coördinerende/PMO-elementen. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Stedin is foothold-klant.',
-    deadline: null,
-    startdatum: null,
-    duur_maanden: null,
-    uren_per_week: null,
-    tarief_indicatie: null,
-    locatie: null,
-    remote: null,
-    type_opdracht: 'D',
-    procedure: 'Niet-openbaar',
-    publicatie_type: 'Striive',
-    bron: 'Striive',
-    url: 'https://striive.com/nl/opdrachten',
-    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-hoofd-vakgroep-primair' }],
-    score: 71,
-    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 35, 'Focusgebied': 60, 'Klant-fit': 100, 'Rol-fit': 30, 'Senioriteit': 100 },
-    match_categorie: 'foothold-uitbreiding',
-    focus: ['Energiesysteemontwikkeling'],
-    reden: 'Stedin (foothold). Titel wijst op technisch-inhoudelijke leiderschapsrol (vakgroep Primair = hoogspanning/assets), minder PMO/change-georiënteerd. Senior niveau ("Hoofd"). Detail niet beschikbaar zonder login.',
-    flags: ['Detail beschikbaar na Striive-login', 'Vermoedelijk technisch-inhoudelijke rol, geen klassieke PMO-positie']
-  },
-  {
     id: 'TN-VAK-427820-alliander-netuitbreiding-amsterdam',
     titel: 'Marktconsultatie Netuitbreiding 10-20kV Grote Projecten Amsterdam (vroeg signaal)',
     klant: 'Alliander N.V.',
@@ -708,6 +733,32 @@ const opportunities = [
     focus: ['Energiesysteemontwikkeling'],
     reden: 'Alliander (netbeheerder doellijst). Fysieke netuitbreiding (kabels, onderstations) = overwegend technisch/engineering, lagere rol-fit voor Spire PMO-profiel. Vroeg positioneringsmoment via marktconsultatie.',
     flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht']
+  },
+  {
+    id: 'ST-edsn-platform-engineer',
+    titel: 'Platform Engineer',
+    klant: 'Energie Data Services Nederland (EDSN)',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Platform Engineer-rol bij EDSN, de gegevensdienstverlener van de Nederlandse energiesector die datauitwisseling tussen netbeheerders en leveranciers beheert. Op basis van de titel een technische infrastructuur/platformrol. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. EDSN is kernklant in de energiedata-infrastructuur, maar de rol is overwegend technisch.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-edsn-platform-engineer' }],
+    score: 69,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 35, 'Focusgebied': 80, 'Klant-fit': 90, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Digitale Transformatie'],
+    reden: 'EDSN = kernklant energiedata-infrastructuur. Platform Engineer is een technische infra-rol — lagere rol-fit voor Spire PMO/change-profiel, foothold-waarde bij EDSN is de belangrijkste driver. Detail niet beschikbaar zonder login.',
+    flags: ['Detail beschikbaar na Striive-login', 'Nieuw t.o.v. vorige pull']
   },
   {
     id: 'TN-AAO-431516-netbeheer-nederland-groengaskwaliteit',
@@ -808,8 +859,7 @@ function fmtDate(d) {
 }
 function daysUntil(d) {
   if (!d) return null;
-  const now = new Date();
-  now.setHours(0, 0, 0, 0);
+  const now = new Date(); now.setHours(0, 0, 0, 0);
   const target = new Date(d);
   return Math.ceil((target - now) / (1000*60*60*24));
 }
