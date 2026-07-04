@@ -272,7 +272,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 juli 2026, v1.5 — Magnit toegevoegd als vierde bron (4 kandidaten na filter uit ~50 aanvragen, 1 buiten scope). Totaal na dedup 21 uniek, 10 top-match ≥80, 8 vroege signalen. Gepubliceerd naar GitHub Pages; Teams-map tijdelijk onbereikbaar.</span></span><br>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">4 juli 2026 — TenderNed volledig herhaald (3 nieuwe items: Havenbedrijf Rotterdam, Gemeente Amsterdam, Stedin Flextenders), Striive/Circle8 ongewijzigd, Magnit-sessie verlopen (overgeslagen, 4 items ongewijzigd behouden). Totaal na dedup 24 uniek, 13 top-match ≥80, 10 vroege signalen. Gepubliceerd naar GitHub Pages; Teams-map tijdelijk onbereikbaar.</span></span><br>
       <button id="verversBtn" class="btn btn-primary" style="margin-top:8px;">↻ Verversen</button>
       <div id="verversStatus" style="font-size:12px;margin-top:6px;max-width:340px;color:var(--spire-text-muted);"></div>
     </div>
@@ -284,7 +284,7 @@
   <header>
     <div class="title-row">
       <h1>Vandaag op de radar</h1>
-      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 3 juli</span>
+      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 4 juli</span>
     </div>
     <div class="meta">
       Bronnen: <strong style="color:var(--spire-charcoal);">TenderNed</strong> (AAO + MAC + VAK) · <strong style="color:var(--spire-charcoal);">Striive</strong> · <strong style="color:var(--spire-charcoal);">Circle8</strong> · <strong style="color:var(--spire-charcoal);">Magnit</strong>
@@ -380,20 +380,23 @@
 </div>
 
 <script>
-// === Live data — v1.5, 3 juli 2026: Magnit toegevoegd als vierde bron ===
-// Kevin vroeg om Magnit (portal.magnitglobal.com) toe te voegen naast TenderNed/Striive/Circle8. Magnit is een
-// brede VMS-marktplaats (~50 open aanvragen), grotendeels niet energie-gerelateerd — na filtering op
-// energie-keyword/doelorganisatie bleven 5 kandidaten over, waarvan 4 opgenomen:
-//  - Projectleider Ontwikkeling Energiesystemen, Gemeente Utrecht — score 99 (bullseye)
-//  - Omgevingsmanager Net op Zee, TenneT — score 91
-//  - Senior Werkverantwoordelijke Gas, Heijmans Infra (t.b.v. Stedin) — score 52
-//  - Calculator, BAM Energie en Water — score 46 (mismatch, financieel-technisch zonder PMO-component)
-// 1 kandidaat (Kostendeskundige Elektrotechniek, BAM Schiphol) bleek bij detail-fetch een vals-positief:
-// gebouwgebonden elektrotechniek voor de luchthaven, geen energiesector-opdracht — terecht niet opgenomen.
-// De overige drie bronnen (TenderNed/Striive/Circle8) zijn ongewijzigd t.o.v. de vorige pull van vandaag.
-// Na dedup: 21 unieke items (17 + 4 nieuwe Magnit-items). Top-match ≥80: 10. Vroege signalen (MAC/VAK): 8.
-// Gepubliceerd naar Cowork-artifact en GitHub Pages. Teams-map (08. Tender-app) tijdelijk onbereikbaar
-// (zie rapport) — wordt overgeslagen tot de map weer zichtbaar is.
+// === Live data — 4 juli 2026: dagelijkse pull (handmatig gedraaid, scheduler-trigger vuurde niet automatisch af) ===
+// TenderNed volledig herhaald met volledige paginering: AAO 100 (13 na filter), MAC 135 (4 na filter, alle 3
+// nieuwe MAC-treffers waren vals-positief of verlopen en dus niet opgenomen), VAK 119 (18 na filter). 3 echt
+// nieuwe/gewijzigde items t.o.v. gisteren:
+//  - Aanbesteding Virtueel Energiesysteem, Havenbedrijf Rotterdam — score 88 (opvolger van eerdere
+//    marktconsultatie VAK-428876, nu samengevoegd als bron)
+//  - Zonnescans — raamovereenkomst advisering zonne-energie, Gemeente Amsterdam — score 87
+//  - Toekomstbestendige Flextenders (RFI congestiemanagement), Stedin — score 83
+// Enkele vals-positieven bewust NIET opgenomen: 14C-SCAR (radiocarbon-instrument Rijksuniversiteit
+// Groningen, matchte toevallig op "gas"), Waterzuivering Delfland (civiele waterbouw, geen energieopdracht),
+// diverse pure hardware-/RFI-aanbestedingen (transformatoren, RMU's, gasafsluiters) zonder PMO/advies-component.
+// Striive: dezelfde 4 Stedin/EDSN-items als gisteren, geen wijzigingen. Circle8: dezelfde 6 opdrachten
+// (Energievoorziening-filter), beide SAP PPM-rollen bij Enexis nog open, ongewijzigd.
+// Magnit: sessie verlopen (inlogscherm getoond) — overgeslagen voor deze run zonder in te loggen; de 4
+// bestaande Magnit-items van gisteren zijn ongewijzigd behouden (nog geen van de deadlines verstreken).
+// Na dedup: 24 unieke items. Top-match ≥80: 13. Vroege signalen (MAC/VAK): 10.
+// Gepubliceerd naar Cowork-artifact en GitHub Pages. Teams-map (08. Tender-app) nog steeds onbereikbaar.
 
 const opportunities = [
   {
@@ -506,7 +509,7 @@ const opportunities = [
     klant: 'Enexis Personeel BV',
     klant_categorie: 'netbeheerder',
     beschrijving: 'Enexis wil een standaard ICT SaaS-oplossing contracteren ter ondersteuning van de volledige operationele keten van alle organisatorische eenheden (HS/MS – productiestraten en productievestigingen). Scope omvat Beheer & Onderhoud, Implementatie (inclusief technisch en verandermanagement, exclusief de uitrol binnen Enexis zelf) en opleiding (train-de-trainer). VOORAANKONDIGING — nog geen aanbesteding gestart. De expliciete uitsluiting van interne uitrol/verandermanagement bij de leverancier is een kans: Enexis heeft zelf capaciteit nodig voor de interne adoptie en verandermanagement rond de uitrol — een klassieke Spire PMO/change-rol naast het hoofdcontract.',
-    deadline: null,
+    deadline: '2026-09-09',
     startdatum: null,
     duur_maanden: null,
     uren_per_week: null,
@@ -524,7 +527,62 @@ const opportunities = [
     match_categorie: 'foothold-uitbreiding',
     focus: ['Digitale Transformatie', 'Operational Excellence', 'Organisatieverandering'],
     reden: 'Enexis (foothold). Hoofdcontract is SaaS-levering, maar expliciete uitsluiting van interne verandermanagement/uitrol bij de leverancier creëert een aanpalende PMO/change-behoefte bij Enexis zelf. VROEG SIGNAAL — positioneer vóór aanbesteding start.',
-    flags: ['VROEG SIGNAAL — vooraankondiging, geen directe opdracht', 'Kans: interne uitrol/verandermanagement expliciet buiten scope leverancier — Spire-aanknopingspunt']
+    flags: ['VROEG SIGNAAL — vooraankondiging, geen directe opdracht', 'Kans: interne uitrol/verandermanagement expliciet buiten scope leverancier — Spire-aanknopingspunt', 'Deadline nu bekend: 9 september 2026 (was onbekend)']
+  },
+  {
+    id: 'TN-AAO-431282-havenbedrijf-rotterdam-virtueel-energiesysteem',
+    titel: 'Aanbesteding Virtueel Energiesysteem',
+    klant: 'Havenbedrijf Rotterdam',
+    klant_categorie: 'overheid',
+    beschrijving: 'Havenbedrijf Rotterdam heeft een aanbesteding gestart voor een Virtueel Energiesysteem, na een eerdere marktconsultatie over hetzelfde onderwerp (nu vervallen, samengevoegd als bron). De aanbestedingsdocumentatie zelf is alleen via het aanbestedingsplatform (Mercell) beschikbaar — TenderNed toont enkel de aankondiging zonder inhoudelijke beschrijving. Op basis van titel en de eerdere marktconsultatie: ontwikkeling van een virtueel/digitaal platform voor energiesysteembeheer bij een grote havenautoriteit, relevant voor Spire\'s energiesysteemontwikkeling- en digitale-transformatiefocus.',
+    deadline: '2026-08-07',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Rotterdam',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Openbaar',
+    publicatie_type: 'AAO',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431282',
+    bronnen: [
+      { naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431282', id: 'TN-AAO-431282' },
+      { naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/428876', id: 'TN-VAK-428876' }
+    ],
+    score: 88,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 80, 'Focusgebied': 100, 'Klant-fit': 95, 'Rol-fit': 70, 'Senioriteit': 70 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling', 'Digitale Transformatie'],
+    reden: 'Havenbedrijf Rotterdam (overheid/innovatie-categorie). Vervolg op eerdere marktconsultatie (VAK-428876, gezien in eerdere pulls) — nu een echte openbare aanbesteding. Volledige beschrijving alleen op Mercell beschikbaar; titel en voorgeschiedenis wijzen op platform-/systeemontwikkeling voor energiebeheer, sterke fit met Spire\'s focus.',
+    flags: ['Vervolg op eerdere marktconsultatie (VAK-428876)', 'Volledige aanbestedingsdocumentatie alleen via Mercell', 'Deadline inschrijven: 7 augustus 2026', 'Nieuw t.o.v. vorige pull']
+  },
+  {
+    id: 'TN-VAK-430391-amsterdam-zonnescans',
+    titel: 'Zonnescans — Raamovereenkomst Advisering Zonne-energie Bedrijfsdaken (vroeg signaal)',
+    klant: 'Gemeente Amsterdam',
+    klant_categorie: 'overheid',
+    beschrijving: 'Gemeente Amsterdam werkt aan versnelling van duurzame energieopwekking op bedrijfsdaken en wil een nieuwe raamovereenkomst afsluiten voor de periode 2026-2030. Binnen deze overeenkomst worden bedrijven en vastgoedeigenaren ondersteund met quickscans en haalbaarheidsonderzoeken, technisch advies over daken en zonne-energiesystemen, begeleiding richting investeringsbesluit, ondersteuning bij realisatie van zonne-energieprojecten en gerelateerde advisering. Directe adviesrol, geen productlevering.',
+    deadline: null,
+    startdatum: '2026-01-01',
+    duur_maanden: 48,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Amsterdam',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Marktconsultatie',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/430391',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/430391', id: 'TN-VAK-430391' }],
+    score: 87,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 90, 'Focusgebied': 80, 'Klant-fit': 95, 'Rol-fit': 70, 'Senioriteit': 70 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Gemeente Amsterdam (overheid/innovatie). Kerntaken (quickscans, haalbaarheidsonderzoeken, technisch advies, begeleiding investeringsbesluit) zijn een directe adviesrol op zonne-energieprojecten — sterke type-werk- en rol-fit. Raamovereenkomst 2026-2030 biedt structurele meerjarige toegang.',
+    flags: ['VROEG SIGNAAL — marktconsultatie/raamovereenkomst-voorbereiding', 'Structurele raamovereenkomst 2026-2030', 'Nieuw t.o.v. vorige pull']
   },
   {
     id: 'TN-VAK-430016-stedin-das-extern-personeel',
@@ -577,6 +635,32 @@ const opportunities = [
     focus: ['Business Intelligence & Data Management'],
     reden: 'Stedin (foothold). Data-rol scoort hoog op type-werk (data expliciet in Spire-scope) maar lager op rol-fit — vermoedelijk meer technisch/analytisch dan consultancy. Detail niet beschikbaar zonder login; verifieer scope bij reactie.',
     flags: ['Detail beschikbaar na Striive-login', 'Rol-fit onzeker — mogelijk sterker technisch dan PMO/change']
+  },
+  {
+    id: 'TN-VAK-430817-stedin-toekomstbestendige-flextenders',
+    titel: 'Toekomstbestendige Flextenders (vroeg signaal)',
+    klant: 'Stedin',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Stedin organiseert een Request for Information (RFI) open voor alle marktpartijen — waaronder technologieleveranciers, asset-ontwikkelaars en consortia — die flexibele capaciteitsoplossingen kunnen leveren of ontwikkelen die aansluiten op de gespecificeerde congestieprofielen. Ook financiële partijen die schuld- of eigenvermogensfinanciering leveren aan dit type oplossingen kunnen reageren. Betreft de doorontwikkeling van Stedin\'s flextender-aanpak richting een toekomstbestendig model voor congestiemanagement.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Marktconsultatie',
+    publicatie_type: 'VAK',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/430817',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/430817', id: 'TN-VAK-430817' }],
+    score: 83,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 65, 'Focusgebied': 80, 'Klant-fit': 100, 'Rol-fit': 70, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Stedin (foothold). RFI over de doorontwikkeling van flextender-mechanismen voor congestiemanagement — kernthema van de energietransitie en direct aanknopingspunt voor beleids-/adviesinbreng namens marktpartijen of financiers. Vroeg-stadium positionering.',
+    flags: ['VROEG SIGNAAL — RFI, geen directe opdracht', 'Nieuw t.o.v. vorige pull']
   },
   {
     id: 'TN-VAK-431141-limburg-energiedeelplatform',
