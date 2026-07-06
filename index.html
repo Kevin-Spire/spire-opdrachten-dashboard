@@ -208,6 +208,15 @@
   .bron-mg { background: #4f46e5; color: #fff; }
   .bron-other { background: var(--spire-surface-2); color: var(--spire-text-muted); }
 
+  /* === Bronnen-status (header) === */
+  .bron-status-live { color: var(--spire-charcoal); font-weight: 700; }
+  .bron-status-down { color: var(--spire-text-muted); font-weight: 700; text-decoration: line-through; }
+  .bron-status-flag {
+    display: inline-block; margin-left: 4px; padding: 1px 6px; border-radius: 3px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
+    background: #fee2e2; color: #991b1b; text-decoration: none;
+  }
+
   /* === Detail panel === */
   .detail-panel { background: var(--spire-teal-soft); border-top: 2px solid var(--spire-teal); padding: 0; }
   .detail-content { padding: 20px 26px; }
@@ -273,9 +282,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">6 juli 2026 — dagelijkse pull TenderNed (volledig, gepagineerd) + Striive (~25/124 zonder login) + Circle8 (Energievoorziening-filter, 6x Enexis, alle detail-fetched). Magnit-sessie verlopen: overgeslagen, 4 vorige Magnit-items daarom niet meer op dashboard (Kevin: opnieuw inloggen nodig). Totaal na dedup 36 uniek, 11 top-match ≥80, 17 vroege signalen, 7 mismatch. Gepubliceerd naar Cowork-artifact; Teams-map en GitHub Pages-status zie rapport.</span></span><br>
-      <button id="verversBtn" class="btn btn-primary" style="margin-top:8px;">↻ Verversen</button>
-      <div id="verversStatus" style="font-size:12px;margin-top:6px;max-width:340px;color:var(--spire-text-muted);"></div>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">6 juli 2026 — dagelijkse pull TenderNed (volledig, gepagineerd) + Striive (~25/124 zonder login) + Circle8 (Energievoorziening-filter, 6x Enexis, alle detail-fetched). Magnit-sessie verlopen: overgeslagen, 4 vorige Magnit-items daarom niet meer op dashboard (Kevin: opnieuw inloggen nodig). Totaal na dedup 36 uniek, 11 top-match ≥80, 17 vroege signalen, 7 mismatch. Gepubliceerd naar Cowork-artifact; Teams-map en GitHub Pages-status zie rapport.</span></span>
     </div>
   </div>
 </div>
@@ -287,9 +294,7 @@
       <h1>Vandaag op de radar</h1>
       <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 6 juli</span>
     </div>
-    <div class="meta">
-      Bronnen: <strong style="color:var(--spire-charcoal);">TenderNed</strong> (AAO + MAC + VAK) · <strong style="color:var(--spire-charcoal);">Striive</strong> · <strong style="color:var(--spire-charcoal);">Circle8</strong> · <strong style="color:var(--spire-charcoal);">Magnit</strong>
-    </div>
+    <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"></span></div>
   </header>
 
   <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald van drie bronnen en gescoord tegen het Spire-profiel v1.3. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 131 opdrachten (lazy-load); Circle8's zoekbox filtert niet op klantnaam — alleen de branchefilter Energievoorziening geeft betrouwbare resultaten.</div>
@@ -1988,6 +1993,24 @@ const opportunities = [
 ];
 
 
+// Per-bron live/uitgevallen status voor de header — dagelijkse pull werkt dit bij, zodat de
+// Bronnen-regel altijd klopt met wat daadwerkelijk is opgehaald (i.p.v. een statische lijst).
+const bronnenStatus = [
+  { naam: 'TenderNed', label: 'TenderNed (AAO + MAC + VAK)', status: 'live' },
+  { naam: 'Striive', label: 'Striive', status: 'live' },
+  { naam: 'Circle8', label: 'Circle8', status: 'live' },
+  { naam: 'Magnit', label: 'Magnit', status: 'uitgevallen', reden: 'sessie verlopen — opnieuw inloggen nodig' },
+];
+
+function renderBronnen() {
+  const el = document.getElementById('bronnenList');
+  if (!el) return;
+  el.innerHTML = bronnenStatus.map(b => {
+    if (b.status === 'live') return `<span class="bron-status-live">${b.label}</span>`;
+    return `<span class="bron-status-down">${b.label}</span><span class="bron-status-flag" title="${b.reden || ''}">${b.reden || 'uitgevallen'}</span>`;
+  }).join(' · ');
+}
+
 // === State ===
 const STATUS_KEY = 'spire_dashboard_status_v1';
 const FILTER_KEY = 'spire_dashboard_filters_v1';
@@ -2248,30 +2271,12 @@ function init() {
     });
   });
 
+  renderBronnen();
   render();
 }
 init();
-
-// === Verversen-knop (Cowork-native, geen backend) ===
-document.getElementById('verversBtn')?.addEventListener('click', async () => {
-  const status = document.getElementById('verversStatus');
-  const btn = document.getElementById('verversBtn');
-  if (!window.cowork || !window.cowork.runScheduledTask) {
-    status.innerHTML = '⚠ Verversen werkt wanneer je dit dashboard in Cowork opent. In een losse browser-tab kan de pagina de bronnen niet zelf ophalen — vraag dan Claude om te verversen.';
-    return;
-  }
-  btn.disabled = true;
-  status.textContent = 'Bezig… ik haal TenderNed, Striive en Circle8 op en scoor alles tegen het Spire-profiel. Dit duurt een paar minuten.';
-  try {
-    await window.cowork.runScheduledTask('spire-tenderned-daily');
-    status.innerHTML = '✓ Verversen gestart. Zodra het klaar is, klik je op de <strong>Herladen</strong>-knop bovenaan deze weergave om de nieuwe lijst te zien.';
-  } catch (e) {
-    status.textContent = 'Kon verversen niet starten: ' + (e && e.message ? e.message : e);
-  } finally {
-    btn.disabled = false;
-  }
-});
 </script>
 
 </body>
 </html>
+                                                                                                                      
