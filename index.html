@@ -346,9 +346,6 @@
       <label for="filterBron">Bron</label>
       <select id="filterBron">
         <option value="">Alle</option>
-        <option value="TenderNed">TenderNed</option>
-        <option value="Striive">Striive</option>
-        <option value="Circle8">Circle8</option>
       </select>
     </div>
     <div class="filter-group">
@@ -2283,6 +2280,21 @@ function renderBronnen() {
   }).join(' · ');
 }
 
+// Bron-filter dropdown wordt afgeleid van de opportunities-array (niet hardcoded), zodat elke bron
+// die daadwerkelijk items heeft automatisch verschijnt — voorkomt dat een nieuwe bron (zoals Magnit,
+// of straks eventueel Flextender) ontbreekt in de dropdown terwijl hij wel in de Bronnen-regel staat.
+function populateBronFilter() {
+  const select = document.getElementById('filterBron');
+  if (!select) return;
+  const bronnen = [...new Set(opportunities.map(o => o.bron).filter(Boolean))].sort();
+  bronnen.forEach(b => {
+    const opt = document.createElement('option');
+    opt.value = b;
+    opt.textContent = b;
+    select.appendChild(opt);
+  });
+}
+
 // === State ===
 const STATUS_KEY = 'spire_dashboard_status_v1';
 const FILTER_KEY = 'spire_dashboard_filters_v1';
@@ -2502,6 +2514,7 @@ function updateSortArrows() {
 
 // === Wiring ===
 function init() {
+  populateBronFilter();
   document.getElementById('filterCat').value = filterState.cat;
   document.getElementById('filterScore').value = filterState.score;
   document.getElementById('filterStatus').value = filterState.status;
@@ -2551,4 +2564,3 @@ init();
 
 </body>
 </html>
-                                                                                                                      
