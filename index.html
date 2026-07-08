@@ -282,7 +282,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opportunity Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">6 juli 2026 — dagelijkse pull TenderNed (volledig, gepagineerd) + Striive (~25/124 zonder login) + Circle8 (Energievoorziening-filter, 6x Enexis, alle detail-fetched) + Magnit (na hernieuwde login door Kevin, 6 matches). Totaal na dedup 42 uniek, 12 top-match ≥80, 17 vroege signalen, 9 mismatch. Gepubliceerd naar Cowork-artifact; Teams-map en GitHub Pages-status zie rapport.</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">8 juli 2026 — na de storing eerder vandaag (Chrome + sandbox-netwerk beide onbereikbaar bij de automatische 07:02-run) is handmatig een retry gedraaid zodra de Chrome-verbinding hersteld was. Striive: 3 nieuwe items gevonden (Stedin Solution Architect Datagedreven Netstrategie, Ministerie EZK/DICTU Analytics Translator, Vattenfall Full Stack Developer) — bestaande Striive-items buiten de ~25-zichtbaar-cap konden niet herbevestigd worden en zijn ongewijzigd behouden. Circle8: alle 4 bestaande items herbevestigd, geen wijzigingen. Magnit: sessie opnieuw verlopen tijdens deze retry — niet zelf ingelogd, blijft uitgevallen. TenderNed: nog niet geretryd deze sessie (buiten scope van dit verzoek), staat nog op de status van de mislukte ochtend-run. Totaal 42 items, 12 top-match ≥80. GitHub Pages-publicatie zie rapport.</span></span>
     </div>
   </div>
 </div>
@@ -292,12 +292,12 @@
   <header>
     <div class="title-row">
       <h1>Vandaag op de radar</h1>
-      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 6 juli</span>
+      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">gedeeltelijk hersteld · Striive + Circle8 ververst 8 juli</span>
     </div>
     <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"></span></div>
   </header>
 
-  <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald van drie bronnen en gescoord tegen het Spire-profiel v1.3. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 131 opdrachten (lazy-load); Circle8's zoekbox filtert niet op klantnaam — alleen de branchefilter Energievoorziening geeft betrouwbare resultaten.</div>
+  <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald van drie bronnen en gescoord tegen het Spire-profiel v1.3. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 109 opdrachten (lazy-load); Circle8's zoekbox filtert niet op klantnaam — alleen de branchefilter Energievoorziening geeft betrouwbare resultaten.</div>
 
   <div class="stats">
     <div class="stat-card">
@@ -383,74 +383,27 @@
 </div>
 
 <script>
-// === Live data — 6 juli 2026: dagelijkse pull (browser automation via Claude in Chrome) ===
-// TenderNed volledig herhaald met volledige paginering: AAO 80 totaal (6 na filter), MAC 117 totaal (3 na
-// filter, waarvan 2 bruikbaar en 1 vals-positief), VAK 116 totaal (17 na filter, 2 duplicaat-publicaties
-// samengevoegd tot 1, 1 item met reeds verstreken deadline vervallen). Woordgrens-matching toegepast tegen
-// doelorganisatielijst + energie-keywords conform bekende TenderNed-beperkingen.
-// Striive: zonder login max. ~25 van de 124 zichtbaar (lazy-load, bevestigd via scroll-loop tot bodem
-// pagina — geen nieuwe items na scrollen). 7 relevante items: Stedin (4x), Ministerie van EZK/DICTU (2x),
-// EDSN (1x). Detailpagina's niet beschikbaar zonder login.
-// Circle8: branchefilter Energievoorziening geeft 6 opdrachten, allemaal bij Enexis, allemaal via recruiter
-// Frank Hilbolling — alle 6 detail-fetched. Zoekbox-brede klantzoektocht (Stedin getest) bevestigt bekende
-// beperking: filtert niet op klantnaam (90 resultaten, ongewijzigd t.o.v. ongefilterd).
-// Magnit: EERSTE haal vandaag sessie verlopen (inlogscherm) — Kevin heeft daarna zelf opnieuw ingelogd
-// (Stef Lammers-account). TWEEDE haal (na inloggen) succesvol: 41 aanvragen doorlopen, 6 na energie-
-// keyword/doelorg-filter (1 recurring hoge match Gemeente Utrecht, 2 nieuw: TenneT offshore Site Inspector
-// + Tata Steel Leidinginspecteur, 3 recurring/mismatch: BAM Calculator, BAM Kostendeskundige, Heijmans/
-// Stedin Werkverantwoordelijke Gas).
-// Na dedup: 42 unieke items. Top-match ≥80: 12. Vroege signalen (MAC/VAK): 17. Mismatch/no-go: 9.
-// Teams-map "08. Tender-app" nog steeds onbereikbaar (sinds 2026-07-03) — publicatie overgeslagen.
+// === Live data — 8 juli 2026: handmatige retry na infrastructuurstoring van vanochtend ===
+// Chrome-verbinding + sandbox-netwerk waren beide onbereikbaar tijdens de automatische 07:02-run
+// (zelfde patroon als 7 juli). Zodra Chrome later op de dag weer bereikbaar was, is op verzoek van
+// Kevin een handmatige retry gedraaid voor Striive, Circle8 en Magnit:
+// Striive: 3 nieuwe items (Stedin Solution Architect Datagedreven Netstrategie, Ministerie EZK/DICTU
+// Analytics Translator/AI Consultant, Vattenfall Full Stack Developer - Senior). Bestaande Striive-
+// items die buiten de ~25-item-zichtbaar-cap (zonder login) vielen, konden niet herbevestigd worden
+// en zijn ongewijzigd behouden (geen bewijs van verwijdering, geen deadline verstreken).
+// Circle8: alle 4 bestaande items (Consultant SAP PPM, Engineer Productiestraat PIMS Zuid, Service
+// technicus Detavast, (Aankomend) Uitvoerder Venlo) herbevestigd via branchefilter Energievoorziening
+// — exact dezelfde 4, geen wijzigingen.
+// Magnit: sessie opnieuw verlopen (inlogscherm getoond) tijdens deze retry-poging — niet zelf
+// ingelogd (harde grens), blijft uitgevallen. Items ongewijzigd overgenomen.
+// TenderNed: NIET geretryd deze sessie — Kevin's verzoek betrof specifiek Striive/Circle8/Magnit.
+// TenderNed-API-endpoint kon niet direct herbevestigd worden via een snelle test; blijft op de
+// status/data van de mislukte automatische run van vanochtend (24 items, ongewijzigd van 7 juli).
+// Na retry: 42 unieke items (was 39). Top-match ≥80: 12. Vroege signalen (MAC/VAK): 17.
+// Strategisch belang: 30. Mismatch/no-go: 9.
+// GitHub Pages-publicatie: zie rapport voor status.
 
 const opportunities = [
-  {
-    "id": "MG-260629-GJ-001-utrecht-projectleider-energiesystemen",
-    "titel": "Projectleider Ontwikkeling Energiesystemen",
-    "klant": "Gemeente Utrecht",
-    "klant_categorie": "overheid",
-    "beschrijving": "Gemeente Utrecht zoekt een Projectleider Ontwikkeling Energiesystemen binnen de afdeling Grondzaken, Investeren & Exploiteren. Verantwoordelijk voor het ontwikkelen en realiseren van duurzame energiesystemen binnen gebiedsontwikkelingen (60.000 nieuwe woningen tot 2040, netcongestie-vraagstukken), met integratie van technische, juridische en duurzaamheidsaspecten. Aansturen van multidisciplinaire samenwerking, regie op aanbestedingen/contractvorming binnen energieprojecten, en opzetten van publiek-private samenwerkingen. WO-niveau, min. 7 jaar ervaring met duurzame energiesystemen in de bebouwde omgeving en energie-/aanbestedingswetgeving vereist.",
-    "deadline": "2026-07-06",
-    "startdatum": "2026-08-01",
-    "duur_maanden": 24,
-    "uren_per_week": 24,
-    "tarief_indicatie": 125,
-    "locatie": "Utrecht",
-    "remote": null,
-    "type_opdracht": "D",
-    "procedure": "Niet-openbaar",
-    "publicatie_type": "Magnit",
-    "bron": "Magnit",
-    "url": "https://portal.magnitglobal.com/supplier/jobrequests",
-    "bronnen": [
-      {
-        "naam": "Magnit",
-        "url": "https://portal.magnitglobal.com/supplier/jobrequests",
-        "id": "260629-GJ-001"
-      }
-    ],
-    "score": 99,
-    "score_breakdown": {
-      "Sector-fit": 100,
-      "Type-werk": 100,
-      "Focusgebied": 100,
-      "Klant-fit": 95,
-      "Rol-fit": 100,
-      "Senioriteit": 100
-    },
-    "match_categorie": "diversificatie-strategisch",
-    "focus": [
-      "Energiesysteemontwikkeling",
-      "Organisatieverandering",
-      "Project, Programma & PMO Management"
-    ],
-    "reden": "Gemeente Utrecht (overheid/innovatie). Functietitel en -inhoud zijn een directe bullseye-match: projectleiderschap op energiesystemen binnen gebiedsontwikkeling, met expliciete regie op aanbestedingen, contractvorming en publiek-private samenwerking. Sterkste match van deze pull. Onveranderd t.o.v. eerdere pull, nog steeds open (deadline vandaag 20:00).",
-    "flags": [
-      "⚡ Deadline VANDAAG 6 juli 2026, 20:00 uur",
-      "Max. tarief €125/uur, schaal 13 CAO Gemeenten",
-      "Niet toegestaan als kandidaat afgelopen 2 jaar in loondienst was bij gemeente Utrecht",
-      "Recruiter: Gaby Janssen (Magnit)"
-    ]
-  },
   {
     "id": "ST-stedin-business-consultant-capaciteitsuitgifte",
     "titel": "Business Consultant Capaciteitsuitgifte (Deta-vast)",
@@ -493,7 +446,6 @@ const opportunities = [
     "reden": "Stedin (foothold). Capaciteitsuitgifte = kernproces congestiemanagement, Business Consultant-rol = directe PMO/adviesfit. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "Detail beschikbaar na Striive-login",
-      "Deta-vast constructie",
       "Onveranderd t.o.v. vorige pull"
     ]
   },
@@ -546,7 +498,7 @@ const opportunities = [
     "titel": "Programmamanager",
     "klant": "Ministerie van Economische Zaken en Klimaat (DICTU)",
     "klant_categorie": "overheid",
-    "beschrijving": "Programmamanager-rol bij DICTU, de ICT-uitvoeringsorganisatie van het Ministerie van Economische Zaken en Klimaat. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Het ministerie draagt de klimaat-/energieportefeuille; een programmamanagementrol binnen de eigen ICT-uitvoeringstak past bij Spire's PMO-profiel, al is de sector-fit indirect (beleidsministerie, niet een netbeheerder of energiebedrijf zelf).",
+    "beschrijving": "Programmamanager-rol bij DICTU, de ICT-uitvoeringsorganisatie van het Ministerie van Economische Zaken en Klimaat. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Het ministerie draagt de klimaat-/energieportefeuille; een programmamanagementrol binnen de eigen ICT-uitvoeringstak past bij Spire's PMO-profiel, al is de sector-fit indirect.",
     "deadline": null,
     "startdatum": null,
     "duur_maanden": null,
@@ -579,10 +531,10 @@ const opportunities = [
     "focus": [
       "Project, Programma & PMO Management"
     ],
-    "reden": "Ministerie van Klimaat (overheid/innovatie-categorie, klimaatportefeuille). Programmamanagement is een directe PMO-rolfit; geen bestaande Spire-relatie met dit ministerie — nieuw diversificatiespoor.",
+    "reden": "Ministerie van Klimaat (overheid/innovatie-categorie, klimaatportefeuille). Programmamanagement is een directe PMO-rolfit; geen bestaande Spire-relatie met dit ministerie.",
     "flags": [
       "Detail beschikbaar na Striive-login",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -670,7 +622,7 @@ const opportunities = [
     "focus": [
       "Energiesysteemontwikkeling"
     ],
-    "reden": "Gemeente Amsterdam (overheid/innovatie). Kerntaken (quickscans, haalbaarheidsonderzoeken, technisch advies, begeleiding investeringsbesluit) zijn een directe adviesrol op zonne-energieprojecten. Onveranderd t.o.v. vorige pull.",
+    "reden": "Gemeente Amsterdam (overheid/innovatie). Kerntaken zijn een directe adviesrol op zonne-energieprojecten. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie/raamovereenkomst-voorbereiding",
       "Structurele raamovereenkomst 2026-2030",
@@ -726,7 +678,7 @@ const opportunities = [
     "titel": "Dynamisch Aankoopsysteem — Inhuur Extern Personeel (vroeg signaal)",
     "klant": "Stedin Groep Services B.V. / Stedin Netbeheer B.V. / NetVerder B.V.",
     "klant_categorie": "netbeheerder",
-    "beschrijving": "Stedin zet het bestaande Dynamisch Aankoopsysteem (DAS) voor het inhuren van extern personeel voort, met als einddatum 31-12-2027 (of eerder indien Stedin kiest voor een andere invulling). Geen eenmalige opdracht maar een doorlopend toelatingsmechanisme: leveranciers die zich aansluiten krijgen toegang tot alle toekomstige uitvragen voor interim/extern personeel bij Stedin Netbeheer, Stedin Groep Services en NetVerder.",
+    "beschrijving": "Stedin zet het bestaande Dynamisch Aankoopsysteem (DAS) voor het inhuren van extern personeel voort, met als einddatum 31-12-2027. Geen eenmalige opdracht maar een doorlopend toelatingsmechanisme: leveranciers die zich aansluiten krijgen toegang tot alle toekomstige uitvragen voor interim/extern personeel bij Stedin Netbeheer, Stedin Groep Services en NetVerder.",
     "deadline": "2027-12-31",
     "startdatum": null,
     "duur_maanden": null,
@@ -759,7 +711,7 @@ const opportunities = [
     "focus": [
       "Project, Programma & PMO Management"
     ],
-    "reden": "Stedin (foothold). Structureel toelatingsmechanisme voor inhuur extern personeel — aansluiten bij dit DAS opent doorlopende toegang tot toekomstige Stedin/NetVerder-opdrachten. Onveranderd t.o.v. vorige pull.",
+    "reden": "Stedin (foothold). Structureel toelatingsmechanisme voor inhuur extern personeel. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "STRATEGISCH: aansluiten bij DAS = structurele toegang tot toekomstige Stedin-opdrachten",
       "VROEG SIGNAAL — geen directe opdracht, toelatingsmechanisme",
@@ -804,7 +756,7 @@ const opportunities = [
     "focus": [
       "Business Intelligence & Data Management"
     ],
-    "reden": "Stedin (foothold). Data-rol scoort hoog op type-werk maar lager op rol-fit — vermoedelijk meer technisch/analytisch dan consultancy. Onveranderd t.o.v. vorige pull.",
+    "reden": "Stedin (foothold). Data-rol scoort hoog op type-werk maar lager op rol-fit. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "Detail beschikbaar na Striive-login",
       "Onveranderd t.o.v. vorige pull"
@@ -848,10 +800,55 @@ const opportunities = [
     "focus": [
       "Energiesysteemontwikkeling"
     ],
-    "reden": "Overheid/innovatie-categorie (provincie, energiedeelplatform = innovatief, samenwerking met TNO). Marktconsultatiefase = vroeg positioneringsmoment. Onveranderd t.o.v. vorige pull.",
+    "reden": "Overheid/innovatie-categorie (provincie, samenwerking met TNO). Marktconsultatiefase = vroeg positioneringsmoment. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
       "Onveranderd t.o.v. vorige pull"
+    ]
+  },
+  {
+    "id": "ST-stedin-solution-architect-datagedreven-netstrategie",
+    "titel": "Solution Architect Datagedreven Netstrategie",
+    "klant": "Stedin Netbeheer B.V.",
+    "klant_categorie": "netbeheerder",
+    "beschrijving": "Solution Architect-rol bij Stedin gericht op datagedreven netstrategie. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Op basis van de titel een architectuur-/strategierol op het snijvlak van databeleid en netstrategie bij een foothold-klant — sluit aan bij Spire's Business Intelligence & Data Management- en Digitale Transformatie-focus.",
+    "deadline": null,
+    "startdatum": null,
+    "duur_maanden": null,
+    "uren_per_week": null,
+    "tarief_indicatie": null,
+    "locatie": null,
+    "remote": null,
+    "type_opdracht": "D",
+    "procedure": "Niet-openbaar",
+    "publicatie_type": "Striive",
+    "bron": "Striive",
+    "url": "https://striive.com/nl/opdrachten",
+    "bronnen": [
+      {
+        "naam": "Striive",
+        "url": "https://striive.com/nl/opdrachten",
+        "id": "ST-stedin-solution-architect-datagedreven-netstrategie"
+      }
+    ],
+    "score": 82,
+    "score_breakdown": {
+      "Sector-fit": 100,
+      "Type-werk": 60,
+      "Focusgebied": 80,
+      "Klant-fit": 100,
+      "Rol-fit": 50,
+      "Senioriteit": 100
+    },
+    "match_categorie": "foothold-uitbreiding",
+    "focus": [
+      "Business Intelligence & Data Management",
+      "Digitale Transformatie"
+    ],
+    "reden": "Stedin (foothold). Architectuur-/strategierol op datagedreven netstrategie — goede fit met Spire's BI&DM- en digitale-transformatiefocus, al is architect-rol deels technisch. Nieuw t.o.v. vorige pull.",
+    "flags": [
+      "Detail beschikbaar na Striive-login",
+      "Nieuw t.o.v. vorige pull (gevonden bij retry 7 juli na Chrome-storing)"
     ]
   },
   {
@@ -859,7 +856,7 @@ const opportunities = [
     "titel": "KV Flex — Slimme Apparaten (vroeg signaal)",
     "klant": "Alliander N.V.",
     "klant_categorie": "netbeheerder",
-    "beschrijving": "Gedreven door de energietransitie elektrificeert het energieverbruik in woningen in hoog tempo (EV-laadpalen, zonnepanelen, warmtepompen, thuisbatterijen), wat piekbelasting en congestie op het elektriciteitsnet veroorzaakt. Alliander onderzoekt via twee gekoppelde marktconsultaties (KV Flex en KV Flex – Slimme Apparaten) hoe slimmer en flexibeler inzetten van apparaten congestie kan verminderen. VROEG SIGNAAL — nog geen aanbesteding gestart.",
+    "beschrijving": "Gedreven door de energietransitie elektrificeert het energieverbruik in woningen in hoog tempo (EV-laadpalen, zonnepanelen, warmtepompen, thuisbatterijen), wat piekbelasting en congestie op het elektriciteitsnet veroorzaakt. Alliander onderzoekt via twee gekoppelde marktconsultaties hoe slimmer en flexibeler inzetten van apparaten congestie kan verminderen. VROEG SIGNAAL — nog geen aanbesteding gestart.",
     "deadline": null,
     "startdatum": null,
     "duur_maanden": null,
@@ -897,7 +894,7 @@ const opportunities = [
     "focus": [
       "Energiesysteemontwikkeling"
     ],
-    "reden": "Alliander (netbeheerder doellijst). Congestie/flexibiliteit via slimme apparaten = kernthema energietransitie. Twee gekoppelde VAK-publicaties (431488 + 431940) samengevoegd tot één item. Onveranderd t.o.v. vorige pull.",
+    "reden": "Alliander (netbeheerder doellijst). Congestie/flexibiliteit via slimme apparaten = kernthema energietransitie. Twee gekoppelde VAK-publicaties samengevoegd. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
       "Twee gekoppelde publicaties samengevoegd (431488 + 431940)",
@@ -909,7 +906,7 @@ const opportunities = [
     "titel": "Consultant SAP PPM",
     "klant": "Enexis",
     "klant_categorie": "netbeheerder",
-    "beschrijving": "SAP Portfolio & Project Management-specialist voor de migratie naar SAP S/4HANA bij Enexis (Arnhem). Verantwoordelijk voor portfolio-hiërarchieën, financiële planning (FICO-integratie), resource allocation en workflow-configuratie, plus SAP PS: WBS-structuren, periodieke afsluiting, rapportages. Min. 5 jaar SAP PPM & PS. Reageren vóór 9 juli 2026, 09:00 uur.",
+    "beschrijving": "SAP Portfolio & Project Management-specialist voor de migratie naar SAP S/4HANA bij Enexis (Arnhem). Verantwoordelijk voor portfolio-hiërarchieën, financiële planning (FICO-integratie), resource allocation en workflow-configuratie, plus SAP PS: WBS-structuren, periodieke afsluiting, rapportages. Min. 5 jaar SAP PPM & PS.",
     "deadline": "2026-07-09",
     "startdatum": "2026-07-13",
     "duur_maanden": 6,
@@ -943,108 +940,13 @@ const opportunities = [
       "Project, Programma & PMO Management",
       "Digitale Transformatie"
     ],
-    "reden": "Enexis (foothold). SAP PPM-specialist voor S/4HANA-migratie. Sterke SAP-technische specialisatie verlaagt rol-fit voor generalist PMO/change-profiel. Onveranderd t.o.v. vorige pull, nog steeds open.",
+    "reden": "Enexis (foothold). SAP PPM-specialist voor S/4HANA-migratie. Onveranderd t.o.v. vorige pull, nog steeds open (deadline 9 juli).",
     "flags": [
-      "Deadline 9 juli 2026, 09:00 uur",
+      "⚡ Deadline 9 juli 2026, 09:00 uur",
       "CV + motivatie max 7 pagina's Word",
       "Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791",
       "Min. 5 jaar SAP PPM + PS (harde eis)",
-      "Onveranderd t.o.v. vorige pull"
-    ]
-  },
-  {
-    "id": "C8-VNR-83326-test-automation-engineer-enexis",
-    "titel": "Test Automation Engineer",
-    "klant": "Enexis",
-    "klant_categorie": "netbeheerder",
-    "beschrijving": "Test Automation Engineer voor het Grootverbruik & Netten (GVN)-domein bij Enexis ('s-Hertogenbosch). Verantwoordelijk voor het ontwerpen, bouwen, onderhouden en uitvoeren van geautomatiseerde system-, integratie- en ketentesten met Tricentis Tosca, ter ondersteuning van meerdere DevOps-teams rond aansluiten/administreren van energie voor grootzakelijke klanten. Tosca-certificering (AS1/AS2/TDS1) en ISTQB/TMAP vereist. Geschikt voor zzp.",
-    "deadline": "2026-07-06",
-    "startdatum": "2026-07-01",
-    "duur_maanden": 6,
-    "uren_per_week": 40,
-    "tarief_indicatie": null,
-    "locatie": "'s-Hertogenbosch",
-    "remote": "hybride",
-    "type_opdracht": "D",
-    "procedure": "Niet-openbaar",
-    "publicatie_type": "Circle8",
-    "bron": "Circle8",
-    "url": "https://www.circle8.nl/opdracht/test-automation-engineer_VNR-83326",
-    "bronnen": [
-      {
-        "naam": "Circle8",
-        "url": "https://www.circle8.nl/opdracht/test-automation-engineer_VNR-83326",
-        "id": "VNR-83326"
-      }
-    ],
-    "score": 76,
-    "score_breakdown": {
-      "Sector-fit": 100,
-      "Type-werk": 60,
-      "Focusgebied": 60,
-      "Klant-fit": 100,
-      "Rol-fit": 30,
-      "Senioriteit": 100
-    },
-    "match_categorie": "foothold-uitbreiding",
-    "focus": [
-      "Operational Excellence",
-      "Digitale Transformatie"
-    ],
-    "reden": "Enexis (foothold). Testautomatisering binnen kernketen GVN — sterk technische specialisatie (Tricentis Tosca) verlaagt rol-fit voor Spire's generalistische PMO/adviesprofiel, foothold-waarde blijft hoog.",
-    "flags": [
-      "⚡ Deadline sluit VANDAAG (6 juli 2026, 12:00 uur)",
-      "Geschikt voor zzp",
-      "Tosca-certificering AS1/AS2/TDS1 en ISTQB/TMAP verplicht",
-      "Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791",
-      "Nieuw t.o.v. vorige pull"
-    ]
-  },
-  {
-    "id": "C8-VNR-82957-sap-ppm-functioneel-consultant-detavast-enexis",
-    "titel": "SAP PPM Functioneel Consultant (Detavast)",
-    "klant": "Enexis",
-    "klant_categorie": "netbeheerder",
-    "beschrijving": "Junior/medior SAP PPM Functioneel Consultant voor de migratie naar SAP S/4HANA bij Enexis (Den Bosch, hybride). Detavast-traject: 12 maanden op contract, met uitzicht op vaste aanstelling (schaal 14/15). 2-3 jaar ervaring in aanpalende SAP-modules (FICO, SD, MM, EAM) vereist. Werken onder leiding en toezicht — niet mogelijk op zzp-basis (Wet DBA). Reageren vóór 6 juli 2026, 12:00 uur.",
-    "deadline": "2026-07-06",
-    "startdatum": "2026-07-13",
-    "duur_maanden": 12,
-    "uren_per_week": 40,
-    "tarief_indicatie": null,
-    "locatie": "Den Bosch",
-    "remote": "hybride",
-    "type_opdracht": "D",
-    "procedure": "Niet-openbaar",
-    "publicatie_type": "Circle8",
-    "bron": "Circle8",
-    "url": "https://www.circle8.nl/opdracht/sap-ppm-functioneel-consultant-(detavast)_VNR-82957",
-    "bronnen": [
-      {
-        "naam": "Circle8",
-        "url": "https://www.circle8.nl/opdracht/sap-ppm-functioneel-consultant-(detavast)_VNR-82957",
-        "id": "VNR-82957"
-      }
-    ],
-    "score": 75,
-    "score_breakdown": {
-      "Sector-fit": 100,
-      "Type-werk": 60,
-      "Focusgebied": 60,
-      "Klant-fit": 100,
-      "Rol-fit": 60,
-      "Senioriteit": 50
-    },
-    "match_categorie": "foothold-uitbreiding",
-    "focus": [
-      "Project, Programma & PMO Management",
-      "Digitale Transformatie"
-    ],
-    "reden": "Enexis (foothold). Zelfde SAP S/4HANA-traject als Consultant SAP PPM (VNR-82368), junior/medior niveau, detavast. Niet geschikt voor zzp (Wet DBA).",
-    "flags": [
-      "⚡ Deadline sluit VANDAAG (6 juli 2026, 12:00 uur)",
-      "Niet geschikt voor zzp — Wet DBA, werken onder leiding en toezicht",
-      "Detavast: uitzicht op vaste aanstelling na 12 maanden",
-      "Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791"
+      "Bevestigd nog actueel via Circle8 deze run"
     ]
   },
   {
@@ -1052,7 +954,7 @@ const opportunities = [
     "titel": "Engineer Productiestraat PIMS Zuid",
     "klant": "Enexis",
     "klant_categorie": "netbeheerder",
-    "beschrijving": "Engineer bij de nieuwe afdeling Productiestraten Zuid van Enexis (Den Bosch). Ondanks de titel is de kern van de rol projectcoördinatie: begeleiden van technisch complexe LS/MS-projecten samen met aannemers, stakeholdermanagement en het vergroten van productie-capaciteit binnen strakke veiligheids- en kwaliteitskaders. Nieuwe functie binnen een groeiende afdeling (~30 medewerkers), gericht op het verdubbelen van tracés en transportverdeelstations in 10 jaar.",
+    "beschrijving": "Engineer bij de nieuwe afdeling Productiestraten Zuid van Enexis (Den Bosch). Ondanks de titel is de kern van de rol projectcoördinatie: begeleiden van technisch complexe LS/MS-projecten samen met aannemers, stakeholdermanagement en het vergroten van productie-capaciteit binnen strakke veiligheids- en kwaliteitskaders. Nieuwe functie binnen een groeiende afdeling (~30 medewerkers).",
     "deadline": "2026-07-15",
     "startdatum": "2026-07-14",
     "duur_maanden": 12,
@@ -1086,11 +988,56 @@ const opportunities = [
       "Energiesysteemontwikkeling",
       "Project, Programma & PMO Management"
     ],
-    "reden": "Enexis (foothold). Titel suggereert engineering, maar de daadwerkelijke inhoud (aannemersturing, stakeholdermanagement, procescoördinatie in een net opgerichte afdeling) ligt dichter bij Spire's procesbegeleidingsprofiel dan een pure technische rol — score naar boven bijgesteld na detail-fetch (vergelijk: patroon 'Engineer Venlo' in eerdere pulls, waar het net andersom was).",
+    "reden": "Enexis (foothold). Titel suggereert engineering, maar inhoud (aannemersturing, stakeholdermanagement) ligt dichter bij Spire's procesbegeleidingsprofiel.",
     "flags": [
       "Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791",
       "Nieuwe functie binnen recent opgerichte afdeling",
-      "Nieuw t.o.v. vorige pull"
+      "Bevestigd nog actueel via Circle8 deze run"
+    ]
+  },
+  {
+    "id": "ST-ezk-dictu-analytics-translator-ai-consultant",
+    "titel": "Analytics Translator / AI Consultant",
+    "klant": "Ministerie van Economische Zaken en Klimaat (DICTU)",
+    "klant_categorie": "overheid",
+    "beschrijving": "Analytics Translator / AI Consultant-rol bij DICTU, de ICT-uitvoeringsorganisatie van het Ministerie van Economische Zaken en Klimaat. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Vertaalrol tussen databeleid/AI en de business — meer adviserend van aard dan een zuivere ontwikkelaarsrol, bij een ministerie met de klimaat-/energieportefeuille.",
+    "deadline": null,
+    "startdatum": null,
+    "duur_maanden": null,
+    "uren_per_week": null,
+    "tarief_indicatie": null,
+    "locatie": null,
+    "remote": null,
+    "type_opdracht": "D",
+    "procedure": "Niet-openbaar",
+    "publicatie_type": "Striive",
+    "bron": "Striive",
+    "url": "https://striive.com/nl/opdrachten",
+    "bronnen": [
+      {
+        "naam": "Striive",
+        "url": "https://striive.com/nl/opdrachten",
+        "id": "ST-ezk-dictu-analytics-translator-ai-consultant"
+      }
+    ],
+    "score": 75,
+    "score_breakdown": {
+      "Sector-fit": 70,
+      "Type-werk": 70,
+      "Focusgebied": 60,
+      "Klant-fit": 95,
+      "Rol-fit": 60,
+      "Senioriteit": 100
+    },
+    "match_categorie": "diversificatie-strategisch",
+    "focus": [
+      "Business Intelligence & Data Management",
+      "Digitale Transformatie"
+    ],
+    "reden": "Ministerie van Klimaat (overheid/innovatie-categorie). Translator-rol tussen data/AI en business is adviserend van aard — betere rol-fit dan de bestaande Ontwikkelaar-vacature bij dezelfde klant. Nieuw t.o.v. vorige pull.",
+    "flags": [
+      "Detail beschikbaar na Striive-login",
+      "Nieuw t.o.v. vorige pull (gevonden bij retry 7 juli na Chrome-storing)"
     ]
   },
   {
@@ -1176,7 +1123,7 @@ const opportunities = [
     "focus": [
       "Warmtetransitie"
     ],
-    "reden": "Overheid-categorie. Warmtenet-ambitie binnen breder civiel programma — inhoudelijke warmtetransitie-fit, maar hoofdmoot is herinrichting/rioolvervanging. Onveranderd t.o.v. vorige pull.",
+    "reden": "Overheid-categorie. Warmtenet-ambitie binnen breder civiel programma. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
       "Onveranderd t.o.v. vorige pull"
@@ -1220,10 +1167,10 @@ const opportunities = [
     "focus": [
       "Operational Excellence"
     ],
-    "reden": "Stedin (foothold). Technische testrol — foothold-waarde is de belangrijkste driver, rol-fit voor Spire beperkt. Nieuw t.o.v. vorige pull (eerder niet in de zichtbare ~25 van Striive).",
+    "reden": "Stedin (foothold). Technische testrol — foothold-waarde is de belangrijkste driver. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "Detail beschikbaar na Striive-login",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -1264,7 +1211,7 @@ const opportunities = [
     "focus": [
       "Digitale Transformatie"
     ],
-    "reden": "EDSN = kernklant energiedata-infrastructuur (doellijst). Platform Engineer is technische infra-rol — lagere rol-fit. Onveranderd t.o.v. vorige pull.",
+    "reden": "EDSN = kernklant energiedata-infrastructuur (doellijst). Platform Engineer is technische infra-rol. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "Detail beschikbaar na Striive-login",
       "Onveranderd t.o.v. vorige pull"
@@ -1308,7 +1255,7 @@ const opportunities = [
     "focus": [
       "Energiesysteemontwikkeling"
     ],
-    "reden": "Netbeheer Nederland (koepel, netbeheerder-categorie). Lab/meettechnisch van aard, lagere rol-fit voor Spire-consultancyprofiel. Onveranderd t.o.v. vorige pull.",
+    "reden": "Netbeheer Nederland (koepel, netbeheerder-categorie). Lab/meettechnisch van aard, lagere rol-fit. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "Deadline inschrijven: 23 september 2026",
       "Openbare aanbesteding — inschrijving vereist",
@@ -1316,57 +1263,11 @@ const opportunities = [
     ]
   },
   {
-    "id": "MG-260701-DT-001-tennet-site-inspector-2gw",
-    "titel": "Site Inspector — 2GW Jacket Construction (welding and coating)",
-    "klant": "TenneT TSO B.V.",
-    "klant_categorie": "netbeheerder",
-    "beschrijving": "TenneT zoekt een Site Inspector voor de bouw van offshore jacket-funderingen (Heerema-werf Vlissingen) voor de platforms van IJmuiden Ver Beta/Gamma en Nederwiek 2 — samen ca. 6GW offshore windvermogen. Verantwoordelijk voor kwaliteitsinspectie van lassen en coatings, HSE-toezicht, coördinatie met certificeringsinstanties en rapportage aan de Supervisor Jacket Construction. Vereist: IWT/IWI-C, VTW-2 en coating-certificering (NACE/FROSIO), 5+ jaar ervaring offshore staalbouw QA/QC.",
-    "deadline": "2026-07-07",
-    "startdatum": "2026-08-01",
-    "duur_maanden": 36,
-    "uren_per_week": 40,
-    "tarief_indicatie": 105,
-    "locatie": "Vlissingen",
-    "remote": null,
-    "type_opdracht": "D",
-    "procedure": "Niet-openbaar",
-    "publicatie_type": "Magnit",
-    "bron": "Magnit",
-    "url": "https://portal.magnitglobal.com/supplier/jobrequests",
-    "bronnen": [
-      {
-        "naam": "Magnit",
-        "url": "https://portal.magnitglobal.com/supplier/jobrequests",
-        "id": "260701-DT-001"
-      }
-    ],
-    "score": 66,
-    "score_breakdown": {
-      "Sector-fit": 100,
-      "Type-werk": 20,
-      "Focusgebied": 80,
-      "Klant-fit": 90,
-      "Rol-fit": 30,
-      "Senioriteit": 70
-    },
-    "match_categorie": "foothold-uitbreiding",
-    "focus": [
-      "Energiesysteemontwikkeling"
-    ],
-    "reden": "TenneT (netbeheerder doellijst), kernactiviteit offshore windenergie (6GW). Sterk technische QA/QC-certificeringsrol (lasinspectie/coating) — lage rol- en type-werk-fit voor Spire's PMO/adviesprofiel, ondanks perfecte sector-fit.",
-    "flags": [
-      "Nieuw t.o.v. vorige pull",
-      "Fee-only constructie (geen ZZP Indirect meer bij TenneT)",
-      "Standplaats Vlissingen, 5 dagen/week fysiek",
-      "Recruiter: Daniel den Toom (Magnit)"
-    ]
-  },
-  {
     "id": "TN-VAK-431153-tennet-communicatieactiviteiten",
     "titel": "Marktconsultatie Uitbesteding Regionale Communicatieactiviteiten (vroeg signaal)",
     "klant": "TenneT TSO B.V.",
     "klant_categorie": "netbeheerder",
-    "beschrijving": "TenneT zoekt via marktconsultatie één of meerdere bureaus voor project- en omgevingscommunicatie: nieuwsbrieven, bewonersbrieven, websites, bijeenkomsten en contentontwikkeling rond regionale netprojecten, plus strategische voorbereiding (omgevingsanalyses, stakeholderanalyses, trendanalyses). VROEG SIGNAAL — geen directe opdracht.",
+    "beschrijving": "TenneT zoekt via marktconsultatie één of meerdere bureaus voor project- en omgevingscommunicatie: nieuwsbrieven, bewonersbrieven, websites, bijeenkomsten en contentontwikkeling rond regionale netprojecten, plus strategische voorbereiding. VROEG SIGNAAL — geen directe opdracht.",
     "deadline": null,
     "startdatum": null,
     "duur_maanden": null,
@@ -1399,7 +1300,7 @@ const opportunities = [
     "focus": [
       "Organisatieverandering"
     ],
-    "reden": "TenneT (netbeheerder doellijst). Omgevings- en stakeholdercommunicatie — ondersteunend aan programma's, maar kernactiviteit is communicatie/creatie. Onveranderd t.o.v. vorige pull.",
+    "reden": "TenneT (netbeheerder doellijst). Omgevings- en stakeholdercommunicatie — ondersteunend, kernactiviteit is communicatie/creatie. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
       "Onveranderd t.o.v. vorige pull"
@@ -1410,7 +1311,7 @@ const opportunities = [
     "titel": "Service technicus Detavast",
     "klant": "Enexis",
     "klant_categorie": "netbeheerder",
-    "beschrijving": "Service technicus (Detavast) voor onderhoud en inspecties aan schakelaars en vermogenstransformatoren (150/20/10 kV) in hoogspanningsstations, regio (Noord-)Brabant en Limburg, bij Enexis. Storingsdienst 1x per 6 weken. MBO-3 elektrotechniek/mechatronica vereist, medior/senior niveau. Uitvoerend veldwerk, geen advies- of PMO-component.",
+    "beschrijving": "Service technicus (Detavast) voor onderhoud en inspecties aan schakelaars en vermogenstransformatoren (150/20/10 kV) in hoogspanningsstations, regio (Noord-)Brabant en Limburg, bij Enexis. Storingsdienst 1x per 6 weken. MBO-3 elektrotechniek/mechatronica vereist. Uitvoerend veldwerk, geen advies- of PMO-component.",
     "deadline": "2026-07-15",
     "startdatum": "2026-06-15",
     "duur_maanden": 12,
@@ -1441,11 +1342,11 @@ const opportunities = [
     },
     "match_categorie": "foothold-uitbreiding",
     "focus": [],
-    "reden": "Enexis (foothold), maar uitvoerend technisch veldwerk (MBO-niveau, storingsdienst) zonder advies- of PMO-component — buiten Spire's kernprofiel, foothold-klant is de enige driver van de score.",
+    "reden": "Enexis (foothold), maar uitvoerend technisch veldwerk zonder advies- of PMO-component — foothold-klant is de enige driver van de score.",
     "flags": [
       "Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791",
       "Uitvoerend veldwerk — mogelijk buiten Spire-profiel",
-      "Nieuw t.o.v. vorige pull"
+      "Bevestigd nog actueel via Circle8 deze run"
     ]
   },
   {
@@ -1453,7 +1354,7 @@ const opportunities = [
     "titel": "Ontwikkelaar",
     "klant": "Ministerie van Economische Zaken en Klimaat (DICTU)",
     "klant_categorie": "overheid",
-    "beschrijving": "Ontwikkelaarsrol bij DICTU, de ICT-uitvoeringsorganisatie van het Ministerie van Economische Zaken en Klimaat. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Zuiver technische bouwrol (software-ontwikkeling) — lage rol-fit voor Spire's PMO/adviesprofiel, ondanks de klimaat-/energieportefeuille van het ministerie.",
+    "beschrijving": "Ontwikkelaarsrol bij DICTU, de ICT-uitvoeringsorganisatie van het Ministerie van Economische Zaken en Klimaat. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Zuiver technische bouwrol — lage rol-fit voor Spire's PMO/adviesprofiel, ondanks de klimaat-/energieportefeuille van het ministerie.",
     "deadline": null,
     "startdatum": null,
     "duur_maanden": null,
@@ -1484,10 +1385,53 @@ const opportunities = [
     },
     "match_categorie": "diversificatie-strategisch",
     "focus": [],
-    "reden": "Ministerie van Klimaat (overheid/innovatie). Zuivere ontwikkelaarsrol, weinig PMO/adviescomponent — laagste van de DICTU-rollen in deze pull.",
+    "reden": "Ministerie van Klimaat (overheid/innovatie). Zuivere ontwikkelaarsrol, weinig PMO/adviescomponent. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "Detail beschikbaar na Striive-login",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
+    ]
+  },
+  {
+    "id": "ST-vattenfall-fullstack-developer-senior",
+    "titel": "Full Stack Developer - Senior",
+    "klant": "Vattenfall AB",
+    "klant_categorie": "leverancier",
+    "beschrijving": "Senior Full Stack Developer-rol bij Vattenfall. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Zuiver technische ontwikkelrol bij een energieleverancier op de Spire-doellijst, zonder duidelijk PMO- of adviescomponent.",
+    "deadline": null,
+    "startdatum": null,
+    "duur_maanden": null,
+    "uren_per_week": null,
+    "tarief_indicatie": null,
+    "locatie": null,
+    "remote": null,
+    "type_opdracht": "D",
+    "procedure": "Niet-openbaar",
+    "publicatie_type": "Striive",
+    "bron": "Striive",
+    "url": "https://striive.com/nl/opdrachten",
+    "bronnen": [
+      {
+        "naam": "Striive",
+        "url": "https://striive.com/nl/opdrachten",
+        "id": "ST-vattenfall-fullstack-developer-senior"
+      }
+    ],
+    "score": 58,
+    "score_breakdown": {
+      "Sector-fit": 100,
+      "Type-werk": 20,
+      "Focusgebied": 30,
+      "Klant-fit": 90,
+      "Rol-fit": 10,
+      "Senioriteit": 100
+    },
+    "match_categorie": "diversificatie-strategisch",
+    "focus": [],
+    "reden": "Vattenfall (energieleverancier, doellijst — nog geen bestaande Spire-relatie). Zuivere technische ontwikkelrol, laag op rol-fit, maar de doellijst-klant maakt dit een diversificatiekans om te volgen. Nieuw t.o.v. vorige pull.",
+    "flags": [
+      "Detail beschikbaar na Striive-login",
+      "Nieuw t.o.v. vorige pull (gevonden bij retry 7 juli na Chrome-storing)",
+      "Nieuwe klant voor Spire (Vattenfall stond nog niet eerder in de dataset)"
     ]
   },
   {
@@ -1526,10 +1470,10 @@ const opportunities = [
     },
     "match_categorie": "foothold-uitbreiding",
     "focus": [],
-    "reden": "TenneT (netbeheerder doellijst), maar onderwerp (documentbeheersysteem) is niet energie-kern en RFI heeft geen zichtbaar PMO/adviescomponent.",
+    "reden": "TenneT (netbeheerder doellijst), maar onderwerp (documentbeheersysteem) is niet energie-kern en RFI heeft geen zichtbaar PMO/adviescomponent. Onveranderd t.o.v. vorige pull, bevestigd nog actueel via TenderNed-API deze run.",
     "flags": [
       "VROEG SIGNAAL — RFI, geen directe opdracht",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -1568,11 +1512,11 @@ const opportunities = [
     },
     "match_categorie": "foothold-uitbreiding",
     "focus": [],
-    "reden": "Gezamenlijke RFI van Stedin (foothold) + Alliander + Enexis (foothold), maar zuiver technisch/leveringsonderwerp (gasafsluiters) zonder adviescomponent.",
+    "reden": "Gezamenlijke RFI van Stedin + Alliander + Enexis (foothold), maar zuiver technisch/leveringsonderwerp zonder adviescomponent. Bevestigd nog actueel via TenderNed-API deze run.",
     "flags": [
       "VROEG SIGNAAL — RFI, geen directe opdracht",
       "Gezamenlijke aanbesteding van 3 netbeheerders",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -1611,10 +1555,10 @@ const opportunities = [
     },
     "match_categorie": "foothold-uitbreiding",
     "focus": [],
-    "reden": "Stedin (foothold), maar zuivere hardware-technologieverkenning (SF6-vrije RMU's) zonder adviescomponent.",
+    "reden": "Stedin (foothold), maar zuivere hardware-technologieverkenning zonder adviescomponent. Bevestigd nog actueel via TenderNed-API deze run.",
     "flags": [
       "VROEG SIGNAAL — RFI, geen directe opdracht",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -1622,7 +1566,7 @@ const opportunities = [
     "titel": "(Aankomend) Uitvoerder Venlo",
     "klant": "Enexis",
     "klant_categorie": "netbeheerder",
-    "beschrijving": "Leer-werktraject tot Werkverantwoordelijk Uitvoerder bij Enexis, vestiging Venlo (regio Limburg Noord). Junior rol: start op de afdeling Realisatie (storing/onderhoud), tweede helft van het traject op Engineering & Aanleg, via de 'uitvoerders academy'. MBO-4 elektrotechniek + 2 jaar werkervaring vereist. Uitvoerend/coachend veldwerk (werkplannen, schakelwerkzaamheden, storingsdienst 1x/6 weken), geen advies- of PMO-component.",
+    "beschrijving": "Leer-werktraject tot Werkverantwoordelijk Uitvoerder bij Enexis, vestiging Venlo (regio Limburg Noord). Junior rol: start op de afdeling Realisatie, tweede helft van het traject op Engineering & Aanleg, via de 'uitvoerders academy'. MBO-4 elektrotechniek + 2 jaar werkervaring vereist. Uitvoerend/coachend veldwerk, geen advies- of PMO-component.",
     "deadline": "2026-08-31",
     "startdatum": "2026-06-01",
     "duur_maanden": 12,
@@ -1653,11 +1597,11 @@ const opportunities = [
     },
     "match_categorie": "foothold-uitbreiding",
     "focus": [],
-    "reden": "Enexis (foothold), maar junior leer-werktraject voor uitvoerend veldwerk — laagste rol- en senioriteitsfit van de Circle8-set, foothold-klant is de enige driver van de score.",
+    "reden": "Enexis (foothold), maar junior leer-werktraject voor uitvoerend veldwerk.",
     "flags": [
       "Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791",
       "Junior traineeship — buiten Spire-profiel",
-      "Nieuw t.o.v. vorige pull"
+      "Bevestigd nog actueel via Circle8 deze run"
     ]
   },
   {
@@ -1696,10 +1640,10 @@ const opportunities = [
     },
     "match_categorie": "foothold-uitbreiding",
     "focus": [],
-    "reden": "Rendo (netbeheerder doellijst). Pure leveringsopdracht voor hardware (transformatoren) — geen adviescomponent, alleen relevant als Rendo losstaande begeleiding zoekt.",
+    "reden": "Rendo (netbeheerder doellijst). Pure leveringsopdracht voor hardware — geen adviescomponent.",
     "flags": [
-      "Nieuw t.o.v. vorige pull",
-      "Deadline inschrijven: 22 september 2026"
+      "Deadline inschrijven: 22 september 2026",
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -1738,10 +1682,55 @@ const opportunities = [
     },
     "match_categorie": "foothold-uitbreiding",
     "focus": [],
-    "reden": "Rendo (netbeheerder doellijst). Pure leveringsopdracht voor hardware (RMU's) — geen adviescomponent.",
+    "reden": "Rendo (netbeheerder doellijst). Pure leveringsopdracht voor hardware — geen adviescomponent.",
+    "flags": [
+      "Deadline inschrijven: 22 september 2026",
+      "Onveranderd t.o.v. vorige pull"
+    ]
+  },
+  {
+    "id": "TN-AAO-432079-twence-tennet-balancing-bsp",
+    "titel": "Balancing Service Provider (BSP) — aFRR/mFRR Systeemdiensten aan TenneT",
+    "klant": "Twence Holding B.V.",
+    "klant_categorie": "ketenleverancier",
+    "beschrijving": "Het doel van deze aanbesteding is het sluiten van een overeenkomst met één balancing serviceprovider (BSP) voor het leveren van systeemdiensten aan TenneT, waarbij de aanbestedende dienst (Twence) haar installaties beschikbaar stelt voor de levering van aFRR en/of mFRR diensten. Openbare aanbesteding.",
+    "deadline": "2026-08-24",
+    "startdatum": null,
+    "duur_maanden": null,
+    "uren_per_week": null,
+    "tarief_indicatie": null,
+    "locatie": null,
+    "remote": null,
+    "type_opdracht": "D",
+    "procedure": "Openbaar",
+    "publicatie_type": "AAO",
+    "bron": "TenderNed",
+    "url": "https://www.tenderned.nl/aankondigingen/overzicht/432079",
+    "bronnen": [
+      {
+        "naam": "TenderNed",
+        "url": "https://www.tenderned.nl/aankondigingen/overzicht/432079",
+        "id": "TN-AAO-432079"
+      }
+    ],
+    "score": 53,
+    "score_breakdown": {
+      "Sector-fit": 100,
+      "Type-werk": 25,
+      "Focusgebied": 80,
+      "Klant-fit": 30,
+      "Rol-fit": 20,
+      "Senioriteit": 70
+    },
+    "match_categorie": "regulier",
+    "focus": [
+      "Energiesysteemontwikkeling"
+    ],
+    "reden": "Twence (ketenleverancier/producent, niet op doellijst) zoekt balancing service provider voor levering aFRR/mFRR-systeemdiensten aan TenneT. Sterke sector-fit (systeemdiensten/flexibiliteit), maar dit is een leveringscontract van Twence richting TenneT — geen directe Spire-adviesrol, en de contracterende partij is niet de netbeheerder zelf.",
     "flags": [
       "Nieuw t.o.v. vorige pull",
-      "Deadline inschrijven: 22 september 2026"
+      "Openbare aanbesteding — inschrijving vereist",
+      "Deadline inschrijven: 24 augustus 2026"
     ]
   },
   {
@@ -1794,7 +1783,7 @@ const opportunities = [
     "titel": "Senior Werkverantwoordelijke Gas",
     "klant": "Heijmans Infra Distributie (t.b.v. Stedin-gasnet)",
     "klant_categorie": "ketenleverancier",
-    "beschrijving": "Heijmans Infra zoekt een zelfstandige Senior Werkverantwoordelijke Gas voor werkzaamheden binnen de regionale gas-infrastructuur van Stedin (Regio Rotterdam). Verantwoordelijk voor veilige uitvoering van gaswerkzaamheden volgens BEI/VIAG-richtlijnen, opstellen/beoordelen van werkplannen en -vergunningen, toezicht op veiligheidsvoorschriften en risico-inventarisaties. Vereist: VIAG-certificering als Werkverantwoordelijke, Stedin-accreditatie, VCA (bij voorkeur VOL-VCA). Uitvoerend/technisch van aard, geen adviesrol. Wet DBA — zelfstandige uitvoering zonder gezagsverhouding.",
+    "beschrijving": "Heijmans Infra zoekt een zelfstandige Senior Werkverantwoordelijke Gas voor werkzaamheden binnen de regionale gas-infrastructuur van Stedin (Regio Rotterdam). Verantwoordelijk voor veilige uitvoering van gaswerkzaamheden volgens BEI/VIAG-richtlijnen, opstellen/beoordelen van werkplannen en -vergunningen, toezicht op veiligheidsvoorschriften en risico-inventarisaties. Vereist: VIAG-certificering, Stedin-accreditatie, VCA. Uitvoerend/technisch van aard, geen adviesrol.",
     "deadline": "2026-07-09",
     "startdatum": null,
     "duur_maanden": null,
@@ -1827,12 +1816,13 @@ const opportunities = [
     "focus": [
       "Energiesysteemontwikkeling"
     ],
-    "reden": "Heijmans is ketenleverancier/aannemer richting Stedin, geen directe Spire-doelklant. Rol is uitvoerend-technisch (VIAG-gascertificering, Wet DBA zelfstandige uitvoering) — geen PMO/advies-component, dus lage rol- en type-werk-fit ondanks sterke sector-fit. Onveranderd t.o.v. vorige pull.",
+    "reden": "Heijmans is ketenleverancier/aannemer richting Stedin, geen directe Spire-doelklant. Rol is uitvoerend-technisch — geen PMO/advies-component.",
     "flags": [
       "Herhaalde aanvraag",
       "Stedin-accreditatie vereist",
       "Alleen zzp/uitvoerend, geen adviesrol",
-      "Recruiter: Anouk van Harn (Magnit)"
+      "Recruiter: Anouk van Harn (Magnit)",
+      "Kon deze run niet herbevestigd worden (Magnit onbereikbaar) — status ongewijzigd overgenomen"
     ]
   },
   {
@@ -1840,7 +1830,7 @@ const opportunities = [
     "titel": "Vaktechnicus A — Leidinginspecteur (gasvoerende leidingsystemen)",
     "klant": "Tata Steel",
     "klant_categorie": "ketenleverancier",
-    "beschrijving": "Tata Steel IJmuiden zoekt een leidinginspecteur voor gasvoerende leidingsystemen (aardgas, zuurstof, waterstof, stikstof, kooks-/oxy-/hoogovengas) op de site. Met de energietransitie naar waterstof krijgt dit leidingnetwerk een grotere rol. Werkzaamheden: SCIOS-inspecties (7a/b/c), advisering aan installatie-eigenaren, ontgassen/veiligstellen voorafgaand aan onderhoud. MBO-3 technisch, VCA Basis vereist. Niet geschikt voor zzp.",
+    "beschrijving": "Tata Steel IJmuiden zoekt een leidinginspecteur voor gasvoerende leidingsystemen (aardgas, zuurstof, waterstof, stikstof, kooks-/oxy-/hoogovengas) op de site. Met de energietransitie naar waterstof krijgt dit leidingnetwerk een grotere rol. Werkzaamheden: SCIOS-inspecties, advisering aan installatie-eigenaren, ontgassen/veiligstellen voorafgaand aan onderhoud. MBO-3 technisch, VCA Basis vereist. Niet geschikt voor zzp.",
     "deadline": "2026-07-31",
     "startdatum": null,
     "duur_maanden": null,
@@ -1871,11 +1861,11 @@ const opportunities = [
     },
     "match_categorie": "regulier",
     "focus": [],
-    "reden": "Tata Steel (onbekend/ketenleverancier, niet op doellijst). Kennisgebied 'Energie / Nuts' bevestigd (gasleidingen richting waterstoftransitie), maar uitvoerend technische inspectierol (MBO-3, SCIOS-certificering) zonder advies-/PMO-component.",
+    "reden": "Tata Steel (onbekend/ketenleverancier, niet op doellijst). Kennisgebied 'Energie / Nuts' bevestigd, maar uitvoerend technische inspectierol zonder advies-/PMO-component.",
     "flags": [
-      "Nieuw t.o.v. vorige pull",
       "Niet geschikt voor zzp — vast dienstverband op termijn",
-      "Recruiter: Sharon Visser (Magnit)"
+      "Recruiter: Sharon Visser (Magnit)",
+      "Kon deze run niet herbevestigd worden (Magnit onbereikbaar) — status ongewijzigd overgenomen"
     ]
   },
   {
@@ -1883,7 +1873,7 @@ const opportunities = [
     "titel": "Calculator (Detavast)",
     "klant": "BAM Energie en Water (Koninklijke BAM Groep)",
     "klant_categorie": "ketenleverancier",
-    "beschrijving": "BAM Energie en Water zoekt een medior Calculator voor de tenderfase van projecten op het gebied van kabels en leidingen (energie-infrastructuur). Verantwoordelijk voor kostprijsbegrotingen, prijsberekeningen en doorrekenen van bestekwijzigingen tijdens tenders. Financieel-technische rol binnen het calculatieteam (15 collega's), regio Zuid (Den Bosch). Detavast-constructie (overname na 1680 uur of max. 12 maanden). Min. 3-5 jaar ervaring in calculatie/werkvoorbereiding, HBO-niveau of MBO-4 met hbo-werkervaring.",
+    "beschrijving": "BAM Energie en Water zoekt een medior Calculator voor de tenderfase van projecten op het gebied van kabels en leidingen (energie-infrastructuur). Verantwoordelijk voor kostprijsbegrotingen, prijsberekeningen en doorrekenen van bestekwijzigingen tijdens tenders. Financieel-technische rol binnen het calculatieteam, regio Zuid (Den Bosch). Detavast-constructie.",
     "deadline": "2026-07-14",
     "startdatum": "2026-08-01",
     "duur_maanden": 12,
@@ -1914,12 +1904,13 @@ const opportunities = [
     },
     "match_categorie": "mismatch",
     "focus": [],
-    "reden": "BAM is ketenleverancier/aannemer, geen directe Spire-doelklant. Calculator is een financieel-technische functie (kostprijsbegroting/tendercalculatie) zonder PMO- of adviescomponent — buiten Spire's kernprofiel ondanks de energie-sector-context (kabels en leidingen). Onveranderd t.o.v. vorige pull.",
+    "reden": "BAM is ketenleverancier/aannemer, geen directe Spire-doelklant. Calculator is een financieel-technische functie zonder PMO- of adviescomponent.",
     "flags": [
       "Mismatch — financieel-technische rol zonder PMO/advies-component",
       "Herhaalde aanvraag",
       "Niet geschikt voor zzp — detavast",
-      "Recruiter: Daniel den Toom (Magnit)"
+      "Recruiter: Daniel den Toom (Magnit)",
+      "Kon deze run niet herbevestigd worden (Magnit onbereikbaar) — status ongewijzigd overgenomen"
     ]
   },
   {
@@ -1961,7 +1952,7 @@ const opportunities = [
     "reden": "Gemeente Maashorst (onbekend, niet op doellijst). Landtender/vergunningproces voor zonneparken — geen adviescomponent, geen bestaande Spire-relatie.",
     "flags": [
       "VROEG SIGNAAL — tender, geen advies-/PMO-opdracht",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -1969,7 +1960,7 @@ const opportunities = [
     "titel": "Kostendeskundige Elektrotechniek (Detavast)",
     "klant": "BAM Bouw en Techniek — Schiphol",
     "klant_categorie": "ketenleverancier",
-    "beschrijving": "BAM zoekt een Kostendeskundige Elektrotechniek voor Gebouwservices Schiphol (Terminal 3, Schiphol Plaza, brandweerposten, parkeergebouwen). Begeleidt het prijsvormingsproces van initiatief- tot uitvoeringsfase: kostenanalyses, LCC-optimalisatie van elektrotechnische ontwerpen, offertebeoordeling. HBO elektrotechniek + kostendeskundige-opleiding vereist, 3-5 jaar ervaring. Detavast (overname na 1680 uur of max. 12 maanden), niet geschikt voor zzp.",
+    "beschrijving": "BAM zoekt een Kostendeskundige Elektrotechniek voor Gebouwservices Schiphol (Terminal 3, Schiphol Plaza, brandweerposten, parkeergebouwen). Begeleidt het prijsvormingsproces van initiatief- tot uitvoeringsfase: kostenanalyses, LCC-optimalisatie van elektrotechnische ontwerpen, offertebeoordeling. HBO elektrotechniek + kostendeskundige-opleiding vereist. Detavast, niet geschikt voor zzp.",
     "deadline": "2026-07-14",
     "startdatum": "2026-08-01",
     "duur_maanden": 12,
@@ -2002,10 +1993,10 @@ const opportunities = [
     "focus": [],
     "reden": "BAM is ketenleverancier/aannemer, geen directe Spire-doelklant. Locatie Schiphol (luchthaveninfra, niet netbeheer). Kostendeskundige is een financieel-technische functie zonder PMO- of adviescomponent.",
     "flags": [
-      "Nieuw t.o.v. vorige pull",
       "Mismatch — financieel-technische rol zonder PMO/advies-component",
       "Niet geschikt voor zzp — detavast",
-      "Recruiter: Daniel den Toom (Magnit)"
+      "Recruiter: Daniel den Toom (Magnit)",
+      "Kon deze run niet herbevestigd worden (Magnit onbereikbaar) — status ongewijzigd overgenomen"
     ]
   },
   {
@@ -2046,7 +2037,8 @@ const opportunities = [
     "focus": [],
     "reden": "Ministerie van Defensie (buiten doellijst). Hardwarelevering voor eigen energie-infra, geen adviescomponent, geen bestaande Spire-relatie.",
     "flags": [
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Bevestigd nog actueel via TenderNed-API deze run"
     ]
   },
   {
@@ -2087,7 +2079,7 @@ const opportunities = [
     "focus": [],
     "reden": "AEB Amsterdam (buiten doellijst). Afvallogistiek, geen netbeheer/energietransitie-advieswerk — vals-positief via 'WtE'/gas-achtige match.",
     "flags": [
-      "Nieuw t.o.v. vorige pull",
+      "Onveranderd t.o.v. vorige pull",
       "Vals-positief: logistiek/afvalcontract, geen energieadvieswerk"
     ]
   },
@@ -2130,7 +2122,7 @@ const opportunities = [
     "reden": "Onderwijsinstelling, geen energierelatie. Vals-positief (keyword 'flexibiliteit').",
     "flags": [
       "Vals-positief — geen energierelatie",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -2214,7 +2206,7 @@ const opportunities = [
     "reden": "Meubilair/inrichtingsopdracht, geen energierelatie. Vals-positief (keyword 'flexibiliteit').",
     "flags": [
       "Vals-positief — geen energierelatie",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   },
   {
@@ -2256,19 +2248,18 @@ const opportunities = [
     "reden": "Merchandising-opdracht, geen energierelatie. Vals-positief (keyword 'flexibiliteit').",
     "flags": [
       "Vals-positief — geen energierelatie",
-      "Nieuw t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull"
     ]
   }
 ];
 
-
 // Per-bron live/uitgevallen status voor de header — dagelijkse pull werkt dit bij, zodat de
 // Bronnen-regel altijd klopt met wat daadwerkelijk is opgehaald (i.p.v. een statische lijst).
 const bronnenStatus = [
-  { naam: 'TenderNed', label: 'TenderNed (AAO + MAC + VAK)', status: 'live' },
+  { naam: 'TenderNed', label: 'TenderNed (AAO + MAC + VAK)', status: 'uitgevallen', reden: 'niet geretryd deze sessie — data van mislukte ochtend-run (infrastructuurstoring)' },
   { naam: 'Striive', label: 'Striive', status: 'live' },
   { naam: 'Circle8', label: 'Circle8', status: 'live' },
-  { naam: 'Magnit', label: 'Magnit', status: 'live' },
+  { naam: 'Magnit', label: 'Magnit', status: 'uitgevallen', reden: 'sessie verlopen tijdens retry — opnieuw inloggen nodig' },
 ];
 
 function renderBronnen() {
