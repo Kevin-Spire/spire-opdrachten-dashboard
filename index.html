@@ -282,7 +282,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opportunity Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">8 juli 2026 — na de storing eerder vandaag (Chrome + sandbox-netwerk beide onbereikbaar bij de automatische 07:02-run) is handmatig een retry gedraaid zodra de Chrome-verbinding hersteld was. Striive: 3 nieuwe items gevonden (Stedin Solution Architect Datagedreven Netstrategie, Ministerie EZK/DICTU Analytics Translator, Vattenfall Full Stack Developer) — bestaande Striive-items buiten de ~25-zichtbaar-cap konden niet herbevestigd worden en zijn ongewijzigd behouden. Circle8: alle 4 bestaande items herbevestigd, geen wijzigingen. Magnit: sessie opnieuw verlopen tijdens deze retry — niet zelf ingelogd, blijft uitgevallen. TenderNed: nog niet geretryd deze sessie (buiten scope van dit verzoek), staat nog op de status van de mislukte ochtend-run. Totaal 42 items, 12 top-match ≥80. GitHub Pages-publicatie zie rapport.</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">8 juli 2026 — na de storing eerder vandaag (Chrome + sandbox-netwerk beide onbereikbaar bij de automatische 07:02-run) is handmatig een retry gedraaid zodra de Chrome-verbinding hersteld was. Striive: 3 nieuwe items (Stedin Solution Architect Datagedreven Netstrategie, Ministerie EZK/DICTU Analytics Translator, Vattenfall Full Stack Developer). Circle8: alle 4 bestaande items herbevestigd, geen wijzigingen. Magnit: Kevin heeft zelf opnieuw ingelogd — daarna 1 sterke nieuwe match gevonden (TenneT Projectmanager Verkenning & Planstudie, score 94) plus 1 mismatch (TenneT Management Assistent, expliciet geen PMO-rol), en de 4 bestaande Magnit-items herbevestigd. TenderNed: nog niet geretryd deze sessie (buiten scope van dit verzoek), staat nog op de status van de mislukte ochtend-run. Totaal 44 items, 13 top-match ≥80. GitHub Pages-publicatie zie rapport.</span></span>
     </div>
   </div>
 </div>
@@ -292,7 +292,7 @@
   <header>
     <div class="title-row">
       <h1>Vandaag op de radar</h1>
-      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">gedeeltelijk hersteld · Striive + Circle8 ververst 8 juli</span>
+      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">grotendeels hersteld · Striive + Circle8 + Magnit ververst 8 juli</span>
     </div>
     <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"></span></div>
   </header>
@@ -394,13 +394,17 @@
 // Circle8: alle 4 bestaande items (Consultant SAP PPM, Engineer Productiestraat PIMS Zuid, Service
 // technicus Detavast, (Aankomend) Uitvoerder Venlo) herbevestigd via branchefilter Energievoorziening
 // — exact dezelfde 4, geen wijzigingen.
-// Magnit: sessie opnieuw verlopen (inlogscherm getoond) tijdens deze retry-poging — niet zelf
-// ingelogd (harde grens), blijft uitgevallen. Items ongewijzigd overgenomen.
+// Magnit: sessie was verlopen — Kevin heeft zelf opnieuw ingelogd (nooit zelf geauthenticeerd namens
+// hem). Daarna succesvol gepulled: 43 aanvragen doorlopen, 1 sterke nieuwe match (TenneT Projectmanager
+// Verkenning & Planstudie Area North, score 94 — PMO-rol op planologie/vergunningen/stakeholdermanagement
+// voor hoogspanningsprojecten) en 1 nieuwe mismatch (TenneT Management Assistent Offshore, expliciet
+// "geen type PMO'er"). De 4 bestaande Magnit-items (Heijmans/Stedin, Tata Steel, 2x BAM) herbevestigd
+// nog actueel, geen wijzigingen.
 // TenderNed: NIET geretryd deze sessie — Kevin's verzoek betrof specifiek Striive/Circle8/Magnit.
 // TenderNed-API-endpoint kon niet direct herbevestigd worden via een snelle test; blijft op de
 // status/data van de mislukte automatische run van vanochtend (24 items, ongewijzigd van 7 juli).
-// Na retry: 42 unieke items (was 39). Top-match ≥80: 12. Vroege signalen (MAC/VAK): 17.
-// Strategisch belang: 30. Mismatch/no-go: 9.
+// Na retry: 44 unieke items (was 39). Top-match ≥80: 13. Vroege signalen (MAC/VAK): 17.
+// Strategisch belang: 31. Mismatch/no-go: 10.
 // GitHub Pages-publicatie: zie rapport voor status.
 
 const opportunities = [
@@ -491,6 +495,56 @@ const opportunities = [
     "flags": [
       "Detail beschikbaar na Striive-login",
       "Onveranderd t.o.v. vorige pull"
+    ]
+  },
+  {
+    "id": "MG-260527-DT-002-tennet-projectmanager-verkenning-planstudie-area-north",
+    "titel": "Projectmanager Verkenning & Planstudie (Area North)",
+    "klant": "TenneT TSO B.V.",
+    "klant_categorie": "netbeheerder",
+    "beschrijving": "TenneT zoekt een Projectmanager voor de verkennings- en planstudiefase van grootschalige hoogspanningsprojecten (110-380kV) binnen de subunit Greenfield, team \"Area North\" (Groningen). Verantwoordelijk voor het aansturen van een integraal projectteam (10-15 personen) op planologie, vergunningen, omgeving en ontwerp; opstellen en implementeren van de strategische projectaanpak en vergunningenstrategie; coördineren van onderzoeken (MER, ruimtelijke onderbouwing); aansturen van Basisontwerp/Definitief Ontwerp; regie op vergunningentrajecten en stakeholdermanagement richting ministeries, provincies en gemeenten. TenneT zoekt expliciet geen reguliere technische projectleider maar iemand met kennis van privaatrecht, planologie en ruimtelijke ordening. Tijdelijke rol i.v.m. ziekte, 6 maanden, standplaats Hoogeveen/Arnhem/Groningen.",
+    "deadline": "2026-07-13",
+    "startdatum": "2026-08-01",
+    "duur_maanden": 6,
+    "uren_per_week": 36,
+    "tarief_indicatie": 120,
+    "locatie": "Hoogeveen",
+    "remote": "hybride",
+    "type_opdracht": "D",
+    "procedure": "Niet-openbaar",
+    "publicatie_type": "Magnit",
+    "bron": "Magnit",
+    "url": "https://portal.magnitglobal.com/supplier/jobrequests",
+    "bronnen": [
+      {
+        "naam": "Magnit",
+        "url": "https://portal.magnitglobal.com/supplier/jobrequests",
+        "id": "260527-DT-002"
+      }
+    ],
+    "score": 94,
+    "score_breakdown": {
+      "Sector-fit": 100,
+      "Type-werk": 90,
+      "Focusgebied": 90,
+      "Klant-fit": 100,
+      "Rol-fit": 85,
+      "Senioriteit": 100
+    },
+    "match_categorie": "foothold-uitbreiding",
+    "focus": [
+      "Energiesysteemontwikkeling",
+      "Project, Programma & PMO Management",
+      "Organisatieverandering"
+    ],
+    "reden": "TenneT (foothold/doellijst netbeheerder). Vrijwel schoolvoorbeeld van een Spire-opdracht: PMO-rol op de voorbereidende (planologie/vergunningen/stakeholder) fase van grootschalige energie-infrastructuurprojecten, met expliciete regie op strategie en multidisciplinair teammanagement. Sterkste match van deze retry.",
+    "flags": [
+      "Herhaalde aanvraag",
+      "Recruiter: Daniel den Toom (Magnit)",
+      "⚡ Deadline 13 juli 2026, 09:30 uur",
+      "Max. tarief €120/uur, schaal 9 CAO TSO",
+      "Idealiter kandidaat woonachtig in Noord-Nederland",
+      "Nieuw t.o.v. vorige pull (gevonden bij retry 8 juli na herinloggen)"
     ]
   },
   {
@@ -1822,7 +1876,7 @@ const opportunities = [
       "Stedin-accreditatie vereist",
       "Alleen zzp/uitvoerend, geen adviesrol",
       "Recruiter: Anouk van Harn (Magnit)",
-      "Kon deze run niet herbevestigd worden (Magnit onbereikbaar) — status ongewijzigd overgenomen"
+      "Bevestigd nog actueel via Magnit deze run"
     ]
   },
   {
@@ -1865,7 +1919,52 @@ const opportunities = [
     "flags": [
       "Niet geschikt voor zzp — vast dienstverband op termijn",
       "Recruiter: Sharon Visser (Magnit)",
-      "Kon deze run niet herbevestigd worden (Magnit onbereikbaar) — status ongewijzigd overgenomen"
+      "Bevestigd nog actueel via Magnit deze run"
+    ]
+  },
+  {
+    "id": "MG-260604-M-001-tennet-management-assistent-operational-support-offshore",
+    "titel": "Management Assistent(e) — Operational Support (Offshore)",
+    "klant": "TenneT TSO B.V.",
+    "klant_categorie": "netbeheerder",
+    "beschrijving": "TenneT zoekt een Management Assistent voor de afdeling Operational Support binnen de divisie Offshore (asset-integriteit, onderhoudsstrategieën offshore). Agendabeheer, notuleren, reisorganisatie en administratieve ondersteuning voor de manager van de unit. Expliciet vermeld: \"denk voor deze rol aan een type executive assistant of secretaresse, geen type PMO'er.\" MBO-4, 4 jaar ervaring, geen zzp mogelijk.",
+    "deadline": "2026-07-08",
+    "startdatum": "2026-07-13",
+    "duur_maanden": 6,
+    "uren_per_week": 36,
+    "tarief_indicatie": 65,
+    "locatie": "Arnhem",
+    "remote": "hybride",
+    "type_opdracht": "D",
+    "procedure": "Niet-openbaar",
+    "publicatie_type": "Magnit",
+    "bron": "Magnit",
+    "url": "https://portal.magnitglobal.com/supplier/jobrequests",
+    "bronnen": [
+      {
+        "naam": "Magnit",
+        "url": "https://portal.magnitglobal.com/supplier/jobrequests",
+        "id": "260604-M-001"
+      }
+    ],
+    "score": 47,
+    "score_breakdown": {
+      "Sector-fit": 100,
+      "Type-werk": 10,
+      "Focusgebied": 10,
+      "Klant-fit": 100,
+      "Rol-fit": 0,
+      "Senioriteit": 30
+    },
+    "match_categorie": "mismatch",
+    "focus": [],
+    "reden": "TenneT (foothold), maar de rol is expliciet en met nadruk NIET PMO (\"geen type PMO'er\") — zuiver secretarieel/executive-assistant werk zonder enige advies- of projectcomponent. Foothold-klant alleen is onvoldoende om dit boven de mismatch-drempel te tillen.",
+    "flags": [
+      "Herhaalde aanvraag",
+      "Recruiter: Stephan Dooms (Magnit)",
+      "Geen zzp mogelijk",
+      "Expliciet: \"geen type PMO'er\"",
+      "Nieuw t.o.v. vorige pull (gevonden bij retry 8 juli na herinloggen)"
     ]
   },
   {
@@ -1910,7 +2009,7 @@ const opportunities = [
       "Herhaalde aanvraag",
       "Niet geschikt voor zzp — detavast",
       "Recruiter: Daniel den Toom (Magnit)",
-      "Kon deze run niet herbevestigd worden (Magnit onbereikbaar) — status ongewijzigd overgenomen"
+      "Bevestigd nog actueel via Magnit deze run"
     ]
   },
   {
@@ -1996,7 +2095,7 @@ const opportunities = [
       "Mismatch — financieel-technische rol zonder PMO/advies-component",
       "Niet geschikt voor zzp — detavast",
       "Recruiter: Daniel den Toom (Magnit)",
-      "Kon deze run niet herbevestigd worden (Magnit onbereikbaar) — status ongewijzigd overgenomen"
+      "Bevestigd nog actueel via Magnit deze run"
     ]
   },
   {
@@ -2259,7 +2358,7 @@ const bronnenStatus = [
   { naam: 'TenderNed', label: 'TenderNed (AAO + MAC + VAK)', status: 'uitgevallen', reden: 'niet geretryd deze sessie — data van mislukte ochtend-run (infrastructuurstoring)' },
   { naam: 'Striive', label: 'Striive', status: 'live' },
   { naam: 'Circle8', label: 'Circle8', status: 'live' },
-  { naam: 'Magnit', label: 'Magnit', status: 'uitgevallen', reden: 'sessie verlopen tijdens retry — opnieuw inloggen nodig' },
+  { naam: 'Magnit', label: 'Magnit', status: 'live' },
 ];
 
 function renderBronnen() {
