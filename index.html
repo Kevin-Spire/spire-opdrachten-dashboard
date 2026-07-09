@@ -282,7 +282,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opportunity Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">8 juli 2026 — na de storing eerder vandaag (Chrome + sandbox-netwerk beide onbereikbaar bij de automatische 07:02-run) is handmatig een retry gedraaid zodra de Chrome-verbinding hersteld was. Striive: 3 nieuwe items (Stedin Solution Architect Datagedreven Netstrategie, Ministerie EZK/DICTU Analytics Translator, Vattenfall Full Stack Developer). Circle8: alle 4 bestaande items herbevestigd, geen wijzigingen. Magnit: Kevin heeft zelf opnieuw ingelogd — daarna 1 sterke nieuwe match gevonden (TenneT Projectmanager Verkenning & Planstudie, score 94) plus 1 mismatch (TenneT Management Assistent, expliciet geen PMO-rol), en de 4 bestaande Magnit-items herbevestigd. TenderNed: nog niet geretryd deze sessie (buiten scope van dit verzoek), staat nog op de status van de mislukte ochtend-run. Totaal 44 items, 13 top-match ≥80. GitHub Pages-publicatie zie rapport.</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">8 juli 2026 — na de storing van vanochtend (Chrome + sandbox-netwerk beide onbereikbaar bij de automatische 07:02-run) is de volledige pull alsnog handmatig afgerond zodra de verbindingen herstelden. Striive: 3 nieuwe items. Circle8: alle 4 bestaande items herbevestigd. Magnit: Kevin heeft zelf opnieuw ingelogd — 1 sterke nieuwe match (TenneT Projectmanager Verkenning & Planstudie, score 94) + 1 mismatch, 4 bestaande herbevestigd. TenderNed: correcte API-parameter (publicatieType) gevonden na eerdere 404's — AAO (3 dagen) + MAC/VAK (30 dagen) opnieuw gepulld: 6 AAO-items buiten het 3-daags venster vervallen, 2 nieuwe items gevonden (EBN Geothermieproject marktverkenning, Havenbedrijf Rotterdam Virtueel Energiesysteem), overige 17 herbevestigd. Alle 4 bronnen nu live. Totaal 40 items, 14 top-match ≥80.</span></span>
     </div>
   </div>
 </div>
@@ -292,12 +292,12 @@
   <header>
     <div class="title-row">
       <h1>Vandaag op de radar</h1>
-      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">grotendeels hersteld · Striive + Circle8 + Magnit ververst 8 juli</span>
+      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">volledig hersteld · alle 4 bronnen ververst 8 juli</span>
     </div>
     <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"></span></div>
   </header>
 
-  <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald van drie bronnen en gescoord tegen het Spire-profiel v1.3. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 109 opdrachten (lazy-load); Circle8's zoekbox filtert niet op klantnaam — alleen de branchefilter Energievoorziening geeft betrouwbare resultaten.</div>
+  <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald van vier bronnen en gescoord tegen het Spire-profiel v1.3. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 109 opdrachten (lazy-load); Circle8's zoekbox filtert niet op klantnaam — alleen de branchefilter Energievoorziening geeft betrouwbare resultaten.</div>
 
   <div class="stats">
     <div class="stat-card">
@@ -383,29 +383,30 @@
 </div>
 
 <script>
-// === Live data — 8 juli 2026: handmatige retry na infrastructuurstoring van vanochtend ===
-// Chrome-verbinding + sandbox-netwerk waren beide onbereikbaar tijdens de automatische 07:02-run
-// (zelfde patroon als 7 juli). Zodra Chrome later op de dag weer bereikbaar was, is op verzoek van
-// Kevin een handmatige retry gedraaid voor Striive, Circle8 en Magnit:
-// Striive: 3 nieuwe items (Stedin Solution Architect Datagedreven Netstrategie, Ministerie EZK/DICTU
-// Analytics Translator/AI Consultant, Vattenfall Full Stack Developer - Senior). Bestaande Striive-
-// items die buiten de ~25-item-zichtbaar-cap (zonder login) vielen, konden niet herbevestigd worden
-// en zijn ongewijzigd behouden (geen bewijs van verwijdering, geen deadline verstreken).
-// Circle8: alle 4 bestaande items (Consultant SAP PPM, Engineer Productiestraat PIMS Zuid, Service
-// technicus Detavast, (Aankomend) Uitvoerder Venlo) herbevestigd via branchefilter Energievoorziening
-// — exact dezelfde 4, geen wijzigingen.
-// Magnit: sessie was verlopen — Kevin heeft zelf opnieuw ingelogd (nooit zelf geauthenticeerd namens
-// hem). Daarna succesvol gepulled: 43 aanvragen doorlopen, 1 sterke nieuwe match (TenneT Projectmanager
-// Verkenning & Planstudie Area North, score 94 — PMO-rol op planologie/vergunningen/stakeholdermanagement
-// voor hoogspanningsprojecten) en 1 nieuwe mismatch (TenneT Management Assistent Offshore, expliciet
-// "geen type PMO'er"). De 4 bestaande Magnit-items (Heijmans/Stedin, Tata Steel, 2x BAM) herbevestigd
-// nog actueel, geen wijzigingen.
-// TenderNed: NIET geretryd deze sessie — Kevin's verzoek betrof specifiek Striive/Circle8/Magnit.
-// TenderNed-API-endpoint kon niet direct herbevestigd worden via een snelle test; blijft op de
-// status/data van de mislukte automatische run van vanochtend (24 items, ongewijzigd van 7 juli).
-// Na retry: 44 unieke items (was 39). Top-match ≥80: 13. Vroege signalen (MAC/VAK): 17.
-// Strategisch belang: 31. Mismatch/no-go: 10.
-// GitHub Pages-publicatie: zie rapport voor status.
+// === Live data — 8 juli 2026: TenderNed-retry, alle 4 bronnen weer live ===
+// Vervolg op de handmatige Striive/Circle8/Magnit-retry eerder vandaag na de infrastructuurstoring
+// van de automatische 07:02-run. Op verzoek van Kevin ("ik wil gewoon elke dag een volledig up to
+// date dashboard") is ook TenderNed alsnog geretryd:
+// - Eerder gegokte endpoint (/publicaties/aankondigingen) gaf 404. Juiste endpoint gevonden via
+//   read_network_requests: /papi/tenderned-rs-tns/v2/publicaties. Filter-parameter is
+//   publicatieType (herhaald per type), NIET typePublicatie zoals eerder aangenomen — ontdekt door
+//   de UI-checkbox "Publicatietype" te klikken en de resulterende request te inspecteren.
+// - Publicatietype-mapping: Aankondiging opdracht = AAO(+VBE gekoppeld), Marktconsultatie = MAC,
+//   Vooraankondiging = VAK. Max page size = 100 (niet 200, geeft 400-error).
+// - AAO-venster (3 dagen): 6 bestaande AAO-items (Netbeheer Nederland groengaskwaliteit, 2x Rendo,
+//   Enexis logistieke automatisering, Defensie transformatorstations, AEB Amsterdam) vielen buiten
+//   het venster t.o.v. hun publicatiedatum en zijn conform protocol vervallen (Twence/TenneT-BSP
+//   bleef binnen venster, behouden).
+// - MAC/VAK-venster (30 dagen): alle 17 bestaande niet-AAO items herbevestigd aanwezig.
+// - 2 nieuwe items via bredere keyword-doorloop (woordgrens-regex miste Nederlandse samenstellingen
+//   als "energiedeelplatform" — losse aanvulling met substring-check op de 30-dagen-pool leverde
+//   2 echte nieuwe kansen op, naast een aantal terechte afwijzingen zoals Defensie-laboratorium en
+//   Provincie Utrecht-monumenten (al verlopen, buiten elektra/gas/warmte-context)):
+//   1. EBN B.V. — Marktverkenning Geothermieproject (score 86, overheid/innovatie, vroeg signaal)
+//   2. Havenbedrijf Rotterdam — Virtueel Energiesysteem simulatiecapability (score 76, vroeg signaal)
+// Na deze retry: 40 unieke items (TenderNed: 20). Top-match ≥80: 14.
+// Vroege signalen (MAC/VAK): 19. Strategisch belang: 29. Mismatch/no-go: 8.
+// Alle 4 bronnen (TenderNed, Striive, Circle8, Magnit) zijn nu live/actueel.
 
 const opportunities = [
   {
@@ -635,7 +636,8 @@ const opportunities = [
     "flags": [
       "VROEG SIGNAAL — vooraankondiging, geen directe opdracht",
       "Kans: interne uitrol/verandermanagement expliciet buiten scope leverancier",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -680,7 +682,8 @@ const opportunities = [
     "flags": [
       "VROEG SIGNAAL — marktconsultatie/raamovereenkomst-voorbereiding",
       "Structurele raamovereenkomst 2026-2030",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -724,7 +727,52 @@ const opportunities = [
     "reden": "Stedin (foothold). RFI over doorontwikkeling van flextender-mechanismen voor congestiemanagement — kernthema van de energietransitie. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — RFI, geen directe opdracht",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
+    ]
+  },
+  {
+    "id": "TN-VAK-432176-ebn-geothermieproject-marktverkenning",
+    "titel": "Marktverkenning Geothermieproject (vroeg signaal)",
+    "klant": "EBN B.V.",
+    "klant_categorie": "overheid_innovatie",
+    "beschrijving": "EBN (Energie Beheer Nederland) wil via een marktverkenning inzicht krijgen in de haalbaarheid van een geothermieconcept, de mogelijke rol van marktpartijen, en de wijze waarop publiek-private samenwerking vorm kan krijgen. De verkenning richt zich nadrukkelijk niet op een uitgewerkte aanbieding of businesscase, maar op het ophalen van aandachtspunten, randvoorwaarden en risico's bij verdere ontwikkeling, realisatie en exploitatie van de geothermiebron. Vroeg positioneringsmoment voor advies over samenwerkingsvorm en projectopzet.",
+    "deadline": null,
+    "startdatum": null,
+    "duur_maanden": null,
+    "uren_per_week": null,
+    "tarief_indicatie": null,
+    "locatie": null,
+    "remote": null,
+    "type_opdracht": "L",
+    "procedure": "Marktverkenning",
+    "publicatie_type": "VAK",
+    "bron": "TenderNed",
+    "url": "https://www.tenderned.nl/aankondigingen/overzicht/432176",
+    "bronnen": [
+      {
+        "naam": "TenderNed",
+        "url": "https://www.tenderned.nl/aankondigingen/overzicht/432176",
+        "id": "TN-VAK-432176"
+      }
+    ],
+    "score": 86,
+    "score_breakdown": {
+      "Sector-fit": 100,
+      "Type-werk": 70,
+      "Focusgebied": 80,
+      "Klant-fit": 95,
+      "Rol-fit": 70,
+      "Senioriteit": 100
+    },
+    "match_categorie": "diversificatie-strategisch",
+    "focus": [
+      "Energiesysteemontwikkeling"
+    ],
+    "reden": "EBN (overheid/innovatie-categorie, staatsdeelneming energie). Marktverkenning naar samenwerkingsvorm en projectopzet voor een geothermieproject — vroeg positioneringsmoment voor strategisch/proces-advies, kernthema energietransitie.",
+    "flags": [
+      "VROEG SIGNAAL — marktverkenning, geen directe opdracht",
+      "Nieuw t.o.v. vorige pull (TenderNed retry 8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -769,7 +817,8 @@ const opportunities = [
     "flags": [
       "STRATEGISCH: aansluiten bij DAS = structurele toegang tot toekomstige Stedin-opdrachten",
       "VROEG SIGNAAL — geen directe opdracht, toelatingsmechanisme",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -857,7 +906,8 @@ const opportunities = [
     "reden": "Overheid/innovatie-categorie (provincie, samenwerking met TNO). Marktconsultatiefase = vroeg positioneringsmoment. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -952,7 +1002,8 @@ const opportunities = [
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
       "Twee gekoppelde publicaties samengevoegd (431488 + 431940)",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -1001,6 +1052,50 @@ const opportunities = [
       "Frank Hilbolling: frank.hilbolling@circle8.nl / 0613650791",
       "Min. 5 jaar SAP PPM + PS (harde eis)",
       "Bevestigd nog actueel via Circle8 deze run"
+    ]
+  },
+  {
+    "id": "TN-VAK-428876-havenbedrijf-rotterdam-virtueel-energiesysteem",
+    "titel": "Virtueel Energiesysteem (VES) — simulatiecapability (vroeg signaal)",
+    "klant": "Havenbedrijf Rotterdam",
+    "klant_categorie": "overheid_innovatie",
+    "beschrijving": "Havenbedrijf Rotterdam wil via een niet-openbare Europese aanbesteding een simulatie-capability (Virtueel Energiesysteem) ontwikkelen binnen de eigen organisatie voor uiteenlopende energievraagstukken in de haven. Doel is een raamovereenkomst met tenminste één leverancier per 1 januari 2027, voor het beschikbaar stellen van bewezen simulatietooling/modellen op een wijze die past bij de eigen organisatie. Kern energietransitie-thema (havenenergiesysteem), met mogelijke adviescomponent naast de tooling-levering.",
+    "deadline": "2027-01-01",
+    "startdatum": null,
+    "duur_maanden": null,
+    "uren_per_week": null,
+    "tarief_indicatie": null,
+    "locatie": "Rotterdam",
+    "remote": null,
+    "type_opdracht": "D",
+    "procedure": "Niet-openbaar",
+    "publicatie_type": "VAK",
+    "bron": "TenderNed",
+    "url": "https://www.tenderned.nl/aankondigingen/overzicht/428876",
+    "bronnen": [
+      {
+        "naam": "TenderNed",
+        "url": "https://www.tenderned.nl/aankondigingen/overzicht/428876",
+        "id": "TN-VAK-428876"
+      }
+    ],
+    "score": 76,
+    "score_breakdown": {
+      "Sector-fit": 90,
+      "Type-werk": 60,
+      "Focusgebied": 80,
+      "Klant-fit": 95,
+      "Rol-fit": 45,
+      "Senioriteit": 80
+    },
+    "match_categorie": "diversificatie-strategisch",
+    "focus": [
+      "Energiesysteemontwikkeling"
+    ],
+    "reden": "Havenbedrijf Rotterdam (overheid/innovatie-categorie). Opbouw van interne simulatiecapability voor energievraagstukken in de haven — primair een tooling-vraag, maar met een adjacent implementatie/adviescomponent en sterke sector-fit (havenenergiesysteem, energietransitie).",
+    "flags": [
+      "VROEG SIGNAAL — niet-openbare aanbesteding volgt, raamovereenkomst per 1 januari 2027",
+      "Nieuw t.o.v. vorige pull (TenderNed retry 8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -1136,7 +1231,8 @@ const opportunities = [
     "reden": "Alliander (netbeheerder doellijst). OT-capaciteit hoogspanning = kern energiesector. Nog steeds vroeg-signaalfase. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -1180,7 +1276,8 @@ const opportunities = [
     "reden": "Overheid-categorie. Warmtenet-ambitie binnen breder civiel programma. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -1272,51 +1369,6 @@ const opportunities = [
     ]
   },
   {
-    "id": "TN-AAO-431516-netbeheer-nederland-groengaskwaliteit",
-    "titel": "Groengaskwaliteit — kwaliteitscontrole",
-    "klant": "Netbeheer Nederland",
-    "klant_categorie": "netbeheerder",
-    "beschrijving": "De opdracht omvat het uitvoeren van gerichte steekproeven, maandelijkse ruikbaarheidscontroles en duurmetingen in het kader van de kwaliteitscontrole op groengas. Openbare aanbesteding. Overwegend een lab-/meettechnische dienst, minder een PMO/adviesopdracht.",
-    "deadline": "2026-09-23",
-    "startdatum": null,
-    "duur_maanden": null,
-    "uren_per_week": null,
-    "tarief_indicatie": null,
-    "locatie": null,
-    "remote": null,
-    "type_opdracht": "D",
-    "procedure": "Openbaar",
-    "publicatie_type": "AAO",
-    "bron": "TenderNed",
-    "url": "https://www.tenderned.nl/aankondigingen/overzicht/431516",
-    "bronnen": [
-      {
-        "naam": "TenderNed",
-        "url": "https://www.tenderned.nl/aankondigingen/overzicht/431516",
-        "id": "TN-AAO-431516"
-      }
-    ],
-    "score": 66,
-    "score_breakdown": {
-      "Sector-fit": 100,
-      "Type-werk": 35,
-      "Focusgebied": 60,
-      "Klant-fit": 90,
-      "Rol-fit": 30,
-      "Senioriteit": 70
-    },
-    "match_categorie": "foothold-uitbreiding",
-    "focus": [
-      "Energiesysteemontwikkeling"
-    ],
-    "reden": "Netbeheer Nederland (koepel, netbeheerder-categorie). Lab/meettechnisch van aard, lagere rol-fit. Onveranderd t.o.v. vorige pull.",
-    "flags": [
-      "Deadline inschrijven: 23 september 2026",
-      "Openbare aanbesteding — inschrijving vereist",
-      "Onveranderd t.o.v. vorige pull"
-    ]
-  },
-  {
     "id": "TN-VAK-431153-tennet-communicatieactiviteiten",
     "titel": "Marktconsultatie Uitbesteding Regionale Communicatieactiviteiten (vroeg signaal)",
     "klant": "TenneT TSO B.V.",
@@ -1357,7 +1409,8 @@ const opportunities = [
     "reden": "TenneT (netbeheerder doellijst). Omgevings- en stakeholdercommunicatie — ondersteunend, kernactiviteit is communicatie/creatie. Onveranderd t.o.v. vorige pull.",
     "flags": [
       "VROEG SIGNAAL — marktconsultatie, geen directe opdracht",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -1527,7 +1580,8 @@ const opportunities = [
     "reden": "TenneT (netbeheerder doellijst), maar onderwerp (documentbeheersysteem) is niet energie-kern en RFI heeft geen zichtbaar PMO/adviescomponent. Onveranderd t.o.v. vorige pull, bevestigd nog actueel via TenderNed-API deze run.",
     "flags": [
       "VROEG SIGNAAL — RFI, geen directe opdracht",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -1570,7 +1624,8 @@ const opportunities = [
     "flags": [
       "VROEG SIGNAAL — RFI, geen directe opdracht",
       "Gezamenlijke aanbesteding van 3 netbeheerders",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -1612,7 +1667,8 @@ const opportunities = [
     "reden": "Stedin (foothold), maar zuivere hardware-technologieverkenning zonder adviescomponent. Bevestigd nog actueel via TenderNed-API deze run.",
     "flags": [
       "VROEG SIGNAAL — RFI, geen directe opdracht",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -1659,90 +1715,6 @@ const opportunities = [
     ]
   },
   {
-    "id": "TN-AAO-431539-rendo-distributietransformatoren",
-    "titel": "Raamovereenkomst Distributietransformatoren",
-    "klant": "N.V. Rendo",
-    "klant_categorie": "netbeheerder",
-    "beschrijving": "N.V. RENDO wil een raamovereenkomst aangaan met een transformatorleverancier voor 4 jaar (optie 2x2 jaar verlenging). De opdrachtnemer dient de gehele range distributietransformatoren van 250 kVA tot 1000 kVA in zowel 10 als 20 kV te kunnen leveren. Openbare aanbesteding, zuivere hardwarelevering zonder advies- of PMO-component.",
-    "deadline": "2026-09-22",
-    "startdatum": null,
-    "duur_maanden": 48,
-    "uren_per_week": null,
-    "tarief_indicatie": null,
-    "locatie": null,
-    "remote": null,
-    "type_opdracht": "L",
-    "procedure": "Openbaar",
-    "publicatie_type": "AAO",
-    "bron": "TenderNed",
-    "url": "https://www.tenderned.nl/aankondigingen/overzicht/431539",
-    "bronnen": [
-      {
-        "naam": "TenderNed",
-        "url": "https://www.tenderned.nl/aankondigingen/overzicht/431539",
-        "id": "TN-AAO-431539"
-      }
-    ],
-    "score": 54,
-    "score_breakdown": {
-      "Sector-fit": 100,
-      "Type-werk": 20,
-      "Focusgebied": 30,
-      "Klant-fit": 90,
-      "Rol-fit": 0,
-      "Senioriteit": 70
-    },
-    "match_categorie": "foothold-uitbreiding",
-    "focus": [],
-    "reden": "Rendo (netbeheerder doellijst). Pure leveringsopdracht voor hardware — geen adviescomponent.",
-    "flags": [
-      "Deadline inschrijven: 22 september 2026",
-      "Onveranderd t.o.v. vorige pull"
-    ]
-  },
-  {
-    "id": "TN-AAO-431519-rendo-ring-main-unit",
-    "titel": "Raamovereenkomst Ring Main Unit",
-    "klant": "N.V. Rendo",
-    "klant_categorie": "netbeheerder",
-    "beschrijving": "N.V. RENDO wil een raamovereenkomst aangaan met een leverancier van Ring Main Units (RMU's) voor 4 jaar (optie 2x2 jaar verlenging), met een bedrijfsspanning van 20 kV. Openbare aanbesteding, zuivere hardwarelevering zonder advies- of PMO-component.",
-    "deadline": "2026-09-22",
-    "startdatum": null,
-    "duur_maanden": 48,
-    "uren_per_week": null,
-    "tarief_indicatie": null,
-    "locatie": null,
-    "remote": null,
-    "type_opdracht": "L",
-    "procedure": "Openbaar",
-    "publicatie_type": "AAO",
-    "bron": "TenderNed",
-    "url": "https://www.tenderned.nl/aankondigingen/overzicht/431519",
-    "bronnen": [
-      {
-        "naam": "TenderNed",
-        "url": "https://www.tenderned.nl/aankondigingen/overzicht/431519",
-        "id": "TN-AAO-431519"
-      }
-    ],
-    "score": 54,
-    "score_breakdown": {
-      "Sector-fit": 100,
-      "Type-werk": 20,
-      "Focusgebied": 30,
-      "Klant-fit": 90,
-      "Rol-fit": 0,
-      "Senioriteit": 70
-    },
-    "match_categorie": "foothold-uitbreiding",
-    "focus": [],
-    "reden": "Rendo (netbeheerder doellijst). Pure leveringsopdracht voor hardware — geen adviescomponent.",
-    "flags": [
-      "Deadline inschrijven: 22 september 2026",
-      "Onveranderd t.o.v. vorige pull"
-    ]
-  },
-  {
     "id": "TN-AAO-432079-twence-tennet-balancing-bsp",
     "titel": "Balancing Service Provider (BSP) — aFRR/mFRR Systeemdiensten aan TenneT",
     "klant": "Twence Holding B.V.",
@@ -1784,52 +1756,8 @@ const opportunities = [
     "flags": [
       "Nieuw t.o.v. vorige pull",
       "Openbare aanbesteding — inschrijving vereist",
-      "Deadline inschrijven: 24 augustus 2026"
-    ]
-  },
-  {
-    "id": "TN-AAO-431496-enexis-logistieke-automatisering",
-    "titel": "Logistieke Automatisering — LOC Hoogeveen",
-    "klant": "Enexis Netbeheer BV",
-    "klant_categorie": "netbeheerder",
-    "beschrijving": "De opdracht omvat de realisatie van een geautomatiseerd logistiek systeem in het nieuwe Logistiek Operationeel Centrum (LOC) te Hoogeveen: conveyor-techniek, pick-and-put-to-light, integratie van bestaande verticale liftsystemen, multiformaat dozensluiter, labelapplicatie en een geïntegreerde softwareoplossing incl. WMS en koppeling met SAP EWM. Openbare aanbesteding, overwegend systeemintegratie/leveringsopdracht.",
-    "deadline": "2026-07-23",
-    "startdatum": null,
-    "duur_maanden": null,
-    "uren_per_week": null,
-    "tarief_indicatie": null,
-    "locatie": "Hoogeveen",
-    "remote": null,
-    "type_opdracht": "L",
-    "procedure": "Openbaar",
-    "publicatie_type": "AAO",
-    "bron": "TenderNed",
-    "url": "https://www.tenderned.nl/aankondigingen/overzicht/431496",
-    "bronnen": [
-      {
-        "naam": "TenderNed",
-        "url": "https://www.tenderned.nl/aankondigingen/overzicht/431496",
-        "id": "TN-AAO-431496"
-      }
-    ],
-    "score": 52,
-    "score_breakdown": {
-      "Sector-fit": 60,
-      "Type-werk": 20,
-      "Focusgebied": 30,
-      "Klant-fit": 100,
-      "Rol-fit": 30,
-      "Senioriteit": 70
-    },
-    "match_categorie": "foothold-uitbreiding",
-    "focus": [
-      "Operational Excellence"
-    ],
-    "reden": "Enexis (foothold), maar systeemintegratie/leveringscontract voor magazijnautomatisering — geen Spire-kernactiviteit. Onveranderd t.o.v. vorige pull.",
-    "flags": [
-      "Deadline inschrijven: 23 juli 2026",
-      "Systeemintegratie/leveringsopdracht — buiten Spire-kernprofiel",
-      "Onveranderd t.o.v. vorige pull"
+      "Deadline inschrijven: 24 augustus 2026",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -2099,90 +2027,6 @@ const opportunities = [
     ]
   },
   {
-    "id": "TN-AAO-431716-defensie-mobiele-transformatorstations",
-    "titel": "Leveren van mobiele transformatorstations",
-    "klant": "Ministerie van Defensie",
-    "klant_categorie": "overheid",
-    "beschrijving": "Het Energie Distributie Bedrijf (EDB) van het Ministerie van Defensie in Den Helder beheert distributie en productie van elektriciteit en warmte op defensielocaties. Voor (bouw)projecten is behoefte aan lichtgewicht, verplaatsbare mobiele transformatorstations die snel in het net kunnen worden ingelast (emissieloos bouwen). Zuivere hardwarelevering, geen advies- of PMO-component.",
-    "deadline": "2026-09-02",
-    "startdatum": null,
-    "duur_maanden": null,
-    "uren_per_week": null,
-    "tarief_indicatie": null,
-    "locatie": "Den Helder",
-    "remote": null,
-    "type_opdracht": "L",
-    "procedure": "Openbaar",
-    "publicatie_type": "AAO",
-    "bron": "TenderNed",
-    "url": "https://www.tenderned.nl/aankondigingen/overzicht/431716",
-    "bronnen": [
-      {
-        "naam": "TenderNed",
-        "url": "https://www.tenderned.nl/aankondigingen/overzicht/431716",
-        "id": "TN-AAO-431716"
-      }
-    ],
-    "score": 36,
-    "score_breakdown": {
-      "Sector-fit": 100,
-      "Type-werk": 20,
-      "Focusgebied": 30,
-      "Klant-fit": 0,
-      "Rol-fit": 0,
-      "Senioriteit": 70
-    },
-    "match_categorie": "mismatch",
-    "focus": [],
-    "reden": "Ministerie van Defensie (buiten doellijst). Hardwarelevering voor eigen energie-infra, geen adviescomponent, geen bestaande Spire-relatie.",
-    "flags": [
-      "Onveranderd t.o.v. vorige pull",
-      "Bevestigd nog actueel via TenderNed-API deze run"
-    ]
-  },
-  {
-    "id": "TN-AAO-431547-aeb-amsterdam-wte-residues",
-    "titel": "Transport and processing of Waste-to-Energy (WtE) residues",
-    "klant": "AEB Amsterdam",
-    "klant_categorie": "overheid",
-    "beschrijving": "Aanbesteding voor het laden van afvalverbrandingsresidu (AVI-residu) op de AEB-site, transport naar externe verwerkers en de verwerking/behandeling van dit residu. Logistiek/afvalverwerkingscontract bij een Waste-to-Energy-bedrijf — energie-adjacent via de WtE-installatie, maar geen netbeheer- of energietransitie-advieswerk.",
-    "deadline": "2026-09-23",
-    "startdatum": null,
-    "duur_maanden": null,
-    "uren_per_week": null,
-    "tarief_indicatie": null,
-    "locatie": "Amsterdam",
-    "remote": null,
-    "type_opdracht": "D",
-    "procedure": "Openbaar",
-    "publicatie_type": "AAO",
-    "bron": "TenderNed",
-    "url": "https://www.tenderned.nl/aankondigingen/overzicht/431547",
-    "bronnen": [
-      {
-        "naam": "TenderNed",
-        "url": "https://www.tenderned.nl/aankondigingen/overzicht/431547",
-        "id": "TN-AAO-431547"
-      }
-    ],
-    "score": 28,
-    "score_breakdown": {
-      "Sector-fit": 60,
-      "Type-werk": 20,
-      "Focusgebied": 30,
-      "Klant-fit": 0,
-      "Rol-fit": 0,
-      "Senioriteit": 70
-    },
-    "match_categorie": "mismatch",
-    "focus": [],
-    "reden": "AEB Amsterdam (buiten doellijst). Afvallogistiek, geen netbeheer/energietransitie-advieswerk — vals-positief via 'WtE'/gas-achtige match.",
-    "flags": [
-      "Onveranderd t.o.v. vorige pull",
-      "Vals-positief: logistiek/afvalcontract, geen energieadvieswerk"
-    ]
-  },
-  {
     "id": "TN-MAC-429631-deltion-wgo",
     "titel": "Softwareoplossing voor Wendbaar Gestructureerd Onderwijs",
     "klant": "Campus Deltion College",
@@ -2221,7 +2065,8 @@ const opportunities = [
     "reden": "Onderwijsinstelling, geen energierelatie. Vals-positief (keyword 'flexibiliteit').",
     "flags": [
       "Vals-positief — geen energierelatie",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -2263,7 +2108,8 @@ const opportunities = [
     "reden": "Wetenschappelijk meetinstrument, geen energiesector-relatie. Vals-positief (keyword 'gas'), zelfde patroon als in eerdere pulls.",
     "flags": [
       "Vals-positief — bekend patroon (matcht op 'gas')",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -2305,7 +2151,8 @@ const opportunities = [
     "reden": "Meubilair/inrichtingsopdracht, geen energierelatie. Vals-positief (keyword 'flexibiliteit').",
     "flags": [
       "Vals-positief — geen energierelatie",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   },
   {
@@ -2347,7 +2194,8 @@ const opportunities = [
     "reden": "Merchandising-opdracht, geen energierelatie. Vals-positief (keyword 'flexibiliteit').",
     "flags": [
       "Vals-positief — geen energierelatie",
-      "Onveranderd t.o.v. vorige pull"
+      "Onveranderd t.o.v. vorige pull",
+      "Herbevestigd via TenderNed deze run (8 juli, na infrastructuurherstel)"
     ]
   }
 ];
@@ -2355,7 +2203,7 @@ const opportunities = [
 // Per-bron live/uitgevallen status voor de header — dagelijkse pull werkt dit bij, zodat de
 // Bronnen-regel altijd klopt met wat daadwerkelijk is opgehaald (i.p.v. een statische lijst).
 const bronnenStatus = [
-  { naam: 'TenderNed', label: 'TenderNed (AAO + MAC + VAK)', status: 'uitgevallen', reden: 'niet geretryd deze sessie — data van mislukte ochtend-run (infrastructuurstoring)' },
+  { naam: 'TenderNed', label: 'TenderNed (AAO + MAC + VAK)', status: 'live' },
   { naam: 'Striive', label: 'Striive', status: 'live' },
   { naam: 'Circle8', label: 'Circle8', status: 'live' },
   { naam: 'Magnit', label: 'Magnit', status: 'live' },
