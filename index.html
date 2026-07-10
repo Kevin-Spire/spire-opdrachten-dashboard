@@ -161,6 +161,7 @@
   tbody tr:hover { background: var(--spire-surface-2); }
   tbody tr.expanded { background: var(--spire-teal-soft); }
   tbody tr.reviewed { opacity: 0.55; }
+  tbody tr.aangeboden { background: rgba(125, 211, 196, 0.14); }
   tbody tr.dismissed { opacity: 0.4; text-decoration: line-through; }
   td { padding: 14px; vertical-align: top; }
 
@@ -197,6 +198,7 @@
   .status-tag { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
   .status-new { background: var(--spire-charcoal); color: var(--spire-lime); }
   .status-reviewed { background: #d4dae2; color: #475569; }
+  .status-aangeboden { background: var(--spire-teal); color: var(--spire-charcoal); }
   .status-dismissed { background: #fecaca; color: #991b1b; }
 
   /* === Bron badges === */
@@ -244,6 +246,8 @@
   .btn-primary:hover { background: var(--spire-charcoal-2); border-color: var(--spire-charcoal-2); }
   .btn-success { background: var(--spire-lime); border-color: var(--spire-lime); color: var(--spire-charcoal); font-weight: 700; }
   .btn-success:hover { background: var(--spire-lime-dark); border-color: var(--spire-lime-dark); }
+  .btn-offered { background: var(--spire-teal); border-color: var(--spire-teal); color: var(--spire-charcoal); font-weight: 700; }
+  .btn-offered:hover { background: var(--spire-teal-dark); border-color: var(--spire-teal-dark); }
   .btn-danger { color: #991b1b; }
   .btn-danger:hover { background: #fee2e2; border-color: #fca5a5; }
 
@@ -353,6 +357,7 @@
       <select id="filterStatus">
         <option value="active">Te reviewen</option>
         <option value="reviewed">Gemarkeerd als gezien</option>
+        <option value="aangeboden">Aangeboden</option>
         <option value="dismissed">Afgewezen</option>
         <option value="all">Alles</option>
       </select>
@@ -1314,8 +1319,9 @@ function filtered() {
       if (!bronNamen.includes(filterState.bron)) return false;
     }
     const st = getStatus(o.id);
-    if (filterState.status === 'active' && (st === 'reviewed' || st === 'dismissed')) return false;
+    if (filterState.status === 'active' && (st === 'reviewed' || st === 'dismissed' || st === 'aangeboden')) return false;
     if (filterState.status === 'reviewed' && st !== 'reviewed') return false;
+    if (filterState.status === 'aangeboden' && st !== 'aangeboden') return false;
     if (filterState.status === 'dismissed' && st !== 'dismissed') return false;
     if (filterState.search) {
       const q = filterState.search.toLowerCase();
@@ -1354,6 +1360,7 @@ function render() {
     const tr = document.createElement('tr');
     tr.dataset.id = o.id;
     if (st === 'reviewed') tr.classList.add('reviewed');
+    if (st === 'aangeboden') tr.classList.add('aangeboden');
     if (st === 'dismissed') tr.classList.add('dismissed');
     if (o.id === expandedId) tr.classList.add('expanded');
 
@@ -1369,7 +1376,7 @@ function render() {
       <td><div class="klant-cell">${o.klant}</div><div class="klant-sub">${o.klant_categorie}</div></td>
       <td class="col-cat"><span class="cat-pill ${catClass(o.match_categorie)}">${catLabel(o.match_categorie)}</span></td>
       <td class="col-deadline deadline-cell">${deadlineHtml}</td>
-      <td>${st === 'new' ? '<span class="status-tag status-new">Nieuw</span>' : st === 'reviewed' ? '<span class="status-tag status-reviewed">Gezien</span>' : '<span class="status-tag status-dismissed">Afgewezen</span>'}</td>
+      <td>${st === 'new' ? '<span class="status-tag status-new">Nieuw</span>' : st === 'reviewed' ? '<span class="status-tag status-reviewed">Gezien</span>' : st === 'aangeboden' ? '<span class="status-tag status-aangeboden">Aangeboden</span>' : '<span class="status-tag status-dismissed">Afgewezen</span>'}</td>
     `;
     tr.addEventListener('click', () => toggleExpand(o.id));
     tbody.appendChild(tr);
@@ -1427,8 +1434,10 @@ function buildDetail(o) {
     </div>
     <div class="actions">
       ${getBronnen(o).map((b, i) => `<a class="btn ${i === 0 ? 'btn-primary' : ''}" href="${b.url}" target="_blank" rel="noopener">Open op ${b.naam} ↗</a>`).join('')}
-      ${getStatus(o.id) !== 'reviewed' ? '<button class="btn btn-success" data-act="review">✓ Markeer gezien</button>' : '<button class="btn" data-act="unreview">↺ Terug naar nieuw</button>'}
+      ${getStatus(o.id) !== 'reviewed' ? '<button class="btn btn-success" data-act="review">✓ Markeer gezien</button>' : ''}
+      ${getStatus(o.id) !== 'aangeboden' ? '<button class="btn btn-offered" data-act="offer">📨 Kandidaat aangeboden</button>' : ''}
       ${getStatus(o.id) !== 'dismissed' ? '<button class="btn btn-danger" data-act="dismiss">Afwijzen</button>' : ''}
+      ${getStatus(o.id) !== 'new' ? '<button class="btn" data-act="reset">↺ Terug naar nieuw</button>' : ''}
     </div>
   `;
   wrap.addEventListener('click', e => {
@@ -1436,8 +1445,9 @@ function buildDetail(o) {
     const act = e.target?.dataset?.act;
     if (!act) return;
     if (act === 'review') setStatus(o.id, 'reviewed');
-    else if (act === 'unreview') setStatus(o.id, 'new');
+    else if (act === 'offer') setStatus(o.id, 'aangeboden');
     else if (act === 'dismiss') setStatus(o.id, 'dismissed');
+    else if (act === 'reset') setStatus(o.id, 'new');
     render();
   });
   return wrap;
