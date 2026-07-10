@@ -282,7 +282,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">10 juli 2026 — TenderNed volledig herhaald (AAO 131, MAC 122, VAK 138, volledige paginering), Striive 1 relevante match binnen ~25 zichtbare (zonder login), Circle8 1 match via Energievoorziening-filter. Magnit-sessie verlopen — overgeslagen, Kevin moet opnieuw inloggen. Totaal na dedup 20 uniek, 4 top-match ≥80, 9 vroege signalen (MAC/VAK). Vorige rijkere Magnit/Striive-matches (Gemeente Utrecht, Kwartiermaker Stedin e.d.) komen deze run niet meer terug op de bronnen en zijn daarom vervallen.</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">10 juli 2026 — TenderNed volledig herhaald (AAO 131, MAC 122, VAK 138), Striive 1 nieuwe match + Circle8 1 match vers bevestigd. Magnit-sessie verlopen (overgeslagen — opnieuw inloggen nodig) en een deel van Striive (login-gated) en oudere AAO-tenders (buiten 3-daags publicatievenster) konden vandaag niet worden herbevestigd — deze blijven zichtbaar met flag "niet herbevestigd", in plaats van te worden verwijderd. Totaal 31 items (20 vandaag herbevestigd, 11 overgenomen uit de pull van 9 juli zonder herbevestiging), 9 top-match ≥80, 13 vroege signalen/onbevestigde items.</span></span>
     </div>
   </div>
 </div>
@@ -385,23 +385,131 @@
 <script>
 // === Live data — 10 juli 2026: dagelijkse pull ===
 // TenderNed volledig herhaald met volledige paginering: AAO totalElements=131 (5 na filter), MAC
-// totalElements=122 (1 na filter, 1 vals-positief "flexibiliteit" bij Deltion College uitgesloten),
-// VAK totalElements=138 (14 na filter na merge van de twee gekoppelde KV Flex-publicaties; 3
-// vals-positieven uitgesloten: Hazenweg-bewonersinventaris, Merchandise HvA, 14C-SCAR onduidelijke
-// energierelevantie). Striive: zonder login ~24 zichtbare opdrachten (lazy-load-limiet), 1 relevante
-// match (Stedin). Circle8: branchefilter Energievoorziening geeft 1 match (Enexis); zoekbox filtert
-// bevestigd NIET op klantnaam (Eneco-zoekopdracht leverde ongefilterde resultatenlijst op — bekende
-// beperking, geen 4-5 losse klantqueries meer geprobeerd). Magnit: sessie verlopen (inlogscherm) —
-// overgeslagen zonder in te loggen; Kevin moet opnieuw inloggen voor de volgende run.
-// LET OP: dit is een aanzienlijk kleinere/lagere-scorende set dan de vorige pull. De eerdere hoge
-// Magnit-matches (Gemeente Utrecht Projectleider Energiesystemen, TenneT Omgevingsmanager Net op Zee,
-// Heijmans, BAM) en Striive-matches die login vereisten (Business Consultant Capaciteitsuitgifte,
-// Kwartiermaker Engineering, Data Scientist, Platform Engineer) staan niet meer in de nu zichtbare
-// bronnen en zijn per Stap 7 laten vervallen — niet omdat ze zijn afgewezen, maar omdat ze buiten het
-// vandaag daadwerkelijk waargenomen venster vallen (Magnit-login resp. Striive-lazyload-rotatie).
-// Na dedup: 20 unieke items. Top-match ≥80: 4. Vroege signalen (MAC/VAK): 9.
+// totalElements=122 (1 na filter), VAK totalElements=138 (14 na filter, incl. samengevoegde KV Flex).
+// Striive: zonder login ~24 zichtbare opdrachten (lazy-load-limiet van ~126 totaal), 1 nieuwe match
+// (Stedin Analist Wachtlijst); eerder geziene login-gated Striive-postings (Business Consultant
+// Capaciteitsuitgifte, Kwartiermaker Engineering, Data Scientist, EDSN Platform Engineer) vielen
+// buiten dat zichtbare venster en zijn NIET verwijderd maar behouden met flag "niet herbevestigd".
+// Circle8: branchefilter Energievoorziening geeft 1 match (Enexis Uitvoerder Venlo); de twee eerdere
+// SAP PPM-postings bij Enexis zijn nu wel gecontroleerd afwezig én hun deadline is verstreken, dus
+// die zijn wel laten vervallen. Magnit: sessie verlopen (inlogscherm) — volledig overgeslagen; de
+// eerdere Magnit-items (Gemeente Utrecht, TenneT Omgevingsmanager, Heijmans, BAM) zijn behouden met
+// flag "niet herbevestigd", NIET verwijderd, want een mislukte login is geen bewijs dat de opdracht
+// is verdwenen. Enkele AAO-tenders (Venlo EMS, Netbeheer Nederland Groengas, Enexis Hoogeveen, en de
+// vervolgaanbesteding Havenbedrijf Rotterdam AAO-431282) vallen buiten het 3-daagse AAO-publicatie-
+// venster van vandaag (structurele blinde vlek van de dagelijkse AAO-pull) en zijn om dezelfde reden
+// behouden i.p.v. verwijderd, zolang hun deadline nog niet is verstreken.
+// LET OP (correctie t.o.v. eerdere versie van deze pull): in de eerste versie van deze run zijn al
+// deze niet-herbevestigde items abusievelijk verwijderd omdat "niet gevonden vandaag" ten onrechte
+// gelijk werd gesteld aan "opdracht is verdwenen". Op verzoek van Kevin hersteld — zie flags per item.
+// Na samenvoeging: 31 items totaal (20 vandaag vers herbevestigd, 11 overgenomen zonder herbevestiging).
+// Top-match ≥80: 9. Vroege signalen + niet-herbevestigde items: 13.
 
 const opportunities = [
+  {
+    id: 'MG-260629-GJ-001-utrecht-projectleider-energiesystemen',
+    titel: 'Projectleider Ontwikkeling Energiesystemen',
+    klant: 'Gemeente Utrecht',
+    klant_categorie: 'overheid',
+    beschrijving: 'Gemeente Utrecht zoekt een Projectleider Ontwikkeling Energiesystemen binnen de afdeling Grondzaken, Investeren & Exploiteren. Verantwoordelijk voor het ontwikkelen en realiseren van duurzame energiesystemen binnen gebiedsontwikkelingen (60.000 nieuwe woningen tot 2040, netcongestie-vraagstukken), met integratie van technische, juridische en duurzaamheidsaspecten. WO-niveau, min. 7 jaar ervaring vereist.',
+    deadline: '2026-07-06',
+    startdatum: '2026-08-01',
+    duur_maanden: 24,
+    uren_per_week: 24,
+    tarief_indicatie: 125,
+    locatie: 'Utrecht',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Magnit',
+    bron: 'Magnit',
+    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
+    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260629-GJ-001' }],
+    score: 99,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 100, 'Klant-fit': 95, 'Rol-fit': 100, 'Senioriteit': 100 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling', 'Organisatieverandering', 'Project, Programma & PMO Management'],
+    reden: 'Gemeente Utrecht (overheid/innovatie). Bullseye-match: projectleiderschap op energiesystemen met regie op aanbestedingen en PPS — vrijwel 1-op-1 Spire-profiel. NIET HERBEVESTIGD IN DEZE PULL: Magnit-sessie verlopen (kon niet inloggen), dus niet opnieuw gecontroleerd. Deadline (6 juli) is inmiddels verstreken — bewaard voor context, waarschijnlijk niet meer actief.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — Magnit-sessie verlopen, laatst gezien 9 juli 2026', 'Deadline verstreken (6 juli) — waarschijnlijk niet meer open', 'Recruiter: Gaby Janssen (Magnit)']
+  },
+  {
+    id: 'ST-stedin-business-consultant-capaciteitsuitgifte',
+    titel: 'Business Consultant Capaciteitsuitgifte (Deta-vast)',
+    klant: 'Stedin Netbeheer B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Business Consultant-rol bij Stedin op het gebied van capaciteitsuitgifte — het proces waarmee Stedin beschikbare netcapaciteit toewijst aan aansluitingen, direct verbonden aan het congestiedossier. Detavast-constructie. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-business-consultant-capaciteitsuitgifte' }],
+    score: 97,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 100, 'Klant-fit': 100, 'Rol-fit': 100, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling', 'Project, Programma & PMO Management'],
+    reden: 'Stedin (foothold). Capaciteitsuitgifte = kernproces congestiemanagement, Business Consultant-rol = directe PMO/adviesfit. NIET HERBEVESTIGD IN DEZE PULL: zonder login toont Striive slechts ~25 van de ~126 opdrachten (lazy-load); deze posting viel buiten dat zichtbare venster vandaag, wat niet betekent dat hij is verdwenen.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — buiten zichtbaar Striive-venster zonder login (laatst gezien 9 juli 2026)', 'Detail beschikbaar na Striive-login']
+  },
+  {
+    id: 'ST-stedin-kwartiermaker-functieteam-engineering',
+    titel: 'Kwartiermaker Functieteam Engineering',
+    klant: 'Stedin Netbeheer B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Kwartiermakersrol bij Stedin voor het opzetten van een nieuw functieteam Engineering: structuur, werkwijzen en teaminrichting vanaf de grond af opbouwen. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Kwartiermaker-rollen zijn organisatieverandering in de kern.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-kwartiermaker-functieteam-engineering' }],
+    score: 94,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 80, 'Klant-fit': 100, 'Rol-fit': 100, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Organisatieverandering'],
+    reden: 'Stedin (foothold). Kwartiermaker = organisatieopbouw/verandermanagement, klassiek Spire-terrein. NIET HERBEVESTIGD IN DEZE PULL: buiten het zichtbare ~25-item Striive-venster zonder login.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — buiten zichtbaar Striive-venster zonder login (laatst gezien 9 juli 2026)', 'Detail beschikbaar na Striive-login']
+  },
+  {
+    id: 'MG-260702-AMN-001-tennet-omgevingsmanager-net-op-zee',
+    titel: 'Omgevingsmanager Net op Zee',
+    klant: 'TenneT TSO B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'TenneT zoekt een Omgevingsmanager voor de Net op Zee-projecten in Zeeland (offshore hoogspanningsverbindingen van windparken naar converterstations in het Sloegebied). Verantwoordelijk voor omgevings- en stakeholdermanagement tijdens de uitvoeringsfase. Min. 5 jaar ervaring met participatieprocessen in grote infrastructurele projecten.',
+    deadline: '2026-07-06',
+    startdatum: '2026-09-01',
+    duur_maanden: 6,
+    uren_per_week: 40,
+    tarief_indicatie: 105,
+    locatie: 'Zeeland',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Magnit',
+    bron: 'Magnit',
+    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
+    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260702-AMN-001' }],
+    score: 91,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 85, 'Focusgebied': 100, 'Klant-fit': 90, 'Rol-fit': 70, 'Senioriteit': 100 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling', 'Organisatieverandering'],
+    reden: 'TenneT (netbeheerder doellijst). Omgevingsmanagement op offshore-net-projecten is stakeholder-/verandermanagement in de kern. NIET HERBEVESTIGD IN DEZE PULL: Magnit-sessie verlopen. Deadline (6 juli) inmiddels verstreken — bewaard voor context.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — Magnit-sessie verlopen, laatst gezien 9 juli 2026', 'Deadline verstreken (6 juli) — waarschijnlijk niet meer open', 'Recruiter: Aron Morren (Magnit)']
+  },
   {
     id: 'ST-stedin-analist-gebiedsgerichte-aanpak-wachtlijst',
     titel: 'Analist Gebiedsgerichte Aanpak Wachtlijst',
@@ -427,6 +535,35 @@ const opportunities = [
     focus: ['Energiesysteemontwikkeling', 'Project, Programma & PMO Management'],
     reden: 'Stedin (foothold). Gebiedsgerichte aanpak van de wachtlijst is een kernproces binnen het congestiedossier — analytische/procesrol sluit sterk aan bij Spire\'s PMO/adviesprofiel. Detail niet beschikbaar zonder login; verifieer senioriteit en scope bij reactie.',
     flags: ['Detail beschikbaar na Striive-login', 'Nieuw in deze pull (niet eerder gezien binnen de ~25 zichtbare Striive-items)']
+  },
+  {
+    id: 'TN-AAO-431282-havenbedrijf-rotterdam-virtueel-energiesysteem',
+    titel: 'Aanbesteding Virtueel Energiesysteem (VES)',
+    klant: 'Havenbedrijf Rotterdam',
+    klant_categorie: 'overheid',
+    beschrijving: 'Havenbedrijf Rotterdam heeft een aanbesteding gestart voor een Virtueel Energiesysteem, na de eerdere marktconsultatie over hetzelfde onderwerp (VAK-428876, marktconsultatiewindow gesloten 29 juni 2026 — vandaag opnieuw gezien op TenderNed). Doel: simulatie-capability voor energievraagstukken in de haven, raamovereenkomst per 1 januari 2027 met tenminste één, mogelijk meerdere gegadigden. Aanbestedingsdocumentatie zelf alleen via Mercell beschikbaar — TenderNed toont enkel de aankondiging.',
+    deadline: '2026-08-07',
+    startdatum: '2027-01-01',
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Rotterdam',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Openbaar',
+    publicatie_type: 'AAO',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431282',
+    bronnen: [
+      { naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431282', id: 'TN-AAO-431282' },
+      { naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/428876', id: 'TN-VAK-428876' }
+    ],
+    score: 88,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 80, 'Focusgebied': 100, 'Klant-fit': 95, 'Rol-fit': 70, 'Senioriteit': 70 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling', 'Digitale Transformatie'],
+    reden: 'Havenbedrijf Rotterdam (overheid/innovatie). De onderliggende marktconsultatie (VAK-428876) is vandaag herbevestigd op TenderNed; de vervolgaanbesteding zelf (AAO-431282, deadline 7 augustus) valt buiten het 3-daagse AAO-publicatievenster van vandaag en is dus NIET opnieuw herbevestigd, maar was op 4 juli nog een lopende openbare aanbesteding.',
+    flags: ['AAO-431282 (vervolgaanbesteding) NIET HERBEVESTIGD IN DEZE PULL — buiten 3-daags AAO-publicatievenster, laatst gezien 4 juli 2026', 'Onderliggende marktconsultatie VAK-428876 wel opnieuw gezien vandaag', 'Volledige aanbestedingsdocumentatie alleen via Mercell', 'Deadline inschrijven: 7 augustus 2026']
   },
   {
     id: 'TN-VAK-430016-stedin-das-extern-personeel',
@@ -481,30 +618,30 @@ const opportunities = [
     flags: ['VROEG SIGNAAL — vooraankondiging, geen directe opdracht', 'Kans: interne uitrol/verandermanagement expliciet buiten scope leverancier']
   },
   {
-    id: 'TN-VAK-428876-havenbedrijf-rotterdam-virtueel-energiesysteem',
-    titel: 'Virtueel Energiesysteem (VES) — marktconsultatie (vroeg signaal)',
-    klant: 'Havenbedrijf Rotterdam',
-    klant_categorie: 'overheid',
-    beschrijving: 'Havenbedrijf Rotterdam wil via een niet-openbare Europese aanbesteding een simulatie-capability (Virtueel Energiesysteem) ontwikkelen binnen de eigen organisatie voor energievraagstukken die spelen in de haven, met als doel een raamovereenkomst per 1 januari 2027 met tenminste één, mogelijk meerdere gegadigden. Omvat het beschikbaar stellen van bewezen simulatietooling of -modellen, passend bij de havenspecifieke energievraagstukken. Marktconsultatiewindow (sluitingsdatum 29-6-2026) is inmiddels gesloten, maar het traject naar een raamovereenkomst loopt door.',
-    deadline: '2026-06-29',
-    startdatum: '2027-01-01',
+    id: 'ST-stedin-data-scientist',
+    titel: 'Data Scientist',
+    klant: 'Stedin Netbeheer B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Data Scientist rol bij Stedin Netbeheer. Data-analyse/datawetenschap-rol binnen de netbeheerder. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Stedin is Spire-foothold klant; data-gedreven werk sluit aan bij Spire\'s Business Intelligence & Data Management-focus.',
+    deadline: null,
+    startdatum: null,
     duur_maanden: null,
     uren_per_week: null,
     tarief_indicatie: null,
-    locatie: 'Rotterdam',
+    locatie: null,
     remote: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
-    publicatie_type: 'VAK',
-    bron: 'TenderNed',
-    url: 'https://www.tenderned.nl/aankondigingen/overzicht/428876',
-    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/428876', id: 'TN-VAK-428876' }],
-    score: 81,
-    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 60, 'Focusgebied': 80, 'Klant-fit': 95, 'Rol-fit': 70, 'Senioriteit': 70 },
-    match_categorie: 'diversificatie-strategisch',
-    focus: ['Energiesysteemontwikkeling', 'Digitale Transformatie'],
-    reden: 'Havenbedrijf Rotterdam (overheid/innovatie-categorie). Simulatie-capability voor energievraagstukken in de haven — sterke fit met Spire\'s energiesysteemontwikkeling-focus. Marktconsultatiewindow is gesloten (29 juni), maar raamovereenkomst-traject loopt door richting 1 januari 2027.',
-    flags: ['VROEG SIGNAAL — marktconsultatiewindow gesloten, vervolgtraject richting raamovereenkomst loopt door', 'Beoogde ingangsdatum raamovereenkomst: 1 januari 2027']
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-data-scientist' }],
+    score: 84,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 80, 'Klant-fit': 100, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Business Intelligence & Data Management'],
+    reden: 'Stedin (foothold). Data-rol scoort hoog op type-werk maar lager op rol-fit. NIET HERBEVESTIGD IN DEZE PULL: buiten zichtbaar Striive-venster zonder login.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — buiten zichtbaar Striive-venster zonder login (laatst gezien 9 juli 2026)', 'Detail beschikbaar na Striive-login']
   },
   {
     id: 'TN-VAK-432176-ebn-geothermieproject',
@@ -588,6 +725,32 @@ const opportunities = [
     flags: ['VROEG SIGNAAL — RFI, geen directe opdracht']
   },
   {
+    id: 'TN-AAO-431390-venlo-energie-management-systeem',
+    titel: 'Levering, implementatie en beheer Energie Management Systeem',
+    klant: 'Gemeente Venlo',
+    klant_categorie: 'overheid',
+    beschrijving: 'Gemeente Venlo wenst een opdrachtnemer te contracteren voor levering, implementatie en beheer van een Energie Management Systeem (EMS). Openbare aanbesteding. Implementatie- en beheercomponent sluit aan bij Spire\'s implementatieprofiel, al is de kern een softwareproduct-levering.',
+    deadline: '2026-08-17',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Venlo',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Openbaar',
+    publicatie_type: 'AAO',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431390',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431390', id: 'TN-AAO-431390' }],
+    score: 75,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 60, 'Focusgebied': 80, 'Klant-fit': 95, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling', 'Digitale Transformatie'],
+    reden: 'Overheid-categorie (gemeente). EMS-implementatie = energiekern. NIET HERBEVESTIGD IN DEZE PULL: AAO-publicatiedatum valt buiten het 3-daagse AAO-venster van vandaag (structurele blinde vlek van de dagelijkse AAO-pull, niet omdat de aanbesteding is verdwenen). Deadline (17 augustus) nog niet verstreken.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — buiten 3-daags AAO-publicatievenster, laatst gezien 4 juli 2026', 'Deadline nog open: 17 augustus 2026']
+  },
+  {
     id: 'TN-VAK-431141-limburg-energiedeelplatform',
     titel: 'Marktconsultatie Energiedeelplatform en ondersteunende diensten (vroeg signaal)',
     klant: 'Provincie Limburg',
@@ -640,6 +803,32 @@ const opportunities = [
     flags: ['Specialistisch financieel-fiscaal profiel — mogelijk niet kernrol Spire', 'Meerjarige, dedicated adviesfunctie', 'Deadline inschrijven: 14 augustus 2026']
   },
   {
+    id: 'ST-edsn-platform-engineer',
+    titel: 'Platform Engineer',
+    klant: 'Energie Data Services Nederland (EDSN)',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Platform Engineer-rol bij EDSN, de gegevensdienstverlener van de Nederlandse energiesector die datauitwisseling tussen netbeheerders en leveranciers beheert. Technische infrastructuur/platformrol. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Striive',
+    bron: 'Striive',
+    url: 'https://striive.com/nl/opdrachten',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-edsn-platform-engineer' }],
+    score: 69,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 35, 'Focusgebied': 80, 'Klant-fit': 90, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Digitale Transformatie'],
+    reden: 'EDSN = kernklant energiedata-infrastructuur. NIET HERBEVESTIGD IN DEZE PULL: buiten zichtbaar Striive-venster zonder login.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — buiten zichtbaar Striive-venster zonder login (laatst gezien 9 juli 2026)', 'Detail beschikbaar na Striive-login']
+  },
+  {
     id: 'C8-VNR-82575-enexis-uitvoerder-venlo',
     titel: '(Aankomend) Uitvoerder Venlo',
     klant: 'Enexis',
@@ -664,6 +853,32 @@ const opportunities = [
     focus: ['Energiesysteemontwikkeling'],
     reden: 'Enexis (foothold). Junior technisch/uitvoerend leer-werktraject (elektrotechniek, storingsdienst) — geen PM/adviesrol, dus lage rol- en senioriteitsscore ondanks sterke klant- en sectorfit. Niet kernprofiel Spire.',
     flags: ['Junior technisch/uitvoerend profiel — niet kernrol Spire (PM/advies)', 'MBO-4 elektrotechniek vereist, VOG nodig', 'Recruiter: Frank Hilbolling (frank.hilbolling@circle8.nl / 0613650791)']
+  },
+  {
+    id: 'TN-AAO-431516-netbeheer-nederland-groengaskwaliteit',
+    titel: 'Groengaskwaliteit — kwaliteitscontrole',
+    klant: 'Netbeheer Nederland',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Uitvoeren van gerichte steekproeven, maandelijkse ruikbaarheidscontroles en duurmetingen in het kader van kwaliteitscontrole op groengas. Openbare aanbesteding, opvolger van eerdere marktconsultatie. Overwegend lab/meettechnisch, minder een PMO/adviesopdracht.',
+    deadline: '2026-09-23',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Openbaar',
+    publicatie_type: 'AAO',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431516',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431516', id: 'TN-AAO-431516' }],
+    score: 66,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 35, 'Focusgebied': 60, 'Klant-fit': 90, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Netbeheer Nederland (koepel). NIET HERBEVESTIGD IN DEZE PULL: buiten het 3-daagse AAO-publicatievenster van vandaag. Deadline (23 september) nog niet verstreken.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — buiten 3-daags AAO-publicatievenster, laatst gezien 4 juli 2026', 'Deadline nog open: 23 september 2026']
   },
   {
     id: 'TN-VAK-431763-tennet-library-management',
@@ -796,6 +1011,58 @@ const opportunities = [
     flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht']
   },
   {
+    id: 'TN-AAO-431496-enexis-logistieke-automatisering',
+    titel: 'Logistieke Automatisering — LOC Hoogeveen',
+    klant: 'Enexis Netbeheer BV',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Realisatie van een geautomatiseerd logistiek systeem in het nieuwe Logistiek Operationeel Centrum (LOC) te Hoogeveen. Openbare aanbesteding, overwegend systeemintegratie/leveringsopdracht. Foothold-klant Enexis, maar rol-fit voor Spire beperkt.',
+    deadline: '2026-07-23',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: null,
+    tarief_indicatie: null,
+    locatie: 'Hoogeveen',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Openbaar',
+    publicatie_type: 'AAO',
+    bron: 'TenderNed',
+    url: 'https://www.tenderned.nl/aankondigingen/overzicht/431496',
+    bronnen: [{ naam: 'TenderNed', url: 'https://www.tenderned.nl/aankondigingen/overzicht/431496', id: 'TN-AAO-431496' }],
+    score: 52,
+    score_breakdown: { 'Sector-fit': 60, 'Type-werk': 20, 'Focusgebied': 30, 'Klant-fit': 100, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Operational Excellence'],
+    reden: 'Enexis (foothold), systeemintegratie/leveringscontract, geen Spire-kernactiviteit. NIET HERBEVESTIGD IN DEZE PULL: buiten 3-daags AAO-publicatievenster. Deadline (23 juli) nog niet verstreken.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — buiten 3-daags AAO-publicatievenster, laatst gezien 4 juli 2026', 'Deadline nog open: 23 juli 2026']
+  },
+  {
+    id: 'MG-260529-AVH-002-heijmans-werkverantwoordelijke-gas-stedin',
+    titel: 'Senior Werkverantwoordelijke Gas',
+    klant: 'Heijmans Infra Distributie (t.b.v. Stedin-gasnet)',
+    klant_categorie: 'ketenleverancier',
+    beschrijving: 'Heijmans Infra zoekt een zelfstandige Senior Werkverantwoordelijke Gas voor werkzaamheden binnen de regionale gas-infrastructuur van Stedin. Uitvoerend/technisch van aard, geen adviesrol. Wet DBA.',
+    deadline: '2026-07-09',
+    startdatum: null,
+    duur_maanden: null,
+    uren_per_week: 40,
+    tarief_indicatie: 100,
+    locatie: 'Regio Rotterdam',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Magnit',
+    bron: 'Magnit',
+    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
+    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260529-AVH-002' }],
+    score: 52,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 20, 'Focusgebied': 30, 'Klant-fit': 60, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'regulier',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'Heijmans is ketenleverancier richting Stedin. Uitvoerend-technische rol, geen PMO/advies. NIET HERBEVESTIGD IN DEZE PULL: Magnit-sessie verlopen. Deadline (9 juli) inmiddels verstreken.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — Magnit-sessie verlopen, laatst gezien 9 juli 2026', 'Deadline verstreken (9 juli) — waarschijnlijk niet meer open', 'Recruiter: Anouk van Harn (Magnit)']
+  },
+  {
     id: 'TN-MAC-429025-gooise-meren-warmtenet-muiderberg',
     titel: 'Programma Muiderberg — warmtenet + herinrichting (vroeg signaal)',
     klant: 'Gemeente Gooise Meren',
@@ -820,6 +1087,32 @@ const opportunities = [
     focus: ['Warmtetransitie'],
     reden: 'Kleine gemeente, niet op doellijst en geen bestaande Spire-relatie. Warmtenet-ambitie is inhoudelijk relevant, maar hoofdmoot van het programma is civiele herinrichting/rioolvervanging — buiten Spire-kern.',
     flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht', 'Warmtenet-combinatieproject bij kleine gemeente-klant']
+  },
+  {
+    id: 'MG-260604-DT-002-bam-calculator-energie-water',
+    titel: 'Calculator (Detavast)',
+    klant: 'BAM Energie en Water (Koninklijke BAM Groep)',
+    klant_categorie: 'ketenleverancier',
+    beschrijving: 'BAM Energie en Water zoekt een medior Calculator voor de tenderfase van projecten op het gebied van kabels en leidingen. Financieel-technische rol binnen het calculatieteam, regio Zuid.',
+    deadline: '2026-07-14',
+    startdatum: '2026-08-01',
+    duur_maanden: 12,
+    uren_per_week: 40,
+    tarief_indicatie: null,
+    locatie: 'Den Bosch',
+    remote: 'hybride',
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Magnit',
+    bron: 'Magnit',
+    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
+    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260604-DT-002' }],
+    score: 46,
+    score_breakdown: { 'Sector-fit': 65, 'Type-werk': 30, 'Focusgebied': 20, 'Klant-fit': 60, 'Rol-fit': 30, 'Senioriteit': 70 },
+    match_categorie: 'mismatch',
+    focus: [],
+    reden: 'BAM is ketenleverancier, geen directe Spire-doelklant. Calculator zonder PMO/advies-component. NIET HERBEVESTIGD IN DEZE PULL: Magnit-sessie verlopen. Deadline (14 juli) nog niet verstreken.',
+    flags: ['NIET HERBEVESTIGD IN DEZE PULL — Magnit-sessie verlopen, laatst gezien 9 juli 2026', 'Mismatch — financieel-technische rol zonder PMO/advies-component', 'Recruiter: Daniel den Toom (Magnit)']
   },
   {
     id: 'TN-VAK-430391-amsterdam-zonnescans',
@@ -925,7 +1218,6 @@ const opportunities = [
     reden: 'Vastgoedontwikkeling (woningbouwkavel); het collectieve warmte/koude-systeem is slechts een technisch bijcomponent — geen zelfstandige energieopdracht en geen Spire-kernrol.',
     flags: []
   },
-];
 ];
 
 // Per-bron live/uitgevallen status voor de header — dagelijkse pull werkt dit bij, zodat de
