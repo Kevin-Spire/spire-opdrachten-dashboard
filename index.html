@@ -286,7 +286,7 @@
       <span class="tagline">ENERGIE CONSULTING</span>
     </div>
     <div class="brand-meta">
-      <strong>Opdrachten Dashboard</strong><br>
+      <strong>Opportunity Dashboard</strong><br>
       <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">10 juli 2026 — TenderNed volledig herhaald (AAO 131, MAC 122, VAK 138), Striive 1 nieuwe match + Circle8 1 match vers bevestigd. Magnit-sessie verlopen (overgeslagen — opnieuw inloggen nodig) en een deel van Striive (login-gated) en oudere AAO-tenders (buiten 3-daags publicatievenster) konden vandaag niet worden herbevestigd — deze blijven zichtbaar met flag "niet herbevestigd", in plaats van te worden verwijderd. Totaal 31 items (20 vandaag herbevestigd, 11 overgenomen uit de pull van 9 juli zonder herbevestiging), 9 top-match ≥80, 13 vroege signalen/onbevestigde items.</span></span>
     </div>
   </div>
@@ -1224,6 +1224,136 @@ const opportunities = [
     reden: 'Vastgoedontwikkeling (woningbouwkavel); het collectieve warmte/koude-systeem is slechts een technisch bijcomponent — geen zelfstandige energieopdracht en geen Spire-kernrol.',
     flags: []
   },
+  {
+    id: 'OO-tennet-sap-consultant-management-of-change',
+    titel: 'SAP Consultant - Management of Change',
+    klant: 'TenneT TSO',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'TenneT zoekt een SAP MOC (Management of Change) Consultant binnen de unit Offshore NL, verantwoordelijk voor activiteiten en projecten rondom offshore energie-infrastructuur. Cruciale rol in het realiseren van een toekomstbestendige energievoorziening via change-processen rond het SAP-landschap.',
+    deadline: '2026-07-15',
+    startdatum: 'Z.S.M.',
+    duur_maanden: null,
+    uren_per_week: 36,
+    tarief_indicatie: 135,
+    locatie: null,
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Opdracht Overheid',
+    bron: 'Opdracht Overheid',
+    url: 'https://opdrachtoverheid.nl/inhuuropdracht/tennet/sap-consultant-management-of-change',
+    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/tennet/sap-consultant-management-of-change', id: 'OO-tennet-sap-moc' }],
+    score: 88,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 85, 'Focusgebied': 75, 'Klant-fit': 100, 'Rol-fit': 70, 'Senioriteit': 90 },
+    match_categorie: 'foothold-uitbreiding',
+    focus: ['Organisatieverandering'],
+    reden: 'TenneT (netbeheerder doellijst). Change management rond SAP-implementatie binnen offshore-energie-infra — herkenbaar Spire-focusgebied (organisatieverandering), maar wel IT/SAP-specifiek en dus smaller inzetbaar dan een brede verandermanagement-rol.',
+    flags: ['Nieuw via Opdracht Overheid (5e bron, live pull 10 juli 2026)', 'Let op einddatum: loopt door tot 30 jun 2027 — langere opdracht dan gemiddeld']
+  },
+  {
+    id: 'OO-tennet-projectmanager-verkenning-planstudie-area-north',
+    titel: 'Projectmanager - ZZP optie! Verkenning & Planstudie (Area North)',
+    klant: 'TenneT TSO',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Projectmanager voor de verkennings- en planstudiefase van netuitbreidingsprojecten in Area North bij TenneT. ZZP-optie expliciet vermeld in de titel — makkelijker toegankelijk voor Spire-freelancers dan de meeste TenneT-opdrachten die alleen via loondienst/detachering lopen.',
+    deadline: '2026-07-13',
+    startdatum: '2026-08-01',
+    duur_maanden: 6,
+    uren_per_week: 36,
+    tarief_indicatie: 120,
+    locatie: 'Arnhem',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Opdracht Overheid',
+    bron: 'Opdracht Overheid',
+    url: 'https://opdrachtoverheid.nl/inhuuropdracht/tennet/projectmanager-zzp-optie-verkenning-planstudie-area-north/602114DB-A803-4990-83B7-B79A7F94308A',
+    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/tennet/projectmanager-zzp-optie-verkenning-planstudie-area-north/602114DB-A803-4990-83B7-B79A7F94308A', id: 'OO-tennet-pm-area-north' }],
+    score: 98,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 95, 'Klant-fit': 100, 'Rol-fit': 95, 'Senioriteit': 90 },
+    match_categorie: 'bullseye',
+    focus: ['Energiesysteemontwikkeling', 'Project, Programma & PMO Management'],
+    reden: 'TenneT (netbeheerder doellijst). Projectmanagement op verkenning/planstudie van netuitbreiding, met een ZZP-optie — bijna 1-op-1 Spire-profiel en direct toegankelijk voor freelancers.',
+    flags: ['Nieuw via Opdracht Overheid (5e bron, live pull 10 juli 2026)', 'LET OP: sluitingsdatum staat op site vermeld als "13 jul 2026" (titel) maar detailpagina toont ook een vermoedelijk verouderde "sluit vandaag 16:00"-badge — zelfde inconsistentie eerder gezien bij TenneT Omgevingsmanager; titel-datum aangehouden als leidend']
+  },
+  {
+    id: 'OO-alliander-uitvoerder-elektra-c',
+    titel: 'Uitvoerder Elektra C',
+    klant: 'Alliander',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Uitvoerend leidinggevende rol over elektrotechnische projecten in regio Noord-Holland: aansturen van aannemers, storingsoplossing en onderhoud van het Liander-net. Overwegend uitvoerend-technisch van aard, niet consultancy/verandermanagement.',
+    deadline: '2026-07-14',
+    startdatum: '2026-09-01',
+    duur_maanden: 12,
+    uren_per_week: 40,
+    tarief_indicatie: null,
+    locatie: 'Alkmaar',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Opdracht Overheid',
+    bron: 'Opdracht Overheid',
+    url: 'https://opdrachtoverheid.nl/inhuuropdracht/alliander/uitvoerder-elektra-c/7FB96A28-5927-4E8F-86C5-E665D0153CD4',
+    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/alliander/uitvoerder-elektra-c/7FB96A28-5927-4E8F-86C5-E665D0153CD4', id: 'OO-alliander-uitvoerder-elektra-c' }],
+    score: 66,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 40, 'Focusgebied': 50, 'Klant-fit': 100, 'Rol-fit': 30, 'Senioriteit': 60 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: [],
+    reden: 'Alliander (netbeheerder doellijst) — sterke klant-fit, maar de rol zelf is uitvoerend-technisch (monteurs/aannemers aansturen, storingen), niet consultancy of verandermanagement. Twijfelachtige fit met Spire-profiel ondanks de goede klantnaam.',
+    flags: ['Nieuw via Opdracht Overheid (5e bron, live pull 10 juli 2026)', 'Lagere prioriteit: uitvoerende rol, geen consultancy/advies-profiel']
+  },
+  {
+    id: 'OO-zoetermeer-coordinator-programmaplan-energietransitie',
+    titel: 'Coördinator Programmaplan Energietransitie',
+    klant: 'Gemeente Zoetermeer',
+    klant_categorie: 'overheid',
+    beschrijving: 'Coördinatie van het programmaplan energietransitie bij Gemeente Zoetermeer. Beleidsmatige regierol op de gemeentelijke energietransitie-agenda.',
+    deadline: '2026-07-13',
+    startdatum: 'Z.S.M.',
+    duur_maanden: null,
+    uren_per_week: 30,
+    tarief_indicatie: null,
+    locatie: 'Zoetermeer',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Opdracht Overheid',
+    bron: 'Opdracht Overheid',
+    url: 'https://opdrachtoverheid.nl/inhuuropdracht/gemeente-zoetermeer/coordinator-programmaplan-energietransitie/A81A3C78-E72F-4190-860D-D94C4F57571A',
+    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/gemeente-zoetermeer/coordinator-programmaplan-energietransitie/A81A3C78-E72F-4190-860D-D94C4F57571A', id: 'OO-zoetermeer-coordinator-energietransitie' }],
+    score: 92,
+    score_breakdown: { 'Sector-fit': 90, 'Type-werk': 95, 'Focusgebied': 100, 'Klant-fit': 85, 'Rol-fit': 95, 'Senioriteit': 90 },
+    match_categorie: 'bullseye',
+    focus: ['Energiesysteemontwikkeling', 'Organisatieverandering', 'Project, Programma & PMO Management'],
+    reden: 'Gemeente Zoetermeer (overheid) — energietransitie expliciet in de titel, coördinatie/programmaregie is kernactiviteit van Spire. Alleen mogelijk via loondienst óf extern advies-/detacheringsbureau (G-rekening) — dus wel toegankelijk voor Spire, niet uitgesloten zoals de Stedin-opdracht hieronder.',
+    flags: ['Nieuw via Opdracht Overheid (5e bron, live pull 10 juli 2026)', 'LET OP: zelfde "sluit vandaag 16:00"-inconsistentie als bij de TenneT-opdracht hierboven; titel-datum (13 jul) aangehouden als leidend']
+  },
+  {
+    id: 'OO-sudwestfryslan-senior-adviseur-energietransitie',
+    titel: 'Senior adviseur energietransitie',
+    klant: 'Gemeente Súdwest-Fryslân',
+    klant_categorie: 'overheid',
+    beschrijving: 'Senior adviesrol op de energietransitie-agenda van Gemeente Súdwest-Fryslân. Functietitel en -niveau sluiten direct aan op het klassieke Spire-adviseursprofiel.',
+    deadline: '2026-07-12',
+    startdatum: '2026-08-17',
+    duur_maanden: 8,
+    uren_per_week: 32,
+    tarief_indicatie: 110,
+    locatie: 'Sneek',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Opdracht Overheid',
+    bron: 'Opdracht Overheid',
+    url: 'https://opdrachtoverheid.nl/inhuuropdracht/gemeente-sudwest-fryslan/senior-adviseur-energietransitie/E3C6EFDD-D527-4459-9983-859D852DB2D1',
+    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/gemeente-sudwest-fryslan/senior-adviseur-energietransitie/E3C6EFDD-D527-4459-9983-859D852DB2D1', id: 'OO-sudwestfryslan-senior-adviseur' }],
+    score: 94,
+    score_breakdown: { 'Sector-fit': 90, 'Type-werk': 100, 'Focusgebied': 100, 'Klant-fit': 80, 'Rol-fit': 100, 'Senioriteit': 100 },
+    match_categorie: 'bullseye',
+    focus: ['Energiesysteemontwikkeling', 'Organisatieverandering'],
+    reden: 'Gemeente Súdwest-Fryslân (overheid) — "Senior adviseur energietransitie" is vrijwel woordelijk het Spire-profiel. Alleen mogelijk via loondienst óf extern advies-/detacheringsbureau (G-rekening) — toegankelijk voor Spire.',
+    flags: ['Nieuw via Opdracht Overheid (5e bron, live pull 10 juli 2026)', 'LET OP: zelfde "sluit vandaag 16:00"-inconsistentie; titel-datum (12 jul) aangehouden als leidend']
+  },
 ];
 
 // Per-bron live/uitgevallen status voor de header — dagelijkse pull werkt dit bij, zodat de
@@ -1233,6 +1363,7 @@ const bronnenStatus = [
   { naam: 'Striive', label: 'Striive', status: 'live' },
   { naam: 'Circle8', label: 'Circle8', status: 'live' },
   { naam: 'Magnit', label: 'Magnit', status: 'uitgevallen', reden: 'sessie verlopen — opnieuw inloggen nodig' },
+  { naam: 'Opdracht Overheid', label: 'Opdracht Overheid', status: 'live' },
 ];
 
 function renderBronnen() {
@@ -1278,7 +1409,7 @@ function fmtDate(d) {
 }
 function daysUntil(d) {
   if (!d) return null;
-  const now = new Date(); now.setHours(0, 0, 0, 0);
+  const now = new Date();
   const target = new Date(d);
   return Math.ceil((target - now) / (1000*60*60*24));
 }
