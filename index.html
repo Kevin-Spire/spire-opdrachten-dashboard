@@ -208,6 +208,7 @@
   .bron-st { background: var(--spire-teal); color: var(--spire-charcoal); }
   .bron-c8 { background: var(--spire-lime); color: var(--spire-charcoal); }
   .bron-mg { background: #4f46e5; color: #fff; }
+  .bron-oo { background: #0566a5; color: #fff; }
   .bron-other { background: var(--spire-surface-2); color: var(--spire-text-muted); }
 
   /* === Bronnen-status (header) === */
@@ -1294,7 +1295,7 @@ function getBronnen(o) {
   return [];
 }
 function bronClass(naam) {
-  return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg' })[naam] || 'bron-other';
+  return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg', 'Opdracht Overheid': 'bron-oo' })[naam] || 'bron-other';
 }
 function bronBadgesHtml(o) {
   const list = getBronnen(o);
