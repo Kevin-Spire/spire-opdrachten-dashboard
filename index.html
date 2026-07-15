@@ -318,9 +318,9 @@
       <div class="stat-sub">deze update</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Senior-niveau</div>
+      <div class="stat-label">Top match (≥80)</div>
       <div class="stat-value" id="statTop">4</div>
-      <div class="stat-sub">geschikt voor senior consultants</div>
+      <div class="stat-sub">prioriteit voor review</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Strategisch belang</div>
@@ -1595,7 +1595,7 @@ function toggleExpand(id) {
 function updateStats() {
   const all = opportunities;
   document.getElementById('statTotal').textContent = all.length;
-  document.getElementById('statTop').textContent = all.filter(o => seniorLevel(o) === 'Senior').length;
+  document.getElementById('statTop').textContent = all.filter(o => o.score >= 80).length;
   document.getElementById('statStrategic').textContent = all.filter(o => o.match_categorie === 'foothold-uitbreiding' || o.match_categorie === 'diversificatie-strategisch').length;
   document.getElementById('statTodo').textContent = all.filter(o => getStatus(o.id) === 'new').length;
 }
