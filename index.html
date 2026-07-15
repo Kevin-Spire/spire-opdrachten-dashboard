@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="utf-8">
-<title>Spire Opdrachten Dashboard</title>
+<title>Spire Opportunity Dashboard</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridjs@5.0.2/dist/theme/mermaid.min.css" integrity="sha384-jZvDSsmGB9oGGT/4l9bHXGoAv1OxvG/cFmSo0dZaSqmBgvQTKDBFAMftlXTmMbNW" crossorigin="anonymous">
 <style>
   :root {
@@ -346,6 +346,15 @@
       </select>
     </div>
     <div class="filter-group">
+      <label for="filterScore">Min score</label>
+      <select id="filterScore">
+        <option value="0">Alle</option>
+        <option value="80">80+</option>
+        <option value="60">60+</option>
+        <option value="40">40+</option>
+      </select>
+    </div>
+    <div class="filter-group">
       <label for="filterSenior">Senioriteit</label>
       <select id="filterSenior">
         <option value="">Alle</option>
@@ -381,12 +390,13 @@
     <table id="oppTable">
       <thead>
         <tr>
+          <th class="sortable" data-sort="score">Score <span class="sort-arrow">↓</span></th>
           <th class="sortable" data-sort="titel">Titel <span class="sort-arrow"></span></th>
           <th class="sortable" data-sort="klant">Klant <span class="sort-arrow"></span></th>
           <th class="col-cat">Match</th>
           <th class="sortable" data-sort="senior">Senioriteit <span class="sort-arrow"></span></th>
           <th class="sortable" data-sort="tarief_indicatie">Uurtarief <span class="sort-arrow"></span></th>
-          <th class="col-deadline sortable" data-sort="deadline">Deadline <span class="sort-arrow">↓</span></th>
+          <th class="col-deadline sortable" data-sort="deadline">Deadline <span class="sort-arrow"></span></th>
           <th>Status</th>
         </tr>
       </thead>
@@ -1381,10 +1391,11 @@ const FILTER_KEY = 'spire_dashboard_filters_v1';
 const SORT_KEY   = 'spire_dashboard_sort_v1';
 
 let statusMap   = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}');
-let filterState = JSON.parse(localStorage.getItem(FILTER_KEY) || JSON.stringify({ cat: '', senior: '', status: 'active', search: '', bron: '' }));
+let filterState = JSON.parse(localStorage.getItem(FILTER_KEY) || JSON.stringify({ cat: '', senior: '', score: '0', status: 'active', search: '', bron: '' }));
 if (filterState.bron === undefined) filterState.bron = '';
 if (filterState.senior === undefined) filterState.senior = '';
-let sortState   = JSON.parse(localStorage.getItem(SORT_KEY)   || JSON.stringify({ key: 'deadline', dir: 'asc' }));
+if (filterState.score === undefined) filterState.score = '0';
+let sortState   = JSON.parse(localStorage.getItem(SORT_KEY)   || JSON.stringify({ key: 'score', dir: 'desc' }));
 let expandedId  = null;
 
 // === Helpers ===
@@ -1444,6 +1455,7 @@ function filtered() {
   return opportunities.filter(o => {
     if (filterState.cat && o.match_categorie !== filterState.cat) return false;
     if (filterState.senior && seniorLevel(o) !== filterState.senior) return false;
+    if (Number(filterState.score) > 0 && o.score < Number(filterState.score)) return false;
     if (filterState.bron) {
       const bronNamen = getBronnen(o).map(b => b.naam);
       if (!bronNamen.includes(filterState.bron)) return false;
@@ -1504,6 +1516,7 @@ function render() {
 
     const lvl = seniorLevel(o);
     tr.innerHTML = `
+      <td><span class="score-pill ${scoreClass(o.score)}">${o.score}</span></td>
       <td class="titel-cell">${o.titel}${bronBadgesHtml(o)}</td>
       <td><div class="klant-cell">${o.klant}</div><div class="klant-sub">${o.klant_categorie}</div></td>
       <td class="col-cat"><span class="cat-pill ${catClass(o.match_categorie)}">${catLabel(o.match_categorie)}</span></td>
@@ -1517,7 +1530,7 @@ function render() {
 
     if (o.id === expandedId) {
       const detailTr = document.createElement('tr');
-      detailTr.innerHTML = `<td colspan="6" class="detail-panel"></td>`;
+      detailTr.innerHTML = `<td colspan="7" class="detail-panel"></td>`;
       detailTr.querySelector('td').appendChild(buildDetail(o));
       tbody.appendChild(detailTr);
     }
@@ -1530,7 +1543,7 @@ function render() {
 function buildDetail(o) {
   const wrap = document.createElement('div');
   wrap.className = 'detail-content';
-  const breakdownRows = Object.entries(o.score_breakdown).map(([k, v]) =>
+  const breakdownRows = Object.entries(o.score_breakdown).filter(([k]) => k !== 'Senioriteit').map(([k, v]) =>
     `<span class="label">${k}</span><span class="val">${v}</span>`).join('');
   const flagsHtml = o.flags && o.flags.length ? `<div style="margin-top:6px; color:#92400e;">⚠ ${o.flags.join(' · ')}</div>` : '';
   const focusHtml = (o.focus||[]).map(f => `<span style="background:#e0f2f1; color:#0a3d5c; padding:2px 8px; border-radius:3px; font-size:12px; margin-right:4px; display:inline-block; margin-bottom:4px;">${f}</span>`).join('');
@@ -1619,6 +1632,7 @@ function init() {
   populateBronFilter();
   document.getElementById('filterCat').value = filterState.cat;
   document.getElementById('filterSenior').value = filterState.senior;
+  document.getElementById('filterScore').value = filterState.score;
   document.getElementById('filterStatus').value = filterState.status;
   document.getElementById('searchInput').value = filterState.search;
   document.getElementById('filterBron').value = filterState.bron;
@@ -1626,6 +1640,7 @@ function init() {
   const onFilter = () => {
     filterState.cat = document.getElementById('filterCat').value;
     filterState.senior = document.getElementById('filterSenior').value;
+    filterState.score = document.getElementById('filterScore').value;
     filterState.status = document.getElementById('filterStatus').value;
     filterState.search = document.getElementById('searchInput').value;
     filterState.bron = document.getElementById('filterBron').value;
@@ -1633,14 +1648,15 @@ function init() {
     expandedId = null;
     render();
   };
-  ['filterCat','filterSenior','filterStatus','filterBron'].forEach(id => document.getElementById(id).addEventListener('change', onFilter));
+  ['filterCat','filterSenior','filterScore','filterStatus','filterBron'].forEach(id => document.getElementById(id).addEventListener('change', onFilter));
   document.getElementById('searchInput').addEventListener('input', onFilter);
 
   document.getElementById('resetBtn').addEventListener('click', () => {
-    filterState = { cat: '', senior: '', status: 'active', search: '', bron: '' };
+    filterState = { cat: '', senior: '', score: '0', status: 'active', search: '', bron: '' };
     persistFilters();
     document.getElementById('filterCat').value = '';
     document.getElementById('filterSenior').value = '';
+    document.getElementById('filterScore').value = '0';
     document.getElementById('filterStatus').value = 'active';
     document.getElementById('searchInput').value = '';
     document.getElementById('filterBron').value = '';
