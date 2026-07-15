@@ -294,7 +294,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opportunity Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">15 juli 2026 — 43 opdrachten. Opdracht Overheid tijdelijk uitgevallen (laadfout).</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">15 juli 2026 — 40 opdrachten. Deta-vast-only opdrachten en <24u/week uitgesloten.</span></span>
     </div>
   </div>
 </div>
@@ -430,32 +430,6 @@
 // Top-match ≥80: 9. Vroege signalen + niet-herbevestigde items: 13.
 
 const opportunities = [
-  {
-    id: 'ST-stedin-business-consultant-capaciteitsuitgifte',
-    titel: 'Business Consultant Capaciteitsuitgifte (Deta-vast)',
-    klant: 'Stedin Netbeheer B.V.',
-    klant_categorie: 'netbeheerder',
-    beschrijving: 'Business Consultant-rol bij Stedin op het gebied van capaciteitsuitgifte — het proces waarmee Stedin beschikbare netcapaciteit toewijst aan aansluitingen, direct verbonden aan het congestiedossier. Detavast-constructie. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive.',
-    deadline: null,
-    startdatum: null,
-    duur_maanden: null,
-    uren_per_week: null,
-    tarief_indicatie: null,
-    locatie: null,
-    remote: null,
-    type_opdracht: 'D',
-    procedure: 'Niet-openbaar',
-    publicatie_type: 'Striive',
-    bron: 'Striive',
-    url: 'https://striive.com/nl/opdrachten',
-    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-business-consultant-capaciteitsuitgifte' }],
-    score: 97,
-    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 100, 'Klant-fit': 100, 'Rol-fit': 100, 'Senioriteit': 70 },
-    match_categorie: 'foothold-uitbreiding',
-    focus: ['Energiesysteemontwikkeling', 'Project, Programma & PMO Management'],
-    reden: 'Stedin (foothold). Capaciteitsuitgifte = kernproces congestiemanagement, Business Consultant-rol = directe PMO/adviesfit. NIET HERBEVESTIGD IN DEZE PULL: zonder login toont Striive slechts ~25 van de ~126 opdrachten (lazy-load); deze posting viel buiten dat zichtbare venster vandaag, wat niet betekent dat hij is verdwenen.',
-    flags: ['NIET HERBEVESTIGD IN DEZE PULL — buiten zichtbaar Striive-venster zonder login (laatst gezien 9 juli 2026)', 'Detail beschikbaar na Striive-login']
-  },
   {
     id: 'ST-stedin-kwartiermaker-functieteam-engineering',
     titel: 'Kwartiermaker Functieteam Engineering',
@@ -1038,32 +1012,6 @@ const opportunities = [
     flags: ['VROEG SIGNAAL — marktconsultatie, geen directe opdracht', 'Warmtenet-combinatieproject bij kleine gemeente-klant']
   },
   {
-    id: 'MG-260604-DT-002-bam-calculator-energie-water',
-    titel: 'Calculator (Detavast)',
-    klant: 'BAM Energie en Water (Koninklijke BAM Groep)',
-    klant_categorie: 'ketenleverancier',
-    beschrijving: 'BAM Energie en Water zoekt een medior Calculator voor de tenderfase van projecten op het gebied van kabels en leidingen. Financieel-technische rol binnen het calculatieteam, regio Zuid.',
-    deadline: '2026-07-14',
-    startdatum: '2026-08-01',
-    duur_maanden: 12,
-    uren_per_week: 40,
-    tarief_indicatie: null,
-    locatie: 'Den Bosch',
-    remote: 'hybride',
-    type_opdracht: 'D',
-    procedure: 'Niet-openbaar',
-    publicatie_type: 'Magnit',
-    bron: 'Magnit',
-    url: 'https://portal.magnitglobal.com/supplier/jobrequests',
-    bronnen: [{ naam: 'Magnit', url: 'https://portal.magnitglobal.com/supplier/jobrequests', id: '260604-DT-002' }],
-    score: 46,
-    score_breakdown: { 'Sector-fit': 65, 'Type-werk': 30, 'Focusgebied': 20, 'Klant-fit': 60, 'Rol-fit': 30, 'Senioriteit': 70 },
-    match_categorie: 'mismatch',
-    focus: [],
-    reden: 'BAM is ketenleverancier, geen directe Spire-doelklant. Calculator zonder PMO/advies-component. NIET HERBEVESTIGD IN DEZE PULL: Magnit-sessie verlopen. Deadline (14 juli) nog niet verstreken.',
-    flags: ['NIET HERBEVESTIGD IN DEZE PULL — Magnit-sessie verlopen, laatst gezien 9 juli 2026', 'Mismatch — financieel-technische rol zonder PMO/advies-component', 'Recruiter: Daniel den Toom (Magnit)']
-  },
-  {
     id: 'TN-VAK-430391-amsterdam-zonnescans',
     titel: 'Zonnescans — Raamovereenkomst Advisering Zonne-energie Bedrijfsdaken (vroeg signaal)',
     klant: 'Gemeente Amsterdam',
@@ -1243,32 +1191,6 @@ const opportunities = [
     match_categorie: 'foothold-uitbreiding',
     focus: ['Project, Programma & PMO Management', 'Organisatieverandering'],
     reden: 'Stedin (foothold). PMO-rol is kernactiviteit van Spire — vrijwel 1-op-1 profielmatch. Ook cross-listed op Striive (zelfde titel/klant, 13 juli) — Opdracht Overheid als primaire bron (rijkere data).',
-    flags: ['Nieuw via Opdracht Overheid, live pull 13 juli 2026', 'Ook gezien op Striive (zelfde rol) — hier samengevoegd']
-  },
-  {
-    id: 'OO-stedin-portfoliomanager-consultant',
-    titel: 'Portfoliomanager / Consultant (Detavast)',
-    klant: 'Stedin Netbeheer B.V.',
-    klant_categorie: 'netbeheerder',
-    beschrijving: 'Stedin zoekt een ervaren Portfoliomanager / Consultant (Detavast) op het gebied van portfoliomanagement. Adviesrol met sterke procesbegeleiding rond het portfolioproces. Alleen mogelijk via loondienst óf extern advies-/detacheringsbureau (G-rekening).',
-    deadline: '2026-07-21',
-    startdatum: '2026-09-01',
-    duur_maanden: 12,
-    uren_per_week: 32,
-    tarief_indicatie: 75,
-    locatie: 'Utrecht',
-    remote: null,
-    type_opdracht: 'D',
-    procedure: 'Niet-openbaar',
-    publicatie_type: 'Opdracht Overheid',
-    bron: 'Opdracht Overheid',
-    url: 'https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/portfoliomanager---consultant/7AE3D6DC-F1FA-45C5-AFAA-060DE22E9405',
-    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/portfoliomanager---consultant/7AE3D6DC-F1FA-45C5-AFAA-060DE22E9405', id: 'OO-stedin-portfoliomanager-consultant' }],
-    score: 97,
-    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 100, 'Klant-fit': 100, 'Rol-fit': 95, 'Senioriteit': 80 },
-    match_categorie: 'foothold-uitbreiding',
-    focus: ['Project, Programma & PMO Management', 'Organisatieverandering'],
-    reden: 'Stedin (foothold). Portfoliomanagement/consultancy, detavast — sterke Spire-fit. Ook cross-listed op Striive (zelfde titel/klant, 13 juli) — Opdracht Overheid als primaire bron.',
     flags: ['Nieuw via Opdracht Overheid, live pull 13 juli 2026', 'Ook gezien op Striive (zelfde rol) — hier samengevoegd']
   },
   {
