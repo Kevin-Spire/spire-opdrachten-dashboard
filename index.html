@@ -208,6 +208,7 @@
   .bron-oo { background: #0566a5; color: #fff; }
   .bron-hn { background: #c0392b; color: #fff; }
   .bron-ip { background: #8e44ad; color: #fff; }
+  .bron-bt { background: #1a7a5e; color: #fff; }
   .bron-other { background: var(--spire-surface-2); color: var(--spire-text-muted); }
 
   /* === Bronnen-status (header) === */
@@ -284,7 +285,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">16 juli 2026 — 33 unieke opdrachten (16 nieuw, o.a. via nieuwe bronnen Opdracht Overheid/Harvey Nash/Interim Professionals). Magnit sessie verlopen.</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">16 juli 2026 — 34 unieke opdrachten (17 nieuw, o.a. via nieuwe bronnen Opdracht Overheid/Harvey Nash/Interim Professionals/Bluetrail). Magnit sessie verlopen.</span></span>
     </div>
   </div>
 </div>
@@ -410,6 +411,33 @@
 // Gepubliceerd naar Cowork-artifact en GitHub Pages. Teams-map (08. Tender-app) nog steeds onbereikbaar.
 
 const opportunities = [
+  {
+    id: 'BT-ipo-adviseur-netcongestie',
+    titel: 'Adviseur Netcongestie (junior/traineeship)',
+    klant: 'IPO / BIJ12 (Vereniging IPO)',
+    klant_categorie: 'overheid',
+    beschrijving: 'Hands-on adviseur die op het thema netcongestie junior ondersteuning biedt, samen met twee collega-adviseurs aanspreekpunt voor alle 12 provincies. Helpt bij het opstellen van ambtelijke/bestuurlijke voorstellen en belangenbehartiging richting Rijk en Tweede Kamer, in interprovinciale en interbestuurlijke setting (programma\'s LAN en Energiehubs). Werkt in het team Klimaat en Energie bij IPO, dat provincies ondersteunt op de gezamenlijke klimaat- en energieagenda (netcongestie, energiehubs, netbewuste nieuwbouw, maatschappelijk prioriteren). Onderdeel van een traineeship gericht op klimaat/energietransitie — expliciet junior-niveau.',
+    deadline: null,
+    startdatum: null,
+    duur_maanden: 9,
+    uren_per_week: 32,
+    tarief_indicatie: null,
+    locatie: 'Den Haag/Utrecht',
+    remote: null,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Bluetrail',
+    bron: 'Bluetrail',
+    url: 'https://www.bluetrail.nl/opdrachten/Interim/adviseur-netcongestie/',
+    bronnen: [{ naam: 'Bluetrail', url: 'https://www.bluetrail.nl/opdrachten/Interim/adviseur-netcongestie/', id: 'adviseur-netcongestie' }],
+    score: 85,
+    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 85, 'Focusgebied': 90, 'Klant-fit': 95, 'Rol-fit': 70, 'Senioriteit': 50 },
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling'],
+    reden: 'IPO/BIJ12 (overheid/innovatie — koepel van alle 12 provincies op klimaat/energie). Netcongestie-advieswerk in politiek-bestuurlijke context, direct energietransitie-kernthema. Expliciet junior/traineeship-niveau (laagste senioriteitscore van de pull), dus lager totaal ondanks sterke inhoudelijke fit. Nieuwe bron: Bluetrail — gevonden via directe vakgebied-URL (vakgebied-milieu-duurzaam-energie), niet via de onbetrouwbare checkbox-filter.',
+    zzp_toegestaan: false,
+    flags: ['Nieuwe bron: Bluetrail', 'Traineeship-constructie — vermoedelijk loondienst, niet zzp', 'Junior/beginnend-niveau vereist (academisch werk- en denkniveau, geen ervaringseis)', 'Min. 8 maanden beschikbaarheid vereist']
+  },
   {
     id: 'OO-stedin-portfolio-management-officer',
     titel: 'Portfolio Management Officer',
@@ -1319,7 +1347,7 @@ const bronnenStatus = [
   { naam: 'Opdracht Overheid', label: 'Opdracht Overheid', status: 'live' },
   { naam: 'Harvey Nash', label: 'Harvey Nash', status: 'live' },
   { naam: 'Interim Professionals', label: 'Interim Professionals', status: 'live' },
-  { naam: 'Bluetrail', label: 'Bluetrail', status: 'uitgevallen', reden: 'paginering nog niet betrouwbaar te doorlopen — technisch onderzoek nodig' },
+  { naam: 'Bluetrail', label: 'Bluetrail', status: 'live' },
 ];
 
 function renderBronnen() {
@@ -1383,7 +1411,7 @@ function getBronnen(o) {
   return [];
 }
 function bronClass(naam) {
-  return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg', 'Opdracht Overheid': 'bron-oo', 'Harvey Nash': 'bron-hn', 'Interim Professionals': 'bron-ip' })[naam] || 'bron-other';
+  return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg', 'Opdracht Overheid': 'bron-oo', 'Harvey Nash': 'bron-hn', 'Interim Professionals': 'bron-ip', 'Bluetrail': 'bron-bt' })[naam] || 'bron-other';
 }
 function bronBadgesHtml(o) {
   const list = getBronnen(o);
