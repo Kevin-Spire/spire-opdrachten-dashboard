@@ -1755,4 +1755,66 @@ function updateStats() {
 function updateSortArrows() {
   document.querySelectorAll('thead th.sortable').forEach(th => {
     const key = th.dataset.sort;
-    const a
+    const arrow = th.querySelector('.sort-arrow');
+    if (key === sortState.key) {
+      th.classList.add('active');
+      arrow.textContent = sortState.dir === 'asc' ? '↑' : '↓';
+    } else {
+      th.classList.remove('active');
+      arrow.textContent = '';
+    }
+  });
+}
+
+// === Wiring ===
+function init() {
+  populateBronFilter();
+  document.getElementById('filterCat').value = filterState.cat;
+  document.getElementById('filterScore').value = filterState.score;
+  document.getElementById('filterStatus').value = filterState.status;
+  document.getElementById('searchInput').value = filterState.search;
+  document.getElementById('filterBron').value = filterState.bron;
+
+  const onFilter = () => {
+    filterState.cat = document.getElementById('filterCat').value;
+    filterState.score = document.getElementById('filterScore').value;
+    filterState.status = document.getElementById('filterStatus').value;
+    filterState.search = document.getElementById('searchInput').value;
+    filterState.bron = document.getElementById('filterBron').value;
+    persistFilters();
+    expandedId = null;
+    render();
+  };
+  ['filterCat','filterScore','filterStatus','filterBron'].forEach(id => document.getElementById(id).addEventListener('change', onFilter));
+  document.getElementById('searchInput').addEventListener('input', onFilter);
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    filterState = { cat: '', score: '0', status: 'active', search: '', bron: '' };
+    persistFilters();
+    document.getElementById('filterCat').value = '';
+    document.getElementById('filterScore').value = '0';
+    document.getElementById('filterStatus').value = 'active';
+    document.getElementById('searchInput').value = '';
+    document.getElementById('filterBron').value = '';
+    expandedId = null;
+    render();
+  });
+
+  document.querySelectorAll('thead th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const k = th.dataset.sort;
+      if (sortState.key === k) sortState.dir = (sortState.dir === 'asc') ? 'desc' : 'asc';
+      else { sortState.key = k; sortState.dir = (k === 'titel' || k === 'klant' || k === 'deadline') ? 'asc' : 'desc'; }
+      persistSort();
+      render();
+    });
+  });
+
+  renderBronnen();
+  render();
+}
+init();
+</script>
+
+</body>
+</html>
