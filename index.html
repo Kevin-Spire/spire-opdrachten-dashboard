@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!DOCTYPE html><html lang="nl">
 <head>
 <meta charset="utf-8">
 <title>Spire Opdrachten Dashboard</title>
@@ -199,22 +198,30 @@
   .status-reviewed { background: #d4dae2; color: #475569; }
   .status-dismissed { background: #fecaca; color: #991b1b; }
 
-  /* === Bron badges === */
-  .bron-badges { display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: middle; }
+  /* === Bron-indicators: dunne streepjes; bij openklappen (tr.expanded) groeien ze uit tot badge met naam === */
+  .bron-badges { display: inline-flex; gap: 3px; margin-left: 8px; vertical-align: middle; }
   .bron-badge {
-    display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 10px;
-    font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;
-    background: #fff; border: 1px solid currentColor;
+    display: inline-flex; align-items: center; overflow: hidden;
+    height: 13px; width: 8px; border-radius: 2px;
+    background: var(--bron-c, var(--spire-text-muted));
+    transition: width 0.15s ease, padding 0.15s ease;
+    padding: 0; cursor: help;
   }
-  .bron-tn { color: var(--spire-charcoal); }
-  .bron-st { color: var(--spire-teal); }
-  .bron-c8 { color: #5d6815; }
-  .bron-mg { color: #4f46e5; }
-  .bron-oo { color: #0566a5; }
-  .bron-hn { color: #c0392b; }
-  .bron-ip { color: #8e44ad; }
-  .bron-bt { color: #1a7a5e; }
-  .bron-other { background: #fff; color: var(--spire-text-muted); border: 1px solid var(--spire-border); }
+  tr.expanded .bron-badge { width: auto; padding: 0 7px; }
+  .bron-badge span {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase;
+    color: #fff; white-space: nowrap; opacity: 0; transition: opacity 0.15s ease;
+  }
+  tr.expanded .bron-badge span { opacity: 1; }
+  .bron-tn { --bron-c: var(--spire-charcoal); }
+  .bron-st { --bron-c: var(--spire-teal-dark); }
+  .bron-c8 { --bron-c: #5d6815; }
+  .bron-mg { --bron-c: #4f46e5; }
+  .bron-oo { --bron-c: #0566a5; }
+  .bron-hn { --bron-c: #c0392b; }
+  .bron-ip { --bron-c: #8e44ad; }
+  .bron-bt { --bron-c: #1a7a5e; }
+  .bron-other { --bron-c: var(--spire-text-muted); }
 
   /* === Bronnen-status (header) === */
   .bron-status-live { color: var(--spire-charcoal); font-weight: 700; }
@@ -1626,7 +1633,7 @@ function bronClass(naam) {
 function bronBadgesHtml(o) {
   const list = getBronnen(o);
   if (!list.length) return '';
-  return '<span class="bron-badges">' + list.map(b => `<span class="bron-badge ${bronClass(b.naam)}">${b.naam}</span>`).join('') + '</span>';
+  return '<span class="bron-badges">' + list.map(b => `<span class="bron-badge ${bronClass(b.naam)}" title="${b.naam}"><span>${b.naam}</span></span>`).join('') + '</span>';
 }
 function getStatus(id) { return statusMap[id] || 'new'; }
 function setStatus(id, s) {
