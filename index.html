@@ -270,7 +270,10 @@
     .filters { flex-direction: column; align-items: stretch; }
     .filter-group { width: 100%; }
     select, input[type="search"] { width: 100%; }
-    thead th.col-cat, td.col-cat, thead th.col-deadline, td.col-deadline { display: none; }
+    thead th.col-cat, td.col-cat, thead th.col-deadline, td.col-deadline,
+    thead th.col-senior, td.col-senior, thead th.col-tarief, td.col-tarief,
+    thead th.col-uren, td.col-uren, thead th.col-plaats, td.col-plaats,
+    thead th.col-start, td.col-start, thead th.col-zzp, td.col-zzp { display: none; }
     .brand-row { flex-direction: column; align-items: flex-start; gap: 6px; }
     .brand-meta { text-align: left; }
   }
@@ -376,6 +379,12 @@
           <th class="sortable" data-sort="titel">Titel <span class="sort-arrow"></span></th>
           <th class="sortable" data-sort="klant">Klant <span class="sort-arrow"></span></th>
           <th class="col-cat">Match</th>
+          <th class="col-senior">Senioriteit</th>
+          <th class="col-tarief">Uurtarief</th>
+          <th class="col-uren">Uren/wk</th>
+          <th class="col-plaats">Plaats</th>
+          <th class="col-start">Start</th>
+          <th class="col-zzp">Zzp</th>
           <th class="col-deadline sortable" data-sort="deadline">Deadline <span class="sort-arrow"></span></th>
           <th>Status</th>
         </tr>
@@ -419,6 +428,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Striive',
@@ -445,6 +455,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Amersfoort',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Opdracht Overheid',
@@ -475,6 +486,7 @@ const opportunities = [
     tarief_indicatie: 102,
     locatie: 'Utrecht',
     remote: null,
+    zzp_toegestaan: true,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Harvey Nash',
@@ -501,6 +513,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Striive',
@@ -527,6 +540,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Openbaar',
     publicatie_type: 'AAO',
@@ -553,6 +567,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Rotterdam',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Openbaar',
     publicatie_type: 'AAO',
@@ -582,6 +597,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Amsterdam',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -608,6 +624,7 @@ const opportunities = [
     tarief_indicatie: 75,
     locatie: 'Rotterdam',
     remote: null,
+    zzp_toegestaan: false,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Opdracht Overheid',
@@ -634,6 +651,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Dynamisch aankoopsysteem',
     publicatie_type: 'VAK',
@@ -660,6 +678,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Striive',
@@ -686,6 +705,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -712,6 +732,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Rotterdam',
     remote: null,
+    zzp_toegestaan: false,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Opdracht Overheid',
@@ -738,6 +759,7 @@ const opportunities = [
     tarief_indicatie: 110,
     locatie: 'Oss',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Opdracht Overheid',
@@ -764,6 +786,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Limburg',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -790,6 +813,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -819,6 +843,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -845,6 +870,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Katwijk aan Zee',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Opdracht Overheid',
@@ -871,6 +897,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Venlo',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Openbaar',
     publicatie_type: 'AAO',
@@ -897,6 +924,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Mededingingsprocedure met onderhandeling',
     publicatie_type: 'AAO',
@@ -926,6 +954,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Muiderberg',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'MAC',
@@ -952,6 +981,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -978,6 +1008,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1004,6 +1035,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Amsterdam',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'MAC',
@@ -1030,6 +1062,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Amsterdam',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1056,6 +1089,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Striive',
@@ -1082,6 +1116,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Openbaar',
     publicatie_type: 'AAO',
@@ -1108,6 +1143,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1134,6 +1170,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1160,6 +1197,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1186,6 +1224,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1212,6 +1251,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'L',
     procedure: 'Niet-openbaar',
     publicatie_type: 'AAO',
@@ -1238,6 +1278,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Hoogeveen',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Openbaar',
     publicatie_type: 'AAO',
@@ -1264,6 +1305,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1290,6 +1332,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: 'Alkmaar',
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Striive',
@@ -1316,6 +1359,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'L',
     procedure: 'Marktconsultatie',
     publicatie_type: 'MAC',
@@ -1342,6 +1386,7 @@ const opportunities = [
     tarief_indicatie: 75,
     locatie: 'Rotterdam',
     remote: null,
+    zzp_toegestaan: false,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
     publicatie_type: 'Opdracht Overheid',
@@ -1368,6 +1413,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1394,6 +1440,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Marktconsultatie',
     publicatie_type: 'VAK',
@@ -1420,6 +1467,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'L',
     procedure: 'Niet-openbaar',
     publicatie_type: 'AAO',
@@ -1446,6 +1494,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'L',
     procedure: 'Openbaar',
     publicatie_type: 'AAO',
@@ -1472,6 +1521,7 @@ const opportunities = [
     tarief_indicatie: null,
     locatie: null,
     remote: null,
+    zzp_toegestaan: null,
     type_opdracht: 'L',
     procedure: 'Openbaar',
     publicatie_type: 'AAO',
@@ -1548,6 +1598,13 @@ function daysUntil(d) {
   return Math.ceil((target - now) / (1000*60*60*24));
 }
 function scoreClass(s) { return s >= 75 ? 'score-high' : s >= 55 ? 'score-mid' : 'score-low'; }
+function seniorityLabel(v) {
+  if (v === undefined || v === null) return '—';
+  return v >= 85 ? 'Senior' : v >= 60 ? 'Medior' : 'Junior';
+}
+function fmtTarief(t) { return (t === null || t === undefined) ? '—' : `€${t}`; }
+function fmtUren(u) { return (u === null || u === undefined) ? '—' : `${u}`; }
+function fmtZzp(z) { return z === true ? 'Ja' : z === false ? 'Nee' : '—'; }
 function catLabel(c) {
   return ({ 'foothold-uitbreiding': 'Foothold', 'diversificatie-strategisch': 'Strategisch', 'regulier': 'Regulier', 'mismatch': 'Mismatch' })[c] || c;
 }
@@ -1639,6 +1696,12 @@ function render() {
       <td class="titel-cell">${o.titel}${bronBadgesHtml(o)}</td>
       <td><div class="klant-cell">${o.klant}</div><div class="klant-sub">${o.klant_categorie}</div></td>
       <td class="col-cat"><span class="cat-pill ${catClass(o.match_categorie)}">${catLabel(o.match_categorie)}</span></td>
+      <td class="col-senior">${seniorityLabel(o.score_breakdown ? o.score_breakdown['Senioriteit'] : null)}</td>
+      <td class="col-tarief">${fmtTarief(o.tarief_indicatie)}</td>
+      <td class="col-uren">${fmtUren(o.uren_per_week)}</td>
+      <td class="col-plaats">${o.locatie || '—'}</td>
+      <td class="col-start">${fmtDate(o.startdatum)}</td>
+      <td class="col-zzp">${fmtZzp(o.zzp_toegestaan)}</td>
       <td class="col-deadline deadline-cell">${deadlineHtml}</td>
       <td>${st === 'new' ? '<span class="status-tag status-new">Nieuw</span>' : st === 'reviewed' ? '<span class="status-tag status-reviewed">Gezien</span>' : '<span class="status-tag status-dismissed">Afgewezen</span>'}</td>
     `;
@@ -1647,7 +1710,7 @@ function render() {
 
     if (o.id === expandedId) {
       const detailTr = document.createElement('tr');
-      detailTr.innerHTML = `<td colspan="6" class="detail-panel"></td>`;
+      detailTr.innerHTML = `<td colspan="12" class="detail-panel"></td>`;
       detailTr.querySelector('td').appendChild(buildDetail(o));
       tbody.appendChild(detailTr);
     }
