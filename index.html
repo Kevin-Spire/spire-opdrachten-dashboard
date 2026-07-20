@@ -201,16 +201,20 @@
 
   /* === Bron badges === */
   .bron-badges { display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: middle; }
-  .bron-badge { display: inline-block; padding: 2px 7px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
-  .bron-tn { background: var(--spire-charcoal); color: var(--spire-lime); }
-  .bron-st { background: var(--spire-teal); color: var(--spire-charcoal); }
-  .bron-c8 { background: var(--spire-lime); color: var(--spire-charcoal); }
-  .bron-mg { background: #4f46e5; color: #fff; }
-  .bron-oo { background: #0566a5; color: #fff; }
-  .bron-hn { background: #c0392b; color: #fff; }
-  .bron-ip { background: #8e44ad; color: #fff; }
-  .bron-bt { background: #1a7a5e; color: #fff; }
-  .bron-other { background: var(--spire-surface-2); color: var(--spire-text-muted); }
+  .bron-badge {
+    display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 10px;
+    font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;
+    background: #fff; border: 1px solid currentColor;
+  }
+  .bron-tn { color: var(--spire-charcoal); }
+  .bron-st { color: var(--spire-teal); }
+  .bron-c8 { color: #5d6815; }
+  .bron-mg { color: #4f46e5; }
+  .bron-oo { color: #0566a5; }
+  .bron-hn { color: #c0392b; }
+  .bron-ip { color: #8e44ad; }
+  .bron-bt { color: #1a7a5e; }
+  .bron-other { background: #fff; color: var(--spire-text-muted); border: 1px solid var(--spire-border); }
 
   /* === Bronnen-status (header) === */
   .bron-status-live { color: var(--spire-charcoal); font-weight: 700; }
