@@ -4,426 +4,432 @@
 <title>Spire Opdrachten Dashboard</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridjs@5.0.2/dist/theme/mermaid.min.css" integrity="sha384-jZvDSsmGB9oGGT/4l9bHXGoAv1OxvG/cFmSo0dZaSqmBgvQTKDBFAMftlXTmMbNW" crossorigin="anonymous">
 <style>
-  :root {
-    color-scheme: light;
-    --spire-charcoal: #2d3439;
-    --spire-charcoal-2: #4a5158;
-    --spire-lime: #c5d935;
-    --spire-lime-dark: #a8b822;
-    --spire-lime-soft: #ecf3b8;
-    --spire-teal: #7dd3c4;
-    --spire-teal-dark: #5fb8a9;
-    --spire-teal-soft: #d4f0eb;
-    --spire-surface: #ffffff;
-    --spire-surface-2: #f7f8fa;
-    --spire-border: #e3e7ed;
-    --spire-text: #2d3439;
-    --spire-text-muted: #6b7480;
-    --spire-shadow: 0 1px 3px rgba(45, 52, 57, 0.06), 0 1px 2px rgba(45, 52, 57, 0.04);
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-    background: var(--spire-surface-2);
-    color: var(--spire-text);
-    font-size: 14px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
+:root {
+color-scheme: light;
+--spire-charcoal: #2d3439;
+--spire-charcoal-2: #4a5158;
+--spire-lime: #c5d935;
+--spire-lime-dark: #a8b822;
+--spire-lime-soft: #ecf3b8;
+--spire-teal: #7dd3c4;
+--spire-teal-dark: #5fb8a9;
+--spire-teal-soft: #d4f0eb;
+--spire-surface: #ffffff;
+--spire-surface-2: #f7f8fa;
+--spire-border: #e3e7ed;
+--spire-text: #2d3439;
+--spire-text-muted: #6b7480;
+--spire-shadow: 0 1px 3px rgba(45, 52, 57, 0.06), 0 1px 2px rgba(45, 52, 57, 0.04);
+}
+* { box-sizing: border-box; }
+body {
+margin: 0;
+font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+background: var(--spire-surface-2);
+color: var(--spire-text);
+font-size: 14px;
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
 
-  /* === Spire brand header === */
-  .spire-gradient-bar {
-    height: 6px;
-    background: linear-gradient(90deg, #7dd3c4 0%, #aed24a 50%, #d8db28 100%);
-    width: 100%;
-  }
-  .brand-header {
-    background: var(--spire-surface);
-    padding: 18px 0;
-    border-bottom: 1px solid var(--spire-border);
-    margin-bottom: 24px;
-  }
-  .brand-row {
-    max-width: 1280px; margin: 0 auto; padding: 0 20px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; flex-wrap: wrap;
-  }
-  .brand-logo { display: inline-flex; flex-direction: column; line-height: 1; user-select: none; }
-  .brand-logo .wordmark {
-    font-size: 38px; font-weight: 800; letter-spacing: -0.025em;
-    color: var(--spire-charcoal); position: relative; display: inline-block;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-  }
-  .brand-logo .wordmark::after {
-    content: ''; position: absolute; top: 5px; left: 28px;
-    width: 11px; height: 11px;
-    background: var(--spire-lime);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  }
-  .brand-logo .wordmark::before {
-    content: ''; position: absolute; bottom: 1px; left: -13px;
-    width: 11px; height: 9px;
-    background: linear-gradient(135deg, var(--spire-teal) 0%, var(--spire-lime) 100%);
-    clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
-  }
-  .brand-logo .tagline {
-    font-size: 9px; font-weight: 700; letter-spacing: 0.22em;
-    color: var(--spire-teal-dark); margin-top: 4px;
-  }
-  .brand-meta { color: var(--spire-text-muted); font-size: 13px; text-align: right; }
-  .brand-meta strong { color: var(--spire-charcoal); font-weight: 700; }
+/* === Spire brand header === */
+.spire-gradient-bar {
+height: 6px;
+background: linear-gradient(90deg, #7dd3c4 0%, #aed24a 50%, #d8db28 100%);
+width: 100%;
+}
+.brand-header {
+background: var(--spire-surface);
+padding: 18px 0;
+border-bottom: 1px solid var(--spire-border);
+margin-bottom: 24px;
+}
+.brand-row {
+max-width: 1280px; margin: 0 auto; padding: 0 20px;
+display: flex; align-items: center; justify-content: space-between;
+gap: 16px; flex-wrap: wrap;
+}
+.brand-logo { display: inline-flex; flex-direction: column; line-height: 1; user-select: none; }
+.brand-logo .wordmark {
+font-size: 38px; font-weight: 800; letter-spacing: -0.025em;
+color: var(--spire-charcoal); position: relative; display: inline-block;
+font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+.brand-logo .wordmark::after {
+content: ''; position: absolute; top: 5px; left: 28px;
+width: 11px; height: 11px;
+background: var(--spire-lime);
+clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+.brand-logo .wordmark::before {
+content: ''; position: absolute; bottom: 1px; left: -13px;
+width: 11px; height: 9px;
+background: linear-gradient(135deg, var(--spire-teal) 0%, var(--spire-lime) 100%);
+clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
+}
+.brand-logo .tagline {
+font-size: 9px; font-weight: 700; letter-spacing: 0.22em;
+color: var(--spire-teal-dark); margin-top: 4px;
+}
+.brand-meta { color: var(--spire-text-muted); font-size: 13px; text-align: right; }
+.brand-meta strong { color: var(--spire-charcoal); font-weight: 700; }
 
-  /* === Layout === */
-  .container { max-width: 1280px; margin: 0 auto; padding: 0 20px 48px; }
-  header { margin-bottom: 24px; }
-  .title-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-  h1 {
-    font-size: 26px; margin: 0; color: var(--spire-charcoal);
-    font-weight: 700; letter-spacing: -0.015em;
-  }
-  .badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
-  .badge-mock { background: var(--spire-lime-soft); color: #5d6815; border: 1px solid var(--spire-lime); }
-  .meta { margin-top: 6px; color: var(--spire-text-muted); font-size: 13px; }
-  .meta-sep { color: #c1c8d2; margin: 0 8px; }
+/* === Layout === */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 20px 48px; }
+header { margin-bottom: 24px; }
+.title-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h1 {
+font-size: 26px; margin: 0; color: var(--spire-charcoal);
+font-weight: 700; letter-spacing: -0.015em;
+}
+.badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
+.badge-mock { background: var(--spire-lime-soft); color: #5d6815; border: 1px solid var(--spire-lime); }
+.meta { margin-top: 6px; color: var(--spire-text-muted); font-size: 13px; }
+.meta-sep { color: #c1c8d2; margin: 0 8px; }
 
-  /* === Stats cards === */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
-  .stat-card {
-    background: var(--spire-surface);
-    border: 1px solid var(--spire-border);
-    border-radius: 10px;
-    padding: 16px 18px;
-    box-shadow: var(--spire-shadow);
-    position: relative;
-    overflow: hidden;
-  }
-  .stat-card::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-    background: var(--spire-teal); opacity: 0.7;
-  }
-  .stat-card:nth-child(2)::before { background: var(--spire-lime); }
-  .stat-card:nth-child(3)::before { background: linear-gradient(180deg, var(--spire-teal) 0%, var(--spire-lime) 100%); }
-  .stat-card:nth-child(4)::before { background: var(--spire-charcoal); }
-  .stat-label { color: var(--spire-text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 700; }
-  .stat-value { font-size: 28px; font-weight: 800; color: var(--spire-charcoal); letter-spacing: -0.02em; line-height: 1.1; }
-  .stat-sub { color: var(--spire-text-muted); font-size: 12px; margin-top: 4px; }
+/* === Stats cards === */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+.stat-card {
+background: var(--spire-surface);
+border: 1px solid var(--spire-border);
+border-radius: 10px;
+padding: 16px 18px;
+box-shadow: var(--spire-shadow);
+position: relative;
+overflow: hidden;
+}
+.stat-card::before {
+content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+background: var(--spire-teal); opacity: 0.7;
+}
+.stat-card:nth-child(2)::before { background: var(--spire-lime); }
+.stat-card:nth-child(3)::before { background: linear-gradient(180deg, var(--spire-teal) 0%, var(--spire-lime) 100%); }
+.stat-card:nth-child(4)::before { background: var(--spire-charcoal); }
+.stat-label { color: var(--spire-text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 700; }
+.stat-value { font-size: 28px; font-weight: 800; color: var(--spire-charcoal); letter-spacing: -0.02em; line-height: 1.1; }
+.stat-sub { color: var(--spire-text-muted); font-size: 12px; margin-top: 4px; }
 
-  /* === Filters === */
-  .filters {
-    background: var(--spire-surface);
-    border: 1px solid var(--spire-border);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 16px;
-    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
-    box-shadow: var(--spire-shadow);
-  }
-  .filter-group { display: flex; align-items: center; gap: 6px; }
-  .filter-group label { color: var(--spire-text-muted); font-size: 12px; font-weight: 600; }
-  select, input[type="search"] {
-    border: 1px solid var(--spire-border); border-radius: 6px; padding: 7px 10px;
-    font-size: 13px; background: var(--spire-surface); color: var(--spire-text);
-    font-family: inherit; transition: border-color 0.15s;
-  }
-  select:focus, input[type="search"]:focus { outline: none; border-color: var(--spire-teal); box-shadow: 0 0 0 3px rgba(125, 211, 196, 0.15); }
-  input[type="search"] { min-width: 200px; }
-  .reset-btn {
-    background: transparent; border: 1px solid var(--spire-border); border-radius: 6px;
-    padding: 7px 14px; font-size: 13px; cursor: pointer; color: var(--spire-text-muted);
-    font-family: inherit; font-weight: 600; transition: all 0.15s;
-  }
-  .reset-btn:hover { background: var(--spire-surface-2); border-color: var(--spire-charcoal-2); color: var(--spire-charcoal); }
+/* === Filters === */
+.filters {
+background: var(--spire-surface);
+border: 1px solid var(--spire-border);
+border-radius: 10px;
+padding: 14px 16px;
+margin-bottom: 16px;
+display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+box-shadow: var(--spire-shadow);
+}
+.filter-group { display: flex; align-items: center; gap: 6px; }
+.filter-group label { color: var(--spire-text-muted); font-size: 12px; font-weight: 600; }
+select, input[type="search"] {
+border: 1px solid var(--spire-border); border-radius: 6px; padding: 7px 10px;
+font-size: 13px; background: var(--spire-surface); color: var(--spire-text);
+font-family: inherit; transition: border-color 0.15s;
+}
+select:focus, input[type="search"]:focus { outline: none; border-color: var(--spire-teal); box-shadow: 0 0 0 3px rgba(125, 211, 196, 0.15); }
+input[type="search"] { min-width: 200px; }
+.reset-btn {
+background: transparent; border: 1px solid var(--spire-border); border-radius: 6px;
+padding: 7px 14px; font-size: 13px; cursor: pointer; color: var(--spire-text-muted);
+font-family: inherit; font-weight: 600; transition: all 0.15s;
+}
+.reset-btn:hover { background: var(--spire-surface-2); border-color: var(--spire-charcoal-2); color: var(--spire-charcoal); }
 
-  /* === Table === */
-  .table-container {
-    background: var(--spire-surface);
-    border: 1px solid var(--spire-border);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--spire-shadow);
-  }
-  table { width: 100%; border-collapse: collapse; }
-  thead th {
-    background: var(--spire-surface-2);
-    color: var(--spire-text-muted);
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
-    font-weight: 700; padding: 12px 14px; text-align: left;
-    border-bottom: 1px solid var(--spire-border);
-  }
-  thead th.sortable { cursor: pointer; user-select: none; transition: color 0.1s; }
-  thead th.sortable:hover { color: var(--spire-charcoal); }
-  thead th .sort-arrow { color: #c1c8d2; margin-left: 4px; }
-  thead th.active { color: var(--spire-charcoal); }
-  thead th.active .sort-arrow { color: var(--spire-lime-dark); }
-  tbody tr { border-bottom: 1px solid #eef1f5; cursor: pointer; transition: background 0.12s; }
-  tbody tr:hover { background: var(--spire-surface-2); }
-  tbody tr.expanded { background: var(--spire-teal-soft); }
-  tbody tr.reviewed { opacity: 0.55; }
-  tbody tr.dismissed { opacity: 0.4; text-decoration: line-through; }
-  td { padding: 14px; vertical-align: top; }
+/* === Table === */
+.table-container {
+background: var(--spire-surface);
+border: 1px solid var(--spire-border);
+border-radius: 10px;
+overflow: hidden;
+box-shadow: var(--spire-shadow);
+}
+table { width: 100%; border-collapse: collapse; }
+thead th {
+background: var(--spire-surface-2);
+color: var(--spire-text-muted);
+font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+font-weight: 700; padding: 12px 14px; text-align: left;
+border-bottom: 1px solid var(--spire-border);
+}
+thead th.sortable { cursor: pointer; user-select: none; transition: color 0.1s; }
+thead th.sortable:hover { color: var(--spire-charcoal); }
+thead th .sort-arrow { color: #c1c8d2; margin-left: 4px; }
+thead th.active { color: var(--spire-charcoal); }
+thead th.active .sort-arrow { color: var(--spire-lime-dark); }
+tbody tr { border-bottom: 1px solid #eef1f5; cursor: pointer; transition: background 0.12s; }
+tbody tr:hover { background: var(--spire-surface-2); }
+tbody tr.expanded { background: var(--spire-teal-soft); }
+tbody tr.reviewed { opacity: 0.55; }
+tbody tr.dismissed { opacity: 0.4; text-decoration: line-through; }
+td { padding: 14px; vertical-align: top; }
 
-  /* === Score pills === */
-  .score-pill {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-width: 42px; height: 30px; border-radius: 15px;
-    font-weight: 800; font-size: 13px; padding: 0 12px;
-  }
-  .score-high { background: var(--spire-lime); color: var(--spire-charcoal); }
-  .score-mid { background: var(--spire-teal-soft); color: var(--spire-teal-dark); border: 1px solid var(--spire-teal); }
-  .score-low { background: #f1f4f8; color: #6b7280; }
+/* === Score pills === */
+.score-pill {
+display: inline-flex; align-items: center; justify-content: center;
+min-width: 42px; height: 30px; border-radius: 15px;
+font-weight: 800; font-size: 13px; padding: 0 12px;
+}
+.score-high { background: var(--spire-lime); color: var(--spire-charcoal); }
+.score-mid { background: var(--spire-teal-soft); color: var(--spire-teal-dark); border: 1px solid var(--spire-teal); }
+.score-low { background: #f1f4f8; color: #6b7280; }
 
-  .titel-cell { font-weight: 600; color: var(--spire-charcoal); max-width: 360px; }
-  .klant-cell { color: var(--spire-text); font-weight: 600; }
-  .klant-sub { color: var(--spire-text-muted); font-size: 12px; margin-top: 2px; }
+.titel-cell { font-weight: 600; color: var(--spire-charcoal); max-width: 360px; }
+.klant-cell { color: var(--spire-text); font-weight: 600; }
+.klant-sub { color: var(--spire-text-muted); font-size: 12px; margin-top: 2px; }
 
-  /* === Category pills (in spire kleuren) === */
-  .cat-pill { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.2px; }
-  .cat-foothold { background: var(--spire-teal); color: var(--spire-charcoal); }
-  .cat-strategisch { background: var(--spire-lime); color: var(--spire-charcoal); }
-  .cat-regulier { background: var(--spire-surface-2); color: var(--spire-text-muted); border: 1px solid var(--spire-border); }
-  .cat-mismatch { background: #fee2e2; color: #991b1b; }
+/* === Category pills (in spire kleuren) === */
+.cat-pill { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.2px; }
+.cat-foothold { background: var(--spire-teal); color: var(--spire-charcoal); }
+.cat-strategisch { background: var(--spire-lime); color: var(--spire-charcoal); }
+.cat-regulier { background: var(--spire-surface-2); color: var(--spire-text-muted); border: 1px solid var(--spire-border); }
+.cat-mismatch { background: #fee2e2; color: #991b1b; }
 
-  .deadline-cell { color: var(--spire-text-muted); font-size: 13px; white-space: nowrap; }
-  .deadline-soon { color: #b45309; font-weight: 700; }
-  .deadline-expired { color: #9ca3af; text-decoration: line-through; font-weight: 400; }
+.deadline-cell { color: var(--spire-text-muted); font-size: 13px; white-space: nowrap; }
+.deadline-soon { color: #b45309; font-weight: 700; }
+.deadline-expired { color: #9ca3af; text-decoration: line-through; font-weight: 400; }
 
-  .staleness-banner {
-    background: #fff7ed; border: 1px solid #fb923c; border-radius: 8px;
-    padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #7c2d12; line-height: 1.5;
-  }
+.staleness-banner {
+background: #fff7ed; border: 1px solid #fb923c; border-radius: 8px;
+padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #7c2d12; line-height: 1.5;
+}
 
-  .status-tag { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
-  .status-new { background: var(--spire-charcoal); color: var(--spire-lime); }
-  .status-reviewed { background: #d4dae2; color: #475569; }
-  .status-dismissed { background: #fecaca; color: #991b1b; }
+.status-tag { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
+.status-new { background: var(--spire-charcoal); color: var(--spire-lime); }
+.status-reviewed { background: #d4dae2; color: #475569; }
+.status-dismissed { background: #fecaca; color: #991b1b; }
 
-  /* === Bron-indicators: dunne streepjes; bij openklappen (tr.expanded) groeien ze uit tot badge met naam === */
-  .bron-badges { display: inline-flex; gap: 3px; margin-left: 8px; vertical-align: middle; }
-  .bron-badge {
-    display: inline-flex; align-items: center; overflow: hidden;
-    height: 13px; width: 8px; border-radius: 2px;
-    background: var(--bron-c, var(--spire-text-muted));
-    transition: width 0.15s ease, padding 0.15s ease;
-    padding: 0; cursor: help;
-  }
-  tr.expanded .bron-badge { width: auto; padding: 0 7px; }
-  .bron-badge span {
-    font-size: 9px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase;
-    color: #fff; white-space: nowrap; opacity: 0; transition: opacity 0.15s ease;
-  }
-  tr.expanded .bron-badge span { opacity: 1; }
-  .bron-tn { --bron-c: var(--spire-charcoal); }
-  .bron-st { --bron-c: var(--spire-teal-dark); }
-  .bron-c8 { --bron-c: #5d6815; }
-  .bron-mg { --bron-c: #4f46e5; }
-  .bron-oo { --bron-c: #0566a5; }
-  .bron-hn { --bron-c: #c0392b; }
-  .bron-ip { --bron-c: #8e44ad; }
-  .bron-bt { --bron-c: #1a7a5e; }
-  .bron-other { --bron-c: var(--spire-text-muted); }
+/* === Bron-indicators: dunne streepjes; bij openklappen (tr.expanded) groeien ze uit tot badge met naam === */
+.bron-badges { display: inline-flex; gap: 3px; margin-left: 8px; vertical-align: middle; }
+.bron-badge {
+display: inline-flex; align-items: center; overflow: hidden;
+height: 13px; width: 8px; border-radius: 2px;
+background: var(--bron-c, var(--spire-text-muted));
+transition: width 0.15s ease, padding 0.15s ease;
+padding: 0; cursor: help;
+}
+tr.expanded .bron-badge { width: auto; padding: 0 7px; }
+.bron-badge span {
+font-size: 9px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase;
+color: #fff; white-space: nowrap; opacity: 0; transition: opacity 0.15s ease;
+}
+tr.expanded .bron-badge span { opacity: 1; }
+.bron-tn { --bron-c: var(--spire-charcoal); }
+.bron-st { --bron-c: var(--spire-teal-dark); }
+.bron-c8 { --bron-c: #5d6815; }
+.bron-mg { --bron-c: #4f46e5; }
+.bron-oo { --bron-c: #0566a5; }
+.bron-hn { --bron-c: #c0392b; }
+.bron-ip { --bron-c: #8e44ad; }
+.bron-bt { --bron-c: #1a7a5e; }
+.bron-other { --bron-c: var(--spire-text-muted); }
 
-  /* === Bronnen-status (header) === */
-  .bron-status-live { color: var(--spire-charcoal); font-weight: 700; }
-  .bron-status-down { color: var(--spire-text-muted); font-weight: 700; text-decoration: line-through; }
-  .bron-status-flag {
-    display: inline-block; margin-left: 4px; padding: 1px 6px; border-radius: 3px;
-    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
-    background: #fee2e2; color: #991b1b; text-decoration: none;
-  }
+/* === Bronnen-status (header) === */
+.bron-status-live { color: var(--spire-charcoal); font-weight: 700; }
+.bron-status-down { color: var(--spire-text-muted); font-weight: 700; text-decoration: line-through; }
+.bron-status-flag {
+display: inline-block; margin-left: 4px; padding: 1px 6px; border-radius: 3px;
+font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
+background: #fee2e2; color: #991b1b; text-decoration: none;
+}
 
-  /* === Detail panel === */
-  .detail-panel { background: var(--spire-teal-soft); border-top: 2px solid var(--spire-teal); padding: 0; }
-  .detail-content { padding: 20px 26px; }
-  .detail-row { display: flex; gap: 24px; margin-bottom: 14px; flex-wrap: wrap; }
-  .detail-section { flex: 1; min-width: 240px; }
-  .detail-h { font-size: 11px; font-weight: 700; color: var(--spire-charcoal); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-  .detail-text { font-size: 13px; color: var(--spire-text); line-height: 1.55; }
-  .score-breakdown { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 12px; }
-  .score-breakdown .label { color: var(--spire-text-muted); }
-  .score-breakdown .val { font-weight: 700; text-align: right; min-width: 32px; color: var(--spire-charcoal); }
-  .practical { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 13px; }
-  .practical .k { color: var(--spire-text-muted); font-weight: 500; }
+/* === Detail panel === */
+.detail-panel { background: var(--spire-teal-soft); border-top: 2px solid var(--spire-teal); padding: 0; }
+.detail-content { padding: 20px 26px; }
+.detail-row { display: flex; gap: 24px; margin-bottom: 14px; flex-wrap: wrap; }
+.detail-section { flex: 1; min-width: 240px; }
+.detail-h { font-size: 11px; font-weight: 700; color: var(--spire-charcoal); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.detail-text { font-size: 13px; color: var(--spire-text); line-height: 1.55; }
+.score-breakdown { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 12px; }
+.score-breakdown .label { color: var(--spire-text-muted); }
+.score-breakdown .val { font-weight: 700; text-align: right; min-width: 32px; color: var(--spire-charcoal); }
+.practical { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 13px; }
+.practical .k { color: var(--spire-text-muted); font-weight: 500; }
 
-  /* === Buttons === */
-  .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-  .btn {
-    padding: 8px 16px; border-radius: 6px; border: 1px solid var(--spire-border);
-    background: var(--spire-surface); color: var(--spire-text);
-    font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 6px; font-family: inherit;
-    transition: all 0.15s;
-  }
-  .btn:hover { background: var(--spire-surface-2); border-color: var(--spire-charcoal-2); }
-  .btn-primary { background: var(--spire-charcoal); border-color: var(--spire-charcoal); color: var(--spire-surface); }
-  .btn-primary:hover { background: var(--spire-charcoal-2); border-color: var(--spire-charcoal-2); }
-  .btn-success { background: var(--spire-lime); border-color: var(--spire-lime); color: var(--spire-charcoal); font-weight: 700; }
-  .btn-success:hover { background: var(--spire-lime-dark); border-color: var(--spire-lime-dark); }
-  .btn-danger { color: #991b1b; }
-  .btn-danger:hover { background: #fee2e2; border-color: #fca5a5; }
+/* === Buttons === */
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.btn {
+padding: 8px 16px; border-radius: 6px; border: 1px solid var(--spire-border);
+background: var(--spire-surface); color: var(--spire-text);
+font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none;
+display: inline-flex; align-items: center; gap: 6px; font-family: inherit;
+transition: all 0.15s;
+}
+.btn:hover { background: var(--spire-surface-2); border-color: var(--spire-charcoal-2); }
+.btn-primary { background: var(--spire-charcoal); border-color: var(--spire-charcoal); color: var(--spire-surface); }
+.btn-primary:hover { background: var(--spire-charcoal-2); border-color: var(--spire-charcoal-2); }
+.btn-success { background: var(--spire-lime); border-color: var(--spire-lime); color: var(--spire-charcoal); font-weight: 700; }
+.btn-success:hover { background: var(--spire-lime-dark); border-color: var(--spire-lime-dark); }
+.btn-danger { color: #991b1b; }
+.btn-danger:hover { background: #fee2e2; border-color: #fca5a5; }
 
-  .empty { text-align: center; padding: 50px 20px; color: var(--spire-text-muted); }
+.empty { text-align: center; padding: 50px 20px; color: var(--spire-text-muted); }
 
-  /* === Legend / live banner === */
-  .legend { background: var(--spire-surface); border: 1px solid var(--spire-border); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; font-size: 12px; color: var(--spire-text-muted); box-shadow: var(--spire-shadow); }
-  .legend-row { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
-  .legend strong { color: var(--spire-charcoal); }
-  .legend-mock {
-    background: linear-gradient(90deg, var(--spire-teal-soft) 0%, var(--spire-lime-soft) 100%);
-    padding: 14px 18px; border: 1px solid var(--spire-teal); border-radius: 8px;
-    color: var(--spire-charcoal); font-size: 13px; line-height: 1.55; margin-bottom: 16px;
-    box-shadow: var(--spire-shadow);
-  }
-  .legend-mock strong { color: var(--spire-charcoal); }
+/* === Legend / live banner === */
+.legend { background: var(--spire-surface); border: 1px solid var(--spire-border); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; font-size: 12px; color: var(--spire-text-muted); box-shadow: var(--spire-shadow); }
+.legend-row { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+.legend strong { color: var(--spire-charcoal); }
+.legend-mock {
+background: linear-gradient(90deg, var(--spire-teal-soft) 0%, var(--spire-lime-soft) 100%);
+padding: 14px 18px; border: 1px solid var(--spire-teal); border-radius: 8px;
+color: var(--spire-charcoal); font-size: 13px; line-height: 1.55; margin-bottom: 16px;
+box-shadow: var(--spire-shadow);
+}
+.legend-mock strong { color: var(--spire-charcoal); }
 
-  @media (max-width: 720px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .filters { flex-direction: column; align-items: stretch; }
-    .filter-group { width: 100%; }
-    select, input[type="search"] { width: 100%; }
-    thead th.col-cat, td.col-cat, thead th.col-deadline, td.col-deadline,
-    thead th.col-senior, td.col-senior, thead th.col-tarief, td.col-tarief,
-    thead th.col-uren, td.col-uren, thead th.col-plaats, td.col-plaats,
-    thead th.col-start, td.col-start, thead th.col-zzp, td.col-zzp { display: none; }
-    .brand-row { flex-direction: column; align-items: flex-start; gap: 6px; }
-    .brand-meta { text-align: left; }
-  }
+@media (max-width: 720px) {
+.stats { grid-template-columns: repeat(2, 1fr); }
+.filters { flex-direction: column; align-items: stretch; }
+.filter-group { width: 100%; }
+select, input[type="search"] { width: 100%; }
+thead th.col-cat, td.col-cat, thead th.col-deadline, td.col-deadline,
+thead th.col-senior, td.col-senior, thead th.col-tarief, td.col-tarief,
+thead th.col-uren, td.col-uren, thead th.col-plaats, td.col-plaats,
+thead th.col-start, td.col-start, thead th.col-zzp, td.col-zzp { display: none; }
+.brand-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+.brand-meta { text-align: left; }
+}
 </style>
 </head>
 <body>
 <div class="spire-gradient-bar"></div>
 <div class="brand-header">
-  <div class="brand-row">
-    <div class="brand-logo">
-      <span class="wordmark">spire</span>
-      <span class="tagline">ENERGIE CONSULTING</span>
-    </div>
-    <div class="brand-meta">
-      <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">30 juli 2026 — 82 opdrachten, Magnit tijdelijk niet ingelogd.</span></span>
-    </div>
-  </div>
+<div class="brand-row">
+<div class="brand-logo">
+<span class="wordmark">spire</span>
+<span class="tagline">ENERGIE CONSULTING</span>
+</div>
+<div class="brand-meta">
+<strong>Opdrachten Dashboard</strong><br>
+<span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">31 juli 2026 — 86 opdrachten, Magnit tijdelijk niet ingelogd.</span></span>
+</div>
+</div>
 </div>
 
 <div class="container">
 
-  <header>
-    <div class="title-row">
-      <h1>Vandaag op de radar</h1>
-      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 30 juli</span>
-    </div>
-    <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"></span></div>
-  </header>
+<header>
+<div class="title-row">
+<h1>Vandaag op de radar</h1>
+<span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 31 juli</span>
+</div>
+<div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"></span></div>
+</header>
 
-  <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald van drie bronnen en gescoord tegen het Spire-profiel v1.3. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 131 opdrachten (lazy-load); Circle8's zoekbox filtert niet op klantnaam — alleen de branchefilter Energievoorziening geeft betrouwbare resultaten.</div>
+<div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald van acht bronnen en gescoord tegen het Spire-profiel v1.3. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~24 van de 130 opdrachten (lazy-load); Circle8's zoekbox filtert niet op klantnaam — alleen de branchefilter Energievoorziening geeft betrouwbare resultaten.</div>
 
-  <div class="stats">
-    <div class="stat-card">
-      <div class="stat-label">Totaal nieuwe opdrachten</div>
-      <div class="stat-value" id="statTotal">12</div>
-      <div class="stat-sub">deze update</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Top match (≥80)</div>
-      <div class="stat-value" id="statTop">4</div>
-      <div class="stat-sub">prioriteit voor review</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Strategisch belang</div>
-      <div class="stat-value" id="statStrategic">9</div>
-      <div class="stat-sub">foothold + diversificatie</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Nog te reviewen</div>
-      <div class="stat-value" id="statTodo">12</div>
-      <div class="stat-sub">na markeren wordt dit lager</div>
-    </div>
-  </div>
+<div class="stats">
+<div class="stat-card">
+<div class="stat-label">Totaal nieuwe opdrachten</div>
+<div class="stat-value" id="statTotal">12</div>
+<div class="stat-sub">deze update</div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Top match (≥80)</div>
+<div class="stat-value" id="statTop">4</div>
+<div class="stat-sub">prioriteit voor review</div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Strategisch belang</div>
+<div class="stat-value" id="statStrategic">9</div>
+<div class="stat-sub">foothold + diversificatie</div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Nog te reviewen</div>
+<div class="stat-value" id="statTodo">12</div>
+<div class="stat-sub">na markeren wordt dit lager</div>
+</div>
+</div>
 
-  <div class="filters">
-    <div class="filter-group">
-      <label for="filterCat">Categorie</label>
-      <select id="filterCat">
-        <option value="">Alle</option>
-        <option value="foothold-uitbreiding">Foothold-uitbreiding</option>
-        <option value="diversificatie-strategisch">Strategische diversificatie</option>
-        <option value="regulier">Regulier (energie-fit)</option>
-        <option value="mismatch">Mismatch / no-go</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label for="filterScore">Min score</label>
-      <select id="filterScore">
-        <option value="0">Alles</option>
-        <option value="50">≥ 50</option>
-        <option value="70">≥ 70</option>
-        <option value="80">≥ 80</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label for="filterBron">Bron</label>
-      <select id="filterBron">
-        <option value="">Alle</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label for="filterStatus">Status</label>
-      <select id="filterStatus">
-        <option value="active">Te reviewen</option>
-        <option value="reviewed">Gemarkeerd als gezien</option>
-        <option value="dismissed">Afgewezen</option>
-        <option value="all">Alles</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label for="searchInput">Zoek</label>
-      <input type="search" id="searchInput" placeholder="klant, titel, focusgebied…">
-    </div>
-    <button class="reset-btn" id="resetBtn">Reset filters</button>
-  </div>
+<div class="filters">
+<div class="filter-group">
+<label for="filterCat">Categorie</label>
+<select id="filterCat">
+<option value="">Alle</option>
+<option value="foothold-uitbreiding">Foothold-uitbreiding</option>
+<option value="diversificatie-strategisch">Strategische diversificatie</option>
+<option value="regulier">Regulier (energie-fit)</option>
+<option value="mismatch">Mismatch / no-go</option>
+</select>
+</div>
+<div class="filter-group">
+<label for="filterScore">Min score</label>
+<select id="filterScore">
+<option value="0">Alles</option>
+<option value="50">≥ 50</option>
+<option value="70">≥ 70</option>
+<option value="80">≥ 80</option>
+</select>
+</div>
+<div class="filter-group">
+<label for="filterBron">Bron</label>
+<select id="filterBron">
+<option value="">Alle</option>
+</select>
+</div>
+<div class="filter-group">
+<label for="filterStatus">Status</label>
+<select id="filterStatus">
+<option value="active">Te reviewen</option>
+<option value="reviewed">Gemarkeerd als gezien</option>
+<option value="dismissed">Afgewezen</option>
+<option value="all">Alles</option>
+</select>
+</div>
+<div class="filter-group">
+<label for="searchInput">Zoek</label>
+<input type="search" id="searchInput" placeholder="klant, titel, focusgebied…">
+</div>
+<button class="reset-btn" id="resetBtn">Reset filters</button>
+</div>
 
-  <div class="table-container">
-    <table id="oppTable">
-      <thead>
-        <tr>
-          <th class="sortable" data-sort="score">Score <span class="sort-arrow">↓</span></th>
-          <th class="sortable" data-sort="titel">Titel <span class="sort-arrow"></span></th>
-          <th class="sortable" data-sort="klant">Klant <span class="sort-arrow"></span></th>
-          <th class="col-cat">Match</th>
-          <th class="col-senior">Senioriteit</th>
-          <th class="col-tarief">Uurtarief</th>
-          <th class="col-uren">Uren/wk</th>
-          <th class="col-plaats">Plaats</th>
-          <th class="col-start">Start</th>
-          <th class="col-zzp">Zzp</th>
-          <th class="col-deadline sortable" data-sort="deadline">Deadline <span class="sort-arrow"></span></th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody"></tbody>
-    </table>
-    <div id="emptyState" class="empty" style="display:none;">Geen opdrachten gevonden met deze filters.</div>
-  </div>
+<div class="table-container">
+<table id="oppTable">
+<thead>
+<tr>
+<th class="sortable" data-sort="score">Score <span class="sort-arrow">↓</span></th>
+<th class="sortable" data-sort="titel">Titel <span class="sort-arrow"></span></th>
+<th class="sortable" data-sort="klant">Klant <span class="sort-arrow"></span></th>
+<th class="col-cat">Match</th>
+<th class="col-senior">Senioriteit</th>
+<th class="col-tarief">Uurtarief</th>
+<th class="col-uren">Uren/wk</th>
+<th class="col-plaats">Plaats</th>
+<th class="col-start">Start</th>
+<th class="col-zzp">Zzp</th>
+<th class="col-deadline sortable" data-sort="deadline">Deadline <span class="sort-arrow"></span></th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="tableBody"></tbody>
+</table>
+<div id="emptyState" class="empty" style="display:none;">Geen opdrachten gevonden met deze filters.</div>
+</div>
 </div>
 
 <script>
-// === Live data — 26 juli 2026: dagelijkse pull ===
-// TenderNed volledig herhaald met volledige paginering: AAO 66 (4 na filter), MAC 128 (4 na filter, 1
-// vals-positief "Handdhaving Registratie Systeem" Gemeente Arnhem verwijderd — matchte alleen op "flexibiliteit"
-// in generieke IT-beschrijving), VAK 130 (13 na filter, 1 vals-positief "14C-SCAR" Rijksuniversiteit Groningen
-// verwijderd — radiocarbon-instrument, matchte toevallig op "gas"). Alle 21 matches bleken al bekende items
-// uit eerdere pulls (reconfirmatie), op WarmteStad "Levering energie" na (nu met deadline 2026-08-19, was leeg).
-// Striive: hard plafond van 23 items zonder login bevestigd opnieuw; 2 matches (Alliander Workday Quality &
-// Security Professional, Stedin Projectleider) — beide al bekend. Circle8: brede paginascan van alle 92
-// opdrachten (Energievoorziening-filter gaf 0 resultaten, normaal) — 0 energie/doellijst-matches deze run.
-// Magnit: sessie verlopen — bevestigd via daadwerkelijke pagina-inhoud (loginscherm op brainnetportal
-// b2clogin.com), niet alleen URL-redirect. Chrome-verbinding viel vervolgens uit halverwege Opdracht Overheid
-// (na 50 ongefilterde kaarten, vóór keyword-filter) en bleef ~7 minuten onbereikbaar ondanks meerdere retries —
-// Harvey Nash, Interim Professionals, Bluetrail en de 3 VMS-portalen (Alliander/Stedin/Staffingdesk) niet bereikt.
-// 2 items verwijderd wegens verstreken deadline (2026-07-24): Manager Projectbeheersing (Stedin, OO) en
-// Medior Atlassian Engineer (EDSN, OO). Alle overige niet-herbevestigde items (Opdracht Overheid, Harvey Nash)
-// behouden met NIET HERBEVESTIGD-flag, conform beleid — geen bewijs dat ze verdwenen zijn.
-// Na verwijdering: 56 unieke items. GitHub Pages-publicatie niet uitgevoerd (vereist Chrome, was onbereikbaar).
+// === Live data — 31 juli 2026: dagelijkse pull v1.12 ===
+// TenderNed volledig herhaald met volledige paginering: AAO 69 (1 na filter/false-positive-cleanup),
+// MAC 127 (3 na filter, 1 vals-positief "Handdhaving Registratie Systeem" Gemeente Arnhem verwijderd —
+// matchte alleen op "flexibiliteit"), VAK 128 (10 na filter, 1 vals-positief "14C-SCAR" Rijksuniversiteit
+// Groningen verwijderd — radiocarbon-instrument). Alle 14 TenderNed-matches bleken al bekende items uit
+// eerdere pulls (reconfirmatie) op ID-typo "TN-431090"→"TN-433090" na (gecorrigeerd, echte publicatieId
+// bevestigd via live API-fetch). Striive: hard plafond van ~24 items zonder login bevestigd; 2 nieuwe
+// matches (Release Train Engineer, Senior Specialist Ecologie-Detavast bij resp. Stedin/Alliander) plus
+// bevestiging dat Productmanager (Stedin) en Senior Business Analist AIP (Alliander) ook op Opdracht
+// Overheid staan (rijkere bron, nu primary). Circle8: brede paginascan van alle 96 opdrachten (industry-
+// filter Energievoorziening gaf 1 irrelevant resultaat, "Sales Equity Lead") — 0 nieuwe energie-matches,
+// de twee bekende Walstroom-rollen (Rijkswaterstaat) blijven ongewijzigd staan. Magnit: sessie niet
+// ingelogd — opnieuw bevestigd via daadwerkelijke pagina-inhoud (loginscherm b2clogin.com), niet alleen
+// URL-redirect. Opdracht Overheid: vakgebied-filter (Beleid/Civiele Techniek/Organisatie en Personeel/
+// Project- en Programmamanagement) + org/keyword-toets leverde 9 matches op, waarvan 2 nieuw (Productmanager,
+// Senior Business Analist AIP — beide tevens op Striive) en 1 verrijkt (Business Proces Expert, nu met
+// OO-detailgegevens: deadline, uren, tarief, zzp-status). Harvey Nash (19 gescand), Interim Professionals
+// (69 gescand) en Bluetrail (0 in energie-categorie, 0 in techniek/projectmanagement-categorieën) leverden
+// deze run geen nieuwe matches op. Alle drie VMS-portalen (Alliander/Stedin/Staffingdesk) opnieuw op
+// loginscherm bevestigd, nog niet actief. Geen items verwijderd wegens verstreken deadline. 4 nieuwe items
+// toegevoegd, 82 bestaande items gereconfirmeerd/ongewijzigd. Bash-sandbox had geen internettoegang deze
+// run (proxy-allowlist blokkeerde alle externe domeinen) — volledige publicatie (GitHub Pages) via
+// Chrome-only fetch/PUT uitgevoerd, net als 30 juli.
 
 const opportunities = [
   {
@@ -1145,14 +1151,14 @@ const opportunities = [
     "klant": "Stedin Netbeheer B.V.",
     "klant_categorie": "netbeheerder",
     "beschrijving": "Business Proces Expert-rol bij Stedin. Titel wijst op procesontwerp/-optimalisatie binnen de netbeheerder — mogelijk gerelateerd aan, maar niet expliciet hetzelfde als de reeds in het dashboard opgenomen \"Business Consultant Capaciteitsuitgifte\". Volledige functieomschrijving alleen zichtbaar na inloggen op Striive.",
-    "deadline": null,
+    "deadline": "2026-08-03",
     "startdatum": null,
     "duur_maanden": null,
-    "uren_per_week": null,
-    "tarief_indicatie": null,
+    "uren_per_week": 40,
+    "tarief_indicatie": 80,
     "locatie": null,
     "remote": null,
-    "zzp_toegestaan": null,
+    "zzp_toegestaan": false,
     "type_opdracht": "D",
     "procedure": "Niet-openbaar",
     "publicatie_type": "Striive",
@@ -1162,6 +1168,11 @@ const opportunities = [
       {
         "naam": "Striive",
         "url": "https://striive.com/nl/opdrachten",
+        "id": "ST-stedin-business-proces-expert"
+      },
+      {
+        "naam": "Opdracht Overheid",
+        "url": "https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/business-proces-expert/2EC485FA-0B48-4F0B-86A5-E8029C18E2A5",
         "id": "ST-stedin-business-proces-expert"
       }
     ],
@@ -1180,7 +1191,7 @@ const opportunities = [
       "Detail beschikbaar na Striive-login",
       "Mogelijk gerelateerd aan bestaande Stedin Business Consultant-rol in dashboard, maar andere titel — apart opgenomen",
       "Nieuw t.o.v. vorige pull",
-      "NIET HERBEVESTIGD IN DEZE PULL — Striive toont zonder login slechts ~23 van ~114 opdrachten"
+      "Gereconfirmeerd via Opdracht Overheid 31-7-2026 — volledige detailgegevens toegevoegd (deadline, uren, tarief, zzp-status)"
     ],
     "senioriteit_niveau": "Medior"
   },
@@ -2029,7 +2040,7 @@ const opportunities = [
     "klant": "Stedin Netbeheer B.V.",
     "klant_categorie": "netbeheerder",
     "beschrijving": "Uitvoerende/technische werkvoorbereidingsrol bij Stedin op het gebied van hoogspanning: voorbereiding van technische werkzaamheden rond hoogspanningsinstallaties en -netten. Listing-informatie (geen detail-fetch uitgevoerd deze pull); loondienst-only, geen ZZP-inzet.",
-    "deadline": "2026-07-31",
+    "deadline": "2026-08-03",
     "startdatum": null,
     "duur_maanden": null,
     "uren_per_week": 40,
@@ -2061,7 +2072,8 @@ const opportunities = [
     "flags": [
       "Nieuw t.o.v. vorige pull",
       "Uitvoerende/technische rol - fit met Spire adviesprofiel twijfelachtig",
-      "Listing-only, geen detail-fetch uitgevoerd"
+      "Listing-only, geen detail-fetch uitgevoerd",
+      "Gereconfirmeerd 31-7-2026 — volledige detail-fetch alsnog uitgevoerd"
     ],
     "senioriteit_niveau": "Medior"
   },
@@ -2681,12 +2693,12 @@ const opportunities = [
     "procedure": null,
     "publicatie_type": "VAK",
     "bron": "TenderNed",
-    "url": "https://www.tenderned.nl/aankondigingen/overzicht/431090",
+    "url": "https://www.tenderned.nl/aankondigingen/overzicht/433090",
     "bronnen": [
       {
         "naam": "TenderNed",
-        "url": "https://www.tenderned.nl/aankondigingen/overzicht/431090",
-        "id": "431090"
+        "url": "https://www.tenderned.nl/aankondigingen/overzicht/433090",
+        "id": "433090"
       }
     ],
     "score": 60,
@@ -2700,7 +2712,8 @@ const opportunities = [
     "reden": "Uitvoerende toezichthouder-rol (veiligheidsinspectie), lage rol-fit met Spire's adviesprofiel ondanks sterke klant-fit.",
     "flags": [
       "VROEG SIGNAAL — geen directe opdracht, marktconsultatie/vooraankondiging",
-      "Gereconfirmeerd 28-7-2026"
+      "Gereconfirmeerd 31-7-2026",
+      "ID gecorrigeerd van TN-431090 naar TN-433090 (correcte TenderNed-publicatieId bevestigd bij hercontrole)"
     ],
     "senioriteit_niveau": "Junior"
   },
@@ -2824,8 +2837,7 @@ const opportunities = [
     "reden": "Energie-inkoopcontract (levering gas/elektra), geen staffing-component.",
     "flags": [
       "VROEG SIGNAAL — geen directe opdracht, marktconsultatie/vooraankondiging",
-      "Herbevestigd via TenderNed MAC-pull 2026-07-26, deadline nu bekend (was leeg)",
-      "Gereconfirmeerd 28-7-2026"
+      "Gereconfirmeerd 31-7-2026"
     ],
     "senioriteit_niveau": "Junior"
   },
@@ -2866,7 +2878,7 @@ const opportunities = [
     "reden": "Documentbeheersysteem, inhoudelijk ver van Spire's adviespraktijk ondanks TenneT als klant.",
     "flags": [
       "VROEG SIGNAAL — geen directe opdracht, marktconsultatie/vooraankondiging",
-      "Gereconfirmeerd 28-7-2026"
+      "Gereconfirmeerd 31-7-2026"
     ],
     "senioriteit_niveau": "Junior"
   },
@@ -3293,7 +3305,7 @@ const opportunities = [
     "flags": [
       "Alleen loondienst (Wet DBA) — eigen dienst of extern bureau toegestaan",
       "Uitvoerende/handhavende rol — twijfelachtige fit met Spire-adviesprofiel",
-      "Nieuw t.o.v. vorige pull"
+      "Gereconfirmeerd 31-7-2026"
     ],
     "senioriteit_niveau": "Junior"
   },
@@ -3378,7 +3390,8 @@ const opportunities = [
     "focus": [],
     "reden": "Tata Steel (ketenleverancier), gasdrukregelstations is technisch/uitvoerend, geen energiekern PM/advieswerk.",
     "flags": [
-      "Gereconfirmeerd via Opdracht Overheid — Magnit was deze pull niet bereikbaar"
+      "Gereconfirmeerd via Opdracht Overheid — Magnit wederom niet bereikbaar (login bevestigd) 31-7-2026",
+      "NIET HERBEVESTIGD IN DEZE PULL — deadline was 31-7-2026, mogelijk verlopen, volgende pull verwijderen indien niet meer op OO"
     ],
     "senioriteit_niveau": "Medior"
   },
@@ -3420,7 +3433,6 @@ const opportunities = [
     "flags": [
       "Commodity-inkoop, geen consultancy-component",
       "Deadline inschrijven: 18 augustus 2026",
-      "Nieuw t.o.v. vorige pull",
       "NIET HERBEVESTIGD IN DEZE PULL — buiten AAO 3-daags / MAC-VAK 30-daags publicatievenster deze pull, kan nog open zijn, laatst gezien 26-7-2026"
     ],
     "senioriteit_niveau": "Junior"
@@ -3464,7 +3476,6 @@ const opportunities = [
       "Openbare aanbesteding — inschrijving vereist",
       "Geen relatie tot Spire-dienstverlening",
       "Deadline inschrijven: 9 oktober 2026",
-      "Nieuw t.o.v. vorige pull",
       "NIET HERBEVESTIGD IN DEZE PULL — buiten AAO 3-daags / MAC-VAK 30-daags publicatievenster deze pull, kan nog open zijn, laatst gezien 26-7-2026"
     ],
     "senioriteit_niveau": "Junior"
@@ -3672,8 +3683,9 @@ const opportunities = [
     "focus": [],
     "reden": "Tata Steel (ketenleverancier), MBO-niveau inspectiewerk — twijfelachtig voor Spire-adviesprofiel.",
     "flags": [
-      "Gereconfirmeerd via Opdracht Overheid — Magnit was deze pull niet bereikbaar",
-      "Uitvoerende vakmanschapsrol (MBO-niveau)"
+      "Gereconfirmeerd via Opdracht Overheid — Magnit wederom niet bereikbaar (login bevestigd) 31-7-2026",
+      "Uitvoerende vakmanschapsrol (MBO-niveau)",
+      "NIET HERBEVESTIGD IN DEZE PULL — deadline was 31-7-2026, mogelijk verlopen, volgende pull verwijderen indien niet meer op OO"
     ],
     "senioriteit_niveau": "Junior"
   },
@@ -3963,319 +3975,507 @@ const opportunities = [
       "Uitvoerende operatorrol (MBO-niveau), zeer twijfelachtig voor Spire-profiel"
     ],
     "senioriteit_niveau": "Junior"
+  },
+  {
+    "id": "OO-stedin-productmanager-netstrategie",
+    "titel": "Productmanager",
+    "klant": "Stedin Netbeheer B.V.",
+    "klant_categorie": "netbeheerder",
+    "beschrijving": "Product Manager Centrale Klant- en Netstrategie bij Stedin. Werkt samen met Decentrale Portfolio Manager, Enterprise Architect, Agile Coach, Release Train Engineer en Solution Architect aan de Portfolio en ART Datagedreven Netstrategie. Ondersteunt Business Owners van Asset Management en Klant bij OKR's, faciliteert de Business Owner Sync. Draagt bij aan oplossingen die het verschil maken voor de energietransitie. Ook zichtbaar via Striive.",
+    "deadline": "2026-08-07",
+    "startdatum": "2026-09-01",
+    "duur_maanden": 7,
+    "uren_per_week": 40,
+    "tarief_indicatie": null,
+    "locatie": "Rotterdam",
+    "remote": null,
+    "zzp_toegestaan": false,
+    "type_opdracht": null,
+    "procedure": null,
+    "publicatie_type": "Opdracht Overheid",
+    "bron": "Opdracht Overheid",
+    "url": "https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/productmanager/B73D03A7-13CA-4A13-9C47-A6899C2C7F55",
+    "bronnen": [
+      {
+        "naam": "Opdracht Overheid",
+        "url": "https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/productmanager/B73D03A7-13CA-4A13-9C47-A6899C2C7F55",
+        "id": "OO-stedin-productmanager-netstrategie"
+      },
+      {
+        "naam": "Striive",
+        "url": "https://striive.com/nl/opdrachten",
+        "id": "OO-stedin-productmanager-netstrategie"
+      }
+    ],
+    "score": 91,
+    "score_breakdown": {
+      "Energie-fit": 85,
+      "Klant-fit": 100,
+      "Werk-fit": 90
+    },
+    "match_categorie": "foothold-uitbreiding",
+    "focus": [
+      "Project, Programma & PMO Management",
+      "Energiesysteemontwikkeling"
+    ],
+    "reden": "Stedin (foothold). Product Manager op Netstrategie-portfolio, expliciet gekoppeld aan energietransitie-doelstellingen (OKR's, Business Owner-ondersteuning) — sterke PMO/product-fit.",
+    "flags": [
+      "Nieuw t.o.v. vorige pull",
+      "Ook gevonden via Striive",
+      "Alleen loondienst (Wet DBA) — uitzendovereenkomst via Projectversterkers B.V. mogelijk"
+    ],
+    "senioriteit_niveau": "Medior"
+  },
+  {
+    "id": "OO-alliander-senior-business-analist-aip",
+    "titel": "Senior Business Analist - Implementatie & Integratiespecialist (Asset Investment Planning)",
+    "klant": "Alliander",
+    "klant_categorie": "netbeheerder",
+    "beschrijving": "Senior Business Analist voor Asset Investment Planning bij Alliander. Haalt wensen en knelpunten op bij business stakeholders, vertaalt naar requirements/procesverbeteringen/user stories, begeleidt veranderingen van idee tot ingebruikname. Draagt maximaal bij aan een wendbare en toekomstbestendige energietransitie. Minimaal 5 jaar ervaring als business analist/product owner/implementatieconsultant. Ook zichtbaar via Striive.",
+    "deadline": "2026-08-03",
+    "startdatum": "2026-08-17",
+    "duur_maanden": 9,
+    "uren_per_week": 35,
+    "tarief_indicatie": null,
+    "locatie": "Arnhem",
+    "remote": null,
+    "zzp_toegestaan": false,
+    "type_opdracht": null,
+    "procedure": null,
+    "publicatie_type": "Opdracht Overheid",
+    "bron": "Opdracht Overheid",
+    "url": "https://opdrachtoverheid.nl/inhuuropdracht/alliander/senior-business-analist-implementatie-integratiespecialist-asset-investment-planning/0A52DB1C-E037-42B9-920A-7649CF51DB41",
+    "bronnen": [
+      {
+        "naam": "Opdracht Overheid",
+        "url": "https://opdrachtoverheid.nl/inhuuropdracht/alliander/senior-business-analist-implementatie-integratiespecialist-asset-investment-planning/0A52DB1C-E037-42B9-920A-7649CF51DB41",
+        "id": "OO-alliander-senior-business-analist-aip"
+      },
+      {
+        "naam": "Striive",
+        "url": "https://striive.com/nl/opdrachten",
+        "id": "OO-alliander-senior-business-analist-aip"
+      }
+    ],
+    "score": 88,
+    "score_breakdown": {
+      "Energie-fit": 80,
+      "Klant-fit": 90,
+      "Werk-fit": 95
+    },
+    "match_categorie": "foothold-uitbreiding",
+    "focus": [
+      "Project, Programma & PMO Management",
+      "Energiesysteemontwikkeling"
+    ],
+    "reden": "Alliander (doellijst). Business Analist/implementatiespecialist op Asset Investment Planning, expliciet gekoppeld aan energietransitie — sterke Werk-fit, klassiek Spire-kernprofiel.",
+    "flags": [
+      "Nieuw t.o.v. vorige pull",
+      "Ook gevonden via Striive",
+      "Alleen loondienst (Wet DBA), doorleenconstructies niet toegestaan"
+    ],
+    "senioriteit_niveau": "Senior"
+  },
+  {
+    "id": "ST-stedin-release-train-engineer",
+    "titel": "Release Train Engineer",
+    "klant": "Stedin Netbeheer B.V.",
+    "klant_categorie": "netbeheerder",
+    "beschrijving": "Release Train Engineer-rol bij Stedin, vermoedelijk gerelateerd aan Agile/SAFe-schaling binnen de IT/netstrategie-portfolio's (zie ook de Productmanager Netstrategie-rol elders in dit dashboard). Volledige functieomschrijving alleen zichtbaar na inloggen op Striive.",
+    "deadline": null,
+    "startdatum": null,
+    "duur_maanden": null,
+    "uren_per_week": null,
+    "tarief_indicatie": null,
+    "locatie": null,
+    "remote": null,
+    "zzp_toegestaan": null,
+    "type_opdracht": null,
+    "procedure": null,
+    "publicatie_type": "Striive",
+    "bron": "Striive",
+    "url": "https://striive.com/nl/opdrachten",
+    "bronnen": [
+      {
+        "naam": "Striive",
+        "url": "https://striive.com/nl/opdrachten",
+        "id": "ST-stedin-release-train-engineer"
+      }
+    ],
+    "score": 74,
+    "score_breakdown": {
+      "Energie-fit": 60,
+      "Klant-fit": 100,
+      "Werk-fit": 70
+    },
+    "match_categorie": "foothold-uitbreiding",
+    "focus": [
+      "Project, Programma & PMO Management"
+    ],
+    "reden": "Stedin (foothold). Release Train Engineer = Agile/SAFe-schalingsrol binnen IT-portfolio, PM-adjacent maar niet energie-inhoudelijk. Detail niet beschikbaar zonder login.",
+    "flags": [
+      "Detail beschikbaar na Striive-login",
+      "Nieuw t.o.v. vorige pull"
+    ],
+    "senioriteit_niveau": null
+  },
+  {
+    "id": "ST-alliander-senior-specialist-ecologie-detavast",
+    "titel": "Senior Specialist Ecologie - Detavast",
+    "klant": "Alliander",
+    "klant_categorie": "netbeheerder",
+    "beschrijving": "Senior Specialist Ecologie-rol bij Alliander (Arnhem), deta-vast constructie. Vermoedelijk gericht op ecologische advisering rond netinfrastructuur-projecten (vergunningen, natuurwetgeving, ontheffingen). Volledige functieomschrijving alleen zichtbaar na inloggen op Striive.",
+    "deadline": null,
+    "startdatum": null,
+    "duur_maanden": null,
+    "uren_per_week": null,
+    "tarief_indicatie": null,
+    "locatie": "Arnhem",
+    "remote": null,
+    "zzp_toegestaan": null,
+    "type_opdracht": null,
+    "procedure": null,
+    "publicatie_type": "Striive",
+    "bron": "Striive",
+    "url": "https://striive.com/nl/opdrachten",
+    "bronnen": [
+      {
+        "naam": "Striive",
+        "url": "https://striive.com/nl/opdrachten",
+        "id": "ST-alliander-senior-specialist-ecologie-detavast"
+      }
+    ],
+    "score": 73,
+    "score_breakdown": {
+      "Energie-fit": 65,
+      "Klant-fit": 90,
+      "Werk-fit": 70
+    },
+    "match_categorie": "foothold-uitbreiding",
+    "focus": [
+      "Energiesysteemontwikkeling"
+    ],
+    "reden": "Alliander (doellijst). Ecologisch specialisme t.b.v. netinfrastructuur-projecten — ondersteunende energie-fit, vakinhoudelijk specialistenadvies.",
+    "flags": [
+      "Detail beschikbaar na Striive-login",
+      "Deta-vast constructie — niet bevestigd of dit de enige optie is (geen Striive-login), vergelijkbaar met bestaande Stedin Business Consultant-rol die wél in dashboard is opgenomen",
+      "Nieuw t.o.v. vorige pull"
+    ],
+    "senioriteit_niveau": "Senior"
   }
-]
+];
+
 const bronnenStatus = [
-  { naam: 'TenderNed', label: 'TenderNed (AAO + MAC + VAK)', status: 'live' },
-  { naam: 'Striive', label: 'Striive', status: 'live' },
-  { naam: 'Circle8', label: 'Circle8', status: 'live' },
-  { naam: 'Magnit', label: 'Magnit', status: 'uitgevallen', reden: 'sessie niet ingelogd — bevestigd via loginscherm (b2clogin.com), Kevin moet opnieuw inloggen' },
-  { naam: 'Opdracht Overheid', label: 'Opdracht Overheid', status: 'live' },
-  { naam: 'Harvey Nash', label: 'Harvey Nash', status: 'live' },
-  { naam: 'Interim Professionals', label: 'Interim Professionals', status: 'live' },
-  { naam: 'Bluetrail', label: 'Bluetrail', status: 'live' },
+{ naam: 'TenderNed', label: 'TenderNed (AAO + MAC + VAK)', status: 'live' },
+{ naam: 'Striive', label: 'Striive', status: 'live' },
+{ naam: 'Circle8', label: 'Circle8', status: 'live' },
+{ naam: 'Magnit', label: 'Magnit', status: 'uitgevallen', reden: 'sessie niet ingelogd — bevestigd via loginscherm (b2clogin.com), Kevin moet opnieuw inloggen' },
+{ naam: 'Opdracht Overheid', label: 'Opdracht Overheid', status: 'live' },
+{ naam: 'Harvey Nash', label: 'Harvey Nash', status: 'live' },
+{ naam: 'Interim Professionals', label: 'Interim Professionals', status: 'live' },
+{ naam: 'Bluetrail', label: 'Bluetrail', status: 'live' },
 ];
 function renderBronnen() {
-  const el = document.getElementById('bronnenList');
-  if (!el) return;
-  el.innerHTML = bronnenStatus.map(b => {
-    if (b.status === 'live') return `<span class="bron-status-live">${b.label}</span>`;
-    return `<span class="bron-status-down">${b.label}</span><span class="bron-status-flag" title="${b.reden || ''}">${b.reden || 'uitgevallen'}</span>`;
-  }).join(' · ');
+const el = document.getElementById('bronnenList');
+if (!el) return;
+el.innerHTML = bronnenStatus.map(b => {
+if (b.status === 'live') return `<span class="bron-status-live">${b.label}</span>`;
+return `<span class="bron-status-down">${b.label}</span><span class="bron-status-flag" title="${b.reden || ''}">${b.reden || 'uitgevallen'}</span>`;
+}).join(' · ');
 }
 
 // Bron-filter dropdown wordt afgeleid van de opportunities-array (niet hardcoded), zodat elke bron
 // die daadwerkelijk items heeft automatisch verschijnt — voorkomt dat een nieuwe bron (zoals Magnit,
 // of straks eventueel Flextender) ontbreekt in de dropdown terwijl hij wel in de Bronnen-regel staat.
 function populateBronFilter() {
-  const select = document.getElementById('filterBron');
-  if (!select) return;
-  const bronnen = [...new Set(opportunities.map(o => o.bron).filter(Boolean))].sort();
-  bronnen.forEach(b => {
-    const opt = document.createElement('option');
-    opt.value = b;
-    opt.textContent = b;
-    select.appendChild(opt);
-  });
+const select = document.getElementById('filterBron');
+if (!select) return;
+const bronnen = [...new Set(opportunities.map(o => o.bron).filter(Boolean))].sort();
+bronnen.forEach(b => {
+const opt = document.createElement('option');
+opt.value = b;
+opt.textContent = b;
+select.appendChild(opt);
+});
 }
 
 // === State ===
 const STATUS_KEY = 'spire_dashboard_status_v1';
 const FILTER_KEY = 'spire_dashboard_filters_v1';
-const SORT_KEY   = 'spire_dashboard_sort_v1';
+const SORT_KEY = 'spire_dashboard_sort_v1';
 
-let statusMap   = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}');
+let statusMap = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}');
 let filterState = JSON.parse(localStorage.getItem(FILTER_KEY) || JSON.stringify({ cat: '', score: '0', status: 'active', search: '', bron: '' }));
 if (filterState.bron === undefined) filterState.bron = '';
-let sortState   = JSON.parse(localStorage.getItem(SORT_KEY)   || JSON.stringify({ key: 'score', dir: 'desc' }));
-let expandedId  = null;
+let sortState = JSON.parse(localStorage.getItem(SORT_KEY) || JSON.stringify({ key: 'score', dir: 'desc' }));
+let expandedId = null;
 
 // === Helpers ===
 function fmtDate(d) {
-  if (!d) return '—';
-  const date = new Date(d);
-  return date.toLocaleDateString('nl-NL', { day: 'numeric', month: 'short' });
+if (!d) return '—';
+const date = new Date(d);
+return date.toLocaleDateString('nl-NL', { day: 'numeric', month: 'short' });
 }
 function daysUntil(d) {
-  if (!d) return null;
-  const now = new Date(); now.setHours(0, 0, 0, 0);
-  const target = new Date(d);
-  return Math.ceil((target - now) / (1000*60*60*24));
+if (!d) return null;
+const now = new Date(); now.setHours(0, 0, 0, 0);
+const target = new Date(d);
+return Math.ceil((target - now) / (1000*60*60*24));
 }
 function scoreClass(s) { return s >= 75 ? 'score-high' : s >= 55 ? 'score-mid' : 'score-low'; }
 function seniorityLabel(o) {
-  // Senioriteit is sinds 24 juli geen gewogen scoredimensie meer (zat te overlappen met Rol-fit/Type-werk),
-  // maar een apart informatief veld — direct uitgelezen, niet meer afgeleid uit score_breakdown.
-  return o && o.senioriteit_niveau ? o.senioriteit_niveau : '—';
+// Senioriteit is sinds 24 juli geen gewogen scoredimensie meer (zat te overlappen met Rol-fit/Type-werk),
+// maar een apart informatief veld — direct uitgelezen, niet meer afgeleid uit score_breakdown.
+return o && o.senioriteit_niveau ? o.senioriteit_niveau : '—';
 }
 function fmtTarief(t) { return (t === null || t === undefined) ? '—' : `€${t}`; }
 function fmtUren(u) { return (u === null || u === undefined) ? '—' : `${u}`; }
 function fmtZzp(z) { return z === true ? 'Ja' : z === false ? 'Nee' : '—'; }
 function catLabel(c) {
-  return ({ 'foothold-uitbreiding': 'Foothold', 'diversificatie-strategisch': 'Strategisch', 'regulier': 'Regulier', 'mismatch': 'Mismatch' })[c] || c;
+return ({ 'foothold-uitbreiding': 'Foothold', 'diversificatie-strategisch': 'Strategisch', 'regulier': 'Regulier', 'mismatch': 'Mismatch' })[c] || c;
 }
 function catClass(c) {
-  return ({ 'foothold-uitbreiding': 'cat-foothold', 'diversificatie-strategisch': 'cat-strategisch', 'regulier': 'cat-regulier', 'mismatch': 'cat-mismatch' })[c] || 'cat-regulier';
+return ({ 'foothold-uitbreiding': 'cat-foothold', 'diversificatie-strategisch': 'cat-strategisch', 'regulier': 'cat-regulier', 'mismatch': 'cat-mismatch' })[c] || 'cat-regulier';
 }
 function getBronnen(o) {
-  if (Array.isArray(o.bronnen) && o.bronnen.length) return o.bronnen;
-  if (o.bron) return [{ naam: o.bron, url: o.url, id: o.id }];
-  return [];
+if (Array.isArray(o.bronnen) && o.bronnen.length) return o.bronnen;
+if (o.bron) return [{ naam: o.bron, url: o.url, id: o.id }];
+return [];
 }
 function bronClass(naam) {
-  return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg', 'Opdracht Overheid': 'bron-oo', 'Harvey Nash': 'bron-hn', 'Interim Professionals': 'bron-ip', 'Bluetrail': 'bron-bt' })[naam] || 'bron-other';
+return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg', 'Opdracht Overheid': 'bron-oo', 'Harvey Nash': 'bron-hn', 'Interim Professionals': 'bron-ip', 'Bluetrail': 'bron-bt' })[naam] || 'bron-other';
 }
 function bronBadgesHtml(o) {
-  const list = getBronnen(o);
-  if (!list.length) return '';
-  return '<span class="bron-badges">' + list.map(b => `<span class="bron-badge ${bronClass(b.naam)}" title="${b.naam}"><span>${b.naam}</span></span>`).join('') + '</span>';
+const list = getBronnen(o);
+if (!list.length) return '';
+return '<span class="bron-badges">' + list.map(b => `<span class="bron-badge ${bronClass(b.naam)}" title="${b.naam}"><span>${b.naam}</span></span>`).join('') + '</span>';
 }
 function getStatus(id) { return statusMap[id] || 'new'; }
 function setStatus(id, s) {
-  if (s === 'new') delete statusMap[id]; else statusMap[id] = s;
-  localStorage.setItem(STATUS_KEY, JSON.stringify(statusMap));
+if (s === 'new') delete statusMap[id]; else statusMap[id] = s;
+localStorage.setItem(STATUS_KEY, JSON.stringify(statusMap));
 }
 function persistFilters() { localStorage.setItem(FILTER_KEY, JSON.stringify(filterState)); }
 function persistSort() { localStorage.setItem(SORT_KEY, JSON.stringify(sortState)); }
 
 // === Filtering & sorting ===
 function filtered() {
-  return opportunities.filter(o => {
-    if (filterState.cat && o.match_categorie !== filterState.cat) return false;
-    if (Number(filterState.score) > 0 && o.score < Number(filterState.score)) return false;
-    if (filterState.bron) {
-      const bronNamen = getBronnen(o).map(b => b.naam);
-      if (!bronNamen.includes(filterState.bron)) return false;
-    }
-    const st = getStatus(o.id);
-    if (filterState.status === 'active' && (st === 'reviewed' || st === 'dismissed')) return false;
-    if (filterState.status === 'reviewed' && st !== 'reviewed') return false;
-    if (filterState.status === 'dismissed' && st !== 'dismissed') return false;
-    if (filterState.search) {
-      const q = filterState.search.toLowerCase();
-      const hay = [o.titel, o.klant, (o.focus||[]).join(' '), o.beschrijving].join(' ').toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    return true;
-  });
+return opportunities.filter(o => {
+if (filterState.cat && o.match_categorie !== filterState.cat) return false;
+if (Number(filterState.score) > 0 && o.score < Number(filterState.score)) return false;
+if (filterState.bron) {
+const bronNamen = getBronnen(o).map(b => b.naam);
+if (!bronNamen.includes(filterState.bron)) return false;
+}
+const st = getStatus(o.id);
+if (filterState.status === 'active' && (st === 'reviewed' || st === 'dismissed')) return false;
+if (filterState.status === 'reviewed' && st !== 'reviewed') return false;
+if (filterState.status === 'dismissed' && st !== 'dismissed') return false;
+if (filterState.search) {
+const q = filterState.search.toLowerCase();
+const hay = [o.titel, o.klant, (o.focus||[]).join(' '), o.beschrijving].join(' ').toLowerCase();
+if (!hay.includes(q)) return false;
+}
+return true;
+});
 }
 function sorted(list) {
-  const k = sortState.key, dir = sortState.dir === 'asc' ? 1 : -1;
-  const cmp = (a, b) => {
-    let av = a[k], bv = b[k];
-    if (k === 'deadline') {
-      av = av ? new Date(av).getTime() : Infinity;
-      bv = bv ? new Date(bv).getTime() : Infinity;
-    }
-    if (k === 'titel' || k === 'klant') { av = (av||'').toLowerCase(); bv = (bv||'').toLowerCase(); }
-    if (av < bv) return -1*dir;
-    if (av > bv) return 1*dir;
-    return 0;
-  };
-  return [...list].sort(cmp);
+const k = sortState.key, dir = sortState.dir === 'asc' ? 1 : -1;
+const cmp = (a, b) => {
+let av = a[k], bv = b[k];
+if (k === 'deadline') {
+av = av ? new Date(av).getTime() : Infinity;
+bv = bv ? new Date(bv).getTime() : Infinity;
+}
+if (k === 'titel' || k === 'klant') { av = (av||'').toLowerCase(); bv = (bv||'').toLowerCase(); }
+if (av < bv) return -1*dir;
+if (av > bv) return 1*dir;
+return 0;
+};
+return [...list].sort(cmp);
 }
 
 // === Rendering ===
 function render() {
-  const list = sorted(filtered());
-  const tbody = document.getElementById('tableBody');
-  tbody.innerHTML = '';
+const list = sorted(filtered());
+const tbody = document.getElementById('tableBody');
+tbody.innerHTML = '';
 
-  document.getElementById('emptyState').style.display = list.length === 0 ? 'block' : 'none';
+document.getElementById('emptyState').style.display = list.length === 0 ? 'block' : 'none';
 
-  for (const o of list) {
-    const st = getStatus(o.id);
-    const tr = document.createElement('tr');
-    tr.dataset.id = o.id;
-    if (st === 'reviewed') tr.classList.add('reviewed');
-    if (st === 'dismissed') tr.classList.add('dismissed');
-    if (o.id === expandedId) tr.classList.add('expanded');
+for (const o of list) {
+const st = getStatus(o.id);
+const tr = document.createElement('tr');
+tr.dataset.id = o.id;
+if (st === 'reviewed') tr.classList.add('reviewed');
+if (st === 'dismissed') tr.classList.add('dismissed');
+if (o.id === expandedId) tr.classList.add('expanded');
 
-    const dDays = daysUntil(o.deadline);
-    const isExpired = dDays !== null && dDays < 0;
-    const deadlineHtml = o.deadline
-      ? `<span class="${isExpired ? 'deadline-expired' : (dDays !== null && dDays <= 7 ? 'deadline-soon' : '')}">${fmtDate(o.deadline)} <small>${isExpired ? '(verlopen)' : `(${dDays}d)`}</small></span>`
-      : `<span style="color:#9ca3af;">geen</span>`;
+const dDays = daysUntil(o.deadline);
+const isExpired = dDays !== null && dDays < 0;
+const deadlineHtml = o.deadline
+? `<span class="${isExpired ? 'deadline-expired' : (dDays !== null && dDays <= 7 ? 'deadline-soon' : '')}">${fmtDate(o.deadline)} <small>${isExpired ? '(verlopen)' : `(${dDays}d)`}</small></span>`
+: `<span style="color:#9ca3af;">geen</span>`;
 
-    tr.innerHTML = `
-      <td><span class="score-pill ${scoreClass(o.score)}">${o.score}</span></td>
-      <td class="titel-cell">${o.titel}${bronBadgesHtml(o)}</td>
-      <td><div class="klant-cell">${o.klant}</div><div class="klant-sub">${o.klant_categorie}</div></td>
-      <td class="col-cat"><span class="cat-pill ${catClass(o.match_categorie)}">${catLabel(o.match_categorie)}</span></td>
-      <td class="col-senior">${seniorityLabel(o)}</td>
-      <td class="col-tarief">${fmtTarief(o.tarief_indicatie)}</td>
-      <td class="col-uren">${fmtUren(o.uren_per_week)}</td>
-      <td class="col-plaats">${o.locatie || '—'}</td>
-      <td class="col-start">${fmtDate(o.startdatum)}</td>
-      <td class="col-zzp">${fmtZzp(o.zzp_toegestaan)}</td>
-      <td class="col-deadline deadline-cell">${deadlineHtml}</td>
-      <td>${st === 'new' ? '<span class="status-tag status-new">Nieuw</span>' : st === 'reviewed' ? '<span class="status-tag status-reviewed">Gezien</span>' : '<span class="status-tag status-dismissed">Afgewezen</span>'}</td>
-    `;
-    tr.addEventListener('click', () => toggleExpand(o.id));
-    tbody.appendChild(tr);
+tr.innerHTML = `
+<td><span class="score-pill ${scoreClass(o.score)}">${o.score}</span></td>
+<td class="titel-cell">${o.titel}${bronBadgesHtml(o)}</td>
+<td><div class="klant-cell">${o.klant}</div><div class="klant-sub">${o.klant_categorie}</div></td>
+<td class="col-cat"><span class="cat-pill ${catClass(o.match_categorie)}">${catLabel(o.match_categorie)}</span></td>
+<td class="col-senior">${seniorityLabel(o)}</td>
+<td class="col-tarief">${fmtTarief(o.tarief_indicatie)}</td>
+<td class="col-uren">${fmtUren(o.uren_per_week)}</td>
+<td class="col-plaats">${o.locatie || '—'}</td>
+<td class="col-start">${fmtDate(o.startdatum)}</td>
+<td class="col-zzp">${fmtZzp(o.zzp_toegestaan)}</td>
+<td class="col-deadline deadline-cell">${deadlineHtml}</td>
+<td>${st === 'new' ? '<span class="status-tag status-new">Nieuw</span>' : st === 'reviewed' ? '<span class="status-tag status-reviewed">Gezien</span>' : '<span class="status-tag status-dismissed">Afgewezen</span>'}</td>
+`;
+tr.addEventListener('click', () => toggleExpand(o.id));
+tbody.appendChild(tr);
 
-    if (o.id === expandedId) {
-      const detailTr = document.createElement('tr');
-      detailTr.innerHTML = `<td colspan="12" class="detail-panel"></td>`;
-      detailTr.querySelector('td').appendChild(buildDetail(o));
-      tbody.appendChild(detailTr);
-    }
-  }
+if (o.id === expandedId) {
+const detailTr = document.createElement('tr');
+detailTr.innerHTML = `<td colspan="12" class="detail-panel"></td>`;
+detailTr.querySelector('td').appendChild(buildDetail(o));
+tbody.appendChild(detailTr);
+}
+}
 
-  updateStats();
-  updateSortArrows();
+updateStats();
+updateSortArrows();
 }
 
 function buildDetail(o) {
-  const wrap = document.createElement('div');
-  wrap.className = 'detail-content';
-  const breakdownRows = Object.entries(o.score_breakdown).map(([k, v]) =>
-    `<span class="label">${k}</span><span class="val">${v}</span>`).join('');
-  const flagsHtml = o.flags && o.flags.length ? `<div style="margin-top:6px; color:#92400e;">⚠ ${o.flags.join(' · ')}</div>` : '';
-  const focusHtml = (o.focus||[]).map(f => `<span style="background:#e0f2f1; color:#0a3d5c; padding:2px 8px; border-radius:3px; font-size:12px; margin-right:4px; display:inline-block; margin-bottom:4px;">${f}</span>`).join('');
+const wrap = document.createElement('div');
+wrap.className = 'detail-content';
+const breakdownRows = Object.entries(o.score_breakdown).map(([k, v]) =>
+`<span class="label">${k}</span><span class="val">${v}</span>`).join('');
+const flagsHtml = o.flags && o.flags.length ? `<div style="margin-top:6px; color:#92400e;">⚠ ${o.flags.join(' · ')}</div>` : '';
+const focusHtml = (o.focus||[]).map(f => `<span style="background:#e0f2f1; color:#0a3d5c; padding:2px 8px; border-radius:3px; font-size:12px; margin-right:4px; display:inline-block; margin-bottom:4px;">${f}</span>`).join('');
 
-  wrap.innerHTML = `
-    <div class="detail-row">
-      <div class="detail-section">
-        <div class="detail-h">Beschrijving</div>
-        <div class="detail-text">${o.beschrijving}</div>
-        <div style="margin-top:10px;">${focusHtml}</div>
-      </div>
-      <div class="detail-section" style="max-width:280px;">
-        <div class="detail-h">Score-breakdown</div>
-        <div class="score-breakdown">${breakdownRows}</div>
-        ${flagsHtml}
-      </div>
-    </div>
-    <div class="detail-row">
-      <div class="detail-section">
-        <div class="detail-h">Reden van match</div>
-        <div class="detail-text">${o.reden}</div>
-      </div>
-      <div class="detail-section" style="max-width:340px;">
-        <div class="detail-h">Praktisch</div>
-        <div class="practical">
-          ${o.startdatum ? `<span class="k">Startdatum</span><span>${fmtDate(o.startdatum)}</span>` : ''}
-          ${o.duur_maanden ? `<span class="k">Duur</span><span>${o.duur_maanden} maanden</span>` : ''}
-          ${o.uren_per_week ? `<span class="k">Uren</span><span>${o.uren_per_week} u/week</span>` : ''}
-          ${o.tarief_indicatie ? `<span class="k">Tarief</span><span>€ ${o.tarief_indicatie}/uur</span>` : ''}
-          ${o.locatie ? `<span class="k">Locatie</span><span>${o.locatie}${o.remote ? ' · ' + o.remote + ' remote' : ''}</span>` : ''}
-          <span class="k">Type</span><span>${o.type_opdracht === 'W' ? 'Werken' : o.type_opdracht === 'D' ? 'Diensten' : o.type_opdracht === 'L' ? 'Leveringen' : '—'}${o.procedure ? ' · ' + o.procedure : ''}</span>
-          <span class="k">Bronnen</span><span>${getBronnen(o).map(b => `${b.naam} · ${b.id || ''}`).join('<br>')}</span>
-        </div>
-      </div>
-    </div>
-    <div class="actions">
-      ${getBronnen(o).map((b, i) => `<a class="btn ${i === 0 ? 'btn-primary' : ''}" href="${b.url}" target="_blank" rel="noopener">Open op ${b.naam} ↗</a>`).join('')}
-      ${getStatus(o.id) !== 'reviewed' ? '<button class="btn btn-success" data-act="review">✓ Markeer gezien</button>' : '<button class="btn" data-act="unreview">↺ Terug naar nieuw</button>'}
-      ${getStatus(o.id) !== 'dismissed' ? '<button class="btn btn-danger" data-act="dismiss">Afwijzen</button>' : ''}
-    </div>
-  `;
-  wrap.addEventListener('click', e => {
-    e.stopPropagation();
-    const act = e.target?.dataset?.act;
-    if (!act) return;
-    if (act === 'review') setStatus(o.id, 'reviewed');
-    else if (act === 'unreview') setStatus(o.id, 'new');
-    else if (act === 'dismiss') setStatus(o.id, 'dismissed');
-    render();
-  });
-  return wrap;
+wrap.innerHTML = `
+<div class="detail-row">
+<div class="detail-section">
+<div class="detail-h">Beschrijving</div>
+<div class="detail-text">${o.beschrijving}</div>
+<div style="margin-top:10px;">${focusHtml}</div>
+</div>
+<div class="detail-section" style="max-width:280px;">
+<div class="detail-h">Score-breakdown</div>
+<div class="score-breakdown">${breakdownRows}</div>
+${flagsHtml}
+</div>
+</div>
+<div class="detail-row">
+<div class="detail-section">
+<div class="detail-h">Reden van match</div>
+<div class="detail-text">${o.reden}</div>
+</div>
+<div class="detail-section" style="max-width:340px;">
+<div class="detail-h">Praktisch</div>
+<div class="practical">
+${o.startdatum ? `<span class="k">Startdatum</span><span>${fmtDate(o.startdatum)}</span>` : ''}
+${o.duur_maanden ? `<span class="k">Duur</span><span>${o.duur_maanden} maanden</span>` : ''}
+${o.uren_per_week ? `<span class="k">Uren</span><span>${o.uren_per_week} u/week</span>` : ''}
+${o.tarief_indicatie ? `<span class="k">Tarief</span><span>€ ${o.tarief_indicatie}/uur</span>` : ''}
+${o.locatie ? `<span class="k">Locatie</span><span>${o.locatie}${o.remote ? ' · ' + o.remote + ' remote' : ''}</span>` : ''}
+<span class="k">Type</span><span>${o.type_opdracht === 'W' ? 'Werken' : o.type_opdracht === 'D' ? 'Diensten' : o.type_opdracht === 'L' ? 'Leveringen' : '—'}${o.procedure ? ' · ' + o.procedure : ''}</span>
+<span class="k">Bronnen</span><span>${getBronnen(o).map(b => `${b.naam} · ${b.id || ''}`).join('<br>')}</span>
+</div>
+</div>
+</div>
+<div class="actions">
+${getBronnen(o).map((b, i) => `<a class="btn ${i === 0 ? 'btn-primary' : ''}" href="${b.url}" target="_blank" rel="noopener">Open op ${b.naam} ↗</a>`).join('')}
+${getStatus(o.id) !== 'reviewed' ? '<button class="btn btn-success" data-act="review">✓ Markeer gezien</button>' : '<button class="btn" data-act="unreview">↺ Terug naar nieuw</button>'}
+${getStatus(o.id) !== 'dismissed' ? '<button class="btn btn-danger" data-act="dismiss">Afwijzen</button>' : ''}
+</div>
+`;
+wrap.addEventListener('click', e => {
+e.stopPropagation();
+const act = e.target?.dataset?.act;
+if (!act) return;
+if (act === 'review') setStatus(o.id, 'reviewed');
+else if (act === 'unreview') setStatus(o.id, 'new');
+else if (act === 'dismiss') setStatus(o.id, 'dismissed');
+render();
+});
+return wrap;
 }
 
 function toggleExpand(id) {
-  expandedId = (expandedId === id) ? null : id;
-  render();
+expandedId = (expandedId === id) ? null : id;
+render();
 }
 
 function updateStats() {
-  const all = opportunities;
-  document.getElementById('statTotal').textContent = all.length;
-  document.getElementById('statTop').textContent = all.filter(o => o.score >= 80).length;
-  document.getElementById('statStrategic').textContent = all.filter(o => o.match_categorie === 'foothold-uitbreiding' || o.match_categorie === 'diversificatie-strategisch').length;
-  document.getElementById('statTodo').textContent = all.filter(o => getStatus(o.id) === 'new').length;
+const all = opportunities;
+document.getElementById('statTotal').textContent = all.length;
+document.getElementById('statTop').textContent = all.filter(o => o.score >= 80).length;
+document.getElementById('statStrategic').textContent = all.filter(o => o.match_categorie === 'foothold-uitbreiding' || o.match_categorie === 'diversificatie-strategisch').length;
+document.getElementById('statTodo').textContent = all.filter(o => getStatus(o.id) === 'new').length;
 }
 
 function updateSortArrows() {
-  document.querySelectorAll('thead th.sortable').forEach(th => {
-    const key = th.dataset.sort;
-    const arrow = th.querySelector('.sort-arrow');
-    if (key === sortState.key) {
-      th.classList.add('active');
-      arrow.textContent = sortState.dir === 'asc' ? '↑' : '↓';
-    } else {
-      th.classList.remove('active');
-      arrow.textContent = '';
-    }
-  });
+document.querySelectorAll('thead th.sortable').forEach(th => {
+const key = th.dataset.sort;
+const arrow = th.querySelector('.sort-arrow');
+if (key === sortState.key) {
+th.classList.add('active');
+arrow.textContent = sortState.dir === 'asc' ? '↑' : '↓';
+} else {
+th.classList.remove('active');
+arrow.textContent = '';
+}
+});
 }
 
 // === Wiring ===
 function init() {
-  populateBronFilter();
-  document.getElementById('filterCat').value = filterState.cat;
-  document.getElementById('filterScore').value = filterState.score;
-  document.getElementById('filterStatus').value = filterState.status;
-  document.getElementById('searchInput').value = filterState.search;
-  document.getElementById('filterBron').value = filterState.bron;
+populateBronFilter();
+document.getElementById('filterCat').value = filterState.cat;
+document.getElementById('filterScore').value = filterState.score;
+document.getElementById('filterStatus').value = filterState.status;
+document.getElementById('searchInput').value = filterState.search;
+document.getElementById('filterBron').value = filterState.bron;
 
-  const onFilter = () => {
-    filterState.cat = document.getElementById('filterCat').value;
-    filterState.score = document.getElementById('filterScore').value;
-    filterState.status = document.getElementById('filterStatus').value;
-    filterState.search = document.getElementById('searchInput').value;
-    filterState.bron = document.getElementById('filterBron').value;
-    persistFilters();
-    expandedId = null;
-    render();
-  };
-  ['filterCat','filterScore','filterStatus','filterBron'].forEach(id => document.getElementById(id).addEventListener('change', onFilter));
-  document.getElementById('searchInput').addEventListener('input', onFilter);
+const onFilter = () => {
+filterState.cat = document.getElementById('filterCat').value;
+filterState.score = document.getElementById('filterScore').value;
+filterState.status = document.getElementById('filterStatus').value;
+filterState.search = document.getElementById('searchInput').value;
+filterState.bron = document.getElementById('filterBron').value;
+persistFilters();
+expandedId = null;
+render();
+};
+['filterCat','filterScore','filterStatus','filterBron'].forEach(id => document.getElementById(id).addEventListener('change', onFilter));
+document.getElementById('searchInput').addEventListener('input', onFilter);
 
-  document.getElementById('resetBtn').addEventListener('click', () => {
-    filterState = { cat: '', score: '0', status: 'active', search: '', bron: '' };
-    persistFilters();
-    document.getElementById('filterCat').value = '';
-    document.getElementById('filterScore').value = '0';
-    document.getElementById('filterStatus').value = 'active';
-    document.getElementById('searchInput').value = '';
-    document.getElementById('filterBron').value = '';
-    expandedId = null;
-    render();
-  });
+document.getElementById('resetBtn').addEventListener('click', () => {
+filterState = { cat: '', score: '0', status: 'active', search: '', bron: '' };
+persistFilters();
+document.getElementById('filterCat').value = '';
+document.getElementById('filterScore').value = '0';
+document.getElementById('filterStatus').value = 'active';
+document.getElementById('searchInput').value = '';
+document.getElementById('filterBron').value = '';
+expandedId = null;
+render();
+});
 
-  document.querySelectorAll('thead th.sortable').forEach(th => {
-    th.addEventListener('click', () => {
-      const k = th.dataset.sort;
-      if (sortState.key === k) sortState.dir = (sortState.dir === 'asc') ? 'desc' : 'asc';
-      else { sortState.key = k; sortState.dir = (k === 'titel' || k === 'klant' || k === 'deadline') ? 'asc' : 'desc'; }
-      persistSort();
-      render();
-    });
-  });
+document.querySelectorAll('thead th.sortable').forEach(th => {
+th.addEventListener('click', () => {
+const k = th.dataset.sort;
+if (sortState.key === k) sortState.dir = (sortState.dir === 'asc') ? 'desc' : 'asc';
+else { sortState.key = k; sortState.dir = (k === 'titel' || k === 'klant' || k === 'deadline') ? 'asc' : 'desc'; }
+persistSort();
+render();
+});
+});
 
-  renderBronnen();
-  render();
+renderBronnen();
+render();
 }
 init();
 </script>
