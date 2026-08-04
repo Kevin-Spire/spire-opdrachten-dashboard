@@ -301,7 +301,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 augustus 2026 — 51 opdrachten, 8 bronnen (Magnit tijdelijk niet ingelogd).</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">4 augustus 2026 — 51 opdrachten, 8 bronnen (Magnit tijdelijk niet ingelogd).</span></span>
     </div>
   </div>
 </div>
@@ -311,7 +311,7 @@
   <header>
     <div class="title-row">
       <h1>Vandaag op de radar</h1>
-      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 3 aug</span>
+      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 4 aug</span>
     </div>
     <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"></span></div>
   </header>
@@ -597,27 +597,28 @@ const opportunities = [
     titel: 'Data Scientist',
     klant: 'Stedin Netbeheer B.V.',
     klant_categorie: 'netbeheerder',
-    beschrijving: 'Data Scientist rol bij Stedin Netbeheer. Op basis van de functietitel betreft dit een data-analyse/datawetenschap-rol binnen de netbeheerder. Volledige functieomschrijving alleen zichtbaar na inloggen op Striive. Stedin is Spire-foothold klant; data-gedreven werk sluit aan bij Spire\'s Business Intelligence & Data Management-focus, al is de rol technischer van aard dan een klassieke PMO/change-positie.',
-    deadline: null,
+    beschrijving: 'Data Scientist rol bij Stedin Netbeheer, bevestigd via Opdracht Overheid: loondienst-only (Wet DBA), 40 uur/week, geen maximumtarief opgegeven. Data-gedreven werk sluit aan bij Spire\'s Business Intelligence & Data Management-focus, al is de rol technischer/analytischer van aard dan een klassieke PMO/change-positie.',
+    deadline: '2026-08-07',
     startdatum: null,
     duur_maanden: null,
-    uren_per_week: null,
+    uren_per_week: 40,
     tarief_indicatie: null,
-    locatie: null,
+    locatie: 'Rotterdam',
     remote: null,
-    zzp_toegestaan: null,
+    zzp_toegestaan: false,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
-    publicatie_type: 'Striive',
-    bron: 'Striive',
-    url: 'https://striive.com/nl/opdrachten',
-    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-data-scientist' }],
-    score: 84,
-    score_breakdown: { 'Sector-fit': 100, 'Type-werk': 100, 'Focusgebied': 80, 'Klant-fit': 100, 'Rol-fit': 30, 'Senioriteit': 70 },
+    publicatie_type: 'Opdracht Overheid',
+    bron: 'Opdracht Overheid',
+    url: 'https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/data-scientist/846A3BC2-C6F7-4ABB-ADB6-E5BBFA879261',
+    bronnen: [{ naam: 'Striive', url: 'https://striive.com/nl/opdrachten', id: 'ST-stedin-data-scientist' }, { naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/data-scientist/846A3BC2-C6F7-4ABB-ADB6-E5BBFA879261', id: 'ST-stedin-data-scientist' }],
+    score: 62,
+    score_breakdown: { 'Energie-fit': 65, 'Klant-fit': 100, 'Werk-fit': 30 },
+    senioriteit_niveau: null,
     match_categorie: 'foothold-uitbreiding',
     focus: ['Business Intelligence & Data Management'],
-    reden: 'Stedin (foothold). Data-rol scoort hoog op type-werk (data expliciet in Spire-scope) maar lager op rol-fit — vermoedelijk meer technisch/analytisch dan consultancy. Detail niet beschikbaar zonder login; verifieer scope bij reactie.',
-    flags: ['Detail beschikbaar na Striive-login', 'Rol-fit onzeker — mogelijk sterker technisch dan PMO/change', 'NIET HERBEVESTIGD IN DEZE PULL — Striive toont zonder login slechts ~25 van ~117 opdrachten']
+    reden: 'Stedin (foothold). Data Scientist is overwegend een technisch/analytisch (engineer-type) rol — lagere Werk-fit ondanks sterke klant-fit. Nu bevestigd via Opdracht Overheid (rijkere detail dan de eerdere Striive-only listing); score bijgesteld naar het 3-dim scoremodel.',
+    flags: ['Alleen loondienst (Wet DBA)', 'Bevestigd via 2e bron (Opdracht Overheid) — score herzien o.b.v. 3-dim model']
   },
   {
     id: 'TN-VAK-430817-stedin-toekomstbestendige-flextenders',
@@ -1580,34 +1581,6 @@ const opportunities = [
     flags: ['Rijbewijs + regio Rotterdam-Rijnmond vereist', 'Nieuw t.o.v. vorige pull']
   },
   {
-    id: 'OO-stedin-projectleider-system-operations',
-    titel: 'Projectleider (System Operations)',
-    klant: 'Stedin Netbeheer B.V.',
-    klant_categorie: 'netbeheerder',
-    beschrijving: 'Projectleider System Operations bij Stedin — leidt complexe multidisciplinaire IT-projecten rond meten/sturen op afstand van het net, toenemende intelligentie in het energiesysteem en belastingvoorspelling. Bijdrage aan het fundament voor toekomstige System Operations-capabilities van Stedin.',
-    deadline: '2026-08-03',
-    startdatum: '2026-09-01',
-    duur_maanden: 6,
-    uren_per_week: 40,
-    tarief_indicatie: 100,
-    locatie: 'Rotterdam',
-    remote: null,
-    zzp_toegestaan: false,
-    type_opdracht: 'D',
-    procedure: 'Niet-openbaar',
-    publicatie_type: 'Opdracht Overheid',
-    bron: 'Opdracht Overheid',
-    url: 'https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/projectleider-system-operations/54F62E1B-2C89-40C0-B518-281C20E001C9',
-    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/projectleider-system-operations/54F62E1B-2C89-40C0-B518-281C20E001C9', id: 'OO-stedin-projectleider-system-operations' }],
-    score: 93,
-    score_breakdown: { 'Energie-fit': 90, 'Klant-fit': 100, 'Werk-fit': 90 },
-    senioriteit_niveau: 'Senior',
-    match_categorie: 'foothold-uitbreiding',
-    focus: ['Project, Programma & PMO Management', 'Energiesysteemontwikkeling'],
-    reden: 'Stedin (foothold). Projectleiderschap direct verbonden aan het energiesysteem van de toekomst — sterke PM-fit.',
-    flags: ['⚡ Deadline sluit vandaag (3 aug) om 16:00 — mogelijk al verstreken bij verwerking', 'Nieuw t.o.v. vorige pull']
-  },
-  {
     id: 'OO-dcmr-toezichthouder-energie',
     titel: 'Toezichthouder Energie, 1 FTE, September 2026',
     klant: 'Dienst Centraal Milieubeheer Rijnmond (DCMR)',
@@ -1804,32 +1777,60 @@ const opportunities = [
     flags: ['ZZP mogelijk', '⚡ Deadline sluit over 2 dagen (5 aug)', 'Nieuw t.o.v. vorige pull']
   },
   {
-    id: 'HN-enexis-business-consultant-klantregister',
-    titel: 'Business Consultant Enexis Klantregister',
-    klant: 'Enexis',
-    klant_categorie: 'netbeheerder',
-    beschrijving: 'Business Consultant Enexis Klantregister — richt het tactisch en operationeel beheer van het Klantregister toekomstbestendig in binnen de afdeling Aansluitingen Beheer, en adviseert ook over het beheer van andere datastromen binnen Operatie Consument. Focus op datagovernance, procesinrichting en borging in de lijnorganisatie.',
-    deadline: '2026-08-03',
-    startdatum: '2026-09-01',
-    duur_maanden: 4,
-    uren_per_week: 32,
-    tarief_indicatie: 102,
-    locatie: 'Den Bosch',
+    id: 'OO-zuidholland-warmtetransitie-historische-gebieden',
+    titel: 'Ondersteuningsprogramma warmtetransitie in historische gebieden',
+    klant: 'Provincie Zuid-Holland',
+    klant_categorie: 'overheid',
+    beschrijving: 'Provincie Zuid-Holland zoekt een team dat gemeenten met historische binnensteden begeleidt bij de warmtetransitie, op basis van een door de Rijksdienst voor het Cultureel Erfgoed ontwikkelde methodiek. Werkzaamheden: ontwikkelen van een praktisch ondersteuningsaanbod voor minimaal 3 gemeenten, begeleiden van gemeenten bij toepassing, en kennisdeling/opschaling naar alle Zuid-Hollandse gemeenten met historische gebieden. Team-tender (junior/medior/senior/projectleider-tarieven), looptijd tot eind 2028.',
+    deadline: '2026-08-27',
+    startdatum: '2026-10-12',
+    duur_maanden: 27,
+    uren_per_week: null,
+    tarief_indicatie: 150,
+    locatie: 'Den Haag',
     remote: null,
-    zzp_toegestaan: true,
+    zzp_toegestaan: null,
     type_opdracht: 'D',
     procedure: 'Niet-openbaar',
-    publicatie_type: 'Harvey Nash',
-    bron: 'Harvey Nash',
-    url: 'https://www.harveynash.nl/vacatures/298538-Business-Consultant-Enexis-Klantregister-SF16055',
-    bronnen: [{ naam: 'Harvey Nash', url: 'https://www.harveynash.nl/vacatures/298538-Business-Consultant-Enexis-Klantregister-SF16055', id: 'HN-enexis-business-consultant-klantregister' }],
-    score: 87,
-    score_breakdown: { 'Energie-fit': 80, 'Klant-fit': 100, 'Werk-fit': 85 },
+    publicatie_type: 'Opdracht Overheid',
+    bron: 'Opdracht Overheid',
+    url: 'https://opdrachtoverheid.nl/inhuuropdracht/provincie-zuid-holland/dos-2026-0002837-ondersteuningsprogramma-warmtetransitie-in-historische-gebieden/7607A01B-2B09-4A8A-9C83-C1E7B374EF92',
+    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/provincie-zuid-holland/dos-2026-0002837-ondersteuningsprogramma-warmtetransitie-in-historische-gebieden/7607A01B-2B09-4A8A-9C83-C1E7B374EF92', id: 'OO-zuidholland-warmtetransitie-historische-gebieden' }],
+    score: 90,
+    score_breakdown: { 'Energie-fit': 90, 'Klant-fit': 95, 'Werk-fit': 85 },
+    senioriteit_niveau: 'Senior',
+    match_categorie: 'diversificatie-strategisch',
+    focus: ['Energiesysteemontwikkeling', 'Organisatieverandering'],
+    reden: 'Provincie (overheid/innovatie). Warmtetransitie-procesbegeleiding voor gemeenten — kennisontwikkeling, procesregie en opschaling sluiten sterk aan bij Spire-adviesprofiel. Team-tender, geen individuele plaatsing.',
+    flags: ['Team-tender (meerdere professionals/expertises, geen individuele plaatsing)', 'Nieuw t.o.v. vorige pull']
+  },
+  {
+    id: 'OO-stedin-projectmanager-realisatie',
+    titel: 'Projectmanager Realisatie',
+    klant: 'Stedin Netbeheer B.V.',
+    klant_categorie: 'netbeheerder',
+    beschrijving: 'Projectmanager Realisatie in de hoogspanningsketen bij Stedin — leidt complexe projecten (nieuwbouw/uitbreiding hoogspanningsstations, grote klantaansluitingen, tracewerken, tot circa €10 miljoen) die het net klaarstomen voor de energietransitie (elektrische mobiliteit, gasloze wijken, decentrale opwekking). Eindverantwoordelijk voor planning, budget, veiligheid en kwaliteit van meerdere projecten tegelijk.',
+    deadline: '2026-08-07',
+    startdatum: '2026-09-01',
+    duur_maanden: 12,
+    uren_per_week: 40,
+    tarief_indicatie: 90,
+    locatie: 'Utrecht',
+    remote: null,
+    zzp_toegestaan: false,
+    type_opdracht: 'D',
+    procedure: 'Niet-openbaar',
+    publicatie_type: 'Opdracht Overheid',
+    bron: 'Opdracht Overheid',
+    url: 'https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/projectmanager-realisatie/6E3BA076-E445-483A-AA40-F7F4275F8BE2',
+    bronnen: [{ naam: 'Opdracht Overheid', url: 'https://opdrachtoverheid.nl/inhuuropdracht/stedin-netbeheer-bv/projectmanager-realisatie/6E3BA076-E445-483A-AA40-F7F4275F8BE2', id: 'OO-stedin-projectmanager-realisatie' }],
+    score: 95,
+    score_breakdown: { 'Energie-fit': 95, 'Klant-fit': 100, 'Werk-fit': 90 },
     senioriteit_niveau: 'Senior',
     match_categorie: 'foothold-uitbreiding',
-    focus: ['Digitale Transformatie', 'Organisatieverandering'],
-    reden: 'Enexis (foothold). Business consultancy op datagovernance/procesinrichting — sterke adviesfit, ZZP mogelijk.',
-    flags: ['ZZP mogelijk', '⚡ Deadline vandaag (3 aug) 12:00 — mogelijk al verstreken bij verwerking', 'Nieuw t.o.v. vorige pull']
+    focus: ['Energiesysteemontwikkeling', 'Project, Programma & PMO Management'],
+    reden: 'Stedin (foothold). Eindverantwoordelijk PM-schap op hoogspanningsprojecten die het net gereedmaken voor de energietransitie — vrijwel 1-op-1 Spire-kernprofiel. Alleen loondienst of via extern advies-/detacheringsbureau (Wet DBA), geen zzp.',
+    flags: ['Alleen loondienst of via extern advies-/detacheringsbureau (Wet DBA)', '⚡ Deadline sluit over 3 dagen (7 aug)', 'Nieuw t.o.v. vorige pull']
   },
 ];
 
