@@ -140,7 +140,8 @@
     background: var(--spire-surface);
     border: 1px solid var(--spire-border);
     border-radius: 10px;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     box-shadow: var(--spire-shadow);
   }
   table { width: 100%; border-collapse: collapse; }
@@ -148,7 +149,7 @@
     background: var(--spire-surface-2);
     color: var(--spire-text-muted);
     font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
-    font-weight: 700; padding: 12px 14px; text-align: left;
+    font-weight: 700; padding: 12px 8px; text-align: left;
     border-bottom: 1px solid var(--spire-border);
   }
   thead th.sortable { cursor: pointer; user-select: none; transition: color 0.1s; }
@@ -161,7 +162,7 @@
   tbody tr.expanded { background: var(--spire-teal-soft); }
   tbody tr.reviewed { opacity: 0.55; }
   tbody tr.dismissed { opacity: 0.4; text-decoration: line-through; }
-  td { padding: 14px; vertical-align: top; }
+  td { padding: 12px 8px; vertical-align: top; }
 
   /* === Score pills === */
   .score-pill {
@@ -426,7 +427,7 @@
 // Harvey Nash (15/35, tool-friction op paginering) + Interim Professionals (54/54) + Bluetrail (volledig
 // relevante categorieen), gescoord tegen Spire-profiel. Na dedup: 89 unieke items.
 
-const opportunities = [{"id":"HN-enexis-civiele-regievoerder-productiestraten-zuid","titel":"Civiele regievoerder Productiestraten Zuid (PILS/PIMS)","klant":"Enexis Netbeheer","klant_categorie":"netbeheerder","beschrijving":"Enexis zoekt een civiele regievoerder voor de afdeling Productiestraten (PILS/PIMS: Proactief Investeren Laag-/Middenspanning) in Brabant en Limburg. Borgt via steekproeven en werkplekbezoeken de civiele kwaliteit van de uitvoering door aannemers en adviseert projectleiders bij knelpunten.","deadline":"2026-09-14T12:00:00","startdatum":"ZSM","duur_maanden":12,"uren_per_week":"32-40","tarief_indicatie":79.5,"locatie":"Brabant/Limburg (diverse locaties)","remote":null,"zzp_toegestaan":true,"type_opdracht":"D","procedure":"Harvey Nash (Enexis)","publicatie_type":"Harvey Nash","bron":"Harvey Nash","url":"https://www.harveynash.nl/vacatures/298961-Civiele-regievoerder-Productiestraten-Zuid","bronnen":[{"naam":"Harvey Nash","url":"https://www.harveynash.nl/vacatures/298961-Civiele-regievoerder-Productiestraten-Zuid","id":"BBBH123312"}],"score":75,"score_breakdown":{"Energie-fit":100,"Klant-fit":100,"Werk-fit":28},"senioriteit_niveau":"Medior","match_categorie":"foothold-uitbreiding","focus":["Netinfrastructuur kwaliteitsborging"],"reden":"Enexis (foothold). Civiele kwaliteitscontrole in het veld — technisch/toezichthoudend, weinig PM/adviesinhoud.","flags":["NIEUW 10-09","Veel reizen Brabant/Limburg","Zzp mogelijk, geen deta-vast"]},
+const opportunities = [{"id":"HN-enexis-civiele-regievoerder-productiestraten-zuid","titel":"Civiele regievoerder Productiestraten Zuid (PILS/PIMS)","klant":"Enexis Netbeheer","klant_categorie":"netbeheerder","beschrijving":"Enexis zoekt een civiele regievoerder voor de afdeling Productiestraten (PILS/PIMS: Proactief Investeren Laag-/Middenspanning) in Brabant en Limburg. Borgt via steekproeven en werkplekbezoeken de civiele kwaliteit van de uitvoering door aannemers en adviseert projectleiders bij knelpunten.","deadline":"2026-09-14T12:00:00","startdatum":null,"duur_maanden":12,"uren_per_week":"32-40","tarief_indicatie":79.5,"locatie":"Brabant/Limburg (diverse locaties)","remote":null,"zzp_toegestaan":true,"type_opdracht":"D","procedure":"Harvey Nash (Enexis)","publicatie_type":"Harvey Nash","bron":"Harvey Nash","url":"https://www.harveynash.nl/vacatures/298961-Civiele-regievoerder-Productiestraten-Zuid","bronnen":[{"naam":"Harvey Nash","url":"https://www.harveynash.nl/vacatures/298961-Civiele-regievoerder-Productiestraten-Zuid","id":"BBBH123312"}],"score":75,"score_breakdown":{"Energie-fit":100,"Klant-fit":100,"Werk-fit":28},"senioriteit_niveau":"Medior","match_categorie":"foothold-uitbreiding","focus":["Netinfrastructuur kwaliteitsborging"],"reden":"Enexis (foothold). Civiele kwaliteitscontrole in het veld — technisch/toezichthoudend, weinig PM/adviesinhoud.","flags":["NIEUW 10-09","Veel reizen Brabant/Limburg","Zzp mogelijk, geen deta-vast"]},
 {"id":"MG-tennet-omgevingsmanager-zuid-holland","titel":"Omgevingsmanager Projecten Zuid-Holland","klant":"TenneT TSO B.V.","klant_categorie":"netbeheerder (doellijst)","beschrijving":"TenneT zoekt een Omgevingsmanager voor projecten in Zuid-Holland (regio Gouda). Verantwoordelijk voor stakeholdermanagement en omgevingsmanagement rond de aanleg/uitbreiding van het hoogspanningsnet, als onderdeel van de energietransitie.","deadline":null,"startdatum":null,"duur_maanden":null,"uren_per_week":"32-40","tarief_indicatie":110,"locatie":"Gouda","remote":null,"zzp_toegestaan":null,"type_opdracht":"D","procedure":"Magnit (TenneT VMS)","publicatie_type":"Magnit","bron":"Magnit","url":"https://www.opdrachtenbijtennet.eu/","bronnen":[{"naam":"Magnit","url":"https://www.opdrachtenbijtennet.eu/","id":null}],"score":91,"score_breakdown":{"Energie-fit":100,"Klant-fit":100,"Werk-fit":75},"senioriteit_niveau":null,"match_categorie":"foothold-uitbreiding","focus":["Project, Programma & PMO Management","Energiesysteemontwikkeling"],"reden":"TenneT (foothold/doellijst). Omgevingsmanagement = stakeholder-/procesrol, sterke fit met Spire's PMO-profiel bij kernklant.","flags":["NIEUW 10-09 — via publieke TenneT/Magnit-teaserpagina (geen volledige VMS-login), beperkte detailinformatie"]},
 {"id":"MG-tennet-manager-onshore-communication-improvements","titel":"(Interim) Manager Onshore Communication and Improvements","klant":"TenneT TSO B.V.","klant_categorie":"netbeheerder (doellijst)","beschrijving":"TenneT zoekt binnen de Onshore-organisatie een (interim) Manager Onshore Communication and Improvements. De energietransitie vraagt om versnelling, samenwerking en eigenaarschap; deze rol richt zich op communicatie en verbeterinitiatieven binnen de Onshore-organisatie.","deadline":null,"startdatum":null,"duur_maanden":null,"uren_per_week":"32-40","tarief_indicatie":125,"locatie":"Arnhem","remote":"Hybride","zzp_toegestaan":null,"type_opdracht":"D","procedure":"Magnit (TenneT VMS)","publicatie_type":"Magnit","bron":"Magnit","url":"https://www.opdrachtenbijtennet.eu/","bronnen":[{"naam":"Magnit","url":"https://www.opdrachtenbijtennet.eu/","id":null}],"score":93,"score_breakdown":{"Energie-fit":100,"Klant-fit":100,"Werk-fit":80},"senioriteit_niveau":"Senior","match_categorie":"foothold-uitbreiding","focus":["Organisatieverandering","Project, Programma & PMO Management"],"reden":"TenneT (foothold/doellijst). Communicatie + verbetermanagement binnen Onshore-organisatie — sterke change/PM-fit met Spire's kernprofiel.","flags":["NIEUW 10-09 — via publieke TenneT/Magnit-teaserpagina (geen volledige VMS-login), beperkte detailinformatie"]},
 
@@ -3517,7 +3518,7 @@ function catClass(c) {
   return ({ 'foothold-uitbreiding': 'cat-foothold', 'diversificatie-strategisch': 'cat-strategisch', 'regulier': 'cat-regulier', 'mismatch': 'cat-mismatch' })[c] || 'cat-regulier';
 }
 function getBronnen(o) {
-  if (Array.isArray(o.bronnen) && o.bronnen.length) return o.bronnen;
+  if (Array.isArray(o.bronnen) && o.bronnen.length) return o.bronnen.map(b => typeof b === 'string' ? { naam: b, url: o.url, id: o.id } : b);
   if (o.bron) return [{ naam: o.bron, url: o.url, id: o.id }];
   return [];
 }
