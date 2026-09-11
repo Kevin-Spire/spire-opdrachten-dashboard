@@ -314,7 +314,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">10 september 2026 — 111 opdrachten, 8 bronnen (+3 via publieke TenneT/Magnit-teaserpagina en aanvullende Harvey Nash-check).</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">11 september 2026 — 111 opdrachten, 8 bronnen (Magnit tijdelijk uitgevallen — geen sessie).</span></span>
     </div>
   </div>
 </div>
@@ -324,9 +324,9 @@
   <header>
     <div class="title-row">
       <h1>Vandaag op de radar</h1>
-      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 10 september</span>
+      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 11 september</span>
     </div>
-    <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"><span class="bron-status-live">TenderNed (AAO + MAC + VAK)</span> · <span class="bron-status-live">Striive</span> · <span class="bron-status-live">Circle8</span> · <span class="bron-status-down">Magnit</span><span class="bron-status-flag" title="sessie niet ingelogd (loginscherm bevestigd via pagina-inhoud)">sessie niet ingelogd (loginscherm bevestigd via pagina-inhoud)</span> · <span class="bron-status-live">Opdracht Overheid</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="deels: 150 van ~505 items, " meer="" weergeven"="" liep="" vast"="">deels</span> · <span class="bron-status-live">Harvey Nash</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="deels: 15 van 35 items, paginering niet volledig doorlopen">deels</span> · <span class="bron-status-live">Interim Professionals</span> · <span class="bron-status-live">Bluetrail</span></span></div>
+    <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"><span class="bron-status-live">TenderNed (AAO + MAC + VAK)</span> · <span class="bron-status-live">Striive</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="zonder login max ~24 van ~72 zichtbaar">deels</span> · <span class="bron-status-live">Circle8</span> · <span class="bron-status-down">Magnit</span><span class="bron-status-flag" title="geen sessie beschikbaar — Claude in Chrome en bash beide onbereikbaar vandaag, fallback-browserpane heeft geen Kevin-login (loginscherm bevestigd: brainnetportal.b2clogin.com)">geen sessie beschikbaar — Claude in Chrome en bash beide onbereikbaar vandaag, fallback-browserpane heeft geen Kevin-login (loginscherm bevestigd: brainnetportal.b2clogin.com)</span> · <span class="bron-status-live">Opdracht Overheid</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="250 van ~280 items geladen (10x " meer="" weergeven",="" maxlimiet)="" binnen="" 4-disciplinefilter"="">deels</span> · <span class="bron-status-live">Harvey Nash</span> · <span class="bron-status-live">Interim Professionals</span> · <span class="bron-status-live">Bluetrail</span></span></div>
   </header>
 
   <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald en gescoord tegen het Spire-profiel v1.0. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen — geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing — open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 86 opdrachten (lazy-load); Opdracht Overheid's "Meer Weergeven" liep vandaag vast na 150 van ~505 items.</div>
@@ -334,22 +334,22 @@
   <div class="stats">
     <div class="stat-card">
       <div class="stat-label">Totaal nieuwe opdrachten</div>
-      <div class="stat-value" id="statTotal">105</div>
+      <div class="stat-value" id="statTotal">111</div>
       <div class="stat-sub">deze update</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Top match (≥80)</div>
-      <div class="stat-value" id="statTop">28</div>
+      <div class="stat-value" id="statTop">33</div>
       <div class="stat-sub">prioriteit voor review</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Strategisch belang</div>
-      <div class="stat-value" id="statStrategic">53</div>
+      <div class="stat-value" id="statStrategic">72</div>
       <div class="stat-sub">foothold + diversificatie</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Nog te reviewen</div>
-      <div class="stat-value" id="statTodo">92</div>
+      <div class="stat-value" id="statTodo">111</div>
       <div class="stat-sub">na markeren wordt dit lager</div>
     </div>
   </div>
@@ -378,7 +378,7 @@
       <label for="filterBron">Bron</label>
       <select id="filterBron">
         <option value="">Alle</option>
-      <option value="Bluetrail">Bluetrail</option><option value="Circle8">Circle8</option><option value="Harvey Nash">Harvey Nash</option><option value="Interim Professionals">Interim Professionals</option><option value="Opdracht Overheid">Opdracht Overheid</option><option value="Striive">Striive</option><option value="TenderNed">TenderNed</option></select>
+      <option value="Bluetrail">Bluetrail</option><option value="Circle8">Circle8</option><option value="Harvey Nash">Harvey Nash</option><option value="Interim Professionals">Interim Professionals</option><option value="Opdracht Overheid">Opdracht Overheid</option><option value="Striive">Striive</option><option value="TenderNed">TenderNed</option><option value="Bluetrail">Bluetrail</option><option value="Harvey Nash">Harvey Nash</option><option value="Interim Professionals">Interim Professionals</option><option value="Magnit">Magnit</option><option value="Opdracht Overheid">Opdracht Overheid</option><option value="Striive">Striive</option><option value="TenderNed">TenderNed</option></select>
     </div>
     <div class="filter-group">
       <label for="filterStatus">Status</label>
@@ -414,7 +414,1450 @@
           <th>Status</th>
         </tr>
       </thead>
-      <tbody id="tableBody"></tbody>
+      <tbody id="tableBody"><tr data-id="ST-stedin-business-consultant-capaciteitsuitgifte">
+      <td><span class="score-pill score-high">100</span></td>
+      <td class="titel-cell">Business Consultant Capaciteitsuitgifte (Deta-vast)<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="BT-enexis-medior-projectleider-infra-limburg-zuid">
+      <td><span class="score-pill score-high">100</span></td>
+      <td class="titel-cell">Medior Projectleider Infra Limburg Zuid<span class="bron-badges"><span class="bron-badge bron-bt" title="Bluetrail"><span>Bluetrail</span></span><span class="bron-badge bron-hn" title="Harvey Nash"><span>Harvey Nash</span></span></span></td>
+      <td><div class="klant-cell">Enexis</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Medior</td>
+      <td class="col-tarief">€93.15</td>
+      <td class="col-uren">24</td>
+      <td class="col-plaats">Maastricht</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Ja</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-enexis-change-implementatiemanager-besturingsmodel">
+      <td><span class="score-pill score-high">100</span></td>
+      <td class="titel-cell">Change &amp; Implementatiemanager - Nieuw Besturingsmodel Ops.<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span><span class="bron-badge bron-hn" title="Harvey Nash"><span>Harvey Nash</span></span></span></td>
+      <td><div class="klant-cell">Enexis</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€102</td>
+      <td class="col-uren">32</td>
+      <td class="col-plaats">'s-Hertogenbosch</td>
+      <td class="col-start">15 sep</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="deadline-soon">11 sep <small>(1d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-zwolle-groengasinstallatie">
+      <td><span class="score-pill score-high">99</span></td>
+      <td class="titel-cell">Strategisch Adviseur Ontwikkeling Groengasinstallatie<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Zwolle</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€115</td>
+      <td class="col-uren">16-28</td>
+      <td class="col-plaats">Zwolle</td>
+      <td class="col-start">1 okt</td>
+      <td class="col-zzp">Nee</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-433661-rvo-inhuur-specialisten-energie-duurzaamheid">
+      <td><span class="score-pill score-high">97</span></td>
+      <td class="titel-cell">Inhuur van specialisten energie, duurzaamheid en innovatie (RVO)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Ministerie van Economische Zaken (Rijksdienst voor Ondernemend Nederland)</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">2 nov <small>(53d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="HN-enexis-product-owner-gas-digitalisering">
+      <td><span class="score-pill score-high">97</span></td>
+      <td class="titel-cell">Product Owner Gas digitalisering<span class="bron-badges"><span class="bron-badge bron-hn" title="Harvey Nash"><span>Harvey Nash</span></span><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Enexis</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€104</td>
+      <td class="col-uren">32</td>
+      <td class="col-plaats">Den Bosch</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Nee</td>
+      <td class="col-deadline deadline-cell"><span class="deadline-soon">11 sep <small>(1d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-kwartiermaker-functieteam-engineering">
+      <td><span class="score-pill score-high">96</span></td>
+      <td class="titel-cell">Kwartiermaker Functieteam Engineering<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-439322-gooisemeren-lokale-energie-delen">
+      <td><span class="score-pill score-high">95</span></td>
+      <td class="titel-cell">Lokale Energie Delen Gooi en Vechtstreek<span class="bron-badges"><span class="bron-badge bron-other" title="TenderNed (AAO)"><span>TenderNed (AAO)</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Gooise Meren</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Gooise Meren</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">20 okt <small>(40d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-senior-agile-team-coach">
+      <td><span class="score-pill score-high">94</span></td>
+      <td class="titel-cell">Senior Agile (team) coach<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Arnhem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="HN-enexis-manager-engineering-aanleg-zwolle">
+      <td><span class="score-pill score-high">94</span></td>
+      <td class="titel-cell">Manager Engineering en Aanleg Zwolle<span class="bron-badges"><span class="bron-badge bron-hn" title="Harvey Nash"><span>Harvey Nash</span></span></span></td>
+      <td><div class="klant-cell">Enexis</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€€118,31</td>
+      <td class="col-uren">32+</td>
+      <td class="col-plaats">Zwolle</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Ja</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="MG-tennet-manager-onshore-communication-improvements">
+      <td><span class="score-pill score-high">93</span></td>
+      <td class="titel-cell">(Interim) Manager Onshore Communication and Improvements<span class="bron-badges"><span class="bron-badge bron-mg" title="Magnit"><span>Magnit</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€125</td>
+      <td class="col-uren">32-40</td>
+      <td class="col-plaats">Arnhem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="BT-sudwestfryslan-projectleider-energie">
+      <td><span class="score-pill score-high">93</span></td>
+      <td class="titel-cell">Projectleider Energie<span class="bron-badges"><span class="bron-badge bron-bt" title="Bluetrail"><span>Bluetrail</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Súdwest-Fryslân</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">Medior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">24-32</td>
+      <td class="col-plaats">Sneek</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-investnl-adviseur-elektrificatie">
+      <td><span class="score-pill score-high">92</span></td>
+      <td class="titel-cell">Adviseur elektrificatie industrie-financiele instrumenten<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Invest-NL Business Development B.V.</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€165</td>
+      <td class="col-uren">16</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="MG-tennet-omgevingsmanager-zuid-holland">
+      <td><span class="score-pill score-high">91</span></td>
+      <td class="titel-cell">Omgevingsmanager Projecten Zuid-Holland<span class="bron-badges"><span class="bron-badge bron-mg" title="Magnit"><span>Magnit</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">€110</td>
+      <td class="col-uren">32-40</td>
+      <td class="col-plaats">Gouda</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-vattenfall-transformatie-manager">
+      <td><span class="score-pill score-high">89</span></td>
+      <td class="titel-cell">Transformatie manager<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Vattenfall AB</div><div class="klant-sub">leverancier</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Amsterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-ST-stedin-projectleider-zeeland">
+      <td><span class="score-pill score-high">89</span></td>
+      <td class="titel-cell">Projectleider (Zeeland)<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">40</td>
+      <td class="col-plaats">Goes (Zeeland)</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-430391-amsterdam-zonnescans">
+      <td><span class="score-pill score-high">88</span></td>
+      <td class="titel-cell">Zonnescans — Raamovereenkomst Advisering Zonne-energie Bedrijfsdaken (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Amsterdam</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Amsterdam</td>
+      <td class="col-start">1 jan</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-projectleider-rotterdam">
+      <td><span class="score-pill score-high">87</span></td>
+      <td class="titel-cell">Projectleider<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Rotterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-430016-stedin-das-extern-personeel">
+      <td><span class="score-pill score-high">85</span></td>
+      <td class="titel-cell">Dynamisch Aankoopsysteem — Inhuur Extern Personeel (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin Groep Services B.V. / Stedin Netbeheer B.V. / NetVerder B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">31 dec <small>(477d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-430817-stedin-toekomstbestendige-flextenders">
+      <td><span class="score-pill score-high">85</span></td>
+      <td class="titel-cell">Toekomstbestendige Flextenders (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-vattenfall-business-analyst-cep-digital">
+      <td><span class="score-pill score-high">85</span></td>
+      <td class="titel-cell">Business Analyst CEP Digital Program<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Vattenfall AB</div><div class="klant-sub">leverancier</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Amsterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-431141-limburg-energiedeelplatform">
+      <td><span class="score-pill score-high">84</span></td>
+      <td class="titel-cell">Marktconsultatie Energiedeelplatform en ondersteunende diensten (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Provincie Limburg</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Limburg</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438955-utrecht-energiecooperatie-windenergie">
+      <td><span class="score-pill score-high">84</span></td>
+      <td class="titel-cell">Selectie lokale energiecoöperatie Windenergie Lage Weide<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Utrecht</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Utrecht</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">5 okt <small>(25d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-432176-ebn-geothermieproject">
+      <td><span class="score-pill score-high">83</span></td>
+      <td class="titel-cell">Marktverkenning Geothermieproject (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">EBN B.V.</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-438435-hengelo-energiesysteem-hazenweg">
+      <td><span class="score-pill score-high">83</span></td>
+      <td class="titel-cell">Marktconsultatie Energiesysteem Hazenweg (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Hengelo</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Hengelo</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="HN-gasunie-methaantransport-projectplanner">
+      <td><span class="score-pill score-high">83</span></td>
+      <td class="titel-cell">Projectplanner Methaantransport (JP3238)<span class="bron-badges"><span class="bron-badge bron-hn" title="Harvey Nash"><span>Harvey Nash</span></span></span></td>
+      <td><div class="klant-cell">Gasunie</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">Medior</td>
+      <td class="col-tarief">€95</td>
+      <td class="col-uren">36</td>
+      <td class="col-plaats">Ulvenhout / Ravenstein</td>
+      <td class="col-start">1 okt</td>
+      <td class="col-zzp">Nee</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-hr-change-consultant">
+      <td><span class="score-pill score-high">82</span></td>
+      <td class="titel-cell">HR Change Consultant<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Arnhem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-431940-alliander-kv-flex-slimme-apparaten">
+      <td><span class="score-pill score-high">82</span></td>
+      <td class="titel-cell">KV Flex — Slimme Apparaten (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-436428-alliander-ms-measuring-rmu">
+      <td><span class="score-pill score-high">82</span></td>
+      <td class="titel-cell">Market consultation MS measuring on metal-enclosed RMU's (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-business-project-lead">
+      <td><span class="score-pill score-high">81</span></td>
+      <td class="titel-cell">Business Project Lead<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Arnhem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-rwe-cost-controller-maasbracht">
+      <td><span class="score-pill score-high">80</span></td>
+      <td class="titel-cell">Cost Controller<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">RWE</div><div class="klant-sub">netbeheerder/energieleverancier (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Maasbracht</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-rwe-workpackage-manager-valves-hydraulics">
+      <td><span class="score-pill score-high">80</span></td>
+      <td class="titel-cell">Work Package Manager Valves &amp; Hydraulics<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">RWE</div><div class="klant-sub">netbeheerder/energieleverancier (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Eemshaven Groningen</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-435439-tennet-csa-platform">
+      <td><span class="score-pill score-high">80</span></td>
+      <td class="titel-cell">Market consultation - Coordinated Security Analysis (CSA) Platform (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-MAC-436890-eindhoven-energietransitie">
+      <td><span class="score-pill score-high">79</span></td>
+      <td class="titel-cell">Marktconsultatie Technische vraagstukken Energietransitie (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Eindhoven</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Eindhoven</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-agile-adviseur">
+      <td><span class="score-pill score-high">79</span></td>
+      <td class="titel-cell">Agile Adviseur<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Delft</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-434728-tennet-professional-services-it-phase-2">
+      <td><span class="score-pill score-high">79</span></td>
+      <td class="titel-cell">Market Consultation Professional Services IT - Phase 2 (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-release-train-engineer">
+      <td><span class="score-pill score-high">79</span></td>
+      <td class="titel-cell">Release Train Engineer<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Rotterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-regiomanager-friesland-noordoostpolder">
+      <td><span class="score-pill score-high">77</span></td>
+      <td class="titel-cell">Regiomanager Friesland Noordoostpolder<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Leeuwarden Friesland</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438121-enexis-zelfscan-as-a-service">
+      <td><span class="score-pill score-high">77</span></td>
+      <td class="titel-cell">Zelfscan as a Service — Conditionerende Onderzoeken<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Enexis Netbeheer BV/Enexis Personeel BV</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">6 okt <small>(26d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-omgevingsmanager-c">
+      <td><span class="score-pill score-high">76</span></td>
+      <td class="titel-cell">Omgevingsmanager C<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Heerenveen</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-MAC-432902-amsterdam-publiek-laden">
+      <td><span class="score-pill score-high">76</span></td>
+      <td class="titel-cell">Marktconsultatie Concessie Publiek Laden (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Amsterdam (Ingenieursbureau)</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Amsterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-439356-alliander-guarantees-of-origin">
+      <td><span class="score-pill score-high">76</span></td>
+      <td class="titel-cell">Guarantees of Origin<span class="bron-badges"><span class="bron-badge bron-other" title="TenderNed (AAO)"><span>TenderNed (AAO)</span></span><span class="bron-badge bron-other" title="TenderNed (VAK - vroeg signaal)"><span>TenderNed (VAK - vroeg signaal)</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">6 nov <small>(57d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="HN-enexis-civiele-regievoerder-productiestraten-zuid">
+      <td><span class="score-pill score-high">75</span></td>
+      <td class="titel-cell">Civiele regievoerder Productiestraten Zuid (PILS/PIMS)<span class="bron-badges"><span class="bron-badge bron-hn" title="Harvey Nash"><span>Harvey Nash</span></span></span></td>
+      <td><div class="klant-cell">Enexis Netbeheer</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Medior</td>
+      <td class="col-tarief">€79.5</td>
+      <td class="col-uren">32-40</td>
+      <td class="col-plaats">Brabant/Limburg (diverse locaties)</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Ja</td>
+      <td class="col-deadline deadline-cell"><span class="deadline-soon">14 sep <small>(4d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438652-stedin-ot-platform">
+      <td><span class="score-pill score-high">75</span></td>
+      <td class="titel-cell">OT-platform en OT-netwerk componenten<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">5 okt <small>(25d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-428220-alliander-ot-capaciteit-hoogspanning">
+      <td><span class="score-pill score-mid">74</span></td>
+      <td class="titel-cell">Marktconsultatie OT Capaciteit Hoogspanning (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="HN-gasunie-eems-energy-terminal-business-controller">
+      <td><span class="score-pill score-mid">74</span></td>
+      <td class="titel-cell">Business Controller Eems Energy Terminal JP3348<span class="bron-badges"><span class="bron-badge bron-hn" title="Harvey Nash"><span>Harvey Nash</span></span></span></td>
+      <td><div class="klant-cell">Gasunie (EemsEnergyTerminal)</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€112</td>
+      <td class="col-uren">36</td>
+      <td class="col-plaats">Groningen</td>
+      <td class="col-start">1 okt</td>
+      <td class="col-zzp">Ja</td>
+      <td class="col-deadline deadline-cell"><span class="">18 sep <small>(8d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-stedin-solution-architect-netdigitalisering">
+      <td><span class="score-pill score-mid">73</span></td>
+      <td class="titel-cell">Solution Architect Netdigitalisering<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">€105</td>
+      <td class="col-uren">40</td>
+      <td class="col-plaats">Zuid-Holland</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Nee</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-435288-alliander-rfi-cathodic-protection">
+      <td><span class="score-pill score-mid">72</span></td>
+      <td class="titel-cell">RFI - ICT - Solution for remote control cathodic protection (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-rwe-veiligheidskundige-maasbracht">
+      <td><span class="score-pill score-mid">71</span></td>
+      <td class="titel-cell">Veiligheidskundige<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">RWE</div><div class="klant-sub">netbeheerder/energieleverancier (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Maasbracht</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-436092-hvc-warmtenetten-rok2026">
+      <td><span class="score-pill score-mid">71</span></td>
+      <td class="titel-cell">WNW Warmtenetten ROK 2026 - Engineering (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">N.V. HVC</div><div class="klant-sub">leverancier</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-436377-tennet-flextender-regelbaar-vermogen">
+      <td><span class="score-pill score-mid">70</span></td>
+      <td class="titel-cell">Flextender Regelbaar Vermogen Winter 2026/2027 (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-427820-alliander-netuitbreiding-amsterdam">
+      <td><span class="score-pill score-mid">70</span></td>
+      <td class="titel-cell">Marktconsultatie Netuitbreiding 10-20kV Grote Projecten Amsterdam (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Amsterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-edsn-platform-engineer">
+      <td><span class="score-pill score-mid">70</span></td>
+      <td class="titel-cell">Platform Engineer<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Energie Data Services Nederland (EDSN)</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-sap-developer">
+      <td><span class="score-pill score-mid">70</span></td>
+      <td class="titel-cell">SAP Developer<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Delft</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-netwerkbeheerder-senior-telecom">
+      <td><span class="score-pill score-mid">70</span></td>
+      <td class="titel-cell">Netwerkbeheerder Senior Telecom<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Delft</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438765-tennet-nederwiek-landstation">
+      <td><span class="score-pill score-mid">70</span></td>
+      <td class="titel-cell">Bouwrijp maken Nederwiek Gamma Landstation terrein<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">27 nov <small>(78d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-430795-stedin-rfi-gas-shut-off-valves">
+      <td><span class="score-pill score-mid">69</span></td>
+      <td class="titel-cell">RFI Mechanical Couplings and Gas Shut-Off Valves (Low-Pressure Gas Networks) (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-430019-stedin-rfi-rmu">
+      <td><span class="score-pill score-mid">69</span></td>
+      <td class="titel-cell">RFI 24 kV Ring Main Units (RMU) (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-ST-stedin-werkvoorbereider-zeeland">
+      <td><span class="score-pill score-mid">69</span></td>
+      <td class="titel-cell">Werkvoorbereider (Zeeland)<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">40</td>
+      <td class="col-plaats">Goes (Zeeland)</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="deadline-soon">11 sep <small>(1d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-senior-servicenow-consultant">
+      <td><span class="score-pill score-mid">68</span></td>
+      <td class="titel-cell">Senior ServiceNow Consultant<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€90</td>
+      <td class="col-uren">40</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">30 sep</td>
+      <td class="col-zzp">Nee</td>
+      <td class="col-deadline deadline-cell"><span class="deadline-soon">11 sep <small>(1d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-monteur-kleinverbruik-b">
+      <td><span class="score-pill score-mid">68</span></td>
+      <td class="titel-cell">Monteur Kleinverbruik B<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">Junior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Amsterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-veiligheidstoezichthouder-middenspanning">
+      <td><span class="score-pill score-mid">67</span></td>
+      <td class="titel-cell">Veiligheidstoezichthouder middenspanningstations<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Duiven</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-stedin-solution-architect-data">
+      <td><span class="score-pill score-mid">67</span></td>
+      <td class="titel-cell">Solution Architect Data<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">€105</td>
+      <td class="col-uren">40</td>
+      <td class="col-plaats">Zuid-Holland</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Nee</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-431516-netbeheer-nederland-groengaskwaliteit">
+      <td><span class="score-pill score-mid">66</span></td>
+      <td class="titel-cell">Groengaskwaliteit — kwaliteitscontrole<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Netbeheer Nederland</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">23 sep <small>(13d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-vattenfall-ei-supervisor">
+      <td><span class="score-pill score-mid">66</span></td>
+      <td class="titel-cell">E&amp;I Supervisor<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Vattenfall AB</div><div class="klant-sub">netbeheerder/energieleverancier (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Amsterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-433846-tennet-technische-werken-projecten">
+      <td><span class="score-pill score-mid">66</span></td>
+      <td class="titel-cell">Technische Werken in Projecten (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-ontwerp-engineer-b">
+      <td><span class="score-pill score-mid">66</span></td>
+      <td class="titel-cell">Ontwerp Engineer B<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">Medior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Haarlem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438764-stedin-power-cables">
+      <td><span class="score-pill score-mid">66</span></td>
+      <td class="titel-cell">Low- and medium-voltage power cables<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">19 okt <small>(39d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-scrum-master-fuse-transformation">
+      <td><span class="score-pill score-mid">66</span></td>
+      <td class="titel-cell">Scrum Master - Fuse Transformation Program<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Arnhem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438766-hvc-broker-interim">
+      <td><span class="score-pill score-mid">65</span></td>
+      <td class="titel-cell">Brokerdienstverlening Interim Professionals (STRATEGISCH)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">N.V. HVC</div><div class="klant-sub">leverancier</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">18 nov <small>(69d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-data-engineer">
+      <td><span class="score-pill score-mid">64</span></td>
+      <td class="titel-cell">Data Engineer<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Arnhem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-438730-rijnland-groengas-awzi">
+      <td><span class="score-pill score-mid">63</span></td>
+      <td class="titel-cell">Groengasinstallatie AWZI Haarlem Waarderpolder (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Hoogheemraadschap van Rijnland</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Haarlem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">8 feb <small>(151d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-enexis-datamigratie-sap-1">
+      <td><span class="score-pill score-mid">63</span></td>
+      <td class="titel-cell">Datamigratie specialist SAP (MM/SD)<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Enexis</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">€100</td>
+      <td class="col-uren">32-40</td>
+      <td class="col-plaats">Noord-Brabant</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Ja</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-enexis-datamigratie-sap-2">
+      <td><span class="score-pill score-mid">63</span></td>
+      <td class="titel-cell">Datamigratie specialist SAP (MM/SD) - 2e aanvraag<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Enexis</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">€105</td>
+      <td class="col-uren">32-40</td>
+      <td class="col-plaats">Noord-Brabant</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Ja</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="IP-co2-transportinfrastructuur-quality-manager">
+      <td><span class="score-pill score-mid">63</span></td>
+      <td class="titel-cell">Quality Manager CO2-transportinfrastructuur<span class="bron-badges"><span class="bron-badge bron-ip" title="Interim Professionals"><span>Interim Professionals</span></span></span></td>
+      <td><div class="klant-cell">Onbekend (anonieme opdrachtgever — "toonaangevende speler in de Nederlandse energie-infrastructuur", login vereist voor volledige aanvraag)</div><div class="klant-sub">onbekend</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Den Haag</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-mlops-engineer">
+      <td><span class="score-pill score-mid">62</span></td>
+      <td class="titel-cell">MLOps Engineer<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Rotterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-uitvoerder-elektra-c">
+      <td><span class="score-pill score-mid">62</span></td>
+      <td class="titel-cell">Uitvoerder Elektra C<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">Medior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Alkmaar</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-senior-data-engineer">
+      <td><span class="score-pill score-mid">62</span></td>
+      <td class="titel-cell">Senior Data Engineer<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-431153-tennet-communicatieactiviteiten">
+      <td><span class="score-pill score-mid">61</span></td>
+      <td class="titel-cell">Marktconsultatie Uitbesteding Regionale Communicatieactiviteiten (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-uitvoerder-elektra-b">
+      <td><span class="score-pill score-mid">61</span></td>
+      <td class="titel-cell">Uitvoerder Elektra B<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">Junior</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Amsterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438779-ebn-coring-services">
+      <td><span class="score-pill score-mid">61</span></td>
+      <td class="titel-cell">DPS for Coring Services<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">EBN B.V.</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">5 okt <small>(25d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-stedin-enterprise-architect-iam-security">
+      <td><span class="score-pill score-mid">61</span></td>
+      <td class="titel-cell">Enterprise Architect IAM (/Security) Specialist<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Rotterdam</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-wdodelta-data-analist-energie-duurzaam">
+      <td><span class="score-pill score-mid">60</span></td>
+      <td class="titel-cell">Data-analist/Specialist Energie en duurzaam<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Waterschap Drents Overijsselse Delta</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-strategisch">Strategisch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Zwolle</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438196-warmtestad-levering-afleversets">
+      <td><span class="score-pill score-mid">60</span></td>
+      <td class="titel-cell">Levering afleversets<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">WarmteStad BV</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Groningen</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">28 okt <small>(48d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-stedin-senior-applicatiebeheerder">
+      <td><span class="score-pill score-mid">60</span></td>
+      <td class="titel-cell">Senior Applicatiebeheerder<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Stedin Netbeheer B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€85</td>
+      <td class="col-uren">40</td>
+      <td class="col-plaats">Delft, Zuid-Holland</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">Nee</td>
+      <td class="col-deadline deadline-cell"><span class="deadline-soon">12 sep <small>(2d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-planner-c">
+      <td><span class="score-pill score-mid">59</span></td>
+      <td class="titel-cell">Planner C<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Arnhem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-437470-tennet-onderzoek-draadslachtoffers">
+      <td><span class="score-pill score-mid">57</span></td>
+      <td class="titel-cell">Onderzoek Draadslachtoffers en Effectiviteit Hawk Eye-draadmarkeringen Verbinding Vierverlaten Ens 380 kV<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="deadline-soon">15 sep <small>(5d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="OO-landvancuijk-projectmedewerker-duurzaamheid-energie">
+      <td><span class="score-pill score-mid">56</span></td>
+      <td class="titel-cell">Projectmedewerker duurzaamheid en energie<span class="bron-badges"><span class="bron-badge bron-oo" title="Opdracht Overheid"><span>Opdracht Overheid</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Land van Cuijk</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">Senior</td>
+      <td class="col-tarief">€110</td>
+      <td class="col-uren">24</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">1 okt <small>(386d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-437562-tennet-security-dtt-rf">
+      <td><span class="score-pill score-mid">55</span></td>
+      <td class="titel-cell">Beheer en onderhoud securityinstallaties op de DTT-RF locaties<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">1 okt <small>(21d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-435543-enexis-standaard-materieel">
+      <td><span class="score-pill score-low">54</span></td>
+      <td class="titel-cell">Aanschaf Standaard Materieel<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Enexis Netbeheer BV</div><div class="klant-sub">netbeheerder (doellijst)</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">28 okt <small>(48d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-435776-rvo-verslaglegging-zienswijzen">
+      <td><span class="score-pill score-low">52</span></td>
+      <td class="titel-cell">Verslaglegging zienswijzen informatieavonden (RVO)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Ministerie van Economische Zaken, Rijksdienst voor Ondernemend Nederland (RVO)</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">1 okt <small>(21d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-433090-alliander-toezichthouders-veiligheid">
+      <td><span class="score-pill score-low">52</span></td>
+      <td class="titel-cell">Marktconsultatie Toezichthouders Veiligheid (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-ambtelijk-secretaris-or">
+      <td><span class="score-pill score-low">51</span></td>
+      <td class="titel-cell">Ambtelijk secretaris OR<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Arnhem Gelderland</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-439391-alliander-employee-listening">
+      <td><span class="score-pill score-low">50</span></td>
+      <td class="titel-cell">Employee Listening<span class="bron-badges"><span class="bron-badge bron-other" title="TenderNed (AAO)"><span>TenderNed (AAO)</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-foothold">Foothold</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">20 okt <small>(40d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-MAC-433479-warmtestad-levering-energie">
+      <td><span class="score-pill score-low">48</span></td>
+      <td class="titel-cell">Levering Energie (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">WarmteStad BV</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-436056-gasunie-us-flowmeters">
+      <td><span class="score-pill score-low">48</span></td>
+      <td class="titel-cell">US Flowmeters Custody Transfer Fiscal Meter<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">N.V. Nederlandse Gasunie</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">13 okt <small>(33d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-MAC-436822-gasunie-centraal-magazijn-deventer">
+      <td><span class="score-pill score-low">48</span></td>
+      <td class="titel-cell">Marktconsultatie nieuwbouw &amp; sloop Centraal Magazijn Deventer (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">N.V. Nederlandse Gasunie</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Deventer</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-439206-alliander-oefenomgevingen">
+      <td><span class="score-pill score-low">46</span></td>
+      <td class="titel-cell">Digitale aansturing van oefenomgevingen voor technische opleidingen<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">18 nov <small>(69d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-431763-tennet-library-management">
+      <td><span class="score-pill score-low">44</span></td>
+      <td class="titel-cell">Market Consultation Library Management (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-VAK-433842-tennet-onkv-onderhoud-vastgoed">
+      <td><span class="score-pill score-low">44</span></td>
+      <td class="titel-cell">Marktconsultatie Onderhoud Niet-Kritisch Vastgoed (ONKV) (vroeg signaal)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">TenneT TSO B.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="IP-werkverantwoordelijke-energie-gorinchem">
+      <td><span class="score-pill score-low">43</span></td>
+      <td class="titel-cell">Werkverantwoordelijke Energie<span class="bron-badges"><span class="bron-badge bron-ip" title="Interim Professionals"><span>Interim Professionals</span></span></span></td>
+      <td><div class="klant-cell">Onbekend (opdrachtgever niet vermeld in listing, login vereist voor volledige aanvraag)</div><div class="klant-sub">onbekend</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">36-40</td>
+      <td class="col-plaats">Gorinchem</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-439407-emmen-collectief-drenthe-elektra-gas">
+      <td><span class="score-pill score-low">43</span></td>
+      <td class="titel-cell">Collectief Drenthe - Elektriciteit en Aardgas 2028 t/m 2030<span class="bron-badges"><span class="bron-badge bron-other" title="TenderNed (AAO)"><span>TenderNed (AAO)</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Emmen</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Drenthe</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">5 nov <small>(56d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="ST-alliander-medewerker-warehouse-b">
+      <td><span class="score-pill score-low">42</span></td>
+      <td class="titel-cell">Medewerker Warehouse B<span class="bron-badges"><span class="bron-badge bron-st" title="Striive"><span>Striive</span></span></span></td>
+      <td><div class="klant-cell">Alliander</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-regulier">Regulier</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Apeldoorn Gelderland</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span style="color:#9ca3af;">geen</span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-438820-defensie-trafostations">
+      <td><span class="score-pill score-low">39</span></td>
+      <td class="titel-cell">Levering verdeel- en trafostations<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Ministerie van Defensie</div><div class="klant-sub">overig</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Den Helder</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">28 okt <small>(48d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-437188-stedin-digitaal-whiteboard">
+      <td><span class="score-pill score-low">36</span></td>
+      <td class="titel-cell">Digitale Whiteboard-applicatie en -ondersteuning<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">16 okt <small>(36d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-433835-stedin-thuiswerkplekken">
+      <td><span class="score-pill score-low">34</span></td>
+      <td class="titel-cell">Thuiswerkplekken<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">2 okt <small>(22d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-433478-alliander-ea-pes">
+      <td><span class="score-pill score-low">34</span></td>
+      <td class="titel-cell">EA PES (Pre- en In-Employment Screening)<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Alliander N.V.</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">9 okt <small>(29d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-436461-wur-gas-elektriciteit-levering">
+      <td><span class="score-pill score-low">32</span></td>
+      <td class="titel-cell">Levering van aardgas, groene elektriciteit en bijbehorende dienstverlening<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Wageningen University &amp; Research</div><div class="klant-sub">overig</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">19 okt <small>(39d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-436979-leiden-gasthuiswijk-fase4">
+      <td><span class="score-pill score-low">32</span></td>
+      <td class="titel-cell">Wijkvernieuwing Gasthuiswijk fase 4<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Gemeente Leiden</div><div class="klant-sub">overheid</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">Leiden</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">29 sep <small>(19d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-437897-lvnl-levering-duurzame-energie">
+      <td><span class="score-pill score-low">32</span></td>
+      <td class="titel-cell">Levering duurzame energie t.b.v. diverse LVNL-locaties<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Luchtverkeersleiding Nederland</div><div class="klant-sub">overig</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">12 okt <small>(32d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr><tr data-id="TN-AAO-437410-stedin-leasefietsen">
+      <td><span class="score-pill score-low">30</span></td>
+      <td class="titel-cell">Leasefietsen<span class="bron-badges"><span class="bron-badge bron-tn" title="TenderNed"><span>TenderNed</span></span></span></td>
+      <td><div class="klant-cell">Stedin</div><div class="klant-sub">netbeheerder</div></td>
+      <td class="col-cat"><span class="cat-pill cat-mismatch">Mismatch</span></td>
+      <td class="col-senior">—</td>
+      <td class="col-tarief">—</td>
+      <td class="col-uren">—</td>
+      <td class="col-plaats">—</td>
+      <td class="col-start">—</td>
+      <td class="col-zzp">—</td>
+      <td class="col-deadline deadline-cell"><span class="">21 okt <small>(41d)</small></span></td>
+      <td><span class="status-tag status-new">Nieuw</span></td>
+    </tr></tbody>
     </table>
     <div id="emptyState" class="empty" style="display:none;">Geen opdrachten gevonden met deze filters.</div>
   </div>
