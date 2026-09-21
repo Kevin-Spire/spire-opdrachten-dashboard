@@ -310,9 +310,9 @@
   <header>
     <div class="title-row">
       <h1>Vandaag op de radar</h1>
-      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live Â· laatste pull 18 september</span>
+      <span class="badge" style="background:var(--spire-lime-soft); color:#5d6815; border:1px solid var(--spire-lime);">live · laatste pull 18 september</span>
     </div>
-    <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"><span class="bron-status-live">TenderNed (AAO + MAC + VAK)</span> Â· <span class="bron-status-live">Striive</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="zonder login max ~24 van ~72 zichtbaar">deels</span> Â· <span class="bron-status-live">Circle8</span> Â· <span class="bron-status-down">Magnit</span><span class="bron-status-flag" title="geen sessie beschikbaar â Claude in Chrome en bash beide onbereikbaar vandaag, fallback-browserpane heeft geen Kevin-login (loginscherm bevestigd: brainnetportal.b2clogin.com)">geen sessie beschikbaar â Claude in Chrome en bash beide onbereikbaar vandaag, fallback-browserpane heeft geen Kevin-login (loginscherm bevestigd: brainnetportal.b2clogin.com)</span> Â· <span class="bron-status-live">Opdracht Overheid</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="250 van ~280 items geladen (10x " meer="" weergeven",="" maxlimiet)="" binnen="" 4-disciplinefilter"="">deels</span> Â· <span class="bron-status-live">Harvey Nash</span> Â· <span class="bron-status-live">Interim Professionals</span> Â· <span class="bron-status-live">Bluetrail</span></span></div>
+    <div class="meta" id="bronnenMeta">Bronnen: <span id="bronnenList"><span class="bron-status-live">TenderNed (AAO + MAC + VAK)</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="118 publicaties sinds 18 sept gescand, 1 energie-match (Stedin SCADA gas)">deels</span> · <span class="bron-status-live">Striive</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="zonder login max ~24 zichtbaar, 0 energie-matches vandaag">deels</span> · <span class="bron-status-down">Circle8</span><span class="bron-status-flag" style="background:#fee2e2;color:#991b1b;" title="site rebrand naar circle8group.com, opdrachten-pagina bestaat niet meer">uitgevallen</span> · <span class="bron-status-down">Magnit</span><span class="bron-status-flag" style="background:#fee2e2;color:#991b1b;" title="geen sessie - Kevin moet zelf inloggen in zijn Chrome-profiel">uitgevallen</span> · <span class="bron-status-live">Opdracht Overheid</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="550 items geladen (10x \&quot;Meer Weergeven\&quot;), 5 matches, alle 4 al bekend + 1 uitgesloten (loondienst-only, &lt;24u/week)">deels</span> · <span class="bron-status-live">Harvey Nash</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="38 items (3 paginas), 3 relevante matches, alle al bekend">deels</span> · <span class="bron-status-down">Interim Professionals</span><span class="bron-status-flag" style="background:#fee2e2;color:#991b1b;" title="site niet bereikbaar (2 pogingen)">uitgevallen</span> · <span class="bron-status-live">Bluetrail</span><span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="1 opdracht totaal (IT-training), niet energie-relevant">deels</span></span></div>
   </header>
 
   <div class="legend-mock"><strong>Van inzicht naar impact.</strong> Normaliter dagelijks om 07:00 vers opgehaald en gescoord tegen het Spire-profiel v1.0. Vroege signalen (MAC/VAK) zijn marktconsultaties en vooraankondigingen â geen directe opdrachten, maar vroeg-stadium positionering. Tarief, uren en locatie staan niet altijd op de listing â open de bron-pagina voor details. Striive toont zonder login max. ~25 van de 86 opdrachten (lazy-load); Opdracht Overheid's "Meer Weergeven" liep vandaag vast na 150 van ~505 items.</div>
@@ -424,8 +424,8 @@ function renderBronnen() {
   if (!el) return;
   el.innerHTML = bronnenStatus.map(b => {
     if (b.status === 'live') return `<span class="bron-status-live">${b.label}</span>${b.reden ? `<span class="bron-status-flag" style="background:#fef3c7;color:#92400e;" title="${b.reden}">deels</span>` : ''}`;
-    return `<span class="bron-status-down">${b.label}</span><span class="bron-status-flag" title="${b.reden || ''}">${b.reden || 'uitgevallen'}</span>`;
-  }).join(' Â· ');
+    return `<span class="bron-status-down">${b.label}</span><span class="bron-status-flag" style="background:#fee2e2;color:#991b1b;" title="${b.reden || ''}">uitgevallen</span>`;
+  }).join(' · ');
 }
 
 // Bron-filter dropdown wordt afgeleid van de opportunities-array (niet hardcoded), zodat elke bron
@@ -594,7 +594,7 @@ function buildDetail(o) {
   wrap.className = 'detail-content';
   const breakdownRows = Object.entries(o.score_breakdown).map(([k, v]) =>
     `<span class="label">${k}</span><span class="val">${v}</span>`).join('');
-  const flagsHtml = o.flags && o.flags.length ? `<div style="margin-top:6px; color:#92400e;">â  ${o.flags.join(' Â· ')}</div>` : '';
+  const flagsHtml = o.flags && o.flags.length ? `<div style="margin-top:6px; color:#92400e;">â  ${o.flags.join(' · ')}</div>` : '';
   const focusHtml = (Array.isArray(o.focus) ? o.focus : (o.focus ? [o.focus] : [])).map(f => `<span style="background:#e0f2f1; color:#0a3d5c; padding:2px 8px; border-radius:3px; font-size:12px; margin-right:4px; display:inline-block; margin-bottom:4px;">${f}</span>`).join('');
 
   wrap.innerHTML = `
@@ -622,9 +622,9 @@ function buildDetail(o) {
           ${o.duur_maanden ? `<span class="k">Duur</span><span>${o.duur_maanden} maanden</span>` : ''}
           ${o.uren_per_week ? `<span class="k">Uren</span><span>${o.uren_per_week} u/week</span>` : ''}
           ${o.tarief_indicatie ? `<span class="k">Tarief</span><span>â¬ ${o.tarief_indicatie}/uur</span>` : ''}
-          ${o.locatie ? `<span class="k">Locatie</span><span>${o.locatie}${o.remote ? ' Â· ' + o.remote + ' remote' : ''}</span>` : ''}
-          <span class="k">Type</span><span>${o.type_opdracht === 'W' ? 'Werken' : o.type_opdracht === 'D' ? 'Diensten' : o.type_opdracht === 'L' ? 'Leveringen' : 'â'}${o.procedure ? ' Â· ' + o.procedure : ''}</span>
-          <span class="k">Bronnen</span><span>${getBronnen(o).map(b => `${b.naam} Â· ${b.id || ''}`).join('<br>')}</span>
+          ${o.locatie ? `<span class="k">Locatie</span><span>${o.locatie}${o.remote ? ' · ' + o.remote + ' remote' : ''}</span>` : ''}
+          <span class="k">Type</span><span>${o.type_opdracht === 'W' ? 'Werken' : o.type_opdracht === 'D' ? 'Diensten' : o.type_opdracht === 'L' ? 'Leveringen' : 'â'}${o.procedure ? ' · ' + o.procedure : ''}</span>
+          <span class="k">Bronnen</span><span>${getBronnen(o).map(b => `${b.naam} · ${b.id || ''}`).join('<br>')}</span>
         </div>
       </div>
     </div>
