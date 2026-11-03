@@ -222,6 +222,7 @@
   .bron-hn { --bron-c: #c0392b; }
   .bron-ip { --bron-c: #8e44ad; }
   .bron-bt { --bron-c: #1a7a5e; }
+.bron-ft { --bron-c: #d97706; }
   .bron-other { --bron-c: var(--spire-text-muted); }
 
   /* === Bronnen-status (header) === */
@@ -300,7 +301,7 @@
     </div>
     <div class="brand-meta">
       <strong>Opdrachten Dashboard</strong><br>
-      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 november 2026 - 114 opdrachten; Magnit-sessie verlopen.</span></span>
+      <span style="font-size:12px;">Laatste succesvolle pull: <span id="lastUpdate">3 november 2026 - 114 opdrachten, 9 bronnen (Flextender toegevoegd); Magnit-sessie verlopen.</span></span>
     </div>
   </div>
 </div>
@@ -5514,7 +5515,8 @@ const bronnenStatus = [
     "status": "live",
     "reden": null
   }
-];
+,
+{naam:'Flextender', label:'Flextender', status:'live', reden:'Nieuwe bron verkend (170 items gescand, 5 vakgebieden); geen net-nieuwe leads, bevestigt bestaande OO-matches'}];
 
 function renderBronnen() {
   const el = document.getElementById('bronnenList');
@@ -5583,7 +5585,7 @@ function getBronnen(o) {
   return [];
 }
 function bronClass(naam) {
-  return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg', 'Opdracht Overheid': 'bron-oo', 'Harvey Nash': 'bron-hn', 'Interim Professionals': 'bron-ip', 'Bluetrail': 'bron-bt' })[naam] || 'bron-other';
+  return ({ 'TenderNed': 'bron-tn', 'Striive': 'bron-st', 'Circle8': 'bron-c8', 'Magnit': 'bron-mg', 'Opdracht Overheid': 'bron-oo', 'Harvey Nash': 'bron-hn', 'Interim Professionals': 'bron-ip', 'Bluetrail': 'bron-bt', 'Flextender': 'bron-ft' })[naam] || 'bron-other';
 }
 function bronBadgesHtml(o) {
   const list = getBronnen(o);
